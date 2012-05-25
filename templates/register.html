@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.register %}">{% trans "registro" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/register.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$('#forgot_link').bind('click', function(){
+		$('#login').html('<img src="/media/icons/loading.gif" alt=""/> {% trans "Cargando..." %}');
+		$('#login').load("{% url sitios.views.forgot %}", '', function(){
+			$('#forgot_form').bind('submit', function(event){
+				event.preventDefault();
+				$(this).ajaxSubmit({
+					'target': '#login',
+					'beforeSubmit': function(){
+						$('#bla').html('<img src="/media/icons/loading.gif" alt=""/> {% trans "Espere un momento, por favor..." %}');
+					}
+				});
+				return false;
+			});
+
+		});
+
+		return false;
+	});
+});
+-->
+</script>
+
+{% endblock %}
+
+{% block cuerpo %}
+{% include "base_facebook.html" %}
+
+{% url django.contrib.auth.views.login as link_login %}
+
+{% if registrado %}
+<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon"/>{% blocktrans %}Tu cuenta se ha creado con éxito, puedes entrar usando el <a href="{{ link_login }}?next={{ next }}">formulario de entrada</a>.{% endblocktrans %}</div>
+{% else %}
+
+{% if error %}
+<div class="error"><img src="/media/icons/cross_circle.png" alt="" /> {% trans "Error:" %} {{ error }}</div>
+{% endif %}
+
+<div id="already_user"><strong>{% blocktrans %}Si ya eres usuario de AndalucíaPeople, <a href="{{ link_login }}?next={{ next }}">entra aquí</a>.{% endblocktrans %}</strong></div>
+
+
+<div id="nueva_cuenta">
+	<h3>{% trans "Nueva cuenta" %}</h3>
+	{% blocktrans %}
+	Si ya eres usuario de Facebook puedes <div class="facebook_button"><a href="/auth/login/facebook/">Entrar usando Facebook</a></div>
+	o bien,<br/>
+	si ya eres usuario de Twitter puedes <div class="twitter_button"><a href="/auth/login/twitter/">Entrar usando Twitter</a></div>
+	o bien, <br/>puedes crearte una nueva cuenta de usuario:
+	{% endblocktrans %}
+	<form method="post" action="">{% csrf_token %}
+		<dl>
+		{% for field in form %}
+		<dt>{{ field.label_tag }}</dt>
+		<dd>{{ field }}</dd>
+		{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+		{% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+		{% endfor %}
+		</dl>
+		<input type="submit" value="{% trans "Registrar" %}" />
+		{% url sitios.views.legal as link_legal %}
+		<div class="help_text">{% blocktrans %}Al registrarte estás aceptando las <a href="{{ link_legal }}">condiciones de uso y privacidad</a> de este sitio{% endblocktrans %}</div>
+	</form>
+</div>
+{% endif %}
+{% endblock %}

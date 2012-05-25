@@ -1,0 +1,81 @@
+/* base_add_sitio */
+
+dl {
+	float: left;
+}
+
+dl dt {
+	float: left;
+	clear: left;
+	width: 187px;
+	padding: 10px;
+	margin: 0 -1px 0 0;
+	border-right: 1px solid #999;
+	text-align: right;
+}
+
+dl dd {
+	width: 450px;
+	padding: 10px;
+	float: left;
+	margin: 0 ;
+	clear: right;
+	border-left: 1px solid #999;
+}
+
+dl ul{
+	margin: 0;
+	padding: 0;
+}
+dl ul li{
+	list-style-type: none;
+	float: left;
+	margin-right: 10px;
+}
+
+ul.tags li{
+	float: left;
+	list-style-type: none;
+	margin-right: 10px;
+	display: block;
+}
+
+.jerarquias{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.help_text{
+	color: #666666;
+	font-size: 12px;
+	clear: both;
+}
+.errorlist{
+	color: red;
+	font-size: 12px;
+	clear: both;
+}
+.sitio_insertado{
+	margin: 20px;
+}
+
+div.musica strong, div.estilo strong, div.instalaciones strong, div.otros strong {
+	padding-left: 18px;
+}
+
+div.musica{
+	background: url(/media/icons/music_16.png) no-repeat left top;
+}
+
+div.estilo{
+	background: url(/media/icons/coffee_cup_16.png) no-repeat left top;
+}
+
+div.instalaciones{
+	background: url(/media/icons/television_16.png) no-repeat left top;
+}
+
+div.otros{
+	background: url(/media/icons/no-smoking_16.png) no-repeat left top;
+}

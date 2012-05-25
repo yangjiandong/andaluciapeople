@@ -1,0 +1,243 @@
+/* base_index */
+.fila {
+	overflow: auto;
+	padding: 15px;
+}
+#cuerpo {
+	width: 750px;
+}
+#main {
+	float: left;
+	clear: left;
+	margin-top: 4px;
+}
+
+#sidebar {
+	float: right;
+	clear: right;
+}
+
+.sitio_patrocinado {
+	width: 480px;
+	margin-top: 10px;
+	/*background: url(/media/img/fondo_titulo_h2.png) no-repeat left top;*/
+	background: #EFEACF url(/media/icons/prize_winner_64_bg.png) no-repeat top right;
+	border: 1px solid #DFDAC1;
+}
+.sitio_patrocinado h3{
+	margin: 0 0 5px 25px;
+	padding-top: 10px;
+}
+.sitio_patrocinado .nombre{
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 25px;
+	clear: both;
+}
+.sitio_patrocinado .descripcion{
+	clear: both;
+	margin-left: 25px;
+	padding-right: 25px;
+}
+a.nombre_sitio{
+	float: left;
+	margin-right: 10px;
+}
+.sitio_patrocinado .descripcion .foto{
+	margin: 5px;
+	width: 80px;
+	height: 80px;
+}
+.sitio_patrocinado .descripcion p{
+	font-size: 12px;
+	font-style: italic;
+	padding-right: 5px;
+	padding-top: 5px;
+	text-align: justify;
+}
+.sitio_patrocinado .tips{
+        clear: both;
+        text-align: right;
+        font-size: 10px;
+        padding: 3px;
+        margin: 2px;
+        font-weight: bold;
+}
+.facebook_fans {
+	float: right;
+	clear: right;
+	width: 220px;
+}
+.registrate_para {
+	float: right;
+	clear: right;
+	width: 220px;
+	margin-top: 10px;
+}
+.registrate_para ul{
+	margin: 0;
+	padding: 0;
+	padding-left: 20px;
+}
+.registrate_para li{
+	font-size: 12px;
+}
+#registrate_gratis {
+	text-align: center;
+	margin-top: 5px;
+	background:#EFEACF url(/media/icons/users_24.png) no-repeat 10px center;
+	border:1px solid #DFDAC1;
+	height: 24px;
+}
+.eventos_destacados, .web_amigas {
+	float: right;
+	clear: right;
+	width: 220px;
+	margin-top: 10px;
+}
+.evento_destacado, .web_amiga{
+	padding: 5px 0px;
+	text-align: center;	
+}
+.eventos_hoy {
+	float: right;
+	clear: right;
+	width: 220px;
+	margin-top: 10px;
+	text-align: right;
+}
+.ultimas_fotos{
+	height: 375px; 
+	float: ritgh;
+	clear: right;
+}
+.ultimas_fotos ul{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.ultimas_fotos li{
+	display:inline;
+	float:left;
+	margin: 2px;
+}
+a.foto_link{
+	color: #cccccc;
+}
+img.foto {
+	width: 100px;
+	height: 100px;
+	border: 1px solid #cccccc;
+	padding: 2px;
+}
+.sitios_populares {
+	width: 480px;
+	margin-top: 10px;
+	clear: left;
+	/*background: url(/media/icons/favorite_bg.png) no-repeat bottom right;*/
+}
+.sitios_populares ul{
+	padding-left: 0;
+}
+.sitios_populares li{
+	list-style-type: none;
+}
+.sitios_populares .nombre_sitio{
+	float:left;
+	margin-right:10px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+}
+.sitios_populares .nombre_sitio a{
+	color:#6B8A0E;
+	text-decoration:none;
+}
+.sitios_populares .nombre_sitio a:hover{
+	color:#4F4939;
+	text-decoration:none;
+}
+
+.sitios_populares .tags{
+	font-size:11px;
+	margin:0 0 10px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	clear: both;
+}
+.sitios_populares .tags a{
+	color:#ADAB97;
+}
+.sitios_populares .num_votos{
+	color:#ADAB97;
+	font-style: italic;
+}
+.alojamientos {
+	clear: left;
+	width: 480px;
+	font-size: 12px;	
+}
+.alojamientos .agencia{
+	clear: left;
+}
+.alojamientos .agencia img{
+	float: left;
+	border: 1px solid #DFDAC1;
+	padding: 2px;
+	margin: 5px;
+}
+.alojamientos .agencia p{
+	padding: 8px;
+}
+/*
+#agencias {
+	width: 480px;
+	float: left;
+}
+#trivago {
+	width: 250px;
+	margin-left: 480px;
+}
+*/
+.nube_tags {
+	width: 480px;
+	margin-top: 20px;
+	clear: left;
+	/*background: url(/media/icons/tag_green_fondo.png) no-repeat bottom right;*/
+}
+.nube_tags ul{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.nube_tags li{
+	display: inline;
+}
+.ultimos_comentarios{
+	width: 480px;
+	margin-top: 20px;
+	clear: left;
+	/*background: url(/media/icons/comment_bg.png) no-repeat bottom right;*/
+}
+.ultimos_comentarios ul{
+	margin-left: 0px;
+}
+.ultimos_comentarios li{
+	font-size: 14px;
+	padding: 0px 5px 3px 0px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	list-style-type: image;
+	list-style-image: url(/media/icons/balloon.png);
+}
+.ultimos_usuarios,
+.ultimas_fotos{
+	width: 220px;
+	margin-top: 10px;
+}
+
+#fotos_aleatorias{
+	margin-top: 10px;
+}
+.vcard {
+	font-size: 10px;
+}
+.vcard .adr a {
+	font-weight: bold;
+}

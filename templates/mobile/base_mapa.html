@@ -1,0 +1,24 @@
+{% extends "mobile/base.html" %}
+
+{% block head_label%}
+profile="http://www.w3.org/2006/03/hcard"
+{% endblock %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+
+{% block cuerpo %}
+<div id="buscador_sitios">
+	<form id="buscador_sitios_form" method="post" action="" style="float: left">{% csrf_token %}
+	{% for field in busca_sitios_form %}
+	    {{ field }}
+	    {% if field.help_text %}{{ field.help_text }}{% endif %}
+	    {% if field.errors %}{{ field.errors }}{% endif %}
+	{% endfor %}
+	<input type="submit" value="buscar" />
+	<a href="/{{ ciudad }}/sitios/{{ busqueda }}">Ver listado de resultados &raquo;</a>
+	</form>
+	
+</div>
+<div id="map" style="width: 700px; height: 500px;">Cargando mapa...</div>
+{% endblock %}

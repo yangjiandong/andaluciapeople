@@ -1,0 +1,3 @@
+{% for s in sitios %}
+<li><img src="/media/flags/{{ s.get_ciudad|slugify }}20x13.gif" alt="{{ s.get_ciudad }}" title="{{ s.get_ciudad }}" class="flag_icon"/> <a href="{% url sitios.views.ver_sitio s.get_ciudad|slugify s.slug %}">{{ s.nombre|escape }}</a></li>
+{% endfor %}

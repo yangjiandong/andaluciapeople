@@ -1,0 +1,17 @@
+/* base_publicidad */
+
+p.info{
+	background: url(/media/icons/info.png) no-repeat left center;
+	padding: 20px;
+	padding-left: 50px;
+}
+p.error{
+    padding: 20px;
+    color: red;
+}
+#id_captcha_1{
+    height: 30px;
+    width: 100px;
+    float: left;
+    font-size: 30px;
+}

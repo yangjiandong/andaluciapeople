@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load thumbnail %}
+
+
+{% for f in fotos %}
+<div class="foto">
+	<div class="imagen">
+	{% if f.flickr %}
+	<a href="{{ f.get_original_flickr }}" rel="prettyPhoto[album]"><img src="{{ f.foto }}" alt="" /></a>
+	{% else %}
+	<a href="/media/{{ f.get_path }}" rel="prettyPhoto[album]"><img src="{% thumbnail f.get_path 100x75 crop %}" alt="" /></a>
+	{% endif %}
+	</div>
+	
+	<div class="meta" style="float: left">
+	{% if tucuenta %}
+	<form class="del_foto_form" method="post" action="{% url sitios.views.del_foto f.user f.id %}" style="display: inline">{% csrf_token %}
+	<input type="image" src="/media/icons/minus_circle.png" class="fugue_icon" alt="{% trans "Borrar foto" %}" title="{% trans "Borrar foto" %}"/>
+	</form>
+	{% endif %}
+	<a href="{% url sitios.views.ver_sitio ciudad f.sitio.slug %}">{{ f.sitio.nombre }}</a><br/>
+	<small>{{ f.fecha|date:"d/M/Y" }}</small>
+	</div>
+</div>
+{% ifequal f fotos.3 %}
+<div style="clear:both"></div>
+{% endifequal %}
+{% endfor %}

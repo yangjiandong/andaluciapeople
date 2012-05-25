@@ -1,0 +1,5 @@
+{% if obj.flickr %}
+<img src="{{ obj.foto }}" />
+{% else %}
+<img src="http://andaluciapeople.com/media/{{ obj.get_path }}" />
+{% endif %}

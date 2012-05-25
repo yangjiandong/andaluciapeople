@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url blogapp.views.homepage %}">{% trans "Blog" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_blog.css" type="text/css" />
+{% endblock %}
+
+{% block cuerpo %}
+<h3>Blog</h3>
+<p class="info">Blog en desarrollo</p>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url django.contrib.auth.views.login %}">{% trans "login" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/register.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$('#forgot_link').bind('click', function(){
+		$('#login').load("{% url sitios.views.forgot %}", '', function(){
+			$('#forgot_form').bind('submit', function(event){
+				event.preventDefault();
+				$(this).ajaxSubmit({
+					'target': '#login',
+					'beforeSubmit': function(){
+						$('#bla').html('Espere un momento, por favor...');
+					}
+				});
+				return false;
+			});
+
+		});
+
+		return false;
+	});
+});
+-->
+</script>
+{% endblock %}
+{% block cuerpo %}
+
+<div id="registrate_para">
+<h3>{% trans "Regístrate y podrás..." %}</h3>
+<ul style="margin-bottom: 9px">
+<li>{% trans "Añadir nuevos sitios" %}</li>
+<li>{% trans "Dar tu opinión" %}</li>
+<li>{% trans "Subir fotos" %}</li>
+<li>{% trans "Hacer amigos" %}</li>
+<li>{% trans "Recomendaciones personalizadas" %}</li>
+<li>{% trans "Descuentos especiales" %}</li>
+</ul>
+<div id="registrate_gratis"><a href="{% url sitios.views.register %}">{% trans "¡Regístrate gratis!" %}</a></div>
+</div>
+
+<div id="login">
+<h3>{% trans "Accede a tu cuenta" %}</h3>
+<p class="if_facebook">{% blocktrans %}Si ya eres usuario de Facebook, puedes <span class="facebook_button"><a href="/auth/login/facebook/">Entrar con Facebook</a></span>, o bien<br/>
+si ya eres usuario de Twitter puedes <span class="twitter_button"><a href="/auth/login/twitter/">Entrar usando Twitter</a></span>
+o bien usando tu cuenta de AndalucíaPeople:{% endblocktrans %}</p>
+
+{% if form.errors %}
+<p style="color: red">{% trans "Usuario o contraseña incorrectos. Prueba otra vez." %}</p>
+{% endif %}
+
+{% if next %}
+<form method="post" action="{% url django.contrib.auth.views.login %}?next={{ next }}">{% csrf_token %}
+{% else %}
+<form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+{% endif %}
+
+<dl>
+<dt>{{ form.username.label_tag }}</dt>
+<dd>{{ form.username }}</dd>
+
+<dt>{{ form.password.label_tag }}</dt>
+<dd>{{ form.password }}</dd>
+</dl>
+
+<input type="submit" value='{% trans "Login" %}' />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+<a href="#" id="forgot_link">{% trans "Olvidé mi contraseña" %}</a>
+</div>
+{% endblock %}

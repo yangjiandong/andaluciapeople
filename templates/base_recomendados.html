@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.ver_usuario user %}">{{ user }}</a> &raquo; <a href="{% url sitios.views.recomendaciones_usuario user %}">{% trans "sitios recomendados" %}</a>{% endblock %}
+
+{% block cuerpo %}
+<ul>
+{% for i in sitios_recomendados %}
+<li>{{ i.sitio }} ({% trans "predicción" %} = {{ i.pred }})</li>
+{% endfor %}
+</ul>
+{% endblock %}

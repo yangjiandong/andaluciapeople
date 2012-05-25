@@ -1,0 +1,11 @@
+{% for s in favoritos %}
+<li style="clear:both">
+	{% if tucuenta %}
+	<form class="del_fav_form" method="post" action="{% url sitios.views.del_favorito datos.user s.id %}" style="float: left">{% csrf_token %}
+	<!--<a id="del_fav_link" href="#" title="Eliminar de favoritos"><img class="fugue_icon" src="/media/icons/minus_circle.png" alt="[eliminar]" /></a>-->
+	<input type="image" class="fugue_icon" src="/media/icons/minus_circle.png" alt="[eliminar]" />
+	</form>
+	{% endif %}
+	<img src="/media/flags/{{ s.get_ciudad|slugify }}20x13.gif" alt="{{ s.get_ciudad }}" title="{{ s.get_ciudad }}" class="flag_icon" /> <a href="{% url sitios.views.ver_sitio s.get_ciudad|slugify s.slug %}">{{ s.nombre|escape }}</a>
+</li>
+{% endfor %}

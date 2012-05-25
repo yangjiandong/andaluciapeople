@@ -1,0 +1,37 @@
+{% load i18n %}
+{% if sitio_list %}
+	<div style="padding:10px">
+	{% for sitio in sitio_list %}
+		{% with sitio.eventos as eventos %}
+		{% if eventos %}
+		<h4><a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" title="{{ sitio.nombre }}">{{ sitio.nombre }} &raquo;</a></h4>
+		<ul id="lista_eventos">
+		{% for evento in eventos %}
+			<li><a href="{{ evento.link }}" title='{% trans "Ampliar información" %}'>{{ evento.title }}</a></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+	{% endfor %}
+	
+	<div class="pagination">
+	{% if has_previous %}
+	<a href="?page={{ previous }}" rel="previous">&laquo; {% trans "Anteriores" %}</a> 
+	{% endif %}
+	{% if is_paginated %}
+	{% for p in page_range %}
+		{% ifequal p page %}
+		<span class="current">{{ p }}</span> 
+		{% else %}
+		<a href="?page={{ p }}">{{ p }}</a> 
+		{% endifequal %}
+	{% endfor %}
+	{% if has_next %}
+	<a href="?page={{ next }}" rel="next">{% trans "Siguientes" %} &raquo;</a>
+	{% endif %}
+	{% endif %}
+	</div><!-- /pagination -->
+	</div>
+{% else %}
+	{% trans "No se han encontrado eventos" %}
+{% endif %}

@@ -1,0 +1,5 @@
+Mensaje para {{ contact_username }}:
+<form method="post" name="send_pm_form" action="javascript:post_pm('{{ contact_id }}',document.forms['send_pm_form'].pm.value)">{% csrf_token %}
+<div><textarea name="pm" rows="5" style="width:90%"></textarea></div>
+<p><input type="submit" value="Enviar" class="button" id="send_pm_button" /></p>
+</form>

@@ -1,0 +1,27 @@
+{% extends "messages/base.html" %} 
+{% load i18n %}
+
+{% block header_js %}
+<link rel="stylesheet" href="/media/css/autocomplete.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.dimensions.min.js"></script>
+<script type="text/javascript" src="/media/js/autocomplete.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$(function(){
+	  setAutoComplete("id_recipient", "results", "/usuarios.json/lookup/?query=");
+	});
+});
+</script>
+{% endblock %}
+
+{% block content %} 
+<h3>{% trans "Compose Message"%}</h3>
+<form action="" method="post">{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="submit" value="{% trans "Send" %} &raquo;"/>
+</form>
+
+{% endblock %}

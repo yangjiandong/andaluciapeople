@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load i18n %}  
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/usuarios/">{% trans "usuarios" %}</a> &raquo; <a href="/user/mensajes/">Mensajería</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/pagination.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/prettyPhoto.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/user_mensajes.css" />
+<script type="text/javascript" src="/media/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="/media/js/prettyPhoto.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+
+	//begin menu_user
+	lastBlock = $("#mensajes");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+    
+});
+-->
+</script>
+
+{% block header_js %}
+{% endblock %}
+
+{% endblock %}
+
+{% block cuerpo %}  
+{% include 'user/menu.html' %}
+<div id="sidebar">
+<ul class="subnav">
+    <li><a href="{% url messages_inbox %} ">{% trans "Inbox" %}</a></li>
+    <li><a href="{% url messages_outbox %} ">{% trans "Sent Messages" %}</a></li>
+    <li><a href="{% url messages_compose %} ">{% trans "New Message" %}</a></li>
+    <li><a href="{% url messages_trash %} ">{% trans "Trash" %}</a></li>
+</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

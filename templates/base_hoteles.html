@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.hoteles ciudad %}">{% trans "hoteles" %}</a>{% endblock %}
+
+{% block header %}
+<style type="text/css">
+.formulario{
+	float: left;
+}
+.sol{
+	border-collapse: collapse;
+	font-size: 12px;
+}
+.sol .tablacabecera{
+	font-weight: bold;
+}
+.litado{
+	float: left;
+}
+</style>
+{% endblock %}
+{% block cuerpo %}
+{% ifequal LANGUAGE_CODE 'en' %}
+
+  {% ifequal id_province 0 %}
+	<script language="javascript" src="http://www.hb-247.com/aff/js1.cfm?affiliate=andaluciapeople&c=45&l=460x130&s=df"></script>
+  {% else %}
+	<script language="javascript" src="http://www.hb-247.com/aff/js1.cfm?affiliate=andaluciapeople&d={{ id_province }}&l=460x130&s=df"></script>
+  {% endifequal %}
+
+{% else %}
+
+  <div class="formulario"><script language="javascript" type="text/javascript" src="http://www.sol.com/PanelAgentes/Formulario-MB.aspx?agente=granadapeople&idioma=es"></script></div>
+  <div class="listado"><script language="javascript" src="http://www.sol.com/panelagentes/ListadoEstablecimientosProvincia.aspx?idProvincia={{ id_provincia }}&agente=granadapeople&idioma={{ LANGUAGE_CODE }}"></script></div>
+
+{% endifequal %}
+{% endblock %}

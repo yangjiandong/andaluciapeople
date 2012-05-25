@@ -1,0 +1,12 @@
+/* base_feeds */
+.rss_cake{
+	background: url(/media/icons/rss_cake.png) no-repeat right top;
+}
+.info_rss{
+	float: right;
+	margin-top: 280px;
+	width: 250px;
+}
+ul.feeds li{
+	list-style-image: url(/media/icons/rss_16.png);
+}

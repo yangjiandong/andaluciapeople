@@ -1,0 +1,197 @@
+/* sitio_list */
+.sitio {
+	padding-bottom: 15px;
+}
+.sitio .nombre {
+	font-size: medium;
+}
+.sitio .zona {
+	color: #434343;
+	padding-left: 10px;
+	font-size: small;
+}
+.sitio .estrellas {
+	display: inline;
+	float: left;
+	padding-right: 10px;
+}
+.highlighted {
+	font-weight: bold;
+}
+/*
+#populares, #ultimos, #patrocinados{
+	float: left;
+	padding: 10px;
+	margin-right: 20px;
+	width: 200px;
+}
+
+#populares{
+	background: url(/media/icons/favorite_48.png) no-repeat top right;
+}
+#ultimos{
+	background: url(/media/icons/clock.png) no-repeat top right;
+}
+#patrocinados{
+	background: url(/media/icons/promotion.png) no-repeat top right;
+	font-weight: bold;
+}
+*/
+#populares ol,
+#ultimos ol,
+#patrocinados ul{
+	font-size: 18px;
+	font-style: italic;
+}
+/*
+#ultimos ol,
+#patrocinados ul{
+	padding-left: 10px;
+}*/
+#populares li,
+#ultimos li,
+#patrocinados li{
+	padding: 4px;
+	list-style-type: decimal;
+	color: #8A8774;
+}
+#ultimos li,
+#patrocinados li{
+	list-style-type: disc;
+}
+#populares li a,
+#ultimos li a,
+#patrocinados li a{
+	font-size: 14px;
+}
+
+#sidebar {
+	float: left;
+	width: 180px;
+	padding: 10px;
+}
+#sidebar .tags {
+	margin: 1px;
+	padding: 1px;
+}
+#sidebar .tags li{
+	display: block;
+	list-style-type: none;
+	background: url(/media/icons/green_button_16.png) no-repeat left center;
+	padding: 4px;
+	padding-left: 20px;
+	margin: 3px;
+	width: 140px;
+	font-size: 12px;
+}
+#sidebar .tags li:hover{
+	background: url(/media/icons/orange_button_16.png) no-repeat left center;
+}
+
+#sidebar .recomendaciones {
+	padding: 10px;
+	margin: 20px;
+	font-size: 14px;
+	text-align: center;
+	background-color:#EFEACF;
+	border:1px solid #DFDAC1;
+}
+/*
+Plugin Name: WP-Digg Style Paginator
+Plugin URI: http://www.mis-algoritmos.com/2007/09/09/wp-digg-style-pagination-plugin-v-10/
+Author: Victor De la Rocha
+Author URI: http://www.mis-algoritmos.com
+*/
+/*Quotes style*/
+.pagination {
+	padding: 2px;
+	margin: 15px 2px;
+	text-align: right;
+	display: inline;
+	float: right;
+}
+
+.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #ddd;
+	text-decoration: none; 
+	color: #454545;
+}
+.pagination a:hover, .pagination a:active {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #a0a0a0;
+}
+.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #e0e0e0;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	color: #aaa;
+}
+.pagination span.disabled {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #f3f3f3;
+	color: #ccc;
+}
+
+/* SimpleTabs http://www.sohtanaka.com/web-design/examples/tabs/ */
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 19px;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 18px;
+	line-height: 18px;
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px;
+	/*background: #e0e0e0;*/
+	overflow: hidden;
+	position: relative;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 10px;
+	padding: 0 1px;
+	border: 1px solid #fff;
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}	
+html ul.tabs li.active, html ul.tabs li.active a:hover  {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.tab_content {
+	padding: 10px;
+}

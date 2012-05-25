@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load render_faq %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/faq/">faq</a>{% endblock %}
+
+{% block cuerpo %}
+{{ flatpage.content }}
+{% render_questions %}
+{% render_answers %}
+{% endblock %}

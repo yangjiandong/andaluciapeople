@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-16 17:20+0100\n"
+"PO-Revision-Date: 2008-12-29 20:09+0100\n"
+"Last-Translator: Manuel Martin <draxus@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:7
+msgid "Name"
+msgstr "Nombre"
+
+#: forms.py:8
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:9
+msgid "Website"
+msgstr "Web"
+
+#: forms.py:10
+msgid "Comment"
+msgstr "Comentario"
+
+#: views.py:26
+#: views.py:52
+#: views.py:67
+msgid "Sorry, the page does not exist."
+msgstr "La página solicitada no existe, disculpe las molestias."
+
+#: views.py:41
+msgid "Sorry, the requested post does not exist."
+msgstr "El artículo solicitado no existe, disculpe las molestias."
+
+#: views.py:42
+msgid "Check that the required fields are filled in correctly."
+msgstr "Comprueba que has rellenado todos los campos obligatorios."
+
+#: views.py:56
+msgid "Sorry, the tag you are searching for does not exist."
+msgstr "La etiqueta solicitada no existe, disculpe las molestias."
+
+#: views.py:71
+msgid "Sorry, there are no posts written that month."
+msgstr "No existen artículos para el mes solicitado, disculpe las molestias."
+
+#: templates/blog.html:7
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/blog.html:25
+msgid "Newer posts"
+msgstr "Artículos recientes"
+
+#: templates/blog.html:28
+msgid "Older posts"
+msgstr "Artículos anteriores"
+
+#: templates/blog.html:38
+#: templates/post.html:7
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: templates/blog.html:47
+msgid "Archives"
+msgstr "Archivo"
+
+#: templates/blog.html:56
+msgid "Blogroll"
+msgstr "Enlaces"
+
+#: templates/comments.html
+msgid "Post comment"
+msgstr "Enviar"
+
+#: templates/post.html:5
+msgid "Posted"
+msgstr "Publicado"
+
+#: utilities/__init__.py:26
+msgid "Error 404"
+msgstr "Error 404"
+
+#: utilities/__init__.py:26
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: utilities/__init__.py:76
+msgid "You're too fast. Wait for 60 seconds."
+msgstr "Vas muy rápido, espera 1 minuto."
+
+#: utilities/__init__.py:78
+msgid "It looks like you've just said that."
+msgstr "Parece que acabas de decir lo mismo."
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"
+

@@ -1,0 +1,42 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/m/">Inicio</a> &raquo; <a href="/m/usuarios/">Usuarios</a></a>{% endblock %}
+
+{% block cuerpo %}
+	<div id="header">
+		<h1>{{ title|escape }}</h1>
+		<a href="/m/{{ ciudad }}/" id="backButton" class="nav">Volver</a>
+	</div>
+	
+<form method="post" action="">{% csrf_token %}
+<input id="id_s" type="text" value="/m/usuarios/" name="s"/>
+<input type="submit" class="button white" value="Buscar"/>
+</form>
+
+<ul>
+{% for user in user_list %}
+<li><a href="/m/user/{{ user.user.username|escape }}/"  class="arrow">{{ user.user.username|escape }}</a></li>
+{% endfor %}
+</ul>
+
+<p>
+{% for p in page_range %}
+	{% ifequal p page %}
+	{{ p }} 
+	{% else %}
+	<a href="?page={{ p }}">{{ p }}</a> 
+	{% endifequal %}
+{% endfor %}
+</p>
+
+<ul class="individual">
+{% if has_previous %}
+<li><a href="?page={{ previous }}">&laquo; Anteriores</a></li>
+{% endif %}
+{% if has_next %}
+<li><a href="?page={{ next }}">Siguientes &raquo;</a></li>
+{% endif %}
+</ul>
+{% endblock %}

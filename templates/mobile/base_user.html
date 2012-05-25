@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block cuerpo %}
+<div class="user">
+	<img src="/media/miembros/{{ datos.imagen }}" class="foto"/>
+	<h3><a href="/user/{{ datos.user }}">{{ datos.user }}</a></h3>
+	{% if tucuenta %}
+	Bienvenido a tu cuenta, aquí podrás modificar tus datos<br/>
+	{% else %}
+	{% if tuamigo %}
+	Ya es tu amigo
+	{% else %}
+	<form method="POST" action="/user/{{ datos.user}}/add/">{% csrf_token %}
+	<input type="submit" value="Añadir a tu lista de amigos" />
+	</form>
+	{% endif %}
+	{% endif %}<br/>
+	
+	{% if tucuenta %}
+	{% if datos_ok %}
+	Datos modificados correctamente
+	{% endif %}
+	{% if datos_error %}
+	Error al modificar los datos
+	{% endif %}
+	<form method="post" action="">{% csrf_token %}
+	{% for field in datos_form %}
+	    {{ field.label }} {{ field }}
+	    {% if field.help_text %}{{ field.help_text }}{% endif %}
+	    {% if field.errors %}{{ field.errors }}{% endif %}<br/>
+	{% endfor %}
+	<input type="submit" />
+	</form>
+	{% else %}
+	{% if datos.sexo %}
+	Sexo: {{ datos.get_sexo }}
+	{% endif %}
+	{% endif %}<br/>
+	
+	{% if amigos %}
+	Amigos: 
+	<ul>
+	{% for a in amigos %}
+	<li><a href="/user/{{ a }}">{{ a }}</a>
+	{% if tucuenta %}
+	<a href="#" title="Enviar mensaje">M</a>
+	<form method="POST" action="/user/{{ a }}/del/">{% csrf_token %}
+	<input type="submit" value="Eliminar amigo" />
+	</form>
+	{% endif %}
+	</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if favoritos %}
+	Sitios favoritos:
+	<ul>
+	{% for s in favoritos %}
+	<li><a href="/{{ s.get_ciudad|slugify }}/sitio/{{ s.slug }}">{{ s.nombre|escape }}</a> <small>({{ s.get_ciudad }})</small>
+	{% if tucuenta %}
+	<form method="post" action="/user/{{ datos.user }}/fav/{{ s.id }}/del/">{% csrf_token %}
+	<input type="submit" value="Eliminar de favoritos" />
+	</form>
+	{% endif %}
+	</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+		
+	{% if sitios %}
+	Sitios enviados:
+	<ul>
+	{% for s in sitios %}
+	<li><a href="/{{ s.get_ciudad|slugify }}/sitio/{{ s.slug }}">{{ s.nombre|escape }}</a> <small>({{ s.get_ciudad }})</small></li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if comentarios %}
+	Comentarios:
+	<ul>
+	{% for c in comentarios %}
+	<li><a href="/{{ c.sitio.get_ciudad|slugify }}/sitio/{{ c.sitio.slug }}">{{ c.sitio.nombre|escape }}</a> <small>({{ c.sitio.get_ciudad }}) [{{ c.fecha }}]</small>: {{ c.mensaje }}
+	{% if tucuenta %}
+	<form method="post" action="/user/{{ datos.user }}/comment/{{ c.id }}/del/">{% csrf_token %}<input type="submit" value="Borrar comentario" /></form>
+	{% endif %}
+	</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if fotos %}
+	Fotos:
+	<ul>
+	{% for f in fotos %}
+	<li><a href="/{{ f.sitio.get_ciudad|slugify }}/sitio/{{ f.sitio.slug }}">{{ f.sitio.nombre|escape }}</a> <small>({{ f.sitio.get_ciudad }}) [{{ f.fecha }}]</small>: <img src="/media/sitios/{{ f.sitio.id }}/mini/{{ f.foto }}" class="foto"/>
+	{% if tucuenta %}
+	<form method="post" action="/user/{{ datos.user }}/photo/{{ f.id }}/del/">{% csrf_token %}<input type="submit" value="Borrar foto" /></form>
+	{% endif %}
+	</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+</div>
+{% endblock %}

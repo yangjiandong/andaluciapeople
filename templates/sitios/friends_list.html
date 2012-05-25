@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load thumbnail %}
+
+{% for a in amigos %}
+<div class="amigo">
+	<div class="imagen"><a href="{% url sitios.views.ver_usuario a %}"><img src="{% thumbnail a.get_path_imagen 35x35 crop %}" border="1" width="35" height="35"/></a></div>
+	<div class="nombre">
+	<a href="{% url sitios.views.ver_usuario a %}">{{ a }}</a>
+	{% if tucuenta %}
+	<form class="del_amigo_form" method="post" action="{% url sitios.views.del_amigo a %}">{% csrf_token %}
+	<a class="new_msg_link" href="{% url messages.views.compose a %}" title="{% trans "Enviar mensaje" %}"><img src="/media/icons/mail__plus.png" class="fugue_icon" alt="{% trans "Enviar mensaje" %}"/></a>
+	<input type="image" src="/media/icons/minus_circle.png" class="fugue_icon" alt="{% trans "Eliminar amigo" %}" title="{% trans "Eliminar amigo" %}"/>
+	</form>
+	{% endif %}
+	</div>
+</div>
+{% endfor %}

@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.publicidad %}">{% trans "Anúnciate" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_add_sitio.css" type="text/css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/media/css/base_publicidad.css" />
+<script src="http://www.google.com/jsapi?key={{gmaps_key}}" type="text/javascript"></script>
+<script type="text/javascript" src="/media/js/jquery.chainedSelects.js"></script>
+<script type="text/javascript" src="/media/js/map.datos.js"></script>
+<script type="text/javascript" src="/media/js/localidades.js"></script>
+<script type="text/javascript">
+<!--
+	var cod_ciudad = {{ cod_ciudad|default:3 }};
+	var ciudad = '{{ ciudad|default:"granada" }}';
+	var api = '';
+	var autodiscover = true;
+-->
+</script>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	load_location();
+	$('#map_location > div > span').css("font-size", "0");
+
+	// Para cambiar dinámicamente la zona con respecto a la ciudad
+	$('#id_ciudad').change(function(){
+		$('#id_ciudad option:selected').each(function(){
+			indice_ciudad = $(this).val()-1;
+		});
+		$('#id_zona').html('');
+		for(var i=0; i<zona[indice_ciudad].length; i++){
+			$('#id_zona').get(0).add(zona[indice_ciudad][i], document.all ? i : null);
+		}
+		$("#id_zona option:first").attr( "selected", "selected" ); //Dejamos el primero seleccionado
+
+		showLocation($('#id_ciudad option:selected').text());
+		zoom(13);
+	}).change();
+
+	// Para cambiar el mapa según la zona
+	$('#id_zona').change(function(){
+		//TODO En las zonas en las que google no funciona, habría q buscar por coordenadas
+		//     usando $('#id_zona option:selected').val() y quitando el resto
+		showLocation($('#id_zona option:selected').text()+", "+$('#id_ciudad option:selected').text()+", España");
+		zoom(14);
+	});
+
+	$('#id_direccion').after('<input id="button_search_address" type="button" value="{% trans "Buscar" %}" /><br/><small><span id="info_direccion"></span></small>');
+
+        $('#button_search_address').bind('click', function(){
+		showLocation($('#id_direccion').val()+", "+$('#id_zona option:selected').text()+", "+$('#id_ciudad option:selected').text()+", España");
+		zoom(17);
+	});
+
+	$('#map_location').before('<input type="checkbox" name="autodiscover" id="autodiscover" checked="checked" /> {% trans "Activar autoposicionamiento" %}');
+
+	$('#autodiscover').bind('click', function(){
+		autodiscover = !autodiscover;
+	});
+});
+-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+	<h3>{% trans "anuncia tu negocio" %}</h3>
+{% if enviado %}
+<p>{% trans "Mensaje enviado correctamente. Intentaremos responderte lo antes posible. Si está todo en orden, emitiremos una factura y te la enviaremos por correo electrónico. ¡Gracias!" %}</p>
+{% else %}
+    {% if error %}
+    {% url sitios.views.publicidad as link_publicidad%}
+    <p class="error">{% blocktrans %}Error al enviar el mensaje, <a href="{{ link_publicidad }}">inténtelo de nuevo</a> por favor. 
+    Si el problema persiste, envíenos un correo a <a href="mailto:publicidad@andaluciapeople.com">publicidad@andaluciapeople.com</a>{% endblocktrans %}</p>
+    {% else %}
+
+    <p class="info">{% blocktrans %}Aquí puedes consultar nuestro catálogo de tarifas. Si quieres promocionar tu negocio en AndalucíaPeople, escríbenos un correo 
+    electrónico a <a href="mailto:publicidad@andaluciapeople.com">publicidad@andaluciapeople.com</a>, o rellena este formulario, y te ofreceremos un 
+    presupuesto a medida sin compromiso.{% endblocktrans %}</p>
+    
+    <div align="center">
+    <object style="width:600px;height:425px">
+    <param name="movie" value="http://static.issuu.com/webembed/viewers/style1/v1/IssuuViewer.swf?mode=embed&amp;layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Fcolor%2Flayout.xml&amp;backgroundColor=F6F2D6&amp;showFlipBtn=true&amp;documentId=100221224333-f115f2872ce648b992f1f651ae6f7b2c&amp;docName=tarifas_andaluciapeople_2010&amp;username=draxus&amp;loadingInfoText=AndaluciaPeople%20Tarifas%202010&amp;et=1266793000815&amp;er=82" />
+    <param name="allowfullscreen" value="true"/>
+    <param name="menu" value="false"/>
+    <embed src="http://static.issuu.com/webembed/viewers/style1/v1/IssuuViewer.swf" type="application/x-shockwave-flash" allowfullscreen="true" menu="false" style="width:600px;height:425px" flashvars="mode=embed&amp;layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Fcolor%2Flayout.xml&amp;backgroundColor=F6F2D6&amp;showFlipBtn=true&amp;documentId=100221224333-f115f2872ce648b992f1f651ae6f7b2c&amp;docName=tarifas_andaluciapeople_2010&amp;username=draxus&amp;loadingInfoText=AndaluciaPeople%20Tarifas%202010&amp;et=1266793000815&amp;er=82" />
+    </object>
+    </div>
+
+    <form method="post" action="">{% csrf_token %}
+        <dl>
+        {% for field in form %}
+        <!--[if lt IE 8]>
+        <div style="clear: both">
+        <![endif]-->
+        <dt>{{ field.label_tag }}</dt>
+        <dd>{% autoescape off %}
+            {{ field }}
+            {% endautoescape %}
+
+            {% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+            {% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+        </dd>
+        <!--[if lt IE 8]>
+        </div>
+        <![endif]-->
+        {% endfor %}
+        </dl>
+        <div align="center" style="clear: both"><input type="submit" value="{% trans "Enviar" %}"/></div>
+    </form>
+    {% endif %}
+{% endif %}
+{% endblock %}

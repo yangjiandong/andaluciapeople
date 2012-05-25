@@ -1,0 +1,2807 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-10 17:03+0100\n"
+"PO-Revision-Date: 2011-01-10 17:04\n"
+"Last-Translator: <admin@andaluciapeople.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Translated-Using: django-rosetta 0.5.6\n"
+
+#: sitios/forms.py:83
+msgid "Muy malo"
+msgstr "Very bad"
+
+#: sitios/forms.py:84 sitios/forms.py:96
+msgid "Malo"
+msgstr "Bad"
+
+#: sitios/forms.py:85
+msgid "No demasiado malo"
+msgstr "Not too bad"
+
+#: sitios/forms.py:86 sitios/forms.py:97
+msgid "Regular"
+msgstr "So so"
+
+#: sitios/forms.py:87
+msgid "Ni bueno ni malo"
+msgstr "Neither good nor bad"
+
+#: sitios/forms.py:88
+msgid "Casi bueno"
+msgstr "Almost good"
+
+#: sitios/forms.py:89 sitios/forms.py:99
+msgid "Bueno"
+msgstr "Good"
+
+#: sitios/forms.py:90
+msgid "Muy Bueno"
+msgstr "Very good"
+
+#: sitios/forms.py:91 sitios/forms.py:100
+msgid "Excelente"
+msgstr "Excellent"
+
+#: sitios/forms.py:92
+msgid "Perfecto"
+msgstr "Perfect"
+
+#: sitios/forms.py:95
+msgid "Todos"
+msgstr "All"
+
+#: sitios/forms.py:98
+msgid "Aceptable"
+msgstr "Acceptable"
+
+#: sitios/forms.py:103
+msgid "Hombre"
+msgstr "Male"
+
+#: sitios/forms.py:104
+msgid "Mujer"
+msgstr "Female"
+
+#: sitios/forms.py:105
+msgid "Indeterminado"
+msgstr "Undeterminated"
+
+#: sitios/forms.py:122
+msgid "Banner Superior 249x90 Exclusivo (1 Provincia) - 39€/mes"
+msgstr "Top Banner 249x90 Exclusive (1 province) - 39 € / month"
+
+#: sitios/forms.py:123
+msgid "Banner Superior 249x90 Exclusivo (Todas Provincias) - 69€/mes"
+msgstr "Top Banner 249x90 Exclusive (All Provinces) - 69 € / month"
+
+#: sitios/forms.py:124
+msgid "Sitio Patrocinado Rotatorio (1 Provincia) - 19€/mes"
+msgstr "Rotary Sponsored Place (1 province) - 19 € / month"
+
+#: sitios/forms.py:125
+msgid "Alojamiento Premium (1 Provincia) - 19€/mes"
+msgstr "Premium Accommodation (1 province) - 19 € / month"
+
+#: sitios/forms.py:126
+msgid "Descuentos Especiales para usuarios - Consultar precio"
+msgstr "Special discounts for users - Check Price"
+
+#: sitios/forms.py:127
+msgid "Promoción Ofertas en determinadas fechas - Consultar precio"
+msgstr "Promotional offers on certain dates - Check Price"
+
+#: sitios/forms.py:128
+msgid "Vídeo promocional - Consultar precio"
+msgstr "Promotional video - Check price"
+
+#: sitios/forms.py:129
+msgid "Fotografías panorámicas - Consultar precio"
+msgstr "Panoramas - Check Price"
+
+#: sitios/forms.py:130
+msgid "Otras consultas"
+msgstr "Other inquiries"
+
+#: sitios/forms.py:132
+msgid "12 Meses"
+msgstr "12 Months"
+
+#: sitios/forms.py:133
+msgid "11 Meses"
+msgstr "11 Months"
+
+#: sitios/forms.py:134
+msgid "10 Meses"
+msgstr "10 Months"
+
+#: sitios/forms.py:135
+msgid "9 Meses"
+msgstr "9 Months"
+
+#: sitios/forms.py:136
+msgid "8 Meses"
+msgstr "8 Months"
+
+#: sitios/forms.py:137
+msgid "7 Meses"
+msgstr "7 Months"
+
+#: sitios/forms.py:138
+msgid "6 Meses"
+msgstr "6 Months"
+
+#: sitios/forms.py:139
+msgid "5 Meses"
+msgstr "5 Months"
+
+#: sitios/forms.py:140
+msgid "4 Meses"
+msgstr "4 Months"
+
+#: sitios/forms.py:141
+msgid "3 Meses"
+msgstr "3 Months"
+
+#: sitios/forms.py:142
+msgid "2 Meses"
+msgstr "2 Months"
+
+#: sitios/forms.py:143
+msgid "1 Mes"
+msgstr "1 Month"
+
+#: sitios/forms.py:144
+msgid "Otro"
+msgstr "Another"
+
+#: sitios/forms.py:177
+msgid "Nombre de usuario"
+msgstr "Username"
+
+#: sitios/forms.py:183
+msgid "El nombre de usuario no es válido"
+msgstr "The user name is invalid"
+
+#: sitios/forms.py:187
+msgid "Ya existe un usuario con ese nombre"
+msgstr "A user already exists with that name"
+
+#: sitios/forms.py:192 sitios/forms.py:210 sitios/forms.py:303
+#: templates/base_sitio.html:425 templates/mobile/user/user.html:20
+#: templates/mobile2/user/user.html:24 templates/user/user.html:234
+msgid "Web"
+msgstr "Web"
+
+#: sitios/forms.py:193
+msgid "Imagen"
+msgstr "Image"
+
+#: sitios/forms.py:193
+msgid "Tamaño recomendado: 200x200 px"
+msgstr "Recommended Size: 200x200 px"
+
+#: sitios/forms.py:194
+msgid "Boletín"
+msgstr "Bulletin"
+
+#: sitios/forms.py:195 templates/mobile/user/user.html:23
+#: templates/mobile2/user/user.html:27 templates/user/user.html:237
+msgid "Sexo"
+msgstr "Gender"
+
+#: sitios/forms.py:196
+msgid "Fecha de nacimiento"
+msgstr "Date of Birth"
+
+#: sitios/forms.py:197
+msgid "Notificaciones"
+msgstr "Notifications"
+
+#: sitios/forms.py:198 templates/base.html:229
+msgid "Idioma"
+msgstr "Language"
+
+#: sitios/forms.py:204
+msgid "Nombre *"
+msgstr "Name *"
+
+#: sitios/forms.py:204 sitios/forms.py:297
+msgid "Ej. La Carihuela"
+msgstr "ie. La Carihuela"
+
+#: sitios/forms.py:205 sitios/forms.py:298
+msgid "Provincia *"
+msgstr "Province *"
+
+#: sitios/forms.py:206 sitios/forms.py:299
+msgid "Localidad *"
+msgstr "City *"
+
+#: sitios/forms.py:207 sitios/forms.py:300
+msgid "Dirección *"
+msgstr "Address *"
+
+#: sitios/forms.py:207 sitios/forms.py:300
+msgid "Ej. Calle Puentezuelas, 2 (o pincha en el mapa)"
+msgstr "ie. C/ Puentezuelas, 2 (or click on map)"
+
+#: sitios/forms.py:208 sitios/forms.py:301
+msgid "Mapa *"
+msgstr "Map *"
+
+#: sitios/forms.py:208 sitios/forms.py:301
+msgid "Arrastra y coloca el punto lo más exactamente posible"
+msgstr "Drag and drop the item as accurately as possible"
+
+#: sitios/forms.py:209 sitios/forms.py:302 templates/base_sitio.html:422
+msgid "Teléfono"
+msgstr "Phone"
+
+#: sitios/forms.py:209 sitios/forms.py:302
+msgid "Ej. 950123456 (opcional)"
+msgstr "ie. 950123456 (optional)"
+
+#: sitios/forms.py:210 sitios/forms.py:303
+msgid "Ej. http://www.miweb.com (opcional)"
+msgstr "ie. http://www.mywebsite.com (optional)"
+
+#: sitios/forms.py:211 sitios/forms.py:304
+msgid "Tipo *"
+msgstr "Type *"
+
+#: sitios/forms.py:211 sitios/forms.py:304
+msgid "Elige el tipo o tipos que mejor representen al sitio"
+msgstr "Choose the type that best represent the place"
+
+#: sitios/forms.py:215
+msgid "Tipo"
+msgstr "Type"
+
+#: sitios/forms.py:216
+msgid "Ciudad"
+msgstr "City"
+
+#: sitios/forms.py:217
+msgid "Localidad"
+msgstr "Town"
+
+#: sitios/forms.py:221
+msgid "Usuario"
+msgstr "User"
+
+#: sitios/forms.py:222
+msgid "30 caracteres o menos. Sólo caracteres alfanuméricos (letras, dígitos y guión bajo)"
+msgstr "30 characters or less. Only alphanumeric characters (letters, digits and underscore)"
+
+#: sitios/forms.py:223
+msgid "Este camo sólo puede contener letras, dígitos y guión bajo."
+msgstr "This field only contain letters, digits and underscore."
+
+#: sitios/forms.py:225
+msgid "Correo electrónico"
+msgstr "Email"
+
+#: sitios/forms.py:226
+msgid "Por favor, usa una dirección real. No te mandaremos correo no deseado."
+msgstr "Please use a real address. We won't send you spam."
+
+#: sitios/forms.py:227
+msgid "Comprueba que la dirección es del tipo usuario@dominio.com"
+msgstr "Make sure the address is like usuario@dominio.com"
+
+#: sitios/forms.py:229
+msgid "Contraseña"
+msgstr "Password"
+
+#: sitios/forms.py:231 sitios/forms.py:291 sitios/forms.py:310
+msgid "Introduce las siguientes letras para comprobar que no eres un robot."
+msgstr "Enter the following letters to prove you're not a bot."
+
+#: sitios/forms.py:234
+msgid "E-mail"
+msgstr "E-mail"
+
+#: sitios/forms.py:243
+msgid "That e-mail address doesn't have an associated user account. Are you sure you've registered?"
+msgstr "That e-mail address does not have an associated user account. Are you sure you've registered?"
+
+#: sitios/forms.py:267
+#, python-format
+msgid "Password reset on %s"
+msgstr "Password reset on %s"
+
+#: sitios/forms.py:274
+msgid "Old password"
+msgstr "Old password"
+
+#: sitios/forms.py:283
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr "Your old password incorrectly Entered WAS. Please enter it again."
+
+#: sitios/forms.py:288
+msgid "Nombre"
+msgstr "Name"
+
+#: sitios/forms.py:289
+msgid "Email"
+msgstr "Email"
+
+#: sitios/forms.py:290 sitios/forms.py:309 templates/base_sitio.html:116
+msgid "Mensaje"
+msgstr "Message"
+
+#: sitios/forms.py:294
+msgid "Tu Nombre *"
+msgstr "Your Name *"
+
+#: sitios/forms.py:295
+msgid "Tu Email *"
+msgstr "Your Email *"
+
+#: sitios/forms.py:295
+msgid "Donde te enviaremos la factura"
+msgstr "Where you will be billed"
+
+#: sitios/forms.py:297
+msgid "Nombre del negocio *"
+msgstr "Business Name *"
+
+#: sitios/forms.py:306
+msgid "Tarifa publicitaria *"
+msgstr "Advertising Rates *"
+
+#: sitios/forms.py:307
+msgid "Tiempo contratado *"
+msgstr "Contracted period *"
+
+#: sitios/forms.py:309
+msgid "Indícanos algo más si lo deseas"
+msgstr "Tell us something else if you want"
+
+#: sitios/multifile.py:136
+msgid "No se ha enviado ninguna foto, comprueba que son del formato y tamaño permitidas."
+msgstr "Not submitted any photos, make sure the format and size are allowed."
+
+#: sitios/multifile.py:138
+msgid "No se ha enviado ninguna foto."
+msgstr "Not submitted any photos."
+
+#: sitios/multifile.py:141
+msgid "Se han envíado un número de fotos no permitidas."
+msgstr "You have sent a number of photos that are not allowed."
+
+#: sitios/views.py:106
+msgid "AndaluciaPeople.com - Datos de tu cuenta"
+msgstr "AndaluciaPeople.com - Details of your account"
+
+#: sitios/views.py:107
+#, python-format
+msgid ""
+"Hola %(user)s!\n"
+"Gracias por registrarte en andaluciaPeople.com. Tus datos de acceso son:\n"
+"* Usuario: %(user)s\n"
+"* Contraseña: %(password)s\n"
+"Puedes acceder a tu cuenta en http://andaluciapeople.com/login/"
+msgstr ""
+"Hi %(user)s ! Thanks for signing in AndaluciaPeople.com. Your login details are: \n"
+"* Username: %(user)s\n"
+"* Password: %(password)s \n"
+"You can access your account in http://andaluciapeople.com/login/"
+
+#: sitios/views.py:113
+msgid "AndaluciaPeople.com - Nuevo usuario registrado"
+msgstr "AndaluciaPeople.com - New registered user"
+
+#: sitios/views.py:149 sitios/views.py:177
+msgid "Registro"
+msgstr "Register"
+
+#: sitios/views.py:200
+msgid "Hubo un error al enviar el correo, inténtelo más tarde."
+msgstr "There was an error sending email, please try again later."
+
+#: sitios/views.py:202
+msgid "Hubo un error, comprueba que el email es correcto."
+msgstr "There was an error, check that your email is correct."
+
+#: sitios/views.py:205
+msgid "Reestablecer contraseña"
+msgstr "Reset Password"
+
+#: sitios/views.py:320
+msgid "Mejores sitios"
+msgstr "Best Places"
+
+#: sitios/views.py:345 sitios/views.py:592 sitios/views.py:609
+msgid "Búsqueda de sitios"
+msgstr "Place Search"
+
+#: sitios/views.py:543
+msgid "Ver ficha"
+msgstr "More details"
+
+#: sitios/views.py:545
+msgid "Web oficial"
+msgstr "Official website"
+
+#: sitios/views.py:547
+msgid "Llamar ahora"
+msgstr "Call Now"
+
+#: sitios/views.py:548
+msgid "Ofrecido por AndaluciaPeople.com"
+msgstr "Powered by AndaluciaPeople.com"
+
+#: sitios/views.py:559
+msgid "Valoración media: "
+msgstr "Average Rating:"
+
+#: sitios/views.py:928
+msgid "Formato de archivo incorrecto"
+msgstr "Incorrect File Format"
+
+#: sitios/views.py:1001 templates/base.html:217
+msgid "Usuarios"
+msgstr "Users"
+
+#: sitios/views.py:1045
+msgid "Últimos Usuarios"
+msgstr "Latest Users"
+
+#: sitios/views.py:1081
+msgid "Usuarios más activos"
+msgstr "Most active users"
+
+#: sitios/views.py:1122
+msgid "Búsqueda de usuarios"
+msgstr "User Search"
+
+#: sitios/views.py:1380
+#, python-format
+msgid "Salir por %(nombre_ciudad)s. Bares de tapas, restaurantes, pubs, discotecas y más sitios de %(nombre_ciudad)s"
+msgstr "Enjoy %(nombre_ciudad)s. Tapas bars, restaurants, pubs, clubs and more places in %(nombre_ciudad)s "
+
+#: sitios/views.py:1413
+msgid "AndalucíaPeople | Bares, restaurantes, pubs, discotecas y más sitios de ocio de Andalucía"
+msgstr "AndalucíaPeople | Bars, restaurants, pubs, nightclubs and more recreation places in Andalusia"
+
+#: sitios/views.py:1433
+msgid "No puedes hacerte amigo a ti mismo..."
+msgstr "You can't make yourself friend"
+
+#: sitios/views.py:1440
+msgid "AndaluciaPeople.com - Nueva petición de amistad"
+msgstr "AndaluciaPeople.com - New friend request"
+
+#: sitios/views.py:1441
+#, python-format
+msgid ""
+"El usuario %(user)s te ha añadido como amigo.\n"
+"\t\t\t\t\t\t  Puedes ver su perfil en http://andaluciapeople.com/user/%(user)s"
+msgstr "The user %(user)s has added you as a friend. You can see his profile http://andaluciapeople.com/user/%(user)s "
+
+#: sitios/views.py:1450
+msgid " es tu nuevo amigo"
+msgstr "is your new friend"
+
+#: sitios/views.py:1452 templates/user/user.html:252
+msgid "Ya es tu amigo"
+msgstr "It is your friend"
+
+#: sitios/views.py:1454
+msgid "Debes estar identificado para añadir a un amigo"
+msgstr "You must be logged in to add a friend"
+
+#: sitios/views.py:1469
+msgid " ha dejado de ser tu amigo"
+msgstr "has ceased to be your friend"
+
+#: sitios/views.py:1471 sitios/views.py:1489 sitios/views.py:1506
+#: sitios/views.py:1526 sitios/views.py:1570 sitios/views.py:1590
+msgid "Error: "
+msgstr "Error:"
+
+#: sitios/views.py:1473
+msgid "Debes estar identificado para eliminar a un amigo"
+msgstr "You must be logged in to remove a friend"
+
+#: sitios/views.py:1487
+msgid "Añadido a tus favoritos"
+msgstr "Added to your favorites"
+
+#: sitios/views.py:1491
+msgid "Debes estar identificado para añadir un sitio a favoritos"
+msgstr "You must be logged in to add a place to favorites"
+
+#: sitios/views.py:1504
+msgid "Eliminado de tus favoritos"
+msgstr "Removed from your favorites"
+
+#: sitios/views.py:1508
+msgid "Debes estar identificado para eliminar un sitio de tus favoritos"
+msgstr "You must be logged in to delete a favorite place"
+
+#: sitios/views.py:1524
+#, python-format
+msgid "El comentario %s ha sido eliminado correctamente"
+msgstr "The comment %s has been successfully removed"
+
+#: sitios/views.py:1528
+msgid "Debes estar identificado para eliminar un comentario"
+msgstr "You must be logged in to remove a comment"
+
+#: sitios/views.py:1550
+msgid "Etiqueta insertada correctamente."
+msgstr "Tag inserted correctly."
+
+#: sitios/views.py:1553
+msgid "Error: no se pudo guardar la etiqueta."
+msgstr "Error: could not save the tag."
+
+#: sitios/views.py:1555
+msgid "Debes estar identificado para insertar una etiqueta"
+msgstr "You must be logged in to add a tag"
+
+#: sitios/views.py:1568
+#, python-format
+msgid "La etiqueta %s ha sido eliminada correctamente"
+msgstr "The tag %s was deleted successfully"
+
+#: sitios/views.py:1572
+msgid "Debes estar identificado para eliminar una etiqueta"
+msgstr "You must be logged in to delete a tag"
+
+#: sitios/views.py:1588
+#, python-format
+msgid "La foto %s ha sido eliminada correctamente"
+msgstr "The photo %s has been deleted successfully"
+
+#: sitios/views.py:1592
+msgid "Debes estar identificado para eliminar una foto"
+msgstr "You must be logged in to delete a photo"
+
+#: sitios/views.py:1599
+msgid "Insertar sitio"
+msgstr "Insert place"
+
+#: sitios/views.py:1664
+#, python-format
+msgid "%(nombre_ciudad)sPeople.com - Nuevo sitio: %(nombre_sitio)s"
+msgstr "%(nombre_ciudad)sPeople.com - New place: %(nombre_sitio)s "
+
+#: sitios/views.py:1665
+#, python-format
+msgid "El usuario %(user)s ha añadido el sitio http://andaluciapeople.com/%(ciudad)s/sitio/%(slug)s"
+msgstr "The user %(user)s has added the place http://andaluciapeople.com/%(ciudad)s/sitio/%(slug)s "
+
+#: sitios/views.py:1673 sitios/views.py:1678 sitios/views.py:1683
+msgid "Error: comprueba que todos los campos son correctos."
+msgstr "Error: Check that all fields are correct."
+
+#: sitios/views.py:1686
+#, python-format
+msgid "Error: ya existe un sitio con ese nombre. Ver <a href=\"/%(ciudad)s/sitio/%(sitio_slug)s/\">%(sitio_nombre)s</a>."
+msgstr "Error: There is already a place with that name. View <a href=\"/%(ciudad)s/sitio/%(sitio_slug)s/\">%(sitio_nombre)s</a> ."
+
+#: sitios/views.py:1717 sitios/views.py:1749
+msgid "Mapa de sitios"
+msgstr "Place Map"
+
+#: sitios/views.py:1846
+msgid "Eventos, conciertos, actuaciones"
+msgstr "Events, concerts, performances"
+
+#: sitios/views.py:1902
+#, python-format
+msgid "Hoteles en %(nombre_ciudad)s"
+msgstr "Hotels in %(nombre_ciudad)s "
+
+#: sitios/views.py:2037
+#, python-format
+msgid "Usuarios similares a %(user)s"
+msgstr "Users similar to %(user)s "
+
+#: sitios/views.py:2058
+#, python-format
+msgid "Sitios recomendados para %(user)s"
+msgstr "Recommended places for %(user)s "
+
+#: sitios/views.py:2109
+msgid "AndalucíaPeople | Suscripción RSS"
+msgstr "AndalucíaPeople | RSS Feed"
+
+#: sitios/views.py:2129
+#, python-format
+msgid "Mensajería de %(user)s"
+msgstr "Messaging by %(user)s "
+
+#: sitios/views.py:2171
+#, python-format
+msgid "Ajustes de %(user)s"
+msgstr "Settings for %(user)s "
+
+#: sitios/views.py:2328
+msgid "Ayuda de usuario"
+msgstr "User Help"
+
+#: sitios/views.py:2347
+msgid "Sala de prensa"
+msgstr "Press room"
+
+#: sitios/views.py:2366
+msgid "Anuncia tu negocio"
+msgstr "Advertise your business"
+
+#: sitios/views.py:2508 templates/base_blog.html:5
+#: templates/base_footer.html:30
+msgid "Blog"
+msgstr "Blog"
+
+#: sitios/views.py:2526 templates/base_contacto.html:5
+#: templates/base_contacto.html.py:8 templates/base_footer.html:33
+msgid "Contacto"
+msgstr "Contact"
+
+#: sitios/views.py:2561
+msgid "Acerca de AndalucíaPeople"
+msgstr "About AndalucíaPeople"
+
+#: sitios/views.py:2579
+msgid "Información legal / Condiciones de uso"
+msgstr "Legal / Conditions of Use"
+
+#: sitios/views.py:2597 templates/base_footer.html:32
+#: templates/base_licencias.html:5 templates/base_licencias.html.py:12
+msgid "Licencias"
+msgstr "Licenses"
+
+#: sitios/views.py:2609 templates/registration/invitacion.html:2
+msgid "Invitación"
+msgstr "Invitation"
+
+#: sitios/views.py:2627
+msgid "Invitación aceptada"
+msgstr "Invitation Accepted"
+
+#: sitios/views.py:2648
+msgid "Envío de invitaciones"
+msgstr "Send invitations"
+
+#: sitios/views.py:2708
+#, python-format
+msgid "Especial nochevieja 2010/2011. Conoce los precios de los pubs, discotecas y cotillones en %(nombre_ciudad)s"
+msgstr "Special New Year's Eve 2010/2011. Knows the price of pubs, clubs and parties in %(nombre_ciudad)s "
+
+#: templates/404.html:4 templates/404.html.py:8
+msgid "Page not found"
+msgstr "Page not found"
+
+#: templates/404.html:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr "We're sorry, pero The requested page not could be found."
+
+#: templates/500.html:4 templates/500.html.py:8
+msgid "Page unavailable"
+msgstr "Page unavailable"
+
+#: templates/500.html:10
+msgid "We're sorry, but the requested page is currently unavailable."
+msgstr "We're sorry, but the requested page is currently unavailable."
+
+#: templates/500.html:12
+msgid "We're messing around with things internally, and the server had a bit of a hiccup."
+msgstr "We're messing around with things internally, the server and had a bit of a hiccup."
+
+#: templates/500.html:14
+msgid "Please try again later."
+msgstr "Please try again later."
+
+#: templates/base.html:184
+msgid "Elige tu ciudad"
+msgstr "Choose your city"
+
+#: templates/base.html:201 templates/base.html.py:202
+#: templates/base_add_sitio.html:53 templates/base_publicidad.html:52
+#: templates/user/recomendaciones.html:150
+msgid "Buscar"
+msgstr "Search"
+
+#: templates/base.html:214
+msgid "Portada"
+msgstr "Home"
+
+#: templates/base.html:215
+msgid "Mapa"
+msgstr "Map"
+
+#: templates/base.html:215
+msgid "Callejero"
+msgstr "Street map"
+
+#: templates/base.html:216 templates/base_superindex.html:238
+msgid "Sitios"
+msgstr "Places"
+
+#: templates/base.html:216
+msgid "Guía"
+msgstr "Guide"
+
+#: templates/base.html:217
+msgid "Gente"
+msgstr "People"
+
+#: templates/base.html:218 templates/base_superindex.html:254
+msgid "Eventos"
+msgstr "Events"
+
+#: templates/base.html:218
+msgid "Cultura"
+msgstr "Culture"
+
+#: templates/base.html:219 templates/base_superindex.html:262
+msgid "Hoteles"
+msgstr "Hotels"
+
+#: templates/base.html:219
+msgid "Alojamiento"
+msgstr "Accommodation"
+
+#: templates/base.html:225
+msgid "Estás en"
+msgstr "You are in"
+
+#: templates/base.html:245
+msgid "Ir a la portada principal de"
+msgstr "Go to the home of"
+
+#: templates/base.html:246
+msgid "Utiliza el mapa interactivo para encontrar sitios"
+msgstr "Use the interactive map to find places"
+
+#: templates/base.html:247
+msgid "Buscador y listado de sitios"
+msgstr "Search and list of places"
+
+#: templates/base.html:248 templates/sitios/user_list.html:54
+msgid "Listado de usuarios"
+msgstr "User List"
+
+#: templates/base.html:249
+msgid "Consulta los próximos eventos en"
+msgstr "Check out the upcoming events"
+
+#: templates/base.html:250
+msgid "Encuentra los hoteles más baratos en"
+msgstr "Find the cheapest hotels in"
+
+#: templates/base_about.html:5 templates/base_about.html.py:8
+#: templates/base_footer.html:29
+msgid "Acerca de"
+msgstr "About"
+
+#: templates/base_about.html:10
+msgid ""
+"AndalucíaPeople es la guía inteligente y social \n"
+"de sitios de ocio de Andalucía.</strong> Disponemos de cientos de sitios geolocalizados \n"
+"y categorizados en más de 15 tipos distintos, desde bares o restaurantes hasta pubs o \n"
+"cines."
+msgstr "AndalucíaPeople is the smart and social guide of leisure places in Andalusia. We have hundreds of geolocated and categorized sites in over 15 different types, from bars and restaurants to pubs or cinemas."
+
+#: templates/base_about.html:15
+msgid "¿Con qué finalidad fue creada?"
+msgstr "What purpose was it created for?"
+
+#: templates/base_about.html:16
+msgid ""
+"Inicialmente se creó en Granada para ofrecer una herramienta útil para \n"
+"compartir la localización de aquellos bares y sitios más interesantes que nos ofrece \n"
+"la ciudad, pero que poco a poco se ha ido ampliando ofreciendo nuevos servicios y \n"
+"herramientas para convertirse en una guía útil al alcance de todos."
+msgstr "Initially it begun in Granada to provide a useful tool to share the location of those bars and interesting places that the city offers, but gradually has expanded to offer new services and tools to become a useful guide to the scope of all."
+
+#: templates/base_about.html:22
+msgid "¿Qué valor añadido ofrece con respecto a otras páginas similares?"
+msgstr "What added value offers compared to other similar sites?"
+
+#: templates/base_about.html:23
+msgid ""
+"AndalucíaPeople ofrece dos principales aspectos respecto a cualquier \n"
+"otra guía de ocio. La primera de ellas es que es totalmente independiente. Cualquier \n"
+"persona puede registrase gratuitamente y colaborar aportando nuevos sitios y dando \n"
+"su opinión subjetiva sobre ellos de forma totalmente libre.<br/>\n"
+"Por otra parte, ofrecemos un sistema de recomendación personalizado, en el que según \n"
+"tus gustos, la web es capaz de ofrecerte distintos resultados que pueden ser de tu \n"
+"interés."
+msgstr "AndalucíaPeople offers two main aspects to any other leisure guide. The first is that is completely independent. Anyone can register for free and providing new work places and giving their subjective view of them completely free. <br/> In addition, we offer a personalized recommendation system, which according to your tastes, the web is able to offer different results that may be of your interest."
+
+#: templates/base_about.html:32
+msgid "¿Cuánta gente forma parte del proyecto?"
+msgstr "How many people are part of the project?"
+
+#: templates/base_about.html:33
+msgid ""
+"Si bien el proyecto es totalmente abierto y libre a la colaboración \n"
+"de cualquier persona, actualmente es administrada por Manuel Martín, ingeniero informático \n"
+"por la Universidad de Granada."
+msgstr "Although the project is completely open and free to the cooperation of any person, is currently managed by Manuel Martin, a computer engineer from the University of Granada."
+
+#: templates/base_about.html:38
+msgid "¿Cómo se reparten las tareas?"
+msgstr "How to share the tasks?"
+
+#: templates/base_about.html:39
+msgid ""
+"Los usuarios registrados son capaces de añadir nuevos sitios, dar su \n"
+"opinión, votarlos o subir fotografías.\n"
+"El administrador se encarga del mantenimiento y mejoras de la web, así como de establecer \n"
+"lazos de colaboración con otros proyectos relacionados. Por ejemplo, los eventos nos los \n"
+"proporciona GranadaZoom y la sección de hoteles SOL.com, una central de reservas que \n"
+"opera desde Sevilla."
+msgstr "Registered users are able to add new sites, give their opinion, vote or upload photos. The administrator is responsible for maintenance and improvements of the web as well as establishing partnerships with other related projects. For example, we are provided GranadaZoom events and SOL.com hotels, a reservation center that operates from Sevilla."
+
+#: templates/base_about.html:47
+msgid "¿A qué tipo de usuarios os dirigís?"
+msgstr "What type of user you are heading?"
+
+#: templates/base_about.html:48
+msgid ""
+"Si bien es una web para todos los públicos, la gente más activa suelen \n"
+"ser jóvenes de entre 18 y 30 años, muchos de ellos estudiantes universitarios, que son \n"
+"los que más se mueven en una ciudad como Granada."
+msgstr "While it is a website for all audiences, the most active people tend to be young people between 18 and 30 years, many of them college students, who are the most moving in a city like Granada."
+
+#: templates/base_about.html:53
+msgid "¿Qué objetivos os habéis marcado?"
+msgstr "What goals have you set?"
+
+#: templates/base_about.html:54
+msgid ""
+"El objetivo de AndalucíaPeople es seguir creciendo en cantidad y \n"
+"sobre todo calidad de contenidos, de manera que a cualquier persona de dentro o fuera \n"
+"de Andalucía le resulte sencillo y rápido utilizar nuestros servicios ya sea a través \n"
+"de un ordenador o con aplicaciones móviles."
+msgstr "The aim of AndalucíaPeople is to grow in quantity and especially quality content, so that anyone inside or outside of Andalusia it easy and quick to use our services either through a computer or mobile applications."
+
+#: templates/base_about.html:60
+msgid "¿Qué criterios seguís para seleccionar los contenidos?"
+msgstr "What criteria do you follow to select the content?"
+
+#: templates/base_about.html:61
+msgid ""
+"Buscamos que los contenidos que aportan los usuarios sean veraces, \n"
+"para ello contamos con un sistema de información de errores y de abusos del sistema, \n"
+"para que podamos corregir irregularidades en el menor tiempo posible."
+msgstr "We want the content to bring users to be truthful, for this we have a reporting system of errors and abuses of the system, so we can correct irregularities in the shortest time possible."
+
+#: templates/base_about.html:66
+msgid "¿Cómo veis el futuro de la red en vuestro ámbito?"
+msgstr "How do you see the future of the network in your area?"
+
+#: templates/base_about.html:67
+msgid ""
+"Creemos que es un proyecto que va a seguir creciendo día a día, más \n"
+"aún contando con los dispositivos móviles de última generación que incorporan conexión \n"
+"a internet y GPS, de manera que podemos ofrecer resultados dependiendo de la posición \n"
+"del individuo en tiempo real. Es algo apasionante y que hace unos años era impensable."
+msgstr "We believe it is a project that will continue to grow every day, more even with the latest generation of mobile devices that incorporate internet connection and GPS, so that we can provide results depending on the individual's position in real time. It's something exciting and that was unthinkable a few years ago."
+
+#: templates/base_add_sitio.html:5
+msgid "añadir sitio"
+msgstr "add site"
+
+#: templates/base_add_sitio.html:60 templates/base_publicidad.html:59
+msgid "Activar autoposicionamiento"
+msgstr "Enable auto positioning"
+
+#: templates/base_add_sitio.html:72 templates/base_mapa.html:86
+#: templates/sitios/sitio_list.html:65 templates/sitios/sitio_list.html:115
+#: templates/user/user.html:352
+msgid "Añade un nuevo sitio"
+msgstr "Add a new place"
+
+#: templates/base_add_sitio.html:74
+msgid "Sitio insertado correctamente, gracias."
+msgstr "Place inserted correctly, thanks."
+
+#: templates/base_add_sitio.html:75
+msgid "¡Has conseguido 10 puntos! Puedes consultar tu saldo de puntos en tu cuenta."
+msgstr "You get 10 points! You can check your points balance on your account."
+
+#: templates/base_add_sitio.html:78
+msgid "Error al insertar el sitio"
+msgstr "Failed to enter the place"
+
+#: templates/base_add_sitio.html:83
+msgid "Los campos marcados con * son obligatorios."
+msgstr "Fields marked with * are required."
+
+#: templates/base_add_sitio.html:123 templates/base_contacto.html:23
+#: templates/base_publicidad.html:112 templates/base_sitio.html:107
+#: templates/base_sitio.html.py:118 templates/base_sitio.html:657
+#: templates/base_sitio.html.py:724
+msgid "Enviar"
+msgstr "Send"
+
+#: templates/base_add_sitio.html:128
+msgid "Debes estar registrado para añadir un nuevo sitio."
+msgstr "You must be logged in to add a new place."
+
+#: templates/base_add_sitio.html:128
+msgid "Regístrate"
+msgstr "Sign up"
+
+#: templates/base_contacto.html:10
+msgid "Mensaje enviado correctamente. Intentaremos responderte lo antes posible. ¡Gracias!"
+msgstr "Message sent successfully. We will try to answer as soon as possible. Thanks!"
+
+#: templates/base_contacto.html:12
+msgid "Puedes escribirnos un correo electrónico a <a href=\"mailto:correo@andaluciapeople.com\">correo@andaluciapeople.com</a> o rellenar el siguiente formulario:"
+msgstr "You can write an email to <a href=\"mailto:correo@andaluciapeople.com\">correo@andaluciapeople.com</a> or fill out the form below:"
+
+#: templates/base_eventos.html:6
+msgid "eventos"
+msgstr "events"
+
+#: templates/base_eventos.html:46 templates/base_eventos.html.py:54
+msgid "Eventos proporcionados por"
+msgstr "Powered by"
+
+#: templates/base_eventos.html:52 templates/base_nochevieja.html:130
+#: templates/base_sitio.html:124 templates/register.html:15
+#: templates/user/user.html:70 templates/user/user.html.py:302
+#: templates/user/user.html:323 templates/user/user.html.py:342
+#: templates/user/user.html:379 templates/user/user.html.py:398
+msgid "Cargando..."
+msgstr "Loading..."
+
+#: templates/base_feeds.html:5
+msgid "feeds"
+msgstr "feeds"
+
+#: templates/base_feeds.html:14
+msgid "Suscríbete a los feeds que desees para estar al tanto de las últimas novedades en la web. ¿No sabes cómo funciona?"
+msgstr "Subscribe to the feeds you want to keep abreast of the latest news on the web. Do not know how it works?"
+
+#: templates/base_feeds.html:14
+msgid "Click aquí"
+msgstr "Click here"
+
+#: templates/base_feeds.html:17
+msgid "Últimos sitios"
+msgstr "Latest sites"
+
+#: templates/base_feeds.html:20
+#, python-format
+msgid "RSS Sitios de %(nombre)s"
+msgstr "RSS Places in %(nombre)s "
+
+#: templates/base_feeds.html:24 templates/base_index.html:148
+msgid "Últimos comentarios"
+msgstr "Latest comments"
+
+#: templates/base_feeds.html:27
+#, python-format
+msgid "RSS Comentarios en sitios de %(nombre)s"
+msgstr "RSS Comments on places in %(nombre)s "
+
+#: templates/base_feeds.html:31 templates/base_index.html:228
+msgid "Últimas fotos"
+msgstr "Latest photos"
+
+#: templates/base_feeds.html:34
+#, python-format
+msgid "RSS Fotos en sitios de %(nombre)s"
+msgstr "RSS Photos on places in %(nombre)s "
+
+#: templates/base_footer.html:9
+msgid "AndalucíaPeople es la guía inteligente y social de sitios de ocio de Andalucía."
+msgstr "AndalucíaPeople is the smart and social guide of leisure places in Andalusia."
+
+#: templates/base_footer.html:31
+msgid "Prensa y logotipos"
+msgstr "Press and logos"
+
+#: templates/base_footer.html:34
+msgid "Suscripción RSS"
+msgstr "RSS Feed"
+
+#: templates/base_footer.html:39
+msgid "empresas"
+msgstr "companies"
+
+#: templates/base_footer.html:41 templates/base_publicidad.html:5
+msgid "Anúnciate"
+msgstr "Advertise"
+
+#: templates/base_footer.html:46 templates/mobile/user/ajustes.html:6
+#: templates/mobile/user/ayuda.html:6 templates/mobile/user/mensajes.html:6
+#: templates/mobile/user/recomendaciones.html:6
+#: templates/mobile2/user/ajustes.html:6 templates/mobile2/user/ayuda.html:6
+#: templates/mobile2/user/mensajes.html:6
+#: templates/mobile2/user/recomendaciones.html:6
+#: templates/sitios/user_list.html:6 templates/user/ajustes.html:6
+#: templates/user/ayuda.html:6 templates/user/mensajes.html:6
+#: templates/user/recomendaciones.html:6 templates/user/user.html:6
+msgid "usuarios"
+msgstr "users"
+
+#: templates/base_footer.html:48 templates/base_legal.html:5
+msgid "Información legal y condiciones de uso"
+msgstr "Legal Notices and Terms of Use"
+
+#: templates/base_hoteles.html:5
+msgid "hoteles"
+msgstr "hotels"
+
+#: templates/base_index.html:88
+msgid "Foto subida por"
+msgstr "Photo uploaded by"
+
+#: templates/base_index.html:88 templates/base_index.html.py:151
+msgid "en"
+msgstr "in"
+
+#: templates/base_index.html:98
+msgid "Sitio patrocinado"
+msgstr "Sponsored place"
+
+#: templates/base_index.html:109
+msgid "Tu negocio aquí"
+msgstr "Your business here"
+
+#: templates/base_index.html:117
+msgid "Sitios populares"
+msgstr "Popular places"
+
+#: templates/base_index.html:124 templates/base_sitio.html:439
+#: templates/base_sitio.html.py:568 templates/base_sitio.html:588
+msgid "votos"
+msgstr "votes"
+
+#: templates/base_index.html:135
+msgid "¿Dónde alojarse?"
+msgstr "Where to stay?"
+
+#: templates/base_index.html:138
+#, python-format
+msgid "<a href=\"http://www.sol.com\">SOL</a> es una agencia de hoteles andaluza que tiene una gran cartera de hoteles y hostales a nivel nacional con muy buena relación calidad-precio. Si estás buscando un hotel en %(ciudad)s, entra <a href=\"%(link_hoteles)s\">aquí</a>"
+msgstr "<a href=\"http://www.sol.com\">SOL</a> is an agency of Andalusian hotels. It has a large portfolio of hotels and hostels nationwide with very good prices. If you're looking for a hotel in %(ciudad)s , click <a href=\"/%(link_hoteles)s\">here</a>"
+
+#: templates/base_index.html:140
+msgid "<a href=\"http://www.apartmentsapart.com/?cid=276086\">ApartmentsApart</a> es la web de referencia internacional para encontrar apartamientos de calidad donde alojarse."
+msgstr "<a href=\"http://www.apartmentsapart.com/?cid=276086\">ApartmentsApart</a> is the international website to find quality apartments to stay."
+
+#: templates/base_index.html:142
+#, python-format
+msgid "<a href=\"http://www.couchsurfing.org\">CouchSurfing</a> es una comunidad de personas internacional que ponen sus casas a disposición de cualquiera de forma totalmente gratuita. Si lo que quieres es conocer gente de %(ciudad)s de la forma más económica posible, esta es tu web."
+msgstr "<a href=\"http://www.couchsurfing.org\">CouchSurfing</a> is the world's largest hospitality exchange network. If you want to meet people from %(ciudad)s in the most economical way possible, this is your site."
+
+#: templates/base_index.html:151
+msgid "Leer"
+msgstr "Read"
+
+#: templates/base_index.html:161
+msgid "Nube de tags"
+msgstr "Tag Cloud"
+
+#: templates/base_index.html:180
+msgid "Accesos rápidos"
+msgstr "Shortcuts"
+
+#: templates/base_index.html:182 templates/base_mapa.html:192
+#: templates/sitios/sitio_list.html:201
+msgid "Añadir nuevo sitio"
+msgstr "Add new place"
+
+#: templates/base_index.html:183
+msgid "Tus recomendaciones"
+msgstr "Your recommendations"
+
+#: templates/base_index.html:184
+msgid "Tu ficha personal"
+msgstr "Your personal profile"
+
+#: templates/base_index.html:185
+msgid "Modifica tus preferencias"
+msgstr "Edit your preferences"
+
+#: templates/base_index.html:186
+msgid "Contacta con nosotros"
+msgstr "Contact us"
+
+#: templates/base_index.html:189
+msgid "Regístrate para..."
+msgstr "Register for..."
+
+#: templates/base_index.html:191 templates/base_login.html:40
+#: templates/base_superindex.html:199
+msgid "Añadir nuevos sitios"
+msgstr "Add new places"
+
+#: templates/base_index.html:192 templates/base_login.html:41
+#: templates/base_superindex.html:200
+msgid "Dar tu opinión"
+msgstr "Give your opinion"
+
+#: templates/base_index.html:193 templates/base_login.html:42
+#: templates/base_superindex.html:201
+msgid "Subir fotos"
+msgstr "Upload photos"
+
+#: templates/base_index.html:194 templates/base_login.html:43
+#: templates/base_superindex.html:202
+msgid "Hacer amigos"
+msgstr "Make friends"
+
+#: templates/base_index.html:195 templates/base_login.html:44
+#: templates/base_superindex.html:203
+msgid "Recomendaciones personalizadas"
+msgstr "Personalized recommendations"
+
+#: templates/base_index.html:196 templates/base_login.html:45
+#: templates/base_superindex.html:204
+msgid "Descuentos especiales"
+msgstr "Special Discounts"
+
+#: templates/base_index.html:198 templates/base_login.html:47
+#: templates/base_superindex.html:206
+msgid "¡Regístrate gratis!"
+msgstr "Register for free!"
+
+#: templates/base_index.html:205
+msgid "Eventos destacados"
+msgstr "Highlights"
+
+#: templates/base_index.html:213
+msgid "Próximos eventos"
+msgstr "Upcoming Events"
+
+#: templates/base_index.html:244
+msgid "Webs amigas"
+msgstr "Other webs"
+
+#: templates/base_licencias.html:14
+msgid ""
+"<strong>AndalucíaPeople funciona con <a href=\"http://es.wikipedia.org/wiki/Software_Libre\">software libre</a></strong>, es decir, \n"
+"\tda al usuario la libertad para ser usado, copiado, estudiado, modificado y redistribuido libremente."
+msgstr "<strong>AndalucíaPeople works with <a href=\"http://en.wikipedia.org/wiki/Free_software\">free software</a></strong>, that is, giving users the freedom to be used, copied, studied, modified and redistributed freely."
+
+#: templates/base_licencias.html:16
+msgid "Los pilares básicos sobre los que se asienta este proyecto son:"
+msgstr "The pillars on which rests this project are:"
+
+#: templates/base_licencias.html:18
+msgid "<a href=\"http://www.apache.org\">Apache</a>, como servidor web"
+msgstr "<a href=\"http://www.apache.org\">Apache</a> as web server"
+
+#: templates/base_licencias.html:19
+msgid "<a href=\"http//www.kernel.org\">Linux</a>, como sistema operativo"
+msgstr "<a href=\"http//www.kernel.org\">Linux</a> as operating system"
+
+#: templates/base_licencias.html:20
+msgid "<a href=\"http://www.mysql.com\">MySQL</a>, como gestor de base de datos"
+msgstr "<a href=\"http://www.mysql.com\">MySQL</a> as a database manager"
+
+#: templates/base_licencias.html:21
+msgid "<a href=\"http://www.djangoproject.com\">Django</a>, como framework de desarrollo"
+msgstr "<a href=\"http://www.djangoproject.com\">Django</a> as development framework"
+
+#: templates/base_licencias.html:22
+msgid "<a href=\"http://jquery.com\">jQuery</a>, como framework Javascript"
+msgstr "<a href=\"http://jquery.com\">jQuery</a> as Javascript framework"
+
+#: templates/base_licencias.html:24
+msgid ""
+"\n"
+"\tA partir de estas sólidas bases se han ido incorporando piezas hasta completar lo que ahora es AndalucíaPeople. \n"
+"\tEstas piezas están hechas por distintos autores, que cada uno ha liberado bajo una licencia. Las partes de código \n"
+"\tque he programado yo las he licenciado con <strong><a href=\"http://www.gnu.org/licenses/agpl.html\">AGPLv3</a></strong> y la documentación del proyecto con <strong><a href=\"http://www.gnu.org/licenses/fdl.html\">GFDL</a></strong>.\n"
+"\t"
+msgstr ""
+"\n"
+"Based on these solid foundations we have joined pieces to complete what is now AndalucíaPeople. These pieces are made by different authors, each released under a license. The parts of code I've programmed are under <a href=\"http://www.gnu.org/licenses/agpl.html\"><strong>AGPLv3</strong></a> and project documentation under <a href=\"http://www.gnu.org/licenses/fdl.html\"><strong>GFDL</strong></a> ."
+
+#: templates/base_licencias.html:31
+msgid "Puedes descargar la última versión liberada en"
+msgstr "You can download the latest version released from"
+
+#: templates/base_licencias.html:34
+msgid ""
+"\n"
+"\tLos <strong>iconos</strong> son en su mayoría del <a href=\"http://dryicons.com/free-icons/preview/coquette-icons-set/\">Coquette Icon Set</a> \n"
+"\t(y <a href=\"http://dryicons.com/free-icons/preview/coquette-part-2-icons-set/\">2</a> y <a href=\"http://dryicons.com/free-icons/preview/coquette-part-3-icons-set/\">3</a>),\n"
+"\tpero también de <a href=\"http://www.pinvoke.com/\">Fugue Icons</a>.\n"
+"\t"
+msgstr ""
+"\n"
+"The <strong>icons</strong> are mostly from <a href=\"http://dryicons.com/free-icons/preview/coquette-icons-set/\">Coquette Icon Set</a> (and <a href=\"http://dryicons.com/free-icons/preview/coquette-part-2-icons-set/\">2</a> and <a href=\"http://dryicons.com/free-icons/preview/coquette-part-3-icons-set/\">3</a> ) but also of <a href=\"http://www.pinvoke.com/\">Fugue Icons</a> ."
+
+#: templates/base_login.html:6
+msgid "login"
+msgstr "login"
+
+#: templates/base_login.html:38 templates/base_superindex.html:197
+msgid "Regístrate y podrás..."
+msgstr "Register and you ..."
+
+#: templates/base_login.html:51 templates/base_superindex.html:211
+msgid "Accede a tu cuenta"
+msgstr "Access your account"
+
+#: templates/base_login.html:52
+msgid ""
+"Si ya eres usuario de Facebook, puedes <span class=\"facebook_button\"><a href=\"/auth/login/facebook/\">Entrar con Facebook</a></span>, o bien<br/>\n"
+"si ya eres usuario de Twitter puedes <span class=\"twitter_button\"><a href=\"/auth/login/twitter/\">Entrar usando Twitter</a></span>\n"
+"o bien usando tu cuenta de AndalucíaPeople:"
+msgstr "If you are a Facebook user, you can <span class=\"facebook_button\"><a href=\"/auth/login/facebook/\">Login with Facebook</a></span>, or <br/> if you're a Twitter user you can <span class=\"twitter_button\"><a href=\"/auth/login/twitter/\">Login using Twitter</a></span> or using your AndalucíaPeople account:"
+
+#: templates/base_login.html:57
+msgid "Usuario o contraseña incorrectos. Prueba otra vez."
+msgstr "Username or password incorrect. Try again."
+
+#: templates/base_login.html:74
+msgid "Login"
+msgstr "Login"
+
+#: templates/base_login.html:77 templates/base_superindex.html:228
+msgid "Olvidé mi contraseña"
+msgstr "Forgot password"
+
+#: templates/base_mapa.html:12
+msgid "mapa"
+msgstr "map"
+
+#: templates/base_mapa.html:79 templates/sitios/sitio_list.html:58
+msgid "Ver tags"
+msgstr "View tags"
+
+#: templates/base_mapa.html:81 templates/sitios/sitio_list.html:60
+msgid "Introduce un término para buscar"
+msgstr "Enter a term to search for"
+
+#: templates/base_mapa.html:85 templates/sitios/sitio_list.html:64
+#: templates/sitios/sitio_list.html:113
+msgid "Recomendaciones para ti"
+msgstr "Recommended for you"
+
+#: templates/base_mapa.html:92 templates/base_mapa.html.py:198
+#: templates/sitios/sitio_list.html:71 templates/sitios/sitio_list.html:95
+#: templates/sitios/sitio_list.html:104
+msgid "Tipos"
+msgstr "Types"
+
+#: templates/base_mapa.html:176 templates/sitios/evento_list.html:19
+#: templates/sitios/sitio_list.html:184 templates/sitios/user_list.html:89
+msgid "Anteriores"
+msgstr "Previous"
+
+#: templates/base_mapa.html:180 templates/sitios/sitio_list.html:188
+#: templates/sitios/user_list.html:93
+msgid "Página"
+msgstr "Page"
+
+#: templates/base_mapa.html:180 templates/sitios/sitio_list.html:188
+#: templates/sitios/user_list.html:93
+msgid "de"
+msgstr "of"
+
+#: templates/base_mapa.html:184 templates/sitios/evento_list.html:30
+#: templates/sitios/sitio_list.html:192 templates/sitios/user_list.html:97
+msgid "Siguientes"
+msgstr "Next"
+
+#: templates/base_mapa.html:189 templates/sitios/sitio_list.html:198
+msgid "Quizás quiso decir"
+msgstr "Did you mean"
+
+#: templates/base_mapa.html:192 templates/sitios/sitio_list.html:201
+msgid "No se han encontrado sitios."
+msgstr "No places have been found."
+
+#: templates/base_mapa.html:208 templates/sitios/sitio_list.html:130
+msgid "Patrocinados"
+msgstr "Sponsored"
+
+#: templates/base_mapa.html:216 templates/sitios/sitio_list.html:96
+#: templates/sitios/sitio_list.html:138
+msgid "Populares"
+msgstr "Popular"
+
+#: templates/base_mapa.html:225 templates/sitios/sitio_list.html:97
+#: templates/sitios/sitio_list.html:147
+msgid "Novedades"
+msgstr "News"
+
+#: templates/base_mapa.html:238
+msgid "Cargando mapa..."
+msgstr "Loading map..."
+
+#: templates/base_nochevieja.html:7
+msgid "nochevieja"
+msgstr "New Year's Eve"
+
+#: templates/base_nochevieja.html:84
+msgid "Especial Nochevieja 2010/2011"
+msgstr "Special New Year 2010/2011"
+
+#: templates/base_nochevieja.html:85
+msgid "Elige la mejor fiesta de cotillón para despedir el año"
+msgstr "Choose the best party of the year to start the new year"
+
+#: templates/base_nochevieja.html:86
+msgid "Escoge tu ciudad:"
+msgstr "Choose your city:"
+
+#: templates/base_nochevieja.html:106
+msgid "Pasa la nochevieja en"
+msgstr "Spend New Year's Eve in"
+
+#: templates/base_nochevieja.html:106
+msgid "por sólo"
+msgstr "for only"
+
+#: templates/base_nochevieja.html:115
+msgid "Sitio"
+msgstr "Place"
+
+#: templates/base_nochevieja.html:116
+msgid "Precio"
+msgstr "Price"
+
+#: templates/base_nochevieja.html:117
+msgid "Más información"
+msgstr "More information"
+
+#: templates/base_nochevieja.html:128
+msgid "No hay sitios disponibles para esta ciudad."
+msgstr "No places available in this city."
+
+#: templates/base_nochevieja.html:133
+#, python-format
+msgid ""
+"Si conoces algún sitio donde celebrar la nochevieja en tu ciudad y no aparece en la lista, \n"
+"primero asegúrate que el sitio está en <a href=\"%(link_sitios)s\">nuestra base de datos</a> (si no, <a href=\"%(link_add_sitio)s\">¡añádelo!</a>) y \n"
+"envíanos un correo a <a href=\"mailto:nochevieja@andaluciapeople.com\">nochevieja@andaluciapeople.com</a> \n"
+"indicando el nombre del mismo y las ofertas de cotillón disponibles."
+msgstr "If you know a place where to celebrate New Year's Eve in your city and not on the list, first make sure the site is in <a href=\"%(link_sitios)s\">our database</a> (if not, <a href=\"%(link_add_sitio)s\">add it!</a> ) and send an email to <a href=\"mailto:nochevieja@andaluciapeople.com\">nochevieja@andaluciapeople.com</a> indicating the name and offers aviable."
+
+#: templates/base_prensa.html:5
+msgid "Prensa"
+msgstr "Press"
+
+#: templates/base_prensa.html:51
+msgid "Sala de Prensa"
+msgstr "Press Room"
+
+#: templates/base_prensa.html:53
+msgid "Si trabajas en un medio de comunicación y quieres hablar sobre AndalucíaPeople, mándanos un correo electrónico a <a href=\"mailto:prensa@andaluciapeople.com\">prensa@andaluciapeople.com</a> para ponernos en contacto contigo."
+msgstr "If you work in a media and want to talk about AndalucíaPeople, send an email to <a href=\"mailto:prensa@andaluciapeople.com\">prensa@andaluciapeople.com</a> to contact you."
+
+#: templates/base_prensa.html:89
+msgid "Logotipos"
+msgstr "Logos"
+
+#: templates/base_prensa.html:90
+msgid "Para enlazarnos puedes usar alguna de estas imágenes. Elige el formato y color que más te convenga."
+msgstr "You can use any of these images to link us. Choose the format and color that suits your web."
+
+#: templates/base_prensa.html:93
+msgid "Tamaño"
+msgstr "Size"
+
+#: templates/base_prensa.html:94
+msgid "Fondo"
+msgstr "Background"
+
+#: templates/base_prensa.html:94
+msgid "blanco"
+msgstr "white"
+
+#: templates/base_prensa.html:94
+msgid "negro"
+msgstr "black"
+
+#: templates/base_publicidad.html:70
+msgid "anuncia tu negocio"
+msgstr "advertise your business"
+
+#: templates/base_publicidad.html:72
+msgid "Mensaje enviado correctamente. Intentaremos responderte lo antes posible. Si está todo en orden, emitiremos una factura y te la enviaremos por correo electrónico. ¡Gracias!"
+msgstr "Message sent successfully. We will try to answer as soon as possible. If everything is ok, we will send you an invoice to your email. Thanks!"
+
+#: templates/base_publicidad.html:76
+#, python-format
+msgid ""
+"Error al enviar el mensaje, <a href=\"%(link_publicidad)s\">inténtelo de nuevo</a> por favor. \n"
+"    Si el problema persiste, envíenos un correo a <a href=\"mailto:publicidad@andaluciapeople.com\">publicidad@andaluciapeople.com</a>"
+msgstr "Error sending message, <a href=\"%(link_publicidad)s\">try again</a> please. If the problem persists, please send an email to <a href=\"mailto:publicidad@andaluciapeople.com\">publicidad@andaluciapeople.com</a>"
+
+#: templates/base_publicidad.html:80
+msgid ""
+"Aquí puedes consultar nuestro catálogo de tarifas. Si quieres promocionar tu negocio en AndalucíaPeople, escríbenos un correo \n"
+"    electrónico a <a href=\"mailto:publicidad@andaluciapeople.com\">publicidad@andaluciapeople.com</a>, o rellena este formulario, y te ofreceremos un \n"
+"    presupuesto a medida sin compromiso."
+msgstr "Here you can see our fee brochure. If you want to promote your business in AndalucíaPeople, please email to <a href=\"mailto:publicidad@andaluciapeople.com\">publicidad@andaluciapeople.com</a>, or fill out this form and we will offer you a customized budget without compromise."
+
+#: templates/base_recomendados.html:6
+msgid "sitios recomendados"
+msgstr "recommended places"
+
+#: templates/base_recomendados.html:11
+msgid "predicción"
+msgstr "prediction"
+
+#: templates/base_similares.html:6
+msgid "usuarios similares"
+msgstr "similar users"
+
+#: templates/base_similares.html:11
+msgid "similaridad"
+msgstr "similarity"
+
+#: templates/base_similares.html:11
+msgid "comunes"
+msgstr "common"
+
+#: templates/base_sitio.html:23 templates/sitios/sitio_list.html:8
+msgid "sitios"
+msgstr "places"
+
+#: templates/base_sitio.html:97 templates/base_sitio.html.py:114
+msgid "Tu nombre"
+msgstr "Your Name"
+
+#: templates/base_sitio.html:98 templates/base_sitio.html.py:115
+msgid "Tu correo"
+msgstr "Your email"
+
+#: templates/base_sitio.html:99
+msgid "Causa"
+msgstr "Cause"
+
+#: templates/base_sitio.html:100
+msgid "Seleccionar"
+msgstr "Select"
+
+#: templates/base_sitio.html:101
+msgid "Cerrado"
+msgstr "Closed"
+
+#: templates/base_sitio.html:102
+msgid "Trasladado"
+msgstr "Moved"
+
+#: templates/base_sitio.html:103
+msgid "Cambio de nombre"
+msgstr "Name Change"
+
+#: templates/base_sitio.html:104
+msgid "Otros datos incorrectos"
+msgstr "Other incorrect information"
+
+#: templates/base_sitio.html:105
+msgid "Mensaje detallado"
+msgstr "Detailed message"
+
+#: templates/base_sitio.html:130
+msgid "Utiliza este código HTML para enlazar a este sitio"
+msgstr "Use this HTML code to link to this site"
+
+#: templates/base_sitio.html:132
+msgid "O bien, incrusta el mapa en tu web usando este código"
+msgstr "Or, embed the map on your website using this code"
+
+#: templates/base_sitio.html:134 templates/base_sitio.html.py:330
+msgid "Mapa proporcionado por"
+msgstr "Map provided by"
+
+#: templates/base_sitio.html:135
+msgid "Ancho"
+msgstr "Width"
+
+#: templates/base_sitio.html:135
+msgid "Alto"
+msgstr "Alto"
+
+#: templates/base_sitio.html:135
+msgid "Controles"
+msgstr "Controls"
+
+#: templates/base_sitio.html:136
+msgid "Actualizar código"
+msgstr "Update code"
+
+#: templates/base_sitio.html:137
+msgid "Se recomienda al menos un mapa de 300x300 px"
+msgstr "We recommend at least a map of 300x300 px"
+
+#: templates/base_sitio.html:152 templates/base_sitio.html.py:524
+msgid "Borrar tag"
+msgstr "Remove tag"
+
+#: templates/base_sitio.html:200
+msgid "Enviando..."
+msgstr "Sending ..."
+
+#: templates/base_sitio.html:208
+msgid "Voto insertado"
+msgstr "Vote inserted"
+
+#: templates/base_sitio.html:208
+msgid "¡Gracias!"
+msgstr "Thanks!"
+
+#: templates/base_sitio.html:209 templates/base_sitio.html.py:449
+msgid "Tu valoración"
+msgstr "Your rating"
+
+#: templates/base_sitio.html:249
+msgid "¿Seguro que quieres borrar este comentario?"
+msgstr "Are you sure you want to delete this comment?"
+
+#: templates/base_sitio.html:262
+msgid "¿Seguro que quieres borrar esta foto?"
+msgstr "Are you sure you want to delete this photo?"
+
+#: templates/base_sitio.html:298
+msgid "Informe de error"
+msgstr "Report error"
+
+#: templates/base_sitio.html:310
+msgid "Informe de abuso"
+msgstr "Report abuse"
+
+#: templates/base_sitio.html:321
+msgid "Enlaza a este sitio"
+msgstr "Link to this site"
+
+#: templates/base_sitio.html:378
+msgid "Aviso: este sitio ha sido añadido recientemente y aún no se ha revisado"
+msgstr "Notice: This site has been recently added and has yet to be reviewed"
+
+#: templates/base_sitio.html:385
+msgid "Ficha del sitio"
+msgstr "Place Details"
+
+#: templates/base_sitio.html:389
+msgid "Nos han informado que este sitio está cerrado"
+msgstr "We have been informed that this place is closed"
+
+#: templates/base_sitio.html:392
+msgid "Nos han informado que este sitio se ha trasladado"
+msgstr "We have been informed that this place has moved"
+
+#: templates/base_sitio.html:395
+msgid "Nos han informado que este sitio ha cambiado de nombre"
+msgstr "We have been informed that this place has been renamed"
+
+#: templates/base_sitio.html:398
+msgid "Nos han informado que este sitio tiene algunos datos incorrectos"
+msgstr "We have been informed that this place has some incorrect data"
+
+#: templates/base_sitio.html:403
+msgid "Ver mapa interactivo"
+msgstr "View interactive map"
+
+#: templates/base_sitio.html:409
+msgid "Enlace permanente a"
+msgstr "Permanent link to"
+
+#: templates/base_sitio.html:432
+msgid "Media"
+msgstr "Average"
+
+#: templates/base_sitio.html:447
+msgid "Ver recomendaciones"
+msgstr "See recommendations"
+
+#: templates/base_sitio.html:447
+msgid "Tu predicción"
+msgstr "Your prediction"
+
+#: templates/base_sitio.html:471
+msgid "Eliminar de favoritos"
+msgstr "Remove from Favorites"
+
+#: templates/base_sitio.html:477
+msgid "Añadir a favoritos"
+msgstr "Bookmark"
+
+#: templates/base_sitio.html:483
+msgid "Regístrate para votar"
+msgstr "Register to vote"
+
+#: templates/base_sitio.html:512
+msgid "Descripción:"
+msgstr "Description:"
+
+#: templates/base_sitio.html:518
+msgid "Tags"
+msgstr "Tags"
+
+#: templates/base_sitio.html:534
+msgid "Añade nuevas etiquetas"
+msgstr "Add new tags"
+
+#: templates/base_sitio.html:540 templates/base_sitio.html.py:543
+msgid "Añadir tags"
+msgstr "Add tags"
+
+#: templates/base_sitio.html:549
+msgid "Enviado por"
+msgstr "Submitted by"
+
+#: templates/base_sitio.html:550
+msgid "Informar de un error"
+msgstr "Report a Bug"
+
+#: templates/base_sitio.html:552
+msgid "Enlazar este sitio"
+msgstr "Link this place"
+
+#: templates/base_sitio.html:553
+msgid "URL corta"
+msgstr "Short URL"
+
+#: templates/base_sitio.html:553
+msgid "obtener"
+msgstr "get"
+
+#: templates/base_sitio.html:560
+msgid "Sitios similares"
+msgstr "Similar places"
+
+#: templates/base_sitio.html:580
+msgid "Sitios cercanos"
+msgstr "Nearby places"
+
+#: templates/base_sitio.html:606
+msgid "Comentando en este sitio y subiendo fotos, aumentarás tu saldo de puntos."
+msgstr "Commenting on this site and uploading photos, you'll increase your points balance."
+
+#: templates/base_sitio.html:609 templates/user/user.html:392
+msgid "Comentarios"
+msgstr "Comments"
+
+#: templates/base_sitio.html:612
+msgid "Enlace permanente a este comentario"
+msgstr "Permalink to this comment"
+
+#: templates/base_sitio.html:612
+msgid "dice"
+msgstr "says"
+
+#: templates/base_sitio.html:621
+msgid "Enviado el"
+msgstr "Sent the"
+
+#: templates/base_sitio.html:621
+msgid "a las"
+msgstr "at"
+
+#: templates/base_sitio.html:622
+msgid "Informar de abuso"
+msgstr "Report abuse"
+
+#: templates/base_sitio.html:623 templates/sitios/comentarios_list.html:21
+msgid "Enlace permanente"
+msgstr "Permalink"
+
+#: templates/base_sitio.html:626 templates/sitios/comentarios_list.html:23
+msgid "Borrar comentario"
+msgstr "Delete comment"
+
+#: templates/base_sitio.html:636
+msgid "Deja tu opinión"
+msgstr "Leave a comment"
+
+#: templates/base_sitio.html:637
+msgid "Recuerda ser respetuoso y cuidar la ortografía, si no quieres que te llamen HOYGAN"
+msgstr "Remember to be respectful and take care of the spelling."
+
+#: templates/base_sitio.html:639
+msgid "HTML permitido"
+msgstr "HTML allowed"
+
+#: templates/base_sitio.html:644
+msgid "Comentario enviado. ¡Has conseguido 1 punto!"
+msgstr "Comment sent. You got 1 point!"
+
+#: templates/base_sitio.html:647
+msgid "El comentario no se ha podido enviar"
+msgstr "The comment could not be sended"
+
+#: templates/base_sitio.html:660
+msgid "Regístrate<br/>para opinar"
+msgstr "Sign up <br/> to comment"
+
+#: templates/base_sitio.html:666 templates/user/user.html:374
+msgid "Fotografías"
+msgstr "Photos"
+
+#: templates/base_sitio.html:682 templates/sitios/fotos_list.html:18
+msgid "Borrar foto"
+msgstr "Remove photo"
+
+#: templates/base_sitio.html:682
+msgid "eliminar"
+msgstr "delete"
+
+#: templates/base_sitio.html:699
+msgid "Todavía no han subido ninguna foto a este sitio, ¿quieres ser el primero?"
+msgstr "Have not yet uploaded any photos to this site, do you want to be the first?"
+
+#: templates/base_sitio.html:706
+msgid "Envía tus fotos"
+msgstr "Send your photos"
+
+#: templates/base_sitio.html:707
+msgid "No subas una foto sin el permiso de su autor si no quieres que te miremos mal la próxima vez."
+msgstr "Do not upload a photo without permission from the original author."
+
+#: templates/base_sitio.html:708
+msgid "Tamaño máximo: 2 MB. Formatos permitidos: jpg, png, gif"
+msgstr "Maximum size: 2 MB. Allowed formats: jpg, png, gif"
+
+#: templates/base_sitio.html:710
+msgid "Fotos enviadas. ¡Has conseguido 1 punto por cada foto!"
+msgstr "Photos sent. You got 1 point for each photo!"
+
+#: templates/base_sitio.html:713
+msgid "Las fotos no se han podido enviar"
+msgstr "The photos could not be sended."
+
+#: templates/base_sitio.html:718
+msgid "Puedes subir hasta 3 fotos a la vez"
+msgstr "You can upload up to 3 photos at once"
+
+#: templates/base_sitio.html:729
+msgid "Regístrate<br/>para enviar fotos"
+msgstr "Sign up <br/> to send pictures"
+
+#: templates/base_superindex.html:150
+msgid "Escoge tu provincia"
+msgstr "Choose your province"
+
+#: templates/base_superindex.html:182 templates/base_superindex.html.py:185
+#: templates/base_superindex.html:188 templates/base_superindex.html.py:191
+msgid "Foto"
+msgstr "Photo"
+
+#: templates/base_superindex.html:225
+msgid "Conectar"
+msgstr "Connect"
+
+#: templates/base_superindex.html:241
+#, python-format
+msgid "Sitios de %(nombre)s"
+msgstr "Places in %(nombre)s "
+
+#: templates/base_superindex.html:246
+msgid "Mapas"
+msgstr "Maps"
+
+#: templates/base_superindex.html:249
+#, python-format
+msgid "Mapa de %(nombre)s"
+msgstr "Map of %(nombre)s "
+
+#: templates/base_superindex.html:257
+#, python-format
+msgid "Eventos de %(nombre)s"
+msgstr "Events in %(nombre)s "
+
+#: templates/base_superindex.html:265
+#, python-format
+msgid "Hoteles de %(nombre)s"
+msgstr "Hotels in %(nombre)s "
+
+#: templates/base_superindex.html:270
+msgid "Bares"
+msgstr "Bars"
+
+#: templates/base_superindex.html:273
+#, python-format
+msgid "Bares de %(nombre)s"
+msgstr "Bars of %(nombre)s "
+
+#: templates/base_superindex.html:278
+msgid "Restaurantes"
+msgstr "Restaurants"
+
+#: templates/base_superindex.html:281
+#, python-format
+msgid "Restaurantes de %(nombre)s"
+msgstr "Restaurants in %(nombre)s "
+
+#: templates/base_superindex.html:286
+msgid "Pubs"
+msgstr "Pubs"
+
+#: templates/base_superindex.html:289
+#, python-format
+msgid "Pubs de %(nombre)s"
+msgstr "Pubs in %(nombre)s "
+
+#: templates/base_superindex.html:294
+msgid "Discotecas"
+msgstr "Clubs"
+
+#: templates/base_superindex.html:297
+#, python-format
+msgid "Discotecas de %(nombre)s"
+msgstr "Clubs of %(nombre)s "
+
+#: templates/register.html:6
+msgid "registro"
+msgstr "register"
+
+#: templates/register.html:22
+msgid "Espere un momento, por favor..."
+msgstr "Wait a moment, please ..."
+
+#: templates/register.html:42
+msgid "Tu cuenta se ha creado con éxito, puedes entrar usando el formulario de entrada."
+msgstr "Your account has been created successfully, you can enter using the entry form."
+
+#: templates/register.html:45
+msgid "Error:"
+msgstr "Error:"
+
+#: templates/register.html:49
+#, python-format
+msgid "Si ya eres usuario de AndalucíaPeople, <a href=\"%(link_login)s?next=%(next)s\">entra aquí</a>."
+msgstr "Already an user of AndalucíaPeople? <a href=\"%(link_login)s?next=%(next)s\">go here</a>"
+
+#: templates/register.html:53
+msgid "Nueva cuenta"
+msgstr "New Account"
+
+#: templates/register.html:54
+msgid ""
+"\n"
+"\tSi ya eres usuario de Facebook puedes <div class=\"facebook_button\"><a href=\"/auth/login/facebook/\">Entrar usando Facebook</a></div>\n"
+"\to bien,<br/>\n"
+"\tsi ya eres usuario de Twitter puedes <div class=\"twitter_button\"><a href=\"/auth/login/twitter/\">Entrar usando Twitter</a></div>\n"
+"\to bien, <br/>puedes crearte una nueva cuenta de usuario:\n"
+"\t"
+msgstr ""
+"\n"
+"If you are a Facebook user can <div class=\"facebook_button\"><a href=\"/auth/login/facebook/\">Login using Facebook</a></div> or, <br/> if you're a Twitter user can <div class=\"twitter_button\"><a href=\"/auth/login/twitter/\">Login using Twitter</a></div> or, <br/> you can create a new user account:"
+
+#: templates/register.html:69
+msgid "Registrar"
+msgstr "Register"
+
+#: templates/register.html:71
+#, python-format
+msgid "Al registrarte estás aceptando las <a href=\"%(link_legal)s\">condiciones de uso y privacidad</a> de este sitio"
+msgstr "By registering you agree to the <a href=\"%(link_legal)s\">terms of use and privacy</a> of this site"
+
+#: templates/filebrowser/index.html:30
+msgid "Make Directory"
+msgstr "Make Directory"
+
+#: templates/filebrowser/index.html:31
+msgid "Multiple Upload"
+msgstr "Multiple Upload"
+
+#: templates/filebrowser/index.html:32
+msgid "Make Thumbs"
+msgstr "Make Thumbs"
+
+#: templates/filebrowser/makedir.html:28
+msgid "Directory"
+msgstr "Directory"
+
+#: templates/filebrowser/makedir.html:30
+msgid "The directory will automatically be converted to lowercase.<br />Only letters, numbers, underscores and hyphens are allowed."
+msgstr "The directory will Automatically Be Converted to lowercase. <br /> Only letters, numbers, underscores and hyphens are allowed."
+
+#: templates/filebrowser/makedir.html:34 templates/filebrowser/rename.html:35
+msgid "Submit"
+msgstr "Submit"
+
+#: templates/filebrowser/rename.html:28
+msgid "Name"
+msgstr "Name"
+
+#: templates/filebrowser/rename.html:31
+msgid "The file/directory will automatically be converted to lowercase.<br />Only letters, numbers, underscores and hyphens are allowed."
+msgstr "The file/directory will automatically be converted to lowercase.<br />Only letters, numbers, underscores and hyphens are allowed."
+
+#: templates/filebrowser/upload.html:38 templates/filebrowser/upload.html:42
+#: templates/filebrowser/upload.html:46 templates/filebrowser/upload.html:50
+#: templates/filebrowser/upload.html:54
+msgid "File"
+msgstr "File"
+
+#: templates/filebrowser/upload.html:59
+msgid "Help"
+msgstr "Help"
+
+#: templates/filebrowser/upload.html:63
+msgid "Allowed"
+msgstr "Allowed"
+
+#: templates/filebrowser/upload.html:69
+msgid "Max. Filesize"
+msgstr "Max. Filesize"
+
+#: templates/filebrowser/include/filter.html:3
+msgid "Filter"
+msgstr "Filter"
+
+#: templates/filebrowser/include/filter.html:4
+msgid "By Date"
+msgstr "By Date"
+
+#: templates/filebrowser/include/filter.html:6
+msgid "Any Date"
+msgstr "Any Date"
+
+#: templates/filebrowser/include/filter.html:8
+msgid "Today"
+msgstr "Today"
+
+#: templates/filebrowser/include/filter.html:10
+msgid "Past 7 days"
+msgstr "Past 7 days"
+
+#: templates/filebrowser/include/filter.html:12
+msgid "Past 30 days"
+msgstr "Past 30 days"
+
+#: templates/filebrowser/include/filter.html:14
+msgid "This year"
+msgstr "This year"
+
+#: templates/filebrowser/include/filter.html:16
+msgid "By Type"
+msgstr "By Type"
+
+#: templates/filebrowser/include/filter.html:18
+msgid "All"
+msgstr "All"
+
+#: templates/filebrowser/include/filter.html:20
+#, python-format
+msgid "%(extension)s"
+msgstr "%(extension)s"
+
+#: templates/filebrowser/include/tableheader.html:13
+#: templates/filebrowser/include/tableheader.html:14
+msgid "Filename"
+msgstr "Filename"
+
+#: templates/filebrowser/include/tableheader.html:16
+#: templates/filebrowser/include/tableheader.html:17
+msgid "Size"
+msgstr "Size"
+
+#: templates/filebrowser/include/tableheader.html:19
+#: templates/filebrowser/include/tableheader.html:20
+msgid "Date"
+msgstr "Date"
+
+#: templates/mobile/user/ajustes.html:37
+#: templates/mobile2/user/ajustes.html:37 templates/user/ajustes.html:188
+msgid "Contraseña cambiada correctamente."
+msgstr "Password changed successfully."
+
+#: templates/mobile/user/ajustes.html:40
+#: templates/mobile2/user/ajustes.html:40 templates/user/ajustes.html:191
+msgid "Error al modificar la contraseña, inténtalo de nuevo."
+msgstr "Failed to change the password, try again."
+
+#: templates/mobile/user/ajustes.html:43
+#: templates/mobile2/user/ajustes.html:43
+#: templates/registration/password_change_form.html:12
+#: templates/user/ajustes.html:194
+msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+msgstr "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+
+#: templates/mobile/user/ajustes.html:47
+#: templates/mobile2/user/ajustes.html:47
+#: templates/registration/password_change_form.html:17
+#: templates/user/ajustes.html:198
+msgid "Old password:"
+msgstr "Old password:"
+
+#: templates/mobile/user/ajustes.html:49
+#: templates/mobile2/user/ajustes.html:49
+#: templates/registration/password_change_form.html:19
+#: templates/registration/password_reset_confirm.html:18
+#: templates/user/ajustes.html:200
+msgid "New password:"
+msgstr "New password:"
+
+#: templates/mobile/user/ajustes.html:51
+#: templates/mobile2/user/ajustes.html:51
+#: templates/registration/password_change_form.html:21
+#: templates/registration/password_reset_confirm.html:20
+#: templates/user/ajustes.html:202
+msgid "Confirm password:"
+msgstr "Confirm password:"
+
+#: templates/mobile/user/ajustes.html:53
+#: templates/mobile2/user/ajustes.html:53
+#: templates/registration/password_change_form.html:23
+#: templates/registration/password_reset_confirm.html:21
+#: templates/user/ajustes.html:204
+msgid "Change my password"
+msgstr "Change my password"
+
+#: templates/mobile/user/ajustes.html:59
+#: templates/mobile2/user/ajustes.html:59 templates/user/ajustes.html:115
+msgid "Datos modificados correctamente"
+msgstr "Data modified correctly"
+
+#: templates/mobile/user/ajustes.html:62
+#: templates/mobile2/user/ajustes.html:62 templates/user/ajustes.html:118
+msgid "Error al modificar los datos"
+msgstr "There was an error to modify the data"
+
+#: templates/mobile/user/user.html:25 templates/mobile2/user/user.html:29
+#: templates/user/user.html:239
+msgid "Puntos"
+msgstr "Points"
+
+#: templates/registration/invitacion.html:5
+msgid "Hubo un error al generar la invitación. Comprueba que el email es correcto."
+msgstr "There was an error generating the invitation. Check that email is correct."
+
+#: templates/registration/invitacion.html:10
+msgid "Tu email ha sido registrado, te enviaremos lo antes posible una invitación para registrarte. Si no lo has recibido en 24 horas, comprueba en tu carpeta de Spam (correo no deseado)."
+msgstr "Your email has been registered, we will send you an invitation as soon as possible to register. If you have not received within 24 hours, check your spam folder."
+
+#: templates/registration/logged_out.html:4
+#: templates/registration/password_change_done.html:4
+#: templates/registration/password_change_form.html:4
+#: templates/registration/password_reset_complete.html:4
+#: templates/registration/password_reset_confirm.html:4
+msgid "Home"
+msgstr "Home"
+
+#: templates/registration/logged_out.html:8
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Thanks for spending some quality time with the Web site today."
+
+#: templates/registration/logged_out.html:10
+msgid "Log in again"
+msgstr "Log in again"
+
+#: templates/registration/password_change_done.html:3
+#: templates/registration/password_change_form.html:3
+msgid "Documentation"
+msgstr "Documentation"
+
+#: templates/registration/password_change_done.html:3
+#: templates/registration/password_change_form.html:3
+msgid "Change password"
+msgstr "Change password"
+
+#: templates/registration/password_change_done.html:3
+#: templates/registration/password_change_form.html:3
+msgid "Log out"
+msgstr "Log out"
+
+#: templates/registration/password_change_done.html:4
+#: templates/registration/password_change_form.html:4
+#: templates/registration/password_change_form.html:6
+#: templates/registration/password_change_form.html:10
+msgid "Password change"
+msgstr "Password change"
+
+#: templates/registration/password_change_done.html:6
+#: templates/registration/password_change_done.html:10
+msgid "Password change successful"
+msgstr "Password change successful"
+
+#: templates/registration/password_change_done.html:12
+msgid "Your password was changed."
+msgstr "Your password was changed."
+
+#: templates/registration/password_reset_complete.html:4
+#: templates/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_form.html:3
+msgid "Password reset"
+msgstr "Password reset"
+
+#: templates/registration/password_reset_complete.html:6
+#: templates/registration/password_reset_complete.html:10
+msgid "Password reset complete"
+msgstr "Password reset complete"
+
+#: templates/registration/password_reset_complete.html:12
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Your password has been set. You may go ahead and log in now."
+
+#: templates/registration/password_reset_complete.html:14
+msgid "Log in"
+msgstr "Log in"
+
+#: templates/registration/password_reset_confirm.html:4
+msgid "Password reset confirmation"
+msgstr "Password reset confirmation"
+
+#: templates/registration/password_reset_confirm.html:12
+msgid "Enter new password"
+msgstr "Enter new password"
+
+#: templates/registration/password_reset_confirm.html:14
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
+msgstr "Please enter your new password twice so we can verify you typed it in correctly."
+
+#: templates/registration/password_reset_confirm.html:26
+msgid "Password reset unsuccessful"
+msgstr "Password reset unsuccessful"
+
+#: templates/registration/password_reset_confirm.html:28
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr "The password reset link was invalid, possibly because it has already been used. Please request a new password reset."
+
+#: templates/registration/password_reset_done.html:3
+msgid "Password reset successful"
+msgstr "Password reset successful"
+
+#: templates/registration/password_reset_done.html:5
+msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
+msgstr "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
+
+#: templates/registration/password_reset_email.html:2
+msgid "You're receiving this e-mail because you requested a password reset"
+msgstr "You're receiving this e-mail because you requested a password reset"
+
+#: templates/registration/password_reset_email.html:3
+#, python-format
+msgid "for your user account at %(site_name)s"
+msgstr "for your user account at %(site_name)s"
+
+#: templates/registration/password_reset_email.html:5
+msgid "La nueva contraseña es:"
+msgstr "The new password is:"
+
+#: templates/registration/password_reset_email.html:7
+msgid "Your username, in case you've forgotten:"
+msgstr "Your username, in case you've forgotten:"
+
+#: templates/registration/password_reset_email.html:9
+msgid "Thanks for using our site!"
+msgstr "Thanks for using our site!"
+
+#: templates/registration/password_reset_email.html:11
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "The %(site_name)s team"
+
+#: templates/registration/password_reset_form.html:9
+msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
+msgstr "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
+
+#: templates/registration/password_reset_form.html:14
+msgid "E-mail address:"
+msgstr "E-mail address:"
+
+#: templates/registration/password_reset_form.html:14
+msgid "Reset my password"
+msgstr "Reset my password"
+
+#: templates/sitios/comentarios_list.html:23
+msgid "Editar comentario"
+msgstr "Edit comment"
+
+#: templates/sitios/evento_list.html:10
+msgid "Ampliar información"
+msgstr "More information"
+
+#: templates/sitios/evento_list.html:36
+msgid "No se han encontrado eventos"
+msgstr "No events have been found."
+
+#: templates/sitios/friends_list.html:11
+msgid "Enviar mensaje"
+msgstr "Send message"
+
+#: templates/sitios/friends_list.html:12
+msgid "Eliminar amigo"
+msgstr "Remove friend"
+
+#: templates/sitios/nvivo_list.html:9
+msgid "No hay eventos disponibles"
+msgstr "No events available"
+
+#: templates/sitios/sitio_list.html:52 templates/sitios/user_list.html:53
+msgid "Resultados de la búsqueda para"
+msgstr "Search results for"
+
+#: templates/sitios/sitio_list.html:53
+msgid "Listado de sitios"
+msgstr "List of places"
+
+#: templates/sitios/sitio_list.html:61 templates/sitios/user_list.html:59
+msgid "buscar"
+msgstr "search"
+
+#: templates/sitios/sitio_list.html:119
+msgid "Más visitados"
+msgstr "Most visited"
+
+#: templates/sitios/sitio_list.html:203
+msgid "Utiliza el buscador o la lista de categorías para encontrar sitios de tu interés."
+msgstr "Use the search engine or the list of categories to find places of interest."
+
+#: templates/sitios/user_list.html:29
+msgid "Más activos"
+msgstr "Most active"
+
+#: templates/sitios/user_list.html:38
+msgid "Últimos"
+msgstr "Latest"
+
+#: templates/sitios/user_list.html:68
+msgid "Añadir como amigo"
+msgstr "Add as friend"
+
+#: templates/sitios/user_list.html:81 templates/user/user.html:250
+msgid "Enviar mensaje privado"
+msgstr "Send private message"
+
+#: templates/user/ajustes.html:6 templates/user/menu.html:16
+#: templates/user/recomendaciones.html:6
+msgid "Recomendaciones"
+msgstr "Recommendations"
+
+#: templates/user/ajustes.html:71
+msgid "Guardando..."
+msgstr "Saving..."
+
+#: templates/user/ajustes.html:76
+msgid "Comprueba que todos los pesos suman 100%."
+msgstr "Check that all weights add to 100%."
+
+#: templates/user/ajustes.html:76
+msgid "Puedes pinchar en un desplazador y usar las teclas izquierda y derecha para mayor precisión."
+msgstr "You can click on a slider and use the left and right keys for accuracy."
+
+#: templates/user/ajustes.html:108
+msgid ""
+"Desde aquí podrás actualizar <a href=\"#datos\">tus <strong>datos</strong> personales</a>, <a href=\"#username\">cambiar tu <strong>nombre de usuario</strong></a>, \n"
+"\t\t<a href=\"#password\">cambiar tu <strong>contraseña</strong></a> o <a href=\"#tag_levels\">ajustar la importancia de las <strong>etiquetas</strong></a>."
+msgstr "From here you can update <a href=\"#datos\">your personal <strong>details</strong></a> , <a href=\"#username\">change <strong>your username</strong></a> , <a href=\"#password\">change your <strong>password</strong></a> or <a href=\"#tag_levels\">set the importance of <strong>tags</strong></a> ."
+
+#: templates/user/ajustes.html:112
+msgid "Datos Personales"
+msgstr "Personal Data"
+
+#: templates/user/ajustes.html:140
+msgid "Gustos"
+msgstr "Tastes"
+
+#: templates/user/ajustes.html:152 templates/user/ajustes.html.py:234
+msgid "Guardar"
+msgstr "Save"
+
+#: templates/user/ajustes.html:156 templates/user/ajustes.html.py:182
+msgid "Cambiar nombre de usuario"
+msgstr "Change username"
+
+#: templates/user/ajustes.html:158
+msgid "Nombre de usuario cambiado correctamente."
+msgstr "Username changed successfully."
+
+#: templates/user/ajustes.html:161
+msgid "Error al cambiar el nombre de usuario, inténtalo de nuevo."
+msgstr "Failed to change the username, try again."
+
+#: templates/user/ajustes.html:164
+msgid "Utiliza este formulario para cambiar tu nombre de usuario."
+msgstr "Use this form to change your username."
+
+#: templates/user/ajustes.html:186
+msgid "Cambiar Contraseña"
+msgstr "Change Password"
+
+#: templates/user/ajustes.html:208
+msgid "Importancia de las etiquetas"
+msgstr "Importance of tags"
+
+#: templates/user/ajustes.html:209
+msgid "Para ajustar mejor el sistema de recomendación a tus preferencias, puedes modificar la importancia que se le da a los diferentes conjuntos de etiquetas sobre un tipo de sitio determinado."
+msgstr "To better align the recommendation system to your preferences, you can change the importance given to the different sets of tags on a given place type."
+
+#: templates/user/ajustes.html:221
+msgid "Pincha sobre el icono de un desplazador y usa las teclas izquierda y derecha para desplazar con más precisión."
+msgstr "Click on the icon of a shifter and use the left and right keys to move with more precision."
+
+#: templates/user/ayuda.html:6 templates/user/menu.html:43
+msgid "Ayuda"
+msgstr "Help"
+
+#: templates/user/login_register.html:5
+msgid "¡Hola"
+msgstr "Hello"
+
+#: templates/user/login_register.html:6
+msgid "Tu cuenta"
+msgstr "Your Account"
+
+#: templates/user/login_register.html:7 templates/user/menu.html:25
+msgid "Mensajes"
+msgstr "Messages"
+
+#: templates/user/login_register.html:8
+msgid "Cerrar sesión"
+msgstr "Logout"
+
+#: templates/user/login_register.html:12
+msgid "Iniciar sesión"
+msgstr "Login"
+
+#: templates/user/login_register.html:13
+msgid "Registrarse"
+msgstr "Register"
+
+#: templates/user/menu.html:7
+msgid "Ficha"
+msgstr "User"
+
+#: templates/user/menu.html:8
+msgid "Resumen de tu cuenta personal."
+msgstr "Summary of your personal account."
+
+#: templates/user/menu.html:17
+msgid "Encuentra sitios que pueden ser de tu interés."
+msgstr "Find places that may be of interest."
+
+#: templates/user/menu.html:26
+msgid "Recepción y envío de mensajes privados."
+msgstr "Receiving and sending private messages."
+
+#: templates/user/menu.html:34
+msgid "Ajustes"
+msgstr "Settings"
+
+#: templates/user/menu.html:35
+msgid "Modifica tus preferencias y datos personales."
+msgstr "Edit your preferences and personal details"
+
+#: templates/user/menu.html:44
+msgid "Aprende a utilizar andalucíaPeople."
+msgstr "Learn to use AndalucíaPeople"
+
+#: templates/user/recomendaciones.html:80
+msgid "Buscando... (puede tardar unos segundos, ten paciencia)"
+msgstr "Searching... (May take a few seconds, be patient)"
+
+#: templates/user/recomendaciones.html:86
+msgid "Resultados"
+msgstr "Results"
+
+#: templates/user/recomendaciones.html:89
+msgid "Sin resultados. Si conoces algún sitio nuevo <a href=\"/'+ciudad+'/sitio/add/\">añádelo tú mismo</a>."
+msgstr "No results found. If you know a new place <a href=\"/'+ciudad+'/sitio/add/\">add it yourself</a> ."
+
+#: templates/user/recomendaciones.html:109
+msgid "El sistema de recomendación no ha encontrado ningún resultado a tu medida. A continuación te ofrecemos una lista con los sitios más populares de"
+msgstr "The recommendation system did not find any results for you. Here is a list of most popular places in"
+
+#: templates/user/recomendaciones.html:138
+#, python-format
+msgid ""
+"Completa el siguiente formulario para poder recomendarte sitios que puedan ser de tu interés.\n"
+"<strong>Para que el sistema funcione correctamente es necesario haber votado varios <a href=\"%(link_sitios)s\">sitios</a> y haber escogido <a href=\"%(link_ajustes)s\">tus gustos</a> en tu cuenta.</strong>"
+msgstr "Complete the form below to recommend sites that may be of interest. <strong>For a better behavior of the system,  you need to vote several <a href=\"%(link_sitios)s\">places</a> and choose <a href=\"%(link_ajustes)s\">your preferences</a> in your account.</strong>"
+
+#: templates/user/recomendaciones.html:143
+msgid "Parámetros de búsqueda"
+msgstr "Search params"
+
+#: templates/user/user.html:78 templates/user/user.html.py:100
+msgid "¿Seguro que ya no es tu amigo?"
+msgstr "Are you sure that is not your friend?"
+
+#: templates/user/user.html:112
+msgid "¿Seguro que quieres quitar este sitio de tu lista de favoritos?"
+msgstr "Are you sure you want to remove this site from your list of favorites?"
+
+#: templates/user/user.html:124
+msgid "¿Seguro que quieres borrar esta fotografía?"
+msgstr "Are you sure you want to delete this photo?"
+
+#: templates/user/user.html:138
+msgid "Sección en desarrollo, disculpe las molestias"
+msgstr "Section under construction, sorry for the inconvenience"
+
+#: templates/user/user.html:230
+msgid "¿Cambiar?"
+msgstr "Change?"
+
+#: templates/user/user.html:254
+msgid "¿Eliminar?"
+msgstr "Delete?"
+
+#: templates/user/user.html:258
+msgid "Añadir a tu lista de amigos"
+msgstr "Add to your friend list"
+
+#: templates/user/user.html:262
+msgid "Ajustar preferencias"
+msgstr "Edit your preferences"
+
+#: templates/user/user.html:266
+msgid "Conectar con Facebook"
+msgstr "Connect with Facebook"
+
+#: templates/user/user.html:275
+msgid "completo"
+msgstr "full"
+
+#: templates/user/user.html:278
+msgid "Cambia tu foto de usuario"
+msgstr "Change your avatar"
+
+#: templates/user/user.html:279
+msgid "Rellena tus gustos"
+msgstr "Fill your taste"
+
+#: templates/user/user.html:280
+msgid "Añade nuevos sitios"
+msgstr "Add new places"
+
+#: templates/user/user.html:281
+msgid "Busca tus sitios favoritos"
+msgstr "Search your favorite places"
+
+#: templates/user/user.html:282
+msgid "Haz amigos"
+msgstr "Make friends"
+
+#: templates/user/user.html:283
+msgid "Vota al menos 5 sitios"
+msgstr "Vote at least 5 places"
+
+#: templates/user/user.html:284
+msgid "Opina sobre algún sitio"
+msgstr "Comment on somewhere"
+
+#: templates/user/user.html:285
+msgid "Sube fotos de algún sitio"
+msgstr "Upload photos from somewhere"
+
+#: templates/user/user.html:296
+msgid "Amigos"
+msgstr "Friends"
+
+#: templates/user/user.html:307
+msgid "Añade a nuevos amigos"
+msgstr "Add new friends"
+
+#: templates/user/user.html:309
+msgid "Buscador de usuarios"
+msgstr "Search users"
+
+#: templates/user/user.html:317
+msgid "Sitios favoritos"
+msgstr "Favorite places"
+
+#: templates/user/user.html:326
+msgid "¿Seguro que no tienes algún sitio favorito?"
+msgstr "Are you sure you do not have a favorite place?"
+
+#: templates/user/user.html:328
+msgid "No tiene sitios favoritos, ¡qué exigente!"
+msgstr "Not favorite places."
+
+#: templates/user/user.html:336
+msgid "Sitios enviados"
+msgstr "Places submitted"
+
+#: templates/user/user.html:346
+msgid "No ha enviado ningún sitio, ¡qué vago!"
+msgstr "Not submitted places."
+
+#: templates/user/user.html:364
+msgid "Ir"
+msgstr "Go"
+
+#: templates/user/user.html:382
+msgid "Prueba a subir fotos de un sitio, ¡es muy fácil!"
+msgstr "Try to upload photos of a place, it's easy!"
+
+#: templates/user/user.html:384
+msgid "No ha subido ninguna foto, y seguro que tiene cámara..."
+msgstr "Not upload any photo."
+
+#: templates/user/user.html:401
+msgid "Cuando opines sobre un sitio, aquí aparecerán tus comentarios"
+msgstr "No comments"
+
+#: templates/user/user.html:403
+msgid "Sin comentarios"
+msgstr "No comments"
+
+#~ msgid "%(tipo)s de %(ciudad)s"
+#~ msgstr " %(tipo)s in %(ciudad)s "
+
+#~ msgid "Resultados en el mapa para %(tags)s"
+#~ msgstr "Map results for %(tags)s "
+
+#~ msgid "AndalucíaPeople | Sala de prensa"
+#~ msgstr "AndalucíaPeople | Press room"
+
+#~ msgid "buscar sitios"
+#~ msgstr "search places"
+
+#~ msgid "Este sitio pertenece a la red"
+#~ msgstr "This site belongs to the network"
+
+#~ msgid "Eventos para hoy"
+#~ msgstr "Events for today"
+
+#~ msgid "Ver listado de resultados"
+#~ msgstr "See list of results"
+
+#~ msgid "Ver resultados en el mapa"
+#~ msgstr "View results on map"
+
+#~ msgid "Etiquetas"
+#~ msgstr "Tags"
+
+#~ msgid "Valoración"
+#~ msgstr "Rating"
+
+#~ msgid "¡Por cada nuevo amigo que hagas conseguirás 5 minipuntos!"
+#~ msgstr "For every new friend you do get 5 points!"
+
+#~ msgid "display"
+#~ msgstr "Filename"
+
+#~ msgid "user"
+#~ msgstr "Filename"
+
+#~ msgid "message"
+#~ msgstr "9 Months"
+
+#~ msgid "Username"
+#~ msgstr "Filename"
+
+#~ msgid "Email address"
+#~ msgstr "E-mail address:"
+
+#~ msgid "Password"
+#~ msgstr "Password reset"
+
+#~ msgid "Password (again)"
+#~ msgstr "Password change"
+
+#~ msgid "Language selection"
+#~ msgstr "Logout"
+
+#~ msgid "Messages"
+#~ msgstr "9 Months"
+
+#~ msgid "Display:"
+#~ msgstr "Filename"
+
+#~ msgid "Displaying:"
+#~ msgstr "Filename"
+
+#~ msgid "Entrar con Facebook"
+#~ msgstr "Connect with Facebook"
+
+#~ msgid "Entrar usando Twitter"
+#~ msgstr "Log in using Twitter"
+
+#~ msgid "Entrar usando Facebook"
+#~ msgstr "Login using Facebook"
+
+#~ msgid "Message successfully sent."
+#~ msgstr "Password change successful"
+
+#~ msgid "Comentario"
+#~ msgstr "Comments"
+
+#~ msgid "Sorry, the requested post does not exist."
+#~ msgstr "We're sorry, pero The requested page not could be found."
+
+#~ msgid "Sorry, the requested page does not exist."
+#~ msgstr "We're sorry, pero The requested page not could be found."
+
+#~ msgid "Blogroll"
+#~ msgstr "Blog"
+
+#~ msgid "Error 404"
+#~ msgstr "Error:"
+
+#~ msgid "Vietnamese"
+#~ msgstr "Filename"
+
+#~ msgid "Any date"
+#~ msgstr "Any Date"
+
+#~ msgid "Changed %s."
+#~ msgstr "Change password"
+
+#~ msgid "Change %s"
+#~ msgstr "Change password"
+
+#~ msgid "%(count)s %(name)s was changed successfully."
+#~ msgid_plural "%(count)s %(name)s were changed successfully."
+#~ msgstr[0] "Password change successful"
+#~ msgstr[1] "Password change successful"
+
+#~ msgid "Change history: %s"
+#~ msgstr "Change password"
+
+#~ msgid "Date:"
+#~ msgstr "Date"
+
+#~ msgid "History"
+#~ msgstr "Directory"
+
+#~ msgid "None available"
+#~ msgstr "Page unavailable"
+
+#~ msgid "Username:"
+#~ msgstr "Filename"
+
+#~ msgid "Password:"
+#~ msgstr "Password reset"
+
+#~ msgid "Date/time"
+#~ msgstr "Date"
+
+#~ msgid "User"
+#~ msgstr "Filename"
+
+#~ msgid "Enter a username and password."
+#~ msgstr "Enter new password"
+
+#~ msgid "New password"
+#~ msgstr "New password:"
+
+#~ msgid "filter:"
+#~ msgstr "Filter"
+
+#~ msgid "App %r not found"
+#~ msgstr "Page not found"
+
+#~ msgid "Documentation bookmarklets"
+#~ msgstr "Documentation"
+
+#~ msgid "Documentation for this page"
+#~ msgstr "Documentation"
+
+#~ msgid "Password changed successfully."
+#~ msgstr "Password change successful"
+
+#~ msgid "Change password: %s"
+#~ msgstr "Change password"
+
+#~ msgid "Password confirmation"
+#~ msgstr "Password reset confirmation"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Password reset confirmation"
+
+#~ msgid "name"
+#~ msgstr "Filename"
+
+#~ msgid "codename"
+#~ msgstr "Filename"
+
+#~ msgid "e-mail address"
+#~ msgstr "E-mail address:"
+
+#~ msgid "password"
+#~ msgstr "Password reset"
+
+#~ msgid "Logged out"
+#~ msgstr "Log out"
+
+#~ msgid "Enter a valid e-mail address."
+#~ msgstr "E-mail address:"
+
+#~ msgid "%(site_name)s comments"
+#~ msgstr "The %(site_name)s team"
+
+#~ msgid "Latest comments on %(site_name)s"
+#~ msgstr "for your user account at %(site_name)s"
+
+#~ msgid "Comment"
+#~ msgstr "Comments"
+
+#~ msgid "user's name"
+#~ msgstr "Filename"
+
+#~ msgid "user's email address"
+#~ msgstr "E-mail address:"
+
+#~ msgid "IP address"
+#~ msgstr "E-mail address:"
+
+#~ msgid "comments"
+#~ msgstr "Comments"
+
+#~ msgid "Thanks for approving"
+#~ msgstr "Thanks for using our site!"
+
+#~ msgid "Thanks for removing"
+#~ msgstr "Thanks for using our site!"
+
+#~ msgid "Thanks for flagging"
+#~ msgstr "Thanks for using our site!"
+
+#~ msgid "or make changes"
+#~ msgstr "Password change"
+
+#~ msgid "enable comments"
+#~ msgstr "No comments"
+
+#~ msgid "Multi polygon"
+#~ msgstr "Multiple Upload"
+
+#~ msgid "seven"
+#~ msgstr "Events"
+
+#~ msgid "today"
+#~ msgstr "Today"
+
+#~ msgid "Uri"
+#~ msgstr "User"
+
+#~ msgid "Ciudad Real"
+#~ msgstr "City"
+
+#~ msgid "Corps Consulate"
+#~ msgstr "Other inquiries"
+
+#~ msgid "Aguascalientes"
+#~ msgstr "Next"
+
+#~ msgid "Estado de México"
+#~ msgstr "List of places"
+
+#~ msgid "Namestovo"
+#~ msgstr "Name"
+
+#~ msgid "redirect to"
+#~ msgstr "Directory"
+
+#~ msgid "E-mail address"
+#~ msgstr "E-mail address:"
+
+#~ msgid "File path"
+#~ msgstr "File"
+
+#~ msgid "Wed"
+#~ msgstr "Web"
+
+#~ msgid "feb"
+#~ msgstr "Web"
+
+#~ msgid "year"
+#~ msgid_plural "years"
+#~ msgstr[0] "This year"
+#~ msgstr[1] "This year"
+
+#~ msgid "day"
+#~ msgid_plural "days"
+#~ msgstr[0] "Today"
+#~ msgstr[1] "Today"
+
+#~ msgid "The %(verbose_name)s was deleted."
+#~ msgstr "The %(site_name)s team"

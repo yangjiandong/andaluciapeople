@@ -1,0 +1,41 @@
+{% extends "mobile/base.html" %}
+
+{% block head_label%}
+profile="http://www.w3.org/2006/03/hcard"
+{% endblock %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block header %}
+<script type="text/javascript" src="/media/js/jquery-1.2.6.min.js"></script>
+<script src="http://www.google.com/jsapi?key=ABQIAAAAMareeXTQYEy_0n4K47Fq8BS_GKxdBRg7amBf4RphJxBOqJNF3RSsJe_nh28CoQmy91tGCSWEOwcixg" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!--
+	var cod_ciudad = {{ cod_ciudad }};
+	var ciudad = '{{ ciudad }}';
+	var busqueda = '{{ busqueda }}';
+-->
+</script>
+<script src="/media/js/map.datos.js" type="text/javascript"></script>
+<script src="/media/js/mapiconmaker_packed.js" type="text/javascript"></script>
+<script src="/media/js/progressbarcontrol_packed.js" type="text/javascript"></script>
+<script src="/media/js/map2.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block cuerpo %}
+<div id="buscador_sitios">
+	<form id="buscador_sitios_form" method="post" action="" style="float: left">{% csrf_token %}
+	{% for field in busca_sitios_form %}
+	    {{ field }}
+	    {% if field.help_text %}{{ field.help_text }}{% endif %}
+	    {% if field.errors %}{{ field.errors }}{% endif %}
+	{% endfor %}
+	<input type="submit" value="buscar" />
+	<a href="/{{ ciudad }}/sitios/{{ busqueda }}">Ver listado de resultados &raquo;</a>
+	</form>
+	
+	
+</div>
+<div id="map" style="width: 700px; height: 500px;">Cargando mapa...</div>
+{% endblock %}

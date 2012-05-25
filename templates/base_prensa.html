@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.prensa %}">{% trans "Prensa" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" media="screen" href="/media/css/base_prensa.css" />
+<script type="text/javascript">
+<!--
+var tam = '468x60';
+var color = 'blanco';
+	
+$(document).ready(function() {
+	$('#change_468x60').bind('click', function(){
+		$('.tabla_logos').hide();
+		$('#logos_468x60_'+color).show();
+		tam = '468x60';
+		return false;
+	});
+	$('#change_300x82').bind('click', function(){
+		$('.tabla_logos').hide();
+		$('#logos_300x82_'+color).show();
+		tam = '300x82';
+		return false;
+	});
+	$('#change_140x70').bind('click', function(){
+		$('.tabla_logos').hide();
+		$('#logos_140x70_'+color).show();
+		tam = '140x70';
+		return false;
+	});
+	$('#change_blanco').bind('click', function(){
+		$('.tabla_logos').hide();
+		$('#logos_'+tam+'_blanco').show();
+		color = 'blanco';
+		return false;
+	});
+	$('#change_negro').bind('click', function(){
+		$('.tabla_logos').hide();
+		$('#logos_'+tam+'_negro').show();
+		color = 'negro';
+		return false;
+	});
+});
+//-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+	<h3>{% trans "Sala de Prensa" %}</h3>
+	
+	<p class="info">{% blocktrans %}Si trabajas en un medio de comunicación y quieres hablar sobre AndalucíaPeople, mándanos un correo electrónico a <a href="mailto:prensa@andaluciapeople.com">prensa@andaluciapeople.com</a> para ponernos en contacto contigo.{% endblocktrans %}</p>
+	
+	<table id="noticias">
+	<thead>
+	<tr><th>Fecha</th><th>Noticia</th><th>Enlace</th></tr>
+	</thead>
+	
+	<tbody>
+	<tr><td class="fecha">10 Abril 2008</td><td><strong>Reseña en <a href="http://www.ideal.es">Ideal</a>, el periódico con más lectores en Granada.</strong></td><td class="enlace"><a href="http://farm3.static.flickr.com/2236/2404425862_0fafff3acb.jpg">Leer</a></td></tr>
+
+	<tr><td class="fecha">01 Abril 2008</td><td><strong>Reportaje sobre GranadaPeople en el programa <a href="http://www.rtve.es/page?CA_HOME">Cámara Abierta 2.0</a> en la 2 de TVE.</strong></td><td class="enlace"><a href="http://www.rtve.es/page?CA_REPORTAJES&pagina=reportajes&idReportaje=6881">Ver vídeo</a></td></tr>
+
+	<tr><td class="fecha">Febrero 2008</td><td><strong>Reseña en la revista <a href="http://revista.networkingactivo.com">Networking Activo</a>.</strong></td><td class="enlace"><a href="upload/pdf/networkingactivo01.pdf">Descargar</a> (5.3MB)</td></tr>
+	
+	<tr><td class="fecha">25 Noviembre 2007</td><td><strong>Entrevista en la desconexión provincial del programa "A vivir que son dos días" de la <a href="http://www.cadenaser.com">Cadena Ser</a>.</strong></td><td class="enlace"><a href="http://www.cadenaser.com/a-vivir-que-son-dos-dias/">Visitar</a></td></tr>
+	
+	<tr><td class="fecha">24 Noviembre 2007</td><td><strong>Presentación de GranadaPeople v2 en <a href="http://www.eventoblog.com">Evento Blog España 2007</a> dentro de la mesa de proyectos emprendedores.</strong></td><td class="enlace"><a href="http://www.eventoblog.com/2007/11/24/mesa-de-proyectos-emprendedores/">Visitar</a><br/><a href="http://youtube.com/watch?v=HDKI_wDoIrQ">Entrevista</a></td></tr>
+
+	<tr><td class="fecha">13 Noviembre 2007</td><td><strong>Artículo en el diario <a href="http://www.granadahoy.com">GranadaHoy</a>. (Aunque en el artículo pone dos granadinos, José Luis es jiennense)</strong></td><td class="enlace"><a href="img/granadahoy.jpg">Descargar</a></td></tr>
+		
+	<tr><td class="fecha">28 Septiembre 2007</td><td><strong>Entrevista en el blog "Gente Internet" de LaVanguardia.es.</strong></td><td class="enlace"><a href="http://www.lavanguardia.es/lv24h/20070928/53397780493.html">Visitar</a><br/><a href="upload/audio/entrevista_lavanguardia.mp3">Escuchar mp3</a> (4.1MB)</td></tr>
+	
+	<tr><td class="fecha">7 Septiembre 2007</td><td><strong>Entrada en el blog "wwwhat's new".</strong></td><td class="enlace"><a href="http://wwwhatsnew.com/2007/09/07/granada-people-bares-y-restaurantes-de-granada/">Visitar</a></td></tr>
+
+	<tr><td class="fecha">14 Agosto 2007</td><td><strong>Entrada en el blog de viajes "Diario del Viajero"</strong>.</td><td class="enlace"><a href="http://www.diariodelviajero.com/2007/08/14-granadapeople-guia-del-ocio-granadino-con-google-maps">Visitar</a></td></tr>
+	
+	<tr><td class="fecha">13 Agosto 2007</td><td><strong>Entrada en el blog de negocios de internet "Loog(ic)".</strong></td><td class="enlace"><a href="http://www.loogic.com/index.php/2007/08/13/granada-people-la-guia-del-ocio-para-granada">Visitar</a></td></tr>
+	
+	<tr><td class="fecha">14 Mayo 2007</td><td><strong>Entrevista en el programa <a href="http://www.canalsur.es/web/contenido?pag=/contenidos/programas/aviso_para_navegantes/avisoparanavegantes&vE=GRUPO">Aviso para navegantes, Canal Sur Radio</a></strong></td><td class="enlace"><a href="upload/audio/AvisoParaNavegantes_140507.mp3">Escuchar mp3</a> (6.3MB)</td></tr>
+
+	<tr><td class="fecha">11 Mayo 2007</td><td><strong>Entrevista de <a href="http://audiovisual.blogdns.com">Audiovisual</a></strong></td><td class="enlace"><a href="http://www.youtube.com/v/hKcTQWVIpWI">Ver vídeo</a></td></tr>
+	
+	<tr><td class="fecha">10 Mayo 2007</td><td><strong>Presentación de GranadaPeople en las <a href="http://geneura.ugr.es/~jmerelo/jornadas/BMC4/">IV Jornadas sobre Bitácoras y Medios de Comunicación</a></strong></td><td class="enlace"><!--Huevo de Pascua: <a href="upload/audio/Sblanco-EspecialBMC4Granadapeoplecom356.mp3">Escuchar mp3</a> (5.8MB)--></td></tr>
+	</tbody>
+	</table>
+
+	<h3>{% trans "Logotipos" %}</h3>
+	<p class="info">{% trans "Para enlazarnos puedes usar alguna de estas imágenes. Elige el formato y color que más te convenga." %}</p>
+	
+	<div id="menu_logos">
+	{% trans "Tamaño" %}: <a id="change_468x60" href="#">468x60</a> | <a id="change_300x82" href="#">300x82</a> | <a id="change_140x70" href="#">140x70</a><br/>
+	{% trans "Fondo" %}: <a id="change_blanco" href="#">{% trans "blanco" %}</a> | <a id="change_negro" href="#">{% trans "negro" %}</a>
+	</div>
+	
+	<table class="tabla_logos" id="logos_468x60_blanco">
+	    <tr>
+	        <td><img src="/media/img/logos/andaluciapeople_468x60.jpg" alt="andaluciapeople_468x60.jpg" /><br/>
+	        Andalucía | Fondo blanco | Tamaño: 468x60 px</td>
+	        <td><textarea rows="3" cols="35">&lt;a href="http://andaluciapeople.com" title="andaluciapeople.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/andaluciapeople_468x60.jpg" alt="andaluciapeople.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+		{% for city in lista_ciudades %}
+	    <tr>
+	        <td><img src="/media/img/logos/{{city}}people_468x60.jpg" alt="{{city}}people_468x60.jpg" /><br/>
+	        Provincia: {{city}} | Fondo blanco | Tamaño: 468x60 px</td>
+	        <td><textarea rows="3" cols="35">&lt;a href="http://{{city}}people.com" title="{{city}}people.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/{{city}}people_468x60.jpg" alt="{{city}}people.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+
+	<table class="tabla_logos" id="logos_468x60_negro" style="display: none">
+	    <tr>
+	        <td><img src="/media/img/logos/andaluciapeople_468x60_negro.jpg" alt="andaluciapeople_468x60_negro.jpg" /><br/>
+	        Andalucía | Fondo negro | Tamaño: 468x60 px</td>
+	        <td><textarea rows="3" cols="35">&lt;a href="http://andaluciapeople.com" title="andaluciapeople.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/andaluciapeople_468x60_negro.jpg" alt="andaluciapeople.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+		{% for city in lista_ciudades %}
+	    <tr>
+	        <td><img src="/media/img/logos/{{city}}people_468x60_negro.jpg" alt="{{city}}people_468x60_negro.jpg" /><br/>
+	        Provincia: {{city}} | Fondo negro | Tamaño: 468x60 px</td>
+	        <td><textarea rows="3" cols="35">&lt;a href="http://{{city}}people.com" title="{{city}}people.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/{{city}}people_468x60_negro.jpg" alt="{{city}}people.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	
+	<table class="tabla_logos" id="logos_300x82_blanco" style="display: none">
+	    <tr>
+	        <td><img src="/media/img/logos/andaluciapeople_300x82.jpg" alt="andaluciapeople_300x82.jpg" /><br/>
+	        Andalucía | Fondo blanco | Tamaño: 300x82 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://andaluciapeople.com" title="andaluciapeople.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/andaluciapeople_300x82.jpg" alt="andaluciapeople.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+		{% for city in lista_ciudades %}
+	    <tr>
+	        <td><img src="/media/img/logos/{{city}}people_300x82.jpg" alt="{{city}}people_300x82.jpg" /><br/>
+	        Provincia: {{city}} | Fondo blanco | Tamaño: 300x82 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://{{city}}people.com" title="{{city}}people.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/{{city}}people_300x82.jpg" alt="{{city}}people.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	
+	<table class="tabla_logos" id="logos_300x82_negro" style="display: none">
+	    <tr>
+	        <td><img src="/media/img/logos/andaluciapeople_300x82_negro.jpg" alt="andaluciapeople_300x82_negro.jpg" /><br/>
+	        Andalucía | Fondo negro | Tamaño: 300x82 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://andaluciapeople.com" title="andaluciapeople.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/andaluciapeople_300x82_negro.jpg" alt="andaluciapeople.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+		{% for city in lista_ciudades %}
+	    <tr>
+	        <td><img src="/media/img/logos/{{city}}people_300x82_negro.jpg" alt="{{city}}people_300x82_negro.jpg" /><br/>
+	        Provincia: {{city}} | Fondo negro | Tamaño: 300x82 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://{{city}}people.com" title="{{city}}people.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/{{city}}people_300x82_negro.jpg" alt="{{city}}people.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	
+	<table class="tabla_logos" id="logos_140x70_blanco" style="display: none">
+	    <tr>
+	        <td><img src="/media/img/logos/andaluciapeople_140x70.gif" alt="andaluciapeople_140x70.gif" /><br/>
+	        Andalucía | Fondo blanco | Tamaño: 140x70 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://andaluciapeople.com" title="andaluciapeople.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/andaluciapeople_140x70.gif" alt="andaluciapeople.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+		{% for city in lista_ciudades %}
+	    <tr>
+	        <td><img src="/media/img/logos/{{city}}people_140x70.gif" alt="{{city}}people_140x70.gif" /><br/>
+	        Provincia: {{city}} | Fondo blanco | Tamaño: 140x70 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://{{city}}people.com" title="{{city}}people.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/{{city}}people_140x70.gif" alt="{{city}}people.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	
+	<table class="tabla_logos" id="logos_140x70_negro" style="display: none">
+	    <tr>
+	        <td><img src="/media/img/logos/andaluciapeople_140x70_negro.gif" alt="andaluciapeople_140x70_negro.gif" /><br/>
+	        Andalucía | Fondo negro | Tamaño: 140x70 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://andaluciapeople.com" title="andaluciapeople.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/andaluciapeople_140x70_negro.gif" alt="andaluciapeople.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+		{% for city in lista_ciudades %}
+	    <tr>
+	        <td><img src="/media/img/logos/{{city}}people_140x70_negro.gif" alt="{{city}}people_140x70_negro.gif" /><br/>
+	        Provincia: {{city}} | Fondo negro | Tamaño: 140x70 px</td>
+	        <td><textarea rows="4" cols="35">&lt;a href="http://{{city}}people.com" title="{{city}}people.com"&gt;&lt;img src="http://andaluciapeople.com/media/img/logos/{{city}}people_140x70_negro.gif" alt="{{city}}people.com" /&gt;&lt;/a&gt;</textarea></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+{% endblock %}

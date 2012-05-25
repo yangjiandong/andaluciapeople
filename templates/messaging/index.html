@@ -1,0 +1,36 @@
+<link href="{{ media_url }}messaging/css/screen.css" rel="stylesheet" type="text/css" media="screen" />
+
+{% load messaging %}
+{% messaging %}{% endmessaging %}
+<div id="messaging_header">
+<span id="messages_icon"><a href="javascript:load_msg_list('on')"><img id="pm_icon" class="icon" src="{{ media_url }}messaging/icons/pm.gif" alt="" /></a></span>
+<span id="messaging_num_msgs">{% if user_has_message %}
+  <span class="has_pm"><a href="javascript:read_first_pm()" class="pm_unreaded">{{ user_num_messages }} mensaje(s)</a></span>
+{% else %}
+  <span>{{ user_num_messages }} mensajes</span>
+{% endif %}</span>
+<span id="messaging_contacts_icon"><a href="javascript:pop_contacts('on')"><img id="contacts_icon" class="icon" src="{{ media_url }}messaging/icons/group.gif" alt="" title="Contactos" /></a></span>
+{% comment %}last={{ last_activity|date:"j F Y - H:i" }}{% endcomment %}
+</div>
+<div id="messaging_contacts" class="main_box">
+<div id="contacts_list">
+{% comment %}
+{{ has_no_contacts }}
+{{ user_contacts }}
+{% endcomment %}
+{% if has_no_contacts %}
+  <!--<a href="javascript:pop_contacts('on')">Administrar mis contactos</a>-->
+  Añade amigos para enviarles mensajes
+{% endif %}
+{% for user_contact in user_contacts %}
+  <div>
+  {% if user_contact.is_online %}
+    <img class="icon" src="{{ media_url }}messaging/icons/online.png" alt="" />
+  {% else %}
+    <img class="icon" class="pixel" src="{{ media_url }}messaging/icons/pixel.png" alt="" style="width:16px;height:16px" />
+  {% endif %}
+  <a href="javascript:send_pm('{{ user_contact.id }}')">{{ user_contact.username }}</a> {{ user_contact.activity }}
+  </div>
+{% endfor %}
+</div>
+</div>

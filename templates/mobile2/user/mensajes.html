@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/usuarios/">{% trans "usuarios" %}</a> &raquo; <a href="/user/{{ datos.user }}/">{{ datos.user }}</a> &raquo; <a href="/user/recomendaciones/">Recomendaciones</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/pagination.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="/media/js/prettyPhoto.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+
+	//begin menu_user
+	lastBlock = $("#mensajes");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+    
+});
+-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+{% include 'user/menu.html' %}
+<div style="clear: both">
+<p class="info">El sistema de mensajería interna todavía no está disponible, disculpa las molestias.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block cuerpo %}
+<ul id="home" title="Inicio" selected="true">
+    <li>ATENCIÓN: VERSIÓN MÓVIL NO OPERATIVA</li>
+	{% for slug,nombre in ciudades %}
+	<li><a href="#{{slug}}">{{nombre}}</a></li>
+	{% endfor %}
+</ul>
+
+{% for slug,nombre in ciudades %}
+<ul id="{{slug}}" title="{{nombre}}">
+	<li><a href="#/{{slug}}/sitios/">Buscar sitios</a></li>
+	<li><a href="#/{{slug}}/mapa/">Buscar en mapa</a></li>
+	<li><a href="#/{{slug}}/sitios/ultimos/">Últimos sitios</a></li>
+	<li><a href="#/{{slug}}/sitios/top/">Top sitios</a></li>
+	<li><a href="#/usuarios/">Buscar usuarios</a></li>
+	<li><a href="#/usuarios/ultimos/">Últimos usuarios</a></li>
+	<li><a href="#/usuarios/top/" class="arrow">Top usuarios</a></li>
+	<li><a href="#/{{slug}}/fotos/ultimas/" class="arrow">Últimas fotos</a></li>
+	<li><a href="#/{{slug}}/comentarios/ultimos/" class="arrow">Últimos comentarios</a></li>
+</ul>
+
+<ul id="#/{{slug}}/sitios/" title="Buscar sitios">
+    {% for tipo_nombre, tipo_slug in tipos %}
+	<li><a href="#/{{slug}}/sitios/{{tipo_slug}}/">{{tipo_nombre}}</li>
+	{% endfor %}
+</ul>
+{% endfor %}
+
+
+<form id="loginForm" class="dialog" action="/register/">
+	<fieldset>
+		<h1>Iniciar sesión</h1>
+		<a class="button leftButton" type="cancel">Cancelar</a>
+		<a class="button blueButton" type="submit">Entrar</a>
+		
+		<label>Usuario:</label>
+		<input id="username" type="text" name="username"/>
+		<label>Contraseña:</label>
+		<input id="password" type="text" name="password"/>
+	</fieldset>
+</form>
+{% endblock %}

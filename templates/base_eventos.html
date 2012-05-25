@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.listar_eventos ciudad %}">{% trans "eventos" %}</a>
+{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_eventos.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/nivo-slider1.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/media/css/nivo-slider-nvivo.css" type="text/css" media="screen" /> <!-- both are needed -->
+<script type="text/javascript" src="/media/js/jquery.nivo.slider.pack.js" ></script>
+<script type="text/javascript">
+function loadEvents() {
+	$("#loading").bind("ajaxSend", function(){
+		$(this).show();
+	}).bind("ajaxComplete", function(){
+		$(this).hide();
+	});
+
+	$('#eventos').load('{% url sitios.views.listar_eventos_rss ciudad %}');
+	
+	$('#eventos_nvivo').load('{% url sitios.views.eventos_nvivo ciudad %}', function(){
+		$('#eventos_nvivo').nivoSlider({
+			effect: 'sliceUp',
+			controlNav: false
+		});
+	});
+}
+</script>
+{% endblock %}
+
+{% block jquery_ready %}
+loadEvents();
+{% endblock %}
+
+{% block cuerpo %}
+{% ifequal ciudad 'granada' %}
+<iframe src="https://www.google.com/calendar/embed?title=Eventos%20por%20GranadaZoom.com&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23F6F2D6&amp;src=4e5u0jn5tav0s8d7sa20dqsaf1o1dfh4%40import.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Europe%2FMadrid" style=" border-width:0 " width="750" height="400" frameborder="0" scrolling="no"></iframe>
+{% endifequal %}
+<table>
+<tr>
+<td style="vertical-align: top">
+{% ifequal ciudad 'granada' %}
+<div id="logo_granadazoom"><img src="/media/img/ofrecido_granadazoom.gif" alt="{% trans "Eventos proporcionados por" %} GranadaZoom" /></div>
+{% endifequal %}
+<div id="eventos_nvivo"></div>
+</td>
+<td style="vertical-align: top">
+<div id="eventos_lastfm">
+<div id="loading" style="display: none" align="center"><img src="/media/img/ajax-loader.gif" alt="" /> {% trans "Cargando..." %}</div>
+<div id="eventos"></div>
+<p><small>{% trans "Eventos proporcionados por" %} <a href="http://www.lastfm.es">last.fm</a></small></p>
+</div>
+</td>
+</tr>
+</table>
+{% endblock %}

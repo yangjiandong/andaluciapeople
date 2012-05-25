@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.ver_usuario user %}">{{ user }}</a> &raquo; <a href="{% url sitios.views.ver_usuarios_similares user %}">{% trans "usuarios similares" %}</a>{% endblock %}
+
+{% block cuerpo %}
+<ul>
+{% for i in usuarios_similares %}
+<li>{{ i.user }} ({% trans "similaridad" %} = {{ i.sim }}, {% trans "comunes" %} = {{ i.comunes }})</li>
+{% endfor %}
+</ul>
+{% endblock %}

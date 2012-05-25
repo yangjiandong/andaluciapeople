@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/usuarios/">{% trans "usuarios" %}</a> &raquo; <a href="/user/{{ datos.user }}/">{{ datos.user }}</a> &raquo; <a href="/user/recomendaciones/">Recomendaciones</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/base_ajustes.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+
+	//begin menu_user
+	lastBlock = $("#ajustes");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+    
+    $('.tags input').bind('change', function(){
+		$(this).parent().ajaxSubmit({
+			'target': $('#msg_gustos')
+		});
+		return false;
+	});
+});
+-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+{% include 'user/menu.html' %}
+<div id="datos_personales">
+		<h3>Cambiar Contraseña</h3>
+		{% if change_ok %}
+		<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon"/> {% trans "Contraseña cambiada correctamente." %}</div>
+		{% endif %}
+		{% if change_error %}
+		<div class="error"><img src="/media/icons/cross_circle.png" alt="" /> {% trans "Error al modificar la contraseña, inténtalo de nuevo." %}</div>
+		{% endif %}
+		
+		<p>{% trans "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly." %}</p>
+
+		<form id="change_password_form" action="" method="post">{% csrf_token %}
+		{% if change_form.old_password.errors %}{{ change_form.old_password.errors }}{% endif %}
+		<p class="aligned wide"><label for="id_old_password">{% trans 'Old password:' %}</label>{{ change_form.old_password }}</p>
+		{% if change_form.new_password1.errors %}{{ change_form.new_password1.errors }}{% endif %}
+		<p class="aligned wide"><label for="id_new_password1">{% trans 'New password:' %}</label>{{ change_form.new_password1 }}</p>
+		{% if change_form.new_password2.errors %}{{ change_form.new_password2.errors }}{% endif %}
+		<p class="aligned wide"><label for="id_new_password2">{% trans 'Confirm password:' %}</label>{{ change_form.new_password2 }}</p>
+		{{ change_form.action }}
+		<p><input type="submit" value="{% trans 'Change my password' %}" /></p>
+		</form>
+		
+		<h3>Datos Personales</h3>
+		
+		{% if datos_ok %}
+		<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon"/> {% trans "Datos modificados correctamente" %}</div>
+		{% endif %}
+		{% if datos_error %}
+		<div class="error"><img src="/media/icons/cross_circle.png" alt="" /> {% trans "Error al modificar los datos" %}</div>
+		{% endif %}
+		<form id="datos_form" enctype="multipart/form-data" method="post" action="">{% csrf_token %}
+		<dl>
+		{% for field in datos_form %}
+			<!--[if lt IE 8]>
+			<div style="clear: both">
+			<![endif]-->
+			<dt>{{ field.label }}</dt>
+			<dd>{{ field }}
+			{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+			{% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+			</dd>
+			<!--[if lt IE 8]>
+			</div>
+			<![endif]-->
+		{% endfor %}
+		
+		{% comment %}
+		<!--
+		<dt>Gustos</dt>
+		<dd>
+		<div id="msg_gustos"></div>
+		{% for j in jerarquias %}
+		<div class="jerarquias">
+		<strong>{{ j.nombre }}</strong>
+		<ul class="tags">
+			{% for t in j.get_tags %}
+			<li><form method="post" action="/user/{{ user }}/gustos/{{ t.id }}/add/">{% csrf_token %}<label for="id_tag_{{ t.id }}"><input id="id_tag_{{ t.id }}" type="checkbox" value="{{ t.tag }}" name="tags" /> {{ t.tag }}</label></form></li>
+			{% endfor %}
+		</ul>
+		</div>
+		{% endfor %}
+		</dd>-->
+		{% endcomment %}
+		
+		</dl>
+		<div align="right" style="clear: both"><input type="submit" value="Guardar"/></div>
+		</form>
+</div>
+{% endblock %}

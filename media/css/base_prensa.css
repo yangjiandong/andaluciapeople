@@ -1,0 +1,34 @@
+/* base_prensa */
+#noticias{
+	border-collapse:collapse;
+	border-spacing:0px;
+}
+table{
+	margin-bottom: 20px;
+}
+th{
+	border-bottom:1px solid #CACACA;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size: 12px;
+}
+tr td{
+	border-bottom:1px solid #CACACA;
+}
+.fecha{
+	font-size: 10px;
+	font-style: italic;
+	width: 100px;
+}
+.enlace{
+	font-size: 10px;
+	width: 100px;
+}
+p.info{
+	background: url(/media/icons/info.png) no-repeat left center;
+	padding: 20px;
+	padding-left: 50px;
+}
+.tabla_logos{
+	font-size: 10px;
+}

@@ -1,0 +1,27 @@
+{% load filters %}
+    <h3 id="comments_title"{% if photo%} onclick="toggleComments()"{% endif %}><a name="comments">{{ comments.count|dgs:"Comentarios" }}</a></h3>
+        {% for comment in comments %}
+            {% ifequal comment.comment_type "linkback" %}
+                <div class="comment">
+                    <div class="name">
+                        <a name="{{ forloop.counter }}" href="#{{ forloop.counter }}">#{{ forloop.counter }}</a>. {% if comment.author_website %}<a href="{{ comment.author_website }}">{{ comment.author_name|safe }}</a>{% else %}{{ comment.author_name|safe }}{% endif %}
+                        <small class="date"><em>{{ comment.date|date:"Y-m-d, H:i" }}</em></small>
+                    </div>
+                    <div class="text">
+                        {% autoescape off %}<p>{{ comment.content|urlize|nl2br }}</p>{% endautoescape %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="comment">
+                    <div class="name">
+                        <!--<img src="{{ comment.author_email|gravatar }}" alt="{{ comment.author_name }}">-->
+                        <a name="{{ forloop.counter }}" href="#{{ forloop.counter }}">#{{ forloop.counter }}</a>. {% if comment.author_website %}<a href="{{ comment.author_website }}">{{ comment.author_name|safe }}</a>{% else %}{{ comment.author_name|safe }}{% endif %}
+                        <small class="date"><em>{{ comment.date|date:"Y-m-d, H:i" }}</em></small>
+                    </div>
+                    <div class="text">
+                        {% autoescape off %}<p>{{ comment.content|urlize|nl2br }}</p>{% endautoescape %}
+                    </div>
+                </div>
+            {% endifequal %}
+        {% endfor %}
+

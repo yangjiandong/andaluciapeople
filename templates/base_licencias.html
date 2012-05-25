@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.licencias %}">{% trans "Licencias" %}</a>{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block cuerpo %}
+	<h3>{% trans "Licencias" %}</h3>
+	
+	<p>{% blocktrans %}<strong>AndalucíaPeople funciona con <a href="http://es.wikipedia.org/wiki/Software_Libre">software libre</a></strong>, es decir, 
+	da al usuario la libertad para ser usado, copiado, estudiado, modificado y redistribuido libremente.{% endblocktrans %}</p>
+	<p>{% blocktrans %}Los pilares básicos sobre los que se asienta este proyecto son:{% endblocktrans %}</p>
+	<ul>
+	<li>{% blocktrans %}<a href="http://www.apache.org">Apache</a>, como servidor web{% endblocktrans %}</li>
+	<li>{% blocktrans %}<a href="http//www.kernel.org">Linux</a>, como sistema operativo{% endblocktrans %}</li>
+	<li>{% blocktrans %}<a href="http://www.mysql.com">MySQL</a>, como gestor de base de datos{% endblocktrans %}</li>
+	<li>{% blocktrans %}<a href="http://www.djangoproject.com">Django</a>, como framework de desarrollo{% endblocktrans %}</li>
+	<li>{% blocktrans %}<a href="http://jquery.com">jQuery</a>, como framework Javascript{% endblocktrans %}</li>
+	</ul>
+	<p>{% blocktrans %}
+	A partir de estas sólidas bases se han ido incorporando piezas hasta completar lo que ahora es AndalucíaPeople. 
+	Estas piezas están hechas por distintos autores, que cada uno ha liberado bajo una licencia. Las partes de código 
+	que he programado yo las he licenciado con <strong><a href="http://www.gnu.org/licenses/agpl.html">AGPLv3</a></strong> y la documentación del proyecto con <strong><a href="http://www.gnu.org/licenses/fdl.html">GFDL</a></strong>.
+	{% endblocktrans %}
+	</p>
+	
+	<p>{% trans "Puedes descargar la última versión liberada en" %} <a href="http://andaluciapeople.com/media/releases/">http://andaluciapeople.com/media/releases/</a></p>
+	
+	<p>
+	{% blocktrans %}
+	Los <strong>iconos</strong> son en su mayoría del <a href="http://dryicons.com/free-icons/preview/coquette-icons-set/">Coquette Icon Set</a> 
+	(y <a href="http://dryicons.com/free-icons/preview/coquette-part-2-icons-set/">2</a> y <a href="http://dryicons.com/free-icons/preview/coquette-part-3-icons-set/">3</a>),
+	pero también de <a href="http://www.pinvoke.com/">Fugue Icons</a>.
+	{% endblocktrans %}
+	</p>
+	
+	<div align="center"><img src="/media/img/freesoftware_740.png" alt="Imagen de http://www.openstickers.com" /></div>
+{% endblock %}

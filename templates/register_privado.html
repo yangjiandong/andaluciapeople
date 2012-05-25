@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>andaluciaPeople.com - login (beta privada)</title>
+<link rel="icon" href="/media/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/media/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="/media/favicon.ico" />
+<link rel="stylesheet" href="/media/css/register_privado.css" type="text/css" />
+
+
+<script type="text/javascript" src="/media/js/jquery-1.3.1.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript">
+<!--
+
+$(document).ready(function() {
+	$('#forgot_link').bind('click', function(){
+		$('#login').load("/forgot/", '', function(){
+			$('#forgot_form').bind('submit', function(event){
+				event.preventDefault();
+				$(this).ajaxSubmit({
+					'target': '#login',
+					'beforeSubmit': function(){
+						$('#bla').html('Espere un momento, por favor...');
+					}
+				});
+				return false;
+			});
+
+		});
+
+		return false;
+	});
+
+	$('#invitacion_form').bind('submit', function(event){
+		event.preventDefault();
+		$(this).ajaxSubmit({
+			'target': '#invitacion_form'
+		});
+		return false;
+	});
+});
+-->
+</script>
+
+</head>
+
+<body>
+<div class="bloque verde">
+<a href="/"><img id="logo" src="/media/img/logo_register_verde.jpg" alt="andaluciaPeople.com" border="0" align="left" width="300" height="161"/></a>
+
+<p id="descripcion"><strong>andaluciaPeople.com</strong> es un proyecto que surge tras la petición popular de ampliar GranadaPeople.com al resto de provincias andaluzas. 
+Tratamos de crear una base de datos geolocalizada de <strong>locales de ocio</strong> de Andalucía gracias a la colaboración gente como tú y contar con 
+la opinión verdadera de los clientes. Como elemento innovador estamos trabajando en desarrollar un sistema de recomendación inteligente 
+de manera que puedas encontrar nuevos sitios según <strong>tus gustos</strong>. El código fuente será liberado con licencia <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html">APGLv3</a>.
+</p></div>
+</div>
+
+<div class="bloque">
+<div id="invitacion">
+<h3>¿Quieres una invitación?</h3>
+<p>Actualmente sólo puedes acceder a la página mediante invitación, ya que aún falta mucho trabajo por hacer y queremos que todo funcione 
+correctamente antes de su lanzamiento al público. Si te apetece ayudarnos a mejorar, solicita una invitación y te la enviaremos a tu dirección de correo.</p>
+<form id='invitacion_form' method='post' action='/invitacion/'>{% csrf_token %}
+<strong>Email:</strong> <input type='text' value='' name='email' />
+<input type='submit' value='Enviar' />
+</form>
+</div>
+
+<div id="login">
+	<h3>Accede a tu cuenta</h3>
+	{% if next %}
+	<form method="post" action="/login/?next={{ next }}">{% csrf_token %}
+	{% else %}
+	<form method="post" action="/login/">{% csrf_token %}
+	{% endif %}
+	<dl>
+	<dt>{{ form_login.username.label_tag }}</dt>
+	<dd>{{ form_login.username }}</dd>
+	
+	<dt>{{ form_login.password.label_tag }}</dt>
+	<dd>{{ form_login.password }}</dd>
+	</dl>
+	
+	<input type="submit" value="Login" />
+	<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+	<a href="#" id="forgot_link">Olvidé mi contraseña</a>
+</div>
+</div>
+
+<div class="minitext"><strong>Contacto:</strong> <em>correo (arroba) andaluciapeople (punto) com</em></div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6359444-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load webdesign %}
+{% load i18n %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/nivo-slider1.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/media/css/nivo-slider2.css" type="text/css" media="screen" /> <!-- both are needed -->
+<style type="text/css">
+#header_img h1{
+	background: url(/media/img/menu/andaluciapeople.png) no-repeat center -30px;
+}
+.enlaces_rapidos{
+	clear: both;
+	margin: 0 auto;
+}
+.box_index{
+	float: left;
+	margin: 10px;
+	margin-left: 0;
+	margin-right: 0;
+	text-align: left;
+	width: 175px;
+}
+.box_index ul{
+	margin: 0;
+	padding: 0px 5px;
+}
+.box_index li{
+	color: #82A102;
+	font-size: 12px;
+	list-style-type:disc;
+	margin:5px 5px 5px 15px;
+}
+#registrate_para{
+	float: left;
+	width: 220px;
+	margin: 10px;
+	background: #EFEACF url(/media/icons/add_user.png) no-repeat 180px 80px;
+	border: 1px solid #DFDAC1;
+	padding: 15px;
+	font-size: 15px;
+}
+
+#registrate_gratis{
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;	
+}
+
+#login{
+	float: left;
+	width: 400px;
+	margin: 10px;
+	background: #EFEACF;
+	border: 1px solid #DFDAC1;
+	padding: 15px;
+	font-size: 15px;
+}
+
+
+#login_form{
+	float: left;
+}
+#facebook_connect{
+	float: right;
+	padding-top: 40px;
+	text-align: right;
+	width: 170px;
+}
+#menu ul li a{
+        padding-right: 18px;
+}
+</style>
+
+<script type="text/javascript" src="/media/js/jquery.nivo.slider.pack.js" ></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript">
+<!--
+
+function load_province_selector(dest){
+
+	var html = '<div id="mapa_andalucia">';
+	html    += '<h3>Escoge tu provincia</h3>';
+	html    += '<p><a href="{% url sitios.views.index "almeria" %}'+dest+'"><span>Almería</span></a> ';
+	html    += '<a href="{% url sitios.views.index "cadiz" %}'+dest+'"><span>Cádiz</span></a> ';
+	html    += '<a href="{% url sitios.views.index "cordoba" %}'+dest+'"><span>Córdoba</span></a> ';
+	html    += '<a href="{% url sitios.views.index "granada" %}'+dest+'"><span>Granada</span></a> ';
+	html    += '<a href="{% url sitios.views.index "huelva" %}'+dest+'"><span>Huelva</span></a> ';
+	html    += '<a href="{% url sitios.views.index "jaen" %}'+dest+'"><span>Jaén</span></a> ';
+	html    += '<a href="{% url sitios.views.index "malaga" %}'+dest+'"><span>Málaga</span></a> ';
+	html    += '<a href="{% url sitios.views.index "sevilla" %}'+dest+'"><span>Sevilla</span></a></p>';
+	html    += '<map id="mapa_andalucia" name="map">';
+	html    += '<area shape="poly" coords="9,125,5,91,23,61,44,54,56,57,78,62,86,70,83,72,65,85,69,96,75,106,74,137,73,149,56,130,28,119,29,119" alt="Huelva" href="/huelva/'+dest+'/" />';
+	html    += '<area shape="poly" coords="80,145,85,116,77,86,95,84,101,66,114,62,129,59,139,76,136,94,153,106,166,97,178,121,168,133,156,141,134,137,128,142,102,151" alt="Sevilla" href="/sevilla/'+dest+'/" />';
+	html    += '<area shape="poly" coords="82,157,108,161,120,155,139,154,147,150,140,164,134,174,123,182,132,195,143,206,131,214,131,223,118,220,105,212,97,195,82,170,77,168" alt="Cádiz" href="/cadiz/'+dest+'/" />';
+	html    += '<area shape="poly" coords="151,195,140,185,152,168,163,160,167,148,181,138,198,132,208,130,214,143,223,157,240,161,212,165,201,170,199,177,188,184,173,182" alt="Málaga" href="/malaga/'+dest+'/" />';
+	html    += '<area shape="poly" coords="138,51,143,38,138,27,164,4,178,12,219,39,223,48,214,59,215,75,215,85,221,103,228,110,219,114,218,122,201,119,192,114,186,109,185,95,169,84,156,80" alt="Córdoba" href="/cordoba/'+dest+'/" />';
+	html    += '<area shape="poly" coords="239,107,231,92,222,72,228,56,226,37,249,36,280,35,307,33,327,27,335,39,331,53,324,58,312,76,306,86,289,86,281,92,266,92" alt="Jaén" href="/jaen/'+dest+'/" />';
+	html    += '<area shape="poly" coords="235,119,265,112,288,101,313,96,321,77,331,67,339,64,349,70,345,84,338,98,327,107,323,121,310,118,305,131,293,137,298,147,294,161,282,163,260,165,245,153,230,148,220,137,224,122" alt="Granada" href="/granada/'+dest+'/" />';
+	html    += '<area shape="poly" coords="300,165,309,151,310,138,318,128,328,136,332,120,348,106,355,89,357,74,367,76,365,94,377,109,387,117,382,126,375,149,365,160,360,162,349,156,335,160,322,162,324,170,312,166" alt="Almería" href="/almeria/'+dest+'/" />';
+	html    += '</map>';
+	html    += '<img src="/media/img/mapa_andalucia_400.png" width="400" height="233" border="0" usemap="#map" alt="Mapa de Andalucía" />';
+	html    += '</div>';
+	return html;
+}
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect: 'fade'
+	});
+});
+
+function loadSuperIndex() {
+
+	/*
+	$('#forgot_link').bind('click', function(){
+		$('#login').html('<img src="/media/icons/loading.gif" alt=""/> Cargando...');
+		$('#login').load("/forgot/", '', function(){
+			$('#forgot_form').bind('submit', function(event){
+				event.preventDefault();
+				$(this).ajaxSubmit({
+					'target': '#login',
+					'beforeSubmit': function(){
+						$('#bla').html('<img src="/media/icons/loading.gif" alt=""/> Espere un momento, por favor...');
+					}
+				});
+				return false;
+			});
+
+		});
+
+		return false;
+	});
+	*/
+	
+	$("#selector_ciudad_form select").prepend('<option value="">---</option>');
+	$("#selector_ciudad_form select option[selected]").removeAttr("selected");
+	$("#selector_ciudad_form select option[value='']").attr("selected", "selected");
+	
+	$('#menu a.choice').each(function(i){
+		$(this).bind('click', function(){
+			new Boxy(load_province_selector($(this).attr('name')), {title: "{% trans "Escoge tu provincia" %}", modal: true, unloadOnHide: true});
+			return false;
+		});
+	});
+	
+}
+-->
+</script>
+{% endblock %}
+
+{% block jquery_ready %}
+loadSuperIndex();
+{% endblock %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block extendmenu %}
+<li><a href="http://www.guia-telefonica.es/Mu_laga-665-Mu_laga.html" target="_blank">Empresas<br/><span class="tipo">Guía Málaga</span></a></li>
+{% endblock %}
+
+{% block cuerpo %}
+<div id="slider">
+	<img src="/media/slider/recomendados.png" alt="Los mejores sitios recomendados a tu medida" title="#recomendadoscaption"/>
+	<img src="/media/slider/geolocalizados.png" alt="Cientos de sitios geolocalizados y clasificados" />
+	<img src="/media/slider/layar.png" alt="Encuentra sitios usando tu iPhone o Android" title="#layarcaption"/>
+	<img src="/media/slider/eventos.png" alt="Entérate de los eventos de tu ciudad" title="#eventoscaption"/>
+	<img src="/media/slider/hoteles.png" alt="Hoteles para disfrutar de tus vacaciones al mejor precio" title="#hotelescaption"/>
+</div>
+<div id="recomendadoscaption" class="nivo-html-caption">
+    <small>{% trans "Foto" %}: <a href="http://www.flickr.com/photos/chof/4477933829/">Chof</a></small>
+</div>
+<div id="layarcaption" class="nivo-html-caption">
+    <small>{% trans "Foto" %}: <a href="http://www.flickr.com/photos/draxus/">DraXus</a></small>
+</div>
+<div id="eventoscaption" class="nivo-html-caption">
+    <small>{% trans "Foto" %}: <a href="http://www.flickr.com/photos/markiddo/4629829321/">MarKiddo</a></small>
+</div>
+<div id="hotelescaption" class="nivo-html-caption">
+    <small>{% trans "Foto" %}: <a href="http://www.flickr.com/photos/n30n6o0/">AngelMC</a></small>
+</div>
+
+
+{% comment %}
+<div id="registrate_para">
+	<h3>{% trans "Regístrate y podrás..." %}</h3>
+	<ul style="margin-bottom: 9px">
+	<li>{% trans "Añadir nuevos sitios" %}</li>
+	<li>{% trans "Dar tu opinión" %}</li>
+	<li>{% trans "Subir fotos" %}</li>
+	<li>{% trans "Hacer amigos" %}</li>
+	<li>{% trans "Recomendaciones personalizadas" %}</li>
+	<li>{% trans "Descuentos especiales" %}</li>
+	</ul>
+	<div id="registrate_gratis"><a href="{% url sitios.views.register %}">{% trans "¡Regístrate gratis!" %}</a></div>
+</div>
+
+<div id="login">
+	<div id="login_form">
+	<h3>{% trans "Accede a tu cuenta" %}</h3>
+	{% if next %}
+	<form method="post" action="{% url django.contrib.auth.views.login %}?next={{ next }}">{% csrf_token %}
+	{% else %}
+	<form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+	{% endif %}
+	<dl>
+	<dt>{{ form_login.username.label_tag }}</dt>
+	<dd>{{ form_login.username }}</dd>
+	
+	<dt>{{ form_login.password.label_tag }}</dt>
+	<dd>{{ form_login.password }}</dd>
+	</dl>
+	
+	<input type="submit" value="{% trans "Conectar" %}" />
+	<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+	<a href="#" id="forgot_link">{% trans "Olvidé mi contraseña" %}</a>
+	</div>
+	
+</div>
+{% endcomment %}
+
+</div>
+
+<div class="enlaces_rapidos">
+<div class="box_index">
+<h3>{% trans "Sitios" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.buscar_sitios2 slug %}">{% blocktrans %}Sitios de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Mapas" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.mapa slug %}">{% blocktrans %}Mapa de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Eventos" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.listar_eventos slug %}">{% blocktrans %}Eventos de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Hoteles" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.hoteles slug %}">{% blocktrans %}Hoteles de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Bares" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.buscar_sitios2 slug %}?q=bar">{% blocktrans %}Bares de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Restaurantes" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.buscar_sitios2 slug %}?q=restaurante">{% blocktrans %}Restaurantes de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Pubs" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.buscar_sitios2 slug %}?q=pub">{% blocktrans %}Pubs de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="box_index">
+<h3>{% trans "Discotecas" %}</h3>
+<ul>
+{% for slug,nombre in ciudades %}
+<li><a href="{% url sitios.views.buscar_sitios2 slug %}?q=discoteca">{% blocktrans %}Discotecas de {{nombre}}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load filters %}
+{% load i18n %}
+            {% if tags %}
+            <h3>{% trans "Tags" %}</h3>
+                <p style="text-align: center">
+                {% for tag in tags %}
+                    <a href="{{ tag.uri }}" rel="tag" style="font-size: {{ tag.size }}px" title="{{ tag.title }} ({{ tag.post_count }})">{{ tag.name }}</a>
+                {% endfor %}
+                </p>
+            {% endif %}
+
+            {% if archives %}
+            <h3>{% trans "Archives" %}</h3>
+                <ul>
+                {% for archive in archives %}
+                    <li><a href="{% url blogapp.views.posts_by_date archive.year,archive.month %}">{{ archive.year }} {{ archive.date|date:"F" }} ({{ archive.post_count }})</a></li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if friends %}
+            <h3>{% trans "Blogroll" %}</h3>
+                <ul>
+                {% for friend in friends %}
+                    <li><a href="{{ friend.uri }}" rel="{{ friend.rel|rel_decode }}"{% if friend.about %} title="{{ friend.about }}"{% endif %}>{{ friend.name }}</a></li>
+                {% endfor %}
+                </ul>
+            {% endif %}

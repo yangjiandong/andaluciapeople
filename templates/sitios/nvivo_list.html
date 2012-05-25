@@ -1,0 +1,10 @@
+{% load i18n %}
+{% if eventos %}
+	{% for event in eventos %}
+		{% if event.images %}
+		<a href="{{ event.url }}" title="{{ event.name }}"><img src="{{ event.images.large }}" alt="" border="0" width="200" height="200" title="{{ event.name }}"/></a>
+		{% endif %}
+	{% endfor %}
+{% else %}
+	{% trans "No hay eventos disponibles" %}
+{% endif %}

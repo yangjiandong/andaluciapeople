@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="post">
+        {{ post.content }}
+    </div>
+
+    <div id="sidebar">
+        <h3>Description</h3>
+        <p>{{ meta.description }}</p>
+
+        <h3>Links</h3>
+        <label>
+            This blog:<br>
+            <input readonly type="text" value="http://www.armandas.lt/foto/{{ post.name }}.html" onfocus="this.select()"><br>
+        </label>
+        <label>
+            Flickr:<br>
+            <input readonly type="text" value="{{ post.flickr_url }}" onfocus="this.select()"><br>
+        </label>
+
+        <h3>Meta Info</h3>
+        <ul>
+            <li>Created: <strong>{{ meta.created }}</strong></li>
+            <li>Camera: <strong>{{ meta.camera }}</strong></li>
+            <li>Exposure: <strong>{{ meta.exposure }}</strong></li>
+            <li>Aperture: <strong>{{ meta.aperture }}</strong></li>
+            <li>Focal length: <strong>{{ meta.focal_length }}</strong></li>
+        </ul>
+    </div>
+
+    <div id="thumbs">
+    {% for thumb in thumbs %}
+        <a href="http://www.armandas.lt/foto/{{ thumb.name }}.html"><img src="thumbs/{{ thumb.name }}" alt="Nuotauka: {{ thumb.name }}"></a>
+    {% endfor %}
+    </div>
+    {% include "comments.html" %}
+{% endblock %}

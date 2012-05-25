@@ -1,0 +1,7 @@
+.feed_menu select{
+	filter:alpha(opacity=0);
+}
+* html .feed_menu{
+    width:auto;
+    background:none;
+}`

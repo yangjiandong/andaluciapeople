@@ -1,0 +1,568 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-28 11:24+0100\n"
+"PO-Revision-Date: 2009-02-28 13:43+0100\n"
+"Last-Translator: Manuel Martin <draxus@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 404.html:4
+#: 404.html.py:8
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: 404.html:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr "Lo siento, la página solicitada no existe."
+
+#: 500.html:4
+#: 500.html.py:8
+msgid "Page unavailable"
+msgstr "Página no disponible"
+
+#: 500.html:10
+msgid "We're sorry, but the requested page is currently unavailable."
+msgstr "Lo siento, pero la página solicitada no está actualmente disponible."
+
+#: 500.html:12
+msgid "We're messing around with things internally, and the server had a bit of a hiccup."
+msgstr "Tenemos unos problemillas internos y el servidor tiene un poco de hipo, disculpa las molestias."
+
+#: 500.html:14
+msgid "Please try again later."
+msgstr "Por favor, inténtalo de nuevo más tarde."
+
+#: base.html:91
+msgid "¡Hola"
+msgstr ""
+
+#: base.html:92
+msgid "Tu cuenta"
+msgstr ""
+
+#: base.html:93
+msgid "Mensajes"
+msgstr ""
+
+#: base.html:94
+msgid "Cerrar sesión"
+msgstr ""
+
+#: base.html:96
+msgid "Iniciar sesión"
+msgstr ""
+
+#: base.html:97
+msgid "Registrarse"
+msgstr ""
+
+#: base.html:104
+msgid "Portada"
+msgstr ""
+
+#: base.html:105
+msgid "Mapa"
+msgstr ""
+
+#: base.html:106
+msgid "Sitios"
+msgstr ""
+
+#: base.html:107
+msgid "Usuarios"
+msgstr ""
+
+#: base.html:108
+msgid "Eventos"
+msgstr ""
+
+#: base.html:109
+msgid "Hoteles"
+msgstr ""
+
+#: base.html:114
+msgid "Estás en"
+msgstr ""
+
+#: base.html:128
+msgid "Ir a la portada principal de"
+msgstr ""
+
+#: base.html:129
+msgid "Utiliza el mapa interactivo para encontrar sitios"
+msgstr ""
+
+#: base.html:130
+msgid "Buscador y listado de sitios"
+msgstr ""
+
+#: base.html:131
+msgid "Listado de usuarios"
+msgstr ""
+
+#: base.html:132
+msgid "Consulta los próximos eventos en"
+msgstr ""
+
+#: base.html:133
+msgid "Encuentra los hoteles más baratos en"
+msgstr ""
+
+#: base.html:153
+msgid "Acerca de"
+msgstr ""
+
+#: base.html:153
+msgid "Blog"
+msgstr ""
+
+#: base.html:153
+msgid "Prensa"
+msgstr ""
+
+#: base.html:153
+msgid "Anúnciate"
+msgstr ""
+
+#: base.html:153
+msgid "Información legal y condiciones de uso"
+msgstr ""
+
+#: base.html:153
+msgid "Licencias"
+msgstr ""
+
+#: base.html:153
+msgid "Contacto"
+msgstr ""
+
+#: base.html:153
+msgid "Suscripción RSS"
+msgstr ""
+
+#: base_eventos.html:27
+msgid "Cargando..."
+msgstr ""
+
+#: base_sitio.html:231
+msgid "Ficha del sitio"
+msgstr ""
+
+#: register.html:37
+msgid "Tu cuenta se ha creado con éxito, puedes entrar usando el formulario de entrada."
+msgstr ""
+
+#: register.html:40
+msgid "Error:"
+msgstr ""
+
+#: filebrowser/index.html:30
+msgid "Make Directory"
+msgstr "Crear directorio"
+
+#: filebrowser/index.html:31
+msgid "Multiple Upload"
+msgstr "Subida simultánea"
+
+#: filebrowser/index.html:32
+msgid "Make Thumbs"
+msgstr "Crear miniaturas"
+
+#: filebrowser/makedir.html:28
+msgid "Directory"
+msgstr "Directorio"
+
+#: filebrowser/makedir.html:30
+msgid "The directory will automatically be converted to lowercase.<br />Only letters, numbers, underscores and hyphens are allowed."
+msgstr ""
+
+#: filebrowser/makedir.html:34
+#: filebrowser/rename.html:35
+msgid "Submit"
+msgstr ""
+
+#: filebrowser/rename.html:28
+msgid "Name"
+msgstr ""
+
+#: filebrowser/rename.html:31
+msgid "The file/directory will automatically be converted to lowercase.<br />Only letters, numbers, underscores and hyphens are allowed."
+msgstr ""
+
+#: filebrowser/upload.html:38
+#: filebrowser/upload.html.py:42
+#: filebrowser/upload.html:46
+#: filebrowser/upload.html.py:50
+#: filebrowser/upload.html:54
+msgid "File"
+msgstr ""
+
+#: filebrowser/upload.html:59
+msgid "Help"
+msgstr ""
+
+#: filebrowser/upload.html:63
+msgid "Allowed"
+msgstr ""
+
+#: filebrowser/upload.html:69
+msgid "Max. Filesize"
+msgstr ""
+
+#: filebrowser/include/filter.html:3
+msgid "Filter"
+msgstr ""
+
+#: filebrowser/include/filter.html:4
+msgid "By Date"
+msgstr ""
+
+#: filebrowser/include/filter.html:6
+msgid "Any Date"
+msgstr ""
+
+#: filebrowser/include/filter.html:8
+msgid "Today"
+msgstr ""
+
+#: filebrowser/include/filter.html:10
+msgid "Past 7 days"
+msgstr ""
+
+#: filebrowser/include/filter.html:12
+msgid "Past 30 days"
+msgstr ""
+
+#: filebrowser/include/filter.html:14
+msgid "This year"
+msgstr ""
+
+#: filebrowser/include/filter.html:16
+msgid "By Type"
+msgstr ""
+
+#: filebrowser/include/filter.html:18
+msgid "All"
+msgstr ""
+
+#: filebrowser/include/filter.html:20
+#, python-format
+msgid "%(extension)s"
+msgstr ""
+
+#: filebrowser/include/tableheader.html:13
+#: filebrowser/include/tableheader.html:14
+msgid "Filename"
+msgstr ""
+
+#: filebrowser/include/tableheader.html:16
+#: filebrowser/include/tableheader.html:17
+msgid "Size"
+msgstr ""
+
+#: filebrowser/include/tableheader.html:19
+#: filebrowser/include/tableheader.html:20
+msgid "Date"
+msgstr ""
+
+#: mobile/user/ajustes.html:6
+#: mobile/user/ayuda.html:6
+#: mobile/user/mensajes.html:6
+#: mobile/user/recomendaciones.html:6
+#: user/ajustes.html:6
+#: user/ayuda.html:6
+#: user/mensajes.html:6
+#: user/recomendaciones.html:6
+#: user/user.html:6
+msgid "usuarios"
+msgstr ""
+
+#: mobile/user/ajustes.html:37
+#: user/ajustes.html:37
+msgid "Contraseña cambiada correctamente."
+msgstr ""
+
+#: mobile/user/ajustes.html:40
+#: user/ajustes.html:40
+msgid "Error al modificar la contraseña, inténtalo de nuevo."
+msgstr ""
+
+#: mobile/user/ajustes.html:43
+#: registration/password_change_form.html:12
+#: user/ajustes.html:43
+msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+msgstr "Por favor, introduce tu contraseña anterior por seguridad, y luego escribe tu nueva contraseña dos veces para comprobar que la has escrito correctamente."
+
+#: mobile/user/ajustes.html:47
+#: registration/password_change_form.html:17
+#: user/ajustes.html:47
+msgid "Old password:"
+msgstr "Contraseña anterior:"
+
+#: mobile/user/ajustes.html:49
+#: registration/password_change_form.html:19
+#: registration/password_reset_confirm.html:18
+#: user/ajustes.html:49
+msgid "New password:"
+msgstr "Nueva contraseña:"
+
+#: mobile/user/ajustes.html:51
+#: registration/password_change_form.html:21
+#: registration/password_reset_confirm.html:20
+#: user/ajustes.html:51
+msgid "Confirm password:"
+msgstr "Confirmar contraseña:"
+
+#: mobile/user/ajustes.html:53
+#: registration/password_change_form.html:23
+#: registration/password_reset_confirm.html:21
+#: user/ajustes.html:53
+msgid "Change my password"
+msgstr "Cambiar mi contraseña"
+
+#: mobile/user/ajustes.html:59
+#: user/ajustes.html:59
+msgid "Datos modificados correctamente"
+msgstr ""
+
+#: mobile/user/ajustes.html:62
+#: user/ajustes.html:62
+msgid "Error al modificar los datos"
+msgstr ""
+
+#: mobile/user/user.html:24
+#: user/user.html:185
+msgid "Web"
+msgstr ""
+
+#: mobile/user/user.html:27
+#: user/user.html:188
+msgid "Sexo"
+msgstr ""
+
+#: mobile/user/user.html:29
+#: user/user.html:190
+msgid "Puntos"
+msgstr ""
+
+#: registration/invitacion.html:2
+msgid "Invitación"
+msgstr ""
+
+#: registration/invitacion.html:5
+msgid "Hubo un error al generar la invitación. Comprueba que el email es correcto."
+msgstr ""
+
+#: registration/invitacion.html:10
+msgid "Tu email ha sido registrado, te enviaremos lo antes posible una invitación para registrarte. Si no lo has recibido en 24 horas, comprueba en tu carpeta de Spam (correo no deseado)."
+msgstr ""
+
+#: registration/logged_out.html:4
+#: registration/password_change_done.html:4
+#: registration/password_change_form.html:4
+#: registration/password_reset_complete.html:4
+#: registration/password_reset_confirm.html:4
+msgid "Home"
+msgstr "Inicio"
+
+#: registration/logged_out.html:8
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Gracias por visitar nuestra web."
+
+#: registration/logged_out.html:10
+msgid "Log in again"
+msgstr "Identificarse de nuevo"
+
+#: registration/password_change_done.html:3
+#: registration/password_change_form.html:3
+msgid "Documentation"
+msgstr "Documentación"
+
+#: registration/password_change_done.html:3
+#: registration/password_change_form.html:3
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+#: registration/password_change_done.html:3
+#: registration/password_change_form.html:3
+msgid "Log out"
+msgstr "Salir"
+
+#: registration/password_change_done.html:4
+#: registration/password_change_form.html:4
+#: registration/password_change_form.html:6
+#: registration/password_change_form.html:10
+msgid "Password change"
+msgstr "Cambiar contraseña"
+
+#: registration/password_change_done.html:6
+#: registration/password_change_done.html:10
+msgid "Password change successful"
+msgstr "Cambio de contraseña satisfactorio"
+
+#: registration/password_change_done.html:12
+msgid "Your password was changed."
+msgstr "Tu contraseña ha sido cambiada."
+
+#: registration/password_reset_complete.html:4
+#: registration/password_reset_confirm.html:6
+#: registration/password_reset_form.html:3
+msgid "Password reset"
+msgstr "Reestablecer contraseña"
+
+#: registration/password_reset_complete.html:6
+#: registration/password_reset_complete.html:10
+msgid "Password reset complete"
+msgstr "Reestablecimiento de contraseña finalizado"
+
+#: registration/password_reset_complete.html:12
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Tu contraseña ha sido cambiada. Prueba a entrar de nuevo."
+
+#: registration/password_reset_complete.html:14
+msgid "Log in"
+msgstr "Entrar"
+
+#: registration/password_reset_confirm.html:4
+msgid "Password reset confirmation"
+msgstr "Confirmación de reestablecimiento de contraseña"
+
+#: registration/password_reset_confirm.html:12
+msgid "Enter new password"
+msgstr "Introduce la nueva contraseña"
+
+#: registration/password_reset_confirm.html:14
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
+msgstr "Por favor, introduce tu nueva contraseña dos veces para comprobar que la has escrito correctamente."
+
+#: registration/password_reset_confirm.html:26
+msgid "Password reset unsuccessful"
+msgstr "Hubo un error al reestablecer la contraseña"
+
+#: registration/password_reset_confirm.html:28
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr "El enlace para reestablecer la contraseña no es válido, posiblemente porque ya ha sido usado. Por favor, solicítalo de nuevo."
+
+#: registration/password_reset_done.html:3
+msgid "Password reset successful"
+msgstr "Reestablecimiento de contraseña correcto"
+
+#: registration/password_reset_done.html:5
+msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
+msgstr "Le hemos enviado un correo electrónico con instrucciones para cambiar su contraseña a la dirección que nos ha suministrado. Debería recibirlo en breve."
+
+#: registration/password_reset_email.html:2
+msgid "You're receiving this e-mail because you requested a password reset"
+msgstr "Está recibiendo este mensaje debido a que solicitó restablecer la contraseña"
+
+#: registration/password_reset_email.html:3
+#, python-format
+msgid "for your user account at %(site_name)s"
+msgstr "para su cuenta de usuario en %(site_name)s."
+
+#: registration/password_reset_email.html:5
+msgid "La nueva contraseña es:"
+msgstr ""
+
+#: registration/password_reset_email.html:7
+msgid "Your username, in case you've forgotten:"
+msgstr "Su nombre de usuario, en caso de haberlo olvidado:"
+
+#: registration/password_reset_email.html:9
+msgid "Thanks for using our site!"
+msgstr "¡Gracias por usar nuestro sitio!"
+
+#: registration/password_reset_email.html:11
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "El equipo de %(site_name)s"
+
+#: registration/password_reset_form.html:9
+msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
+msgstr "¿Ha olvidado su contraseña? Introduzca su dirección de correo electrónico, y le enviaremos instrucciones para cambiarla por una nueva."
+
+#: registration/password_reset_form.html:14
+msgid "E-mail address:"
+msgstr "Dirección de correo electrónico:"
+
+#: registration/password_reset_form.html:14
+msgid "Reset my password"
+msgstr "Restablecer mi contraseña"
+
+#: user/user.html:196
+msgid "Ya es tu amigo"
+msgstr ""
+
+#: user/user.html:198
+msgid "¿Eliminar?"
+msgstr ""
+
+#: user/user.html:223
+msgid "Añade a nuevos amigos"
+msgstr ""
+
+#: user/user.html:226
+msgid "Buscador"
+msgstr ""
+
+#: user/user.html:227
+msgid "Invitar"
+msgstr ""
+
+#: user/user.html:241
+msgid "Sitios favoritos"
+msgstr ""
+
+#: user/user.html:250
+msgid "¿Seguro que no tienes algún sitio favorito?"
+msgstr ""
+
+#: user/user.html:252
+msgid "No tiene sitios favoritos, ¡qué exigente!"
+msgstr ""
+
+#: user/user.html:260
+msgid "Sitios enviados"
+msgstr ""
+
+#: user/user.html:270
+msgid "Añade un nuevo sitio"
+msgstr ""
+
+#: user/user.html:289
+msgid "No ha enviado ningún sitio, ¡qué vago!"
+msgstr ""
+
+#: user/user.html:298
+msgid "Fotografías"
+msgstr ""
+
+#: user/user.html:306
+msgid "Prueba a subir fotos de un sitio, ¡es muy fácil!"
+msgstr ""
+
+#: user/user.html:308
+msgid "No ha subido ninguna foto, y seguro que tiene cámara..."
+msgstr ""
+
+#: user/user.html:316
+msgid "Comentarios"
+msgstr ""
+
+#: user/user.html:325
+msgid "Cuando opines sobre un sitio, aquí aparecerán tus comentarios"
+msgstr ""
+
+#: user/user.html:327
+msgid "Sin comentarios"
+msgstr ""
+

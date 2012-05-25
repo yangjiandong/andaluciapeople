@@ -1,0 +1,701 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-14 17:07+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:40
+msgid "Muy malo"
+msgstr ""
+
+#: forms.py:41 forms.py:53
+msgid "Malo"
+msgstr ""
+
+#: forms.py:42
+msgid "No demasiado malo"
+msgstr ""
+
+#: forms.py:43 forms.py:54
+msgid "Regular"
+msgstr ""
+
+#: forms.py:44
+msgid "Ni bueno ni malo"
+msgstr ""
+
+#: forms.py:45
+msgid "Casi bueno"
+msgstr ""
+
+#: forms.py:46 forms.py:56
+msgid "Bueno"
+msgstr ""
+
+#: forms.py:47
+msgid "Muy Bueno"
+msgstr ""
+
+#: forms.py:48 forms.py:57
+msgid "Excelente"
+msgstr ""
+
+#: forms.py:49
+msgid "Perfecto"
+msgstr ""
+
+#: forms.py:52
+msgid "Todos"
+msgstr ""
+
+#: forms.py:55
+msgid "Aceptable"
+msgstr ""
+
+#: forms.py:60
+msgid "Hombre"
+msgstr ""
+
+#: forms.py:61
+msgid "Mujer"
+msgstr ""
+
+#: forms.py:62
+msgid "Indeterminado"
+msgstr ""
+
+#: forms.py:79
+msgid "Banner Superior 249x90 Exclusivo (1 Provincia) - 39€/mes"
+msgstr ""
+
+#: forms.py:80
+msgid "Banner Superior 249x90 Exclusivo (Todas Provincias) - 69€/mes"
+msgstr ""
+
+#: forms.py:81
+msgid "Sitio Patrocinado Rotatorio (1 Provincia) - 19€/mes"
+msgstr ""
+
+#: forms.py:82
+msgid "Alojamiento Premium (1 Provincia) - 19€/mes"
+msgstr ""
+
+#: forms.py:83
+msgid "Descuentos Especiales para usuarios - Consultar precio"
+msgstr ""
+
+#: forms.py:84
+msgid "Promoción Ofertas en determinadas fechas - Consultar precio"
+msgstr ""
+
+#: forms.py:85
+msgid "Vídeo promocional - Consultar precio"
+msgstr ""
+
+#: forms.py:86
+msgid "Fotografías panorámicas - Consultar precio"
+msgstr ""
+
+#: forms.py:87
+msgid "Otras consultas"
+msgstr ""
+
+#: forms.py:89
+msgid "12 Meses"
+msgstr ""
+
+#: forms.py:90
+msgid "11 Meses"
+msgstr ""
+
+#: forms.py:91
+msgid "10 Meses"
+msgstr ""
+
+#: forms.py:92
+msgid "9 Meses"
+msgstr ""
+
+#: forms.py:93
+msgid "8 Meses"
+msgstr ""
+
+#: forms.py:94
+msgid "7 Meses"
+msgstr ""
+
+#: forms.py:95
+msgid "6 Meses"
+msgstr ""
+
+#: forms.py:96
+msgid "5 Meses"
+msgstr ""
+
+#: forms.py:97
+msgid "4 Meses"
+msgstr ""
+
+#: forms.py:98
+msgid "3 Meses"
+msgstr ""
+
+#: forms.py:99
+msgid "2 Meses"
+msgstr ""
+
+#: forms.py:100
+msgid "1 Mes"
+msgstr ""
+
+#: forms.py:101
+msgid "Otro"
+msgstr ""
+
+#: forms.py:134
+msgid "Nombre de usuario"
+msgstr ""
+
+#: forms.py:140
+msgid "El nombre de usuario no es válido"
+msgstr ""
+
+#: forms.py:144
+msgid "Ya existe un usuario con ese nombre"
+msgstr ""
+
+#: forms.py:149 forms.py:167 forms.py:260
+msgid "Web"
+msgstr ""
+
+#: forms.py:150
+msgid "Imagen"
+msgstr ""
+
+#: forms.py:150
+msgid "Tamaño recomendado: 200x200 px"
+msgstr ""
+
+#: forms.py:151
+msgid "Boletín"
+msgstr ""
+
+#: forms.py:152
+msgid "Sexo"
+msgstr ""
+
+#: forms.py:153
+msgid "Fecha de nacimiento"
+msgstr ""
+
+#: forms.py:154
+msgid "Notificaciones"
+msgstr ""
+
+#: forms.py:155
+msgid "Idioma"
+msgstr ""
+
+#: forms.py:161
+msgid "Nombre *"
+msgstr ""
+
+#: forms.py:162 forms.py:255
+msgid "Provincia *"
+msgstr ""
+
+#: forms.py:163 forms.py:256
+msgid "Localidad *"
+msgstr ""
+
+#: forms.py:164 forms.py:257
+msgid "Dirección *"
+msgstr ""
+
+#: forms.py:165 forms.py:258
+msgid "Mapa *"
+msgstr ""
+
+#: forms.py:166 forms.py:259
+msgid "Teléfono"
+msgstr ""
+
+#: forms.py:168 forms.py:261
+msgid "Tipo *"
+msgstr ""
+
+#: forms.py:172
+msgid "Tipo"
+msgstr ""
+
+#: forms.py:173
+msgid "Ciudad"
+msgstr ""
+
+#: forms.py:174
+msgid "Localidad"
+msgstr ""
+
+#: forms.py:178
+msgid "Usuario"
+msgstr ""
+
+#: forms.py:179
+msgid ""
+"30 caracteres o menos. Sólo caracteres alfanuméricos (letras, dígitos y "
+"guión bajo)"
+msgstr ""
+
+#: forms.py:180
+msgid "Este camo sólo puede contener letras, dígitos y guión bajo."
+msgstr ""
+
+#: forms.py:182
+msgid "Correo electrónico"
+msgstr ""
+
+#: forms.py:183
+msgid "Por favor, usa una dirección real. No te mandaremos correo no deseado."
+msgstr ""
+
+#: forms.py:184
+msgid "Comprueba que la dirección es del tipo usuario@dominio.com"
+msgstr ""
+
+#: forms.py:186
+msgid "Contraseña"
+msgstr ""
+
+#: forms.py:188 forms.py:248 forms.py:267
+msgid "Introduce las siguientes letras para comprobar que no eres un robot."
+msgstr ""
+
+#: forms.py:191
+msgid "E-mail"
+msgstr ""
+
+#: forms.py:200
+msgid ""
+"That e-mail address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+
+#: forms.py:224
+#, python-format
+msgid "Password reset on %s"
+msgstr ""
+
+#: forms.py:231
+msgid "Old password"
+msgstr ""
+
+#: forms.py:240
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr ""
+
+#: forms.py:245
+msgid "Nombre"
+msgstr ""
+
+#: forms.py:246
+msgid "Email"
+msgstr ""
+
+#: forms.py:247 forms.py:266
+msgid "Mensaje"
+msgstr ""
+
+#: forms.py:251
+msgid "Tu Nombre *"
+msgstr ""
+
+#: forms.py:252
+msgid "Tu Email *"
+msgstr ""
+
+#: forms.py:252
+msgid "Donde te enviaremos la factura"
+msgstr ""
+
+#: forms.py:254
+msgid "Nombre del negocio *"
+msgstr ""
+
+#: forms.py:254
+msgid "Ej. La Carihuela"
+msgstr ""
+
+#: forms.py:257
+msgid "Ej. Calle Puentezuelas, 2 (o pincha en el mapa)"
+msgstr ""
+
+#: forms.py:258
+msgid "Arrastra y coloca el punto lo más exactamente posible"
+msgstr ""
+
+#: forms.py:259
+msgid "Ej. 950123456 (opcional)"
+msgstr ""
+
+#: forms.py:260
+msgid "Ej. http://www.miweb.com (opcional)"
+msgstr ""
+
+#: forms.py:261
+msgid "Elige el tipo o tipos que mejor representen al sitio"
+msgstr ""
+
+#: forms.py:263
+msgid "Tarifa publicitaria *"
+msgstr ""
+
+#: forms.py:264
+msgid "Tiempo contratado *"
+msgstr ""
+
+#: forms.py:266
+msgid "Indícanos algo más si lo deseas"
+msgstr ""
+
+#: multifile.py:136
+msgid ""
+"No se ha enviado ninguna foto, comprueba que son del formato y tamaño "
+"permitidas."
+msgstr ""
+
+#: multifile.py:138
+msgid "No se ha enviado ninguna foto."
+msgstr ""
+
+#: multifile.py:141
+msgid "Se han envíado un número de fotos no permitidas."
+msgstr ""
+
+#: views.py:102
+msgid "AndaluciaPeople.com - Datos de tu cuenta"
+msgstr ""
+
+#: views.py:103
+#, python-format
+msgid ""
+"Hola %(user)s!\n"
+"Gracias por registrarte en andaluciaPeople.com. Tus datos de acceso son:\n"
+"* Usuario: %(user)s\n"
+"* Contraseña: %(password)s\n"
+"Puedes acceder a tu cuenta en http://andaluciapeople.com/login/"
+msgstr ""
+
+#: views.py:109
+msgid "AndaluciaPeople.com - Nuevo usuario registrado"
+msgstr ""
+
+#: views.py:149 views.py:179
+msgid "Registro"
+msgstr ""
+
+#: views.py:202
+msgid "Hubo un error al enviar el correo, inténtelo más tarde."
+msgstr ""
+
+#: views.py:204
+msgid "Hubo un error, comprueba que el email es correcto."
+msgstr ""
+
+#: views.py:207
+msgid "Reestablecer contraseña"
+msgstr ""
+
+#: views.py:229 views.py:336 views.py:603
+msgid "Búsqueda de sitios"
+msgstr ""
+
+#: views.py:278
+#, python-format
+msgid "%(tipo)s de %(ciudad)s"
+msgstr ""
+
+#: views.py:311
+msgid "Mejores sitios"
+msgstr ""
+
+#: views.py:545
+msgid "Ver ficha"
+msgstr ""
+
+#: views.py:547
+msgid "Web oficial"
+msgstr ""
+
+#: views.py:549
+msgid "Llamar ahora"
+msgstr ""
+
+#: views.py:550
+msgid "Ofrecido por AndaluciaPeople.com"
+msgstr ""
+
+#: views.py:561
+msgid "Valoración media: "
+msgstr ""
+
+#: views.py:884
+msgid "Formato de archivo incorrecto"
+msgstr ""
+
+#: views.py:959
+msgid "Usuarios"
+msgstr ""
+
+#: views.py:997
+msgid "Últimos Usuarios"
+msgstr ""
+
+#: views.py:1033
+msgid "Usuarios más activos"
+msgstr ""
+
+#: views.py:1074
+msgid "Búsqueda de usuarios"
+msgstr ""
+
+#: views.py:1335
+#, python-format
+msgid ""
+"Salir por %(nombre_ciudad)s. Bares de tapas, restaurantes, pubs, discotecas "
+"y más sitios de %(nombre_ciudad)s"
+msgstr ""
+
+#: views.py:1407
+msgid ""
+"AndalucíaPeople | Bares, restaurantes, pubs, discotecas y más sitios de ocio "
+"de Andalucía"
+msgstr ""
+
+#: views.py:1428
+msgid "No puedes hacerte amigo a ti mismo..."
+msgstr ""
+
+#: views.py:1435
+msgid "AndaluciaPeople.com - Nueva petición de amistad"
+msgstr ""
+
+#: views.py:1436
+#, python-format
+msgid ""
+"El usuario %(user)s te ha añadido como amigo.\n"
+"\t\t\t\t\t\t  Puedes ver su perfil en http://andaluciapeople.com/user/"
+"%(user)s"
+msgstr ""
+
+#: views.py:1445
+msgid " es tu nuevo amigo"
+msgstr ""
+
+#: views.py:1447
+msgid "Ya es tu amigo"
+msgstr ""
+
+#: views.py:1449
+msgid "Debes estar identificado para añadir a un amigo"
+msgstr ""
+
+#: views.py:1464
+msgid " ha dejado de ser tu amigo"
+msgstr ""
+
+#: views.py:1466 views.py:1484 views.py:1501 views.py:1521 views.py:1566
+#: views.py:1586
+msgid "Error: "
+msgstr ""
+
+#: views.py:1468
+msgid "Debes estar identificado para eliminar a un amigo"
+msgstr ""
+
+#: views.py:1482
+msgid "Añadido a tus favoritos"
+msgstr ""
+
+#: views.py:1486
+msgid "Debes estar identificado para añadir un sitio a favoritos"
+msgstr ""
+
+#: views.py:1499
+msgid "Eliminado de tus favoritos"
+msgstr ""
+
+#: views.py:1503
+msgid "Debes estar identificado para eliminar un sitio de tus favoritos"
+msgstr ""
+
+#: views.py:1519
+#, python-format
+msgid "El comentario %s ha sido eliminado correctamente"
+msgstr ""
+
+#: views.py:1523
+msgid "Debes estar identificado para eliminar un comentario"
+msgstr ""
+
+#: views.py:1545
+msgid "Etiqueta insertada correctamente."
+msgstr ""
+
+#: views.py:1548
+msgid "Error: no se pudo guardar la etiqueta."
+msgstr ""
+
+#: views.py:1550
+msgid "Debes estar identificado para insertar una etiqueta"
+msgstr ""
+
+#: views.py:1564
+#, python-format
+msgid "La etiqueta %s ha sido eliminada correctamente"
+msgstr ""
+
+#: views.py:1568
+msgid "Debes estar identificado para eliminar una etiqueta"
+msgstr ""
+
+#: views.py:1584
+#, python-format
+msgid "La foto %s ha sido eliminada correctamente"
+msgstr ""
+
+#: views.py:1588
+msgid "Debes estar identificado para eliminar una foto"
+msgstr ""
+
+#: views.py:1595
+msgid "Insertar sitio"
+msgstr ""
+
+#: views.py:1655
+#, python-format
+msgid "%(nombre_ciudad)sPeople.com - Nuevo sitio: %(nombre_sitio)s"
+msgstr ""
+
+#: views.py:1656
+#, python-format
+msgid ""
+"El usuario %(user)s ha añadido el sitio http://andaluciapeople.com/"
+"%(ciudad)s/sitio/%(slug)s"
+msgstr ""
+
+#: views.py:1663 views.py:1667 views.py:1671
+msgid "Error: comprueba que todos los campos son correctos."
+msgstr ""
+
+#: views.py:1674
+#, python-format
+msgid ""
+"Error: ya existe un sitio con ese nombre. Ver <a href=\"/%(ciudad)s/sitio/"
+"%(sitio_slug)s/\">%(sitio_nombre)s</a>."
+msgstr ""
+
+#: views.py:1715 views.py:1749
+msgid "Mapa de sitios"
+msgstr ""
+
+#: views.py:1779 views.py:1813
+#, python-format
+msgid "Resultados en el mapa para %(tags)s"
+msgstr ""
+
+#: views.py:1834
+msgid "Eventos, conciertos, actuaciones"
+msgstr ""
+
+#: views.py:1891
+#, python-format
+msgid "Hoteles en %(nombre_ciudad)s"
+msgstr ""
+
+#: views.py:2031
+#, python-format
+msgid "Usuarios similares a %(user)s"
+msgstr ""
+
+#: views.py:2052
+#, python-format
+msgid "Sitios recomendados para %(user)s"
+msgstr ""
+
+#: views.py:2107
+msgid "AndalucíaPeople | Suscripción RSS"
+msgstr ""
+
+#: views.py:2127
+#, python-format
+msgid "Mensajería de %(user)s"
+msgstr ""
+
+#: views.py:2169
+#, python-format
+msgid "Ajustes de %(user)s"
+msgstr ""
+
+#: views.py:2342
+msgid "Ayuda de usuario"
+msgstr ""
+
+#: views.py:2361
+msgid "AndalucíaPeople | Sala de prensa"
+msgstr ""
+
+#: views.py:2380
+msgid "Anuncia tu negocio"
+msgstr ""
+
+#: views.py:2522
+msgid "Blog"
+msgstr ""
+
+#: views.py:2540
+msgid "Contacto"
+msgstr ""
+
+#: views.py:2575
+msgid "Acerca de AndalucíaPeople"
+msgstr ""
+
+#: views.py:2593
+msgid "Información legal / Condiciones de uso"
+msgstr ""
+
+#: views.py:2611
+msgid "Licencias"
+msgstr ""
+
+#: views.py:2625
+msgid "Invitación"
+msgstr ""
+
+#: views.py:2643
+msgid "Invitación aceptada"
+msgstr ""
+
+#: views.py:2664
+msgid "Envío de invitaciones"
+msgstr ""
+
+#: views.py:2724
+#, python-format
+msgid ""
+"Especial nochevieja 2009/2010. Conoce los precios de los pubs, discotecas y "
+"cotillones en %(nombre_ciudad)s"
+msgstr ""

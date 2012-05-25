@@ -1,0 +1,48 @@
+{% load i18n %}
+<ul class="menu_user">
+  <li>
+    <a id="ficha" href="{% url sitios.views.ver_usuario user %}">
+      <img src="/media/icons/user.png" />
+      <p>
+        <strong>{% trans "Ficha" %}</strong><br/>
+        {% trans "Resumen de tu cuenta personal." %}
+      </p>
+    </a>
+  </li>
+  <li>
+    <a id="recomendaciones" href="{% url sitios.views.recomendaciones_usuario %}">
+       <img src="/media/icons/chart.png" />
+       <p>
+         <strong>{% trans "Recomendaciones" %}</strong><br/>
+         {% trans "Encuentra sitios que pueden ser de tu interés." %}
+       </p>
+    </a>
+  </li>
+  <li>
+    <a id="mensajes" href="{% url messages.views.inbox %}">
+       <img src="/media/icons/mail.png" />
+       <p>
+         <strong>{% trans "Mensajes" %}</strong><br/>
+         {% trans "Recepción y envío de mensajes privados." %}
+       </p>
+    </a>
+  </li>
+  <li>
+    <a id="ajustes" href="{% url sitios.views.ajustes_usuario %}">
+      <img src="/media/icons/process.png" />
+      <p>
+        <strong>{% trans "Ajustes" %}</strong><br/>
+        {% trans "Modifica tus preferencias y datos personales." %}
+      </p>
+    </a>
+  </li>
+  <li>
+    <a id="ayuda" href="{% url sitios.views.ayuda_usuario %}">
+      <img src="/media/icons/help.png" />
+      <p>
+        <strong>{% trans "Ayuda" %}</strong><br/>
+        {% trans "Aprende a utilizar andalucíaPeople." %}
+      </p>
+    </a>
+  </li>
+</ul>

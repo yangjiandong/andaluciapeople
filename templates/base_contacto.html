@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.contacto %}">{% trans "Contacto" %}</a>{% endblock %}
+
+{% block cuerpo %}
+<h3>{% trans "Contacto" %}</h3>
+{% if enviado %}
+<p>{% trans "Mensaje enviado correctamente. Intentaremos responderte lo antes posible. ¡Gracias!" %}</p>
+{% else %}
+<p class="info">{% blocktrans %}Puedes escribirnos un correo electrónico a <a href="mailto:correo@andaluciapeople.com">correo@andaluciapeople.com</a> o rellenar el siguiente formulario:{% endblocktrans %}</p>
+
+<form method="post" action="">{% csrf_token %}
+    <dl>
+    {% for field in form %}
+    <dt>{{ field.label_tag }}</dt>
+    <dd>{{ field }}</dd>
+    {% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+    {% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+    {% endfor %}
+    </dl>
+    <input type="submit" value="{% trans "Enviar" %}" />
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{ options.blog_title }}</title>
+    <link href="{{ options.base_url }}"/>
+    <updated>{{ updated|date:"Y-m-d\TH:i:s\Z"}}</updated>
+    <author>
+        <name>{{ options.blog_author }}</name>
+    </author>
+    <id>{{ options.base_url }}</id>
+    {% for post in posts %}
+    <entry>
+        <title>{{ post.title }}</title>
+        <link href="{{ options.base_url }}{% url blogapp.views.post_by_name post.name %}"/>
+        <id>{{ options.base_url }}{% url blogapp.views.post_by_name post.name %}</id>
+        <updated>{{ post.date|date:"Y-m-d\TH:i:s\Z"}}</updated>
+        <content type="html">{{ post.content }}</content>
+    </entry>
+    {% endfor %}
+</feed>

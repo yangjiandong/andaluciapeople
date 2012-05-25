@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>{{ options.blog_title }}</title>
+        <link>{{ options.base_url }}</link>
+        <description>{{ options.blog_description }}</description>
+        <language>es</language>
+        {% for post in posts %}
+        <item>
+            <title>{{ post.title }}</title>
+            <link>{{ options.base_url }}{% url blogapp.views.post_by_name post.name %}</link>
+            <guid>{{ options.base_url }}{% url blogapp.views.post_by_name post.name %}</guid>
+            <pubDate>{{ post.date|date:"D, d M Y H:i:s" }} GMT</pubDate>
+            <description>
+                <![CDATA[
+                {{ post.content|safe }}
+                ]]>
+            </description>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

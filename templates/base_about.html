@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.acerca_de %}">{% trans "Acerca de" %}</a>{% endblock %}
+
+{% block cuerpo %}
+<h3>{% trans "Acerca de" %}</h3>
+<div style="text-align: justify">
+<p class="info"><strong>{% blocktrans %}AndalucíaPeople es la guía inteligente y social 
+de sitios de ocio de Andalucía.{% endblocktrans %}</strong> {% blocktrans %}Disponemos de cientos de sitios geolocalizados 
+y categorizados en más de 15 tipos distintos, desde bares o restaurantes hasta pubs o 
+cines.{% endblocktrans %}</p>
+
+<p><strong>{% blocktrans %}¿Con qué finalidad fue creada?{% endblocktrans %}</strong>
+{% blocktrans %}Inicialmente se creó en Granada para ofrecer una herramienta útil para 
+compartir la localización de aquellos bares y sitios más interesantes que nos ofrece 
+la ciudad, pero que poco a poco se ha ido ampliando ofreciendo nuevos servicios y 
+herramientas para convertirse en una guía útil al alcance de todos.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿Qué valor añadido ofrece con respecto a otras páginas similares?{% endblocktrans %}</strong>
+{% blocktrans %}AndalucíaPeople ofrece dos principales aspectos respecto a cualquier 
+otra guía de ocio. La primera de ellas es que es totalmente independiente. Cualquier 
+persona puede registrase gratuitamente y colaborar aportando nuevos sitios y dando 
+su opinión subjetiva sobre ellos de forma totalmente libre.<br/>
+Por otra parte, ofrecemos un sistema de recomendación personalizado, en el que según 
+tus gustos, la web es capaz de ofrecerte distintos resultados que pueden ser de tu 
+interés.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿Cuánta gente forma parte del proyecto?{% endblocktrans %}</strong>
+{% blocktrans %}Si bien el proyecto es totalmente abierto y libre a la colaboración 
+de cualquier persona, actualmente es administrada por Manuel Martín, ingeniero informático 
+por la Universidad de Granada.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿Cómo se reparten las tareas?{% endblocktrans %}</strong>
+{% blocktrans %}Los usuarios registrados son capaces de añadir nuevos sitios, dar su 
+opinión, votarlos o subir fotografías.
+El administrador se encarga del mantenimiento y mejoras de la web, así como de establecer 
+lazos de colaboración con otros proyectos relacionados. Por ejemplo, los eventos nos los 
+proporciona GranadaZoom y la sección de hoteles SOL.com, una central de reservas que 
+opera desde Sevilla.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿A qué tipo de usuarios os dirigís?{% endblocktrans %}</strong>
+{% blocktrans %}Si bien es una web para todos los públicos, la gente más activa suelen 
+ser jóvenes de entre 18 y 30 años, muchos de ellos estudiantes universitarios, que son 
+los que más se mueven en una ciudad como Granada.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿Qué objetivos os habéis marcado?{% endblocktrans %}</strong>
+{% blocktrans %}El objetivo de AndalucíaPeople es seguir creciendo en cantidad y 
+sobre todo calidad de contenidos, de manera que a cualquier persona de dentro o fuera 
+de Andalucía le resulte sencillo y rápido utilizar nuestros servicios ya sea a través 
+de un ordenador o con aplicaciones móviles.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿Qué criterios seguís para seleccionar los contenidos?{% endblocktrans %}</strong>
+{% blocktrans %}Buscamos que los contenidos que aportan los usuarios sean veraces, 
+para ello contamos con un sistema de información de errores y de abusos del sistema, 
+para que podamos corregir irregularidades en el menor tiempo posible.{% endblocktrans %}
+</p>
+
+<p><strong>{% blocktrans %}¿Cómo veis el futuro de la red en vuestro ámbito?{% endblocktrans %}</strong>
+{% blocktrans %}Creemos que es un proyecto que va a seguir creciendo día a día, más 
+aún contando con los dispositivos móviles de última generación que incorporan conexión 
+a internet y GPS, de manera que podemos ofrecer resultados dependiendo de la posición 
+del individuo en tiempo real. Es algo apasionante y que hace unos años era impensable.{% endblocktrans %}
+</p>
+</div>
+{% endblock %}

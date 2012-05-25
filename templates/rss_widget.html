@@ -1,0 +1,3 @@
+{% load i18n %}
+{% load rssplug %}
+<a href="{{ item.link }}">{{ item.description|safe|truncatewords_html:10 }}</a>

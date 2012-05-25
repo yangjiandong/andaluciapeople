@@ -1,0 +1,734 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load webdesign %}
+{% load trackback_tags %}
+{% load dotify %}
+{% load hitcount_tags %}
+
+{% block head_label%}
+profile="http://www.w3.org/2006/03/hcard"
+{% endblock %}
+
+{% block title %}
+{% autoescape off %}
+{{ sitio.nombre }} - 
+{% for tipo in sitio.tipo.all %}
+{{ tipo }}
+{% endfor %}
+ - {{ sitio.get_ciudad }}
+{% endautoescape %}
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.buscar_sitios2 ciudad %}">{% trans "sitios" %}</a> &raquo; <a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}">{% autoescape off %}{{ sitio.nombre|lower }}{% endautoescape %}</a>{% endblock %}
+
+{% block header %}
+<link rel="pingback" href="{% url receive_pingback %}" />
+<link rel="stylesheet" href="/media/css/base_sitio.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/prettyPhoto.css" type="text/css" />
+<!--<script type="text/javascript" src="/media/js/jquery-ui-1.7.2.custom.min.js"></script>-->
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui.stars.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="/media/js/jquery.prettyPhoto.js"></script>
+
+<!-- Open Graph Protocol http://ogp.me/ -->
+<meta property="og:title" content="{{ sitio.nombre }}" />
+{% for tipo in sitio.tipo.all %}
+<meta property="og:type" content="{{ tipo.slug }}" />
+{% endfor %}
+<meta property="og:url" content="{% url sitios.views.ver_sitio ciudad sitio.slug %}" />
+<meta property="og:site_name" content="AndalucíaPeople" />
+<meta property="og:latitude" content="{{ sitio.lat|dotify }}" />
+<meta property="og:longitude" content="{{ sitio.lng|dotify }}" />
+<meta property="og:street-address" content="{{ sitio.direccion }}" />
+<meta property="og:locality" content="{{ sitio.zona }}" />
+<meta property="og:region" content="{{ sitio.get_ciudad }}" />
+<meta property="og:country-name" content="Spain" />
+{% if sitio.telefono %}
+<meta property="og:phone_number" content="{{ sitio.telefono }}" />
+{% endif %}
+
+<!-- Google Maps Code -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  function initialize_map() {
+    var myLatlng = new google.maps.LatLng({{ sitio.lat|dotify }}, {{ sitio.lng|dotify }});
+    var myOptions = {
+      zoom: 15,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng, 
+        map: map,
+        title:"{{ sitio.nombre }}"
+    });  
+    
+    var panoramaOptions = {
+      position: myLatlng,
+      pov: {
+        heading: 165,
+        pitch:0,
+        zoom:0
+      }
+    };
+    var myPano = new google.maps.StreetViewPanorama(document.getElementById("pano"), panoramaOptions);
+    map.setStreetView(myPano);
+    //myPano.setVisible(true);
+    
+  }
+
+</script>
+<!-- END Google Maps Code -->
+
+{# Sólo cargamos el javascript necesario #}
+<script type="text/javascript">
+<!--
+var sitio_absolute_url = 'http://andaluciapeople.com{% url sitios.views.ver_sitio ciudad sitio.slug %}';
+var sitio_absolute_url_encoded = encodeURIComponent(sitio_absolute_url);
+
+function load_informe_error_form(sitio_id){
+	var html = "<form class='boxy_form' method='post' action='{% url sitios.views.informar_error %}'>{% csrf_token %}";
+	html += "<strong>{% trans "Tu nombre" %}:</strong><br/><input type='text' value='' name='nombre' /><br/>";
+	html += "<strong>{% trans "Tu correo" %}:</strong><br/><input type='text' value='' name='email' /><br/>";
+        html += "<strong>{% trans "Causa" %}:</strong><br/><select name='causa'>";
+        html += "<option value=''>- {% trans "Seleccionar" %} -</option>";
+        html += "<option value='cerrado'>{% trans "Cerrado" %}</option>";
+        html += "<option value='traslado'>{% trans "Trasladado" %}</option>";
+        html += "<option value='cambio_nombre'>{% trans "Cambio de nombre" %}</option>";
+        html += "<option value='incorrecto'>{% trans "Otros datos incorrectos" %}</option></select><br/>";
+	html += "<strong>{% trans "Mensaje detallado" %}:</strong><br/><textarea name='mensaje'></textarea><br/>";
+	html += "<input type='hidden' name='sitio_id' value='"+sitio_id+"' />";
+	html += "<input type='submit' value='{% trans "Enviar" %}' />";
+	html += "</form>";
+	return html;
+}
+
+function load_abuso_comment_form(comment_id){
+	var html = "<form class='boxy_form' method='post' action='{% url sitios.views.informar_abuso %}'>{% csrf_token %}";
+	html += "<strong>{% trans "Tu nombre" %}:</strong><br/><input type='text' value='' name='nombre' /><br/>";
+	html += "<strong>{% trans "Tu correo" %}:</strong><br/><input type='text' value='' name='email' /><br/>";
+	html += "<strong>{% trans "Mensaje" %}:</strong><br/><textarea name='mensaje'></textarea><br/>";
+	html += "<input type='hidden' name='comment_id' value='"+comment_id+"' />";
+	html += "<input type='submit' value='{% trans "Enviar" %}' />";
+	html += "</form>";
+	return html;
+}
+
+function load_url_corta(){
+	$('#url_corta').html('<input id="input_url_corta" type="text" value="{% trans "Cargando..." %}" style="width: 120px"/>');
+	$.getJSON('http://go4.es/?modo=new&format=json&url='+sitio_absolute_url+'&callback=?', function(data){
+		$('#input_url_corta').val(data['url']);
+	});
+}
+function load_enlazar_sitio(){
+	var html = "<div><p>{% trans "Utiliza este código HTML para enlazar a este sitio" %}:</p>";
+	html += '<small>&lt;a href="'+sitio_absolute_url+'"&gt;{{ sitio.nombre }}&lt;/a&gt;</small><br/>';
+	html += "<p>{% trans "O bien, incrusta el mapa en tu web usando este código" %}:</p>";
+	html += "<form id='form_iframe' action='#'>";
+	html += "<textarea id='iframe_code' style='width: 350px; height: 100px;'><iframe width='300' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://andaluciapeople.com{% url sitios.views.iframe_sitio ciudad sitio.slug 300 300 1 %}'></iframe><br/><small>{% trans "Mapa proporcionado por" %} <a href='{% url sitios.views.superindex %}'>AndalucíaPeople</a></small></textarea>";
+	html += "<p><strong>{% trans "Ancho" %}:</strong> <input id='iframe_width' name='iframe_width' type='text' value='300' size='3' />px <strong>{% trans "Alto" %}:</strong> <input id='iframe_height' name='iframe_height' type='text' value='300' size='3' />px <strong>{% trans "Controles" %}:</strong> <input id='iframe_controls' name='iframe_controls' type='checkbox' value='1' checked='checked'/></p>";
+	html += "<input type='submit' value='{% trans "Actualizar código" %}' /><br/>";
+	html += "<small>{% trans "Se recomienda al menos un mapa de 300x300 px" %}</small>"
+	html += "</form>";
+	html += "</div>";
+	return html;
+}
+
+function enviar_tag(){
+	$('#add_tag_form').ajaxSubmit({
+		'success': function(){
+			var tags = $('#id_tag').val().split(',');
+			
+			var html = '';
+			for(i=0; i<tags.length && tags[i]!=''; i++){
+				html += '<span>';
+				html += "<form class='del_tag_form' method='post' action='/{{ ciudad }}/sitio/{{ sitio.slug }}/del_tag/"+tags[i]+"/'>{% csrf_token %}";
+				html += '<a class="del_tag_link" href="#del_tag" title="{% trans "Borrar tag" %}"><img src="/media/icons/tag__minus.png" alt="[-]" class="fugue_icon"/></a> ';
+				html += '</form>';
+				html += '<a href="{% url sitios.views.buscar_sitios2 ciudad %}?q='+tags[i]+'" rel="tag">'+tags[i]+'</a>';
+				html += '</span>';
+			}
+			
+			$("#lista_tags").append(html);
+							
+			$('.del_tag_link').bind('click', function(){
+				$(this).parent().ajaxSubmit({
+					'target': $(this).parent().parent(),
+					'success': function(){
+						$(this).fadeOut('slow');
+					}
+				});
+				return false;
+			});
+			
+			$("#id_tag").val("");
+		}
+	});	
+}
+
+function site_ready() {
+	
+	{% if user.is_authenticated %}
+
+	$('#add_fav_link').bind('click', function(){
+		$('#add_fav_form').ajaxSubmit({
+			'target': '#add_fav'
+		});
+		return false;
+	});
+	
+	$('#del_fav_link').bind('click', function(){
+		$('#del_fav_form').ajaxSubmit({
+			'target': '#del_fav'
+		});
+		return false;
+	});
+	
+	$('#stars-wrapper1').stars({ 
+		inputType: "select",
+		split: 2,
+		oneVoteOnly: true,
+		captionEl: $('#stars-cap1'),
+		callback: function(ui, type, value){
+			ui.disable();
+			$("#stars-cap1").text("{% trans "Enviando..."%}").fadeIn(30);
+			$("#star_form1").ajaxSubmit({
+				'success': function(json){
+					var res = eval(json);
+					$("#stars-wrapper0").stars("select", res[0].avg);
+					
+					$("#stars-wrapper0-votos").text(res[0].votos);
+					
+					$("#stars-cap1").text("{% trans "Voto insertado"%} (" + value + "). {% trans "¡Gracias!"%}").stop().css("opacity", 1).fadeIn(30);
+					$("#is_prediccion").text("{% trans "Tu valoración"%}");
+					
+					setTimeout(function(){
+						$("#stars-cap1").fadeOut(1000)
+					}, 2000);
+				}
+			});
+		}
+	});
+	$('#stars-wrapper1').show();
+
+	$('#add_tag_form').bind('submit', function(event){
+		event.preventDefault();
+		enviar_tag();
+		return false;
+	});
+	
+	$('#add_tag_link').bind('click', function(){
+		enviar_tag();
+		return false;
+	});
+	
+	$('#show_add_tag_div').bind('click', function(){
+		$('#add_tag_form').show();
+		$(this).hide();
+		return false;
+	});
+	
+	$('.del_tag_link').bind('click', function(){
+		$(this).parent().ajaxSubmit({
+			'target': $(this).parent().parent(),
+			'success': function(){
+				$(this).fadeOut('slow');
+			}
+		});
+		return false;
+	});
+		
+	$('.borrar_comentario_link').bind('click', function(){
+		var padre = $(this).parent();
+		new Boxy.confirm("{% trans "¿Seguro que quieres borrar este comentario?"%}", function() {
+			padre.ajaxSubmit({
+				'target': padre,
+				'success': function(){
+					padre.parent().parent().fadeOut("slow");
+				}
+			});
+		});
+		return false;
+	});
+
+	$('.del_foto_link').bind('click', function(){
+		var padre = $(this).parent();
+		new Boxy.confirm("{% trans "¿Seguro que quieres borrar esta foto?"%}", function() {
+			padre.ajaxSubmit({
+				'target': padre,
+				'success': function(){
+					padre.parent().parent().fadeOut("slow");
+				}
+			});
+		});
+		return false;
+	});
+	{% endif %}
+
+
+	$('#stars-wrapper0').stars({ 
+		disabled: true,
+		split: 2,
+		inputType: "select",
+		captionEl: $('#stars-cap0'),
+
+	});
+	$('#stars-wrapper0').show();
+	
+	$('.registrate').bind('click', function(){
+		window.location.href = '{% url sitios.views.register %}?next={% url sitios.views.ver_sitio ciudad sitio.slug %}';
+	});
+	$('.registrate').hover(
+		function(){
+			$(this).css('background-color', '#EEFFFF');
+		},
+		function(){
+			$(this).css('background-color', '#FFFFFF');
+		}
+	);
+
+	$('.informar_error_link').bind('click', function(){
+		var sitio_id = $(this).attr('id');
+		new Boxy(load_informe_error_form(sitio_id), {title: "{% trans "Informe de error"%}", modal: true});
+		$('.boxy_form').bind('submit', function(event){
+			event.preventDefault();
+			$(this).ajaxSubmit({
+				'target': $(this)
+			});
+		});
+		return false;
+	});
+		
+	$('.informar_abuso_link').bind('click', function(){
+		var comment_id = $(this).attr('id');
+		new Boxy(load_abuso_comment_form(comment_id), {title: "{% trans "Informe de abuso"%}", modal: true});
+		$('.boxy_form').bind('submit', function(event){
+			event.preventDefault();
+			$(this).ajaxSubmit({
+				'target': $(this)
+			});
+		});
+		return false;
+	});
+	
+	$('#enlazar_sitio_link').bind('click', function(){
+		new Boxy(load_enlazar_sitio(1), {title: "{% trans "Enlaza a este sitio"%}", modal: true});
+		$('#form_iframe').bind('submit', function(event){
+			event.preventDefault();
+			var ancho = $('#iframe_width').val();
+			var alto = $('#iframe_height').val();
+			var controles = 0;
+			if ($('#form_iframe input:checked').length>0){
+				controles = 1;
+			}
+			$('#iframe_code').attr('value', "<iframe width='"+ancho+"' height='"+alto+"' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://andaluciapeople.com/{{ ciudad }}/sitio/{{ sitio.slug }}/iframe/"+ancho+"/"+alto+"/"+controles+"/'></iframe><br/><small>{% trans "Mapa proporcionado por" %} <a href='{% url sitios.views.superindex %}'>AndalucíaPeople</a></small>");
+		});
+		return false;
+	});
+	/*
+	$('#recomendar_a_amigo_link').bind('click', function(){
+		new Boxy("<div>En desarrollo, disculpa las molestias.</div>", {title: "Recomienda este sitio", modal: true});
+		return false;
+	});
+	*/
+	$('.estrellas').stars({disabled: true, split: 2});
+	
+	$('#link_qr_code').click(function(){
+		new Boxy('<img style="border:none;" src="http://chart.apis.google.com/chart?chs=200x200&cht=qr&chl='+ sitio_absolute_url +'&choe=UTF-8" alt="'+ sitio_absolute_url +'"/>',
+		{title: 'QR Code', modal: true});
+		return false;
+	});
+	
+	$('#link_tuenti_compartir').attr("href", sitio_absolute_url_encoded);
+	$('#link_tuenti_compartir').click(function(){
+		window.open('http://www.tuenti.com/share?url='+sitio_absolute_url_encoded, '_blank', 'height=375,width=600'); return false;
+	});
+
+	/* nice popup */
+	$("a[rel^='prettyPhoto']").prettyPhoto();
+	$("a[rel^='prettyPhotoCustom']").prettyPhoto({
+		custom_markup: '<div id="map_canvas" style="width:400px; height:300px"></div><div id="pano" style="position:absolute; left:430px; top: 0; width: 400px; height: 300px;"></div>',
+		changepicturecallback: function(){ initialize_map(); }
+	});
+	
+	/* tooltip para coordenadas */
+	$('.geo').tipsy({gravity: 'n', fade: true}); 
+}
+-->
+</script>
+
+{% endblock %}
+
+
+{% block jquery_ready %}
+site_ready();
+{% get_hit_count_javascript for sitio %}
+{% endblock %}
+
+{% block cuerpo %}
+
+{% if pendiente_moderacion %}
+<div class="pendiente_moderacion">
+<img src="/media/icons/exclamation.png" alt="" style="vertical-align: middle"/> {% trans "Aviso: este sitio ha sido añadido recientemente y aún no se ha revisado" %}
+</div>
+{% endif %}
+
+{% get_trackback_rdf_for sitio %}
+
+<div class="ficha_sitio vcard">
+	<h3>{% trans "Ficha del sitio" %}</h3>
+
+
+        {% if cerrado %}
+        <div class="aviso_top_light">{% trans "Nos han informado que este sitio está cerrado" %}</div>
+        {% endif %}
+        {% if traslado %}
+        <div class="aviso_top_light">{% trans "Nos han informado que este sitio se ha trasladado" %}</div>
+        {% endif %}
+        {% if cambio_nombre %}
+        <div class="aviso_top_light">{% trans "Nos han informado que este sitio ha cambiado de nombre" %}</div>
+        {% endif %}
+        {% if incorrecto %}
+        <div class="aviso_top_light">{% trans "Nos han informado que este sitio tiene algunos datos incorrectos" %}</div>
+        {% endif %}
+
+	<!-- minimapa -->
+	<div id="minimap">
+		<a title="{% trans "Ver mapa interactivo" %}" rel="prettyPhotoCustom" href="#?custom=true&width=850&height=310"><img src="http://maps.google.com/maps/api/staticmap?markers=size:small|color:red|{{ sitio.lat|dotify }},{{ sitio.lng|dotify }}&zoom=15&size=80x80&maptype=roadmap&mobile=true&sensor=false" /><img src="/media/icons/magnifier_zoom.png" alt="+" /></a>
+	</div>
+	
+	{% autoescape off %}
+	<div id="ficha_datos">
+	<!-- nombre -->
+	<h4><a class="url fn org" rel="bookmark" title="{% trans "Enlace permanente a" %} {{ sitio.nombre }}" href="{% url sitios.views.ver_sitio ciudad sitio.slug %}">{{ sitio.nombre }}</a></h4>
+	
+	<!-- dirección -->
+	<abbr class="geo" title="{{ sitio.lat }};{{ sitio.lng }}"><img src="/media/icons/geotag_16.png" alt="(lat;lng)" id="geoicon"/></abbr> 
+	<span class="adr">
+	{% if sitio.direccion %}
+	<span class="street-address">{{sitio.direccion}}</span>,
+	{% endif %}
+	{% endautoescape %} <span class="locality">{{sitio.zona}}</span> (<span class="region">{{ sitio.get_ciudad }}</span>)
+	</span><br/>
+	
+	<!-- teléfono -->
+	{% if sitio.telefono %}
+	{% trans "Teléfono" %}: <span class="tel">{{ sitio.telefono }}</span><br/>
+	{% endif %}
+	{% if sitio.web %}
+	{% trans "Web" %}: {{ sitio.web|urlizetrunc:30 }}<br/>
+	{% endif %}
+	</div>
+	
+	<div id="ficha_estrellas">
+	<!-- valoración media -->
+	<form id="star_form0" method="post" action="">{% csrf_token %}
+	<small><strong>{% trans "Media" %}:</strong> <span id="stars-cap0"></span></small>
+	<div id="stars-wrapper0" style="display: none">
+	{% for field in rank_form %}
+	    {{ field }}
+	    {% if field.help_text %}{{ field.help_text }}{% endif %}
+	    {% if field.errors %}{{ field.errors }}{% endif %}
+	{% endfor %}
+	</div> &nbsp;<small><span id="stars-wrapper0-votos">{{ sitio.num_votos }}</span> {% trans "votos" %}</small>
+	</form>
+	
+	<!-- formulario de voto y favoritos -->
+	{% if user.is_authenticated %}
+		<form id="star_form1" method="post" action="{% url sitios.views.guardar_voto %}">{% csrf_token %}
+		<small><strong>
+		{% if prediccion %}
+		<span id="is_prediccion"><a href="{% url sitios.views.recomendaciones_usuario %}" title="{% trans "Ver recomendaciones" %}"><img src="/media/icons/chart_16.png" alt="" border="0"/></a> {% trans "Tu predicción" %}</span>
+		{% else %}
+		<span id="is_prediccion">{% trans "Tu valoración" %}</span>
+		{% endif %}
+		:</strong> <span id="stars-cap1"></span></small>
+		<div id="stars-wrapper1" style="display: none">
+		{% for field in vote_form %}
+		   {{ field }}
+		    {% if field.help_text %}{{ field.help_text }}{% endif %}
+		    {% if field.errors %}{{ field.errors }}{% endif %}
+		{% endfor %}
+		</div>
+		{% if voto_error %}
+		<img src="/media/icons/cross_circle.png" alt="error" class="fugue_icon"/>
+		{% endif %}
+		{% if voto_insertado %}
+		<img src="/media/icons/tick_circle.png" alt="ok" class="fugue_icon"/>
+		{% endif %}
+		</form>
+
+		
+		{% if es_favorito %}
+		<div id="del_fav">
+		<form id="del_fav_form" method="post" action="{% url sitios.views.del_favorito user sitio.id %}">{% csrf_token %}
+		<img src="/media/icons/heart_break.png" alt="" class="fugue_icon"/> <a href="#del_fav" id="del_fav_link">{% trans "Eliminar de favoritos" %}</a>
+		</form>
+		</div>
+		{% else %}
+		<div id="add_fav">
+		<form id="add_fav_form" method="post" action="{% url sitios.views.add_favorito user sitio.id %}">{% csrf_token %}
+		<img src="/media/icons/heart.png" alt="" class="fugue_icon"/> <a href="#add_fav" id="add_fav_link">{% trans "Añadir a favoritos" %}</a>
+		</form>
+		</div>
+		{% endif %}
+		
+	{% else %}
+		<p><a href="{% url sitios.views.register %}?next={% url sitios.views.ver_sitio ciudad sitio.slug %}">{% trans "Regístrate para votar" %}</a></p>
+	{% endif %}
+		<div id="facebook_me_gusta_sitio">
+		{% ifequal LANGUAGE_CODE 'en' %}
+		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+		{% else %}
+		<script src="http://connect.facebook.net/es_ES/all.js#xfbml=1"></script>
+		{% endifequal %}
+		<fb:like href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" width="280" font="arial"></fb:like>
+		</div>
+		<div id="tuenti_compartir">
+		<a id="link_tuenti_compartir">
+		<img src="/media/icons/tuenti_share.png" border="0"/>
+		</a>
+		
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="andaluciapeople"
+		{% ifequal LANGUAGE_CODE 'en' %} 
+		data-lang="en"
+		{% else %}
+		data-lang="es"
+		{% endifequal %}
+		>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		</div>
+	</div>
+
+	{% if sitio.patrocinado %}
+	<!-- foto y descripción -->
+	<div id="foto_descripcion">
+	<img class="photo logo" src="{{ sitio.imagen }}" alt="" width="100" height="75" border="1" align="left" />
+	<p class="descripcion">{% trans "Descripción:" %} {{ sitio.descripcion|escape }}</p>
+	</div>
+	{% endif %}
+	
+	<div id="tags">
+	<!-- tags -->
+	<small>{% trans "Tags" %}:
+	<span id="lista_tags">
+	{% for t in tags %}
+	<span>
+		{% ifequal t.user user %}
+		<form class="del_tag_form" method="post" action="{% url sitios.views.del_tag ciudad sitio.slug t.tag %}">{% csrf_token %}
+		<a class="del_tag_link" href="#del_tag" title="{% trans "Borrar tag" %}"><img src="/media/icons/tag__minus.png" alt="[-]" class="fugue_icon"/></a> 
+		</form>
+		{% endifequal %}
+		<a rel="tag" href="{% url sitios.views.buscar_sitios2 ciudad %}?q={{ t.tag }}">{{ t.tag }}</a>
+	</span>
+	{% endfor %}
+	</span><!-- /lista_tags -->
+	</small>
+	{% if user.is_authenticated %}
+	<form id="add_tag_form" method="post" action="{% url sitios.views.add_tag ciudad %}" style="display:none">{% csrf_token %}
+	<small>{% trans "Añade nuevas etiquetas" %}: </small>
+	{% for field in tag_form %}
+	    {{ field }}
+	    {% if field.help_text %}{{ field.help_text }}{% endif %}
+	    {% if field.errors %}{{ field.errors }}{% endif %}
+	{% endfor %}
+	<a href="#add_tag" id="add_tag_link" title="{% trans "Añadir tags" %}"><img src="/media/icons/tag__plus.png" alt="{% trans "Añadir tags" %}" border="0" /></a>
+	<span id="add_tag_helper"></span>
+	</form>
+	<a href="#add_tag" id="show_add_tag_div" title="{% trans "Añadir tags" %}"><img src="/media/icons/tag__plus.png" alt="{% trans "Añadir tags" %}" border="0" /></a>
+	{% endif %}
+	</div>
+	
+	<!-- otros -->
+	<div id="otros">
+	{% trans "Enviado por" %} <a href="{% url sitios.views.ver_usuario sitio.user %}">{{ sitio.user }}</a> |
+    <img src="/media/icons/marker--exclamation.png" alt="" class="fugue_icon" /><a id="{{ sitio.id }}" class="informar_error_link" href="#">{% trans "Informar de un error" %}</a> |
+	<!--<img src="/media/icons/users\-\-arrow.png" alt="" class="fugue_icon" /><a href="#" id="recomendar_a_amigo_link">Recomendar a un amigo</a> |-->
+	<img src="/media/icons/arrow-return-000-left.png" alt="" class="fugue_icon" /><a href="#" id="enlazar_sitio_link">{% trans "Enlazar este sitio" %}</a> |
+	{% trans "URL corta" %}: <span id="url_corta"><a href="javascript:load_url_corta()">{% trans "obtener" %}</a></span> |
+	<img src="/media/icons/barcode-2d.png" alt="" class="fugue_icon" /> <a id="link_qr_code" href="#">QR Code</a>
+	</div>
+</div>
+
+<div class="fila">
+<div class="sitios_similares" style="float: left">
+	<h3>{% trans "Sitios similares" %}</h3>
+	<ul class="lista_sitios_similares">
+	{% for s in sitios_similares %}
+	<div class="nombre">
+	<li><a href="{% url sitios.views.ver_sitio ciudad s.slug %}" class="nombre_sitio">{{ s.nombre }}</a>
+	{% autoescape off %}
+	{{ s.get_estrellas }}
+	{% endautoescape %}
+	&nbsp;<small class="num_votos">{{ s.num_votos }} {% trans "votos" %}</small>
+	</div>
+	<p class="tags">
+	{% for tag in s.get_tags %}
+	<a href="{% url sitios.views.buscar_sitios2 ciudad %}?q={{ tag.tag }}">{{ tag.tag }}</a>
+	{% endfor %}
+	</p></li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div class="sitios_similares sitios_cercanos" style="float: right">
+	<h3>{% trans "Sitios cercanos" %}</h3>
+	<ul class="lista_sitios_similares">
+	{% for s in sitios_cercanos %}
+	<div class="nombre">
+	<li><a href="{% url sitios.views.ver_sitio ciudad s.slug %}" class="nombre_sitio">{{ s.nombre }}</a>
+	{% autoescape off %}
+	{{ s.get_estrellas }}
+	{% endautoescape %}
+	&nbsp;<small class="num_votos">{{ s.num_votos }} {% trans "votos" %}</small>
+	</div>
+	<p class="tags">
+	{% for tag in s.get_tags %}
+	<a href="{% url sitios.views.buscar_sitios2 ciudad %}?q={{ tag.tag }}">{{ tag.tag }}</a>
+	{% endfor %}
+	</p></li>
+	{% endfor %}
+	</ul>
+</div>
+{% comment %}
+<div id="publicidad_300x300">
+    <img src="/media/img/banner300x300.png" width="300" height="300" alt=""/>
+</div>
+{% endcomment %}
+<div style="clear: both"></div>
+</div><!-- /fila2 -->
+
+<div class="anuncio_top_light">{% trans "Comentando en este sitio y subiendo fotos, aumentarás tu saldo de puntos." %}</div>
+
+<div class="comentarios">
+	<h3>{% trans "Comentarios" %}</h3>
+	{% for c in comentarios %}
+	<div class="hreview">
+	<div class="autor_dice"><a name="comment{{ c.id }}" href="#comment{{ c.id }}" title="{% trans "Enlace permanente a este comentario" %}"><img src="/media/icons/balloon.png" alt="#" border="0" /></a> <span class="reviewer vcard"><a class="fn url" href="{% url sitios.views.ver_usuario c.user %}">{{ c.user }}</a></span> {% trans "dice" %}:</div>
+	<p class="description">
+	{% autoescape off %}
+	{{ c.mensaje }}
+	{% endautoescape %}
+	</p>
+	
+	<!-- otros -->
+	<div id="otros">
+	{% trans "Enviado el" %} <abbr class="dtreviewed" title="{{ c.fecha }}">{{ c.fecha|date:"d/M/Y" }} {% trans "a las" %} {{ c.fecha|date:"P" }}</abbr><br/>
+	<a href="#" class="informar_abuso_link" id="{{ c.id }}" >{% trans "Informar de abuso" %}</a> 
+	<a href="#comment{{ c.id }}" title="Enlace permanente a este comentario">{% trans "Enlace permanente" %}</a>
+	{% ifequal c.user user %}
+	| <form method="post" action="{% url sitios.views.del_comentario c.user c.id %}">{% csrf_token %}
+	<a href="#" class="borrar_comentario_link">{% trans "Borrar comentario" %}</a>
+	</form>
+	{% endifequal %}
+	</div><!-- /otros -->
+	</div><!-- /hreview -->
+	{% endfor %}
+	
+	<div id="comentario">
+	{% if user.is_authenticated %}
+		<div id="comentario_info">
+		<strong>{% trans "Deja tu opinión" %}</strong><br/>
+		<p>{% trans "Recuerda ser respetuoso y cuidar la ortografía, si no quieres que te llamen HOYGAN" %}<br/>
+		<small><br/>
+		{% trans "HTML permitido" %}:<br/>
+		&lt;a href=""&gt;enlace&lt;/a&gt; &lt;b&gt;negrita&lt;/b&gt;
+		</small>
+		</p>
+		{% if comentario_insertado %}
+			<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon" /> {% trans "Comentario enviado. ¡Has conseguido 1 punto!" %}</div>
+		{% endif %}
+		{% if comentario_error %}
+			<div class="error"><img src="/media/icons/cross_circle.png" alt="" class="fugue_icon" /> {% trans "El comentario no se ha podido enviar" %}</div>
+		{% endif %}
+		</div>
+
+		<form id="comentario_form" method="post" action="">{% csrf_token %}
+		{% for field in comment_form %}
+		    {{ field }}
+		    {% if field.help_text %}{{ field.help_text }}{% endif %}
+		    {% if field.errors %}{{ field.errors }}{% endif %}
+		{% endfor %}
+		<input type="submit" value="{% trans "Enviar" %}"/>
+		</form>
+	{% else %}
+		<p class="registrate"><a href="{% url sitios.views.register %}?next={% url sitios.views.ver_sitio ciudad sitio.slug %}">{% trans "Regístrate<br/>para opinar" %}</a></p>
+	{% endif %}
+	</div>
+</div>
+
+<div class="fotos">
+	<h3>{% trans "Fotografías" %}</h3>
+	{% if fotos %}
+	<div id="lista_fotos">		
+		{% for f in fotos %}
+		<div class="foto">
+			<div class="imagen">
+			{% if f.flickr %}
+			<a href="{{ f.get_original_flickr }}" rel="prettyPhoto[album]"><img src="{{ f.foto }}" alt="" /></a>
+			{% else %}
+			<a href="/media/{{ f.get_path }}" rel="prettyPhoto[album]"><img src="{% thumbnail f.get_path 100x75 crop %}" alt="" /></a>
+			{% endif %}
+			</div>
+			
+			<div class="meta">
+			{% ifequal f.user user %}
+			<form class="del_foto_form" method="post" action="{% url sitios.views.del_foto f.user f.id %}" style="display: inline">{% csrf_token %}
+			<a class="del_foto_link" href="#" title="{% trans "Borrar foto" %}"><img class="fugue_icon" src="/media/icons/minus_circle.png" alt="[{% trans "eliminar" %}]" /></a>
+			</form>
+			{% endifequal %}
+			{% autoescape off %}
+			<a href="{% url sitios.views.ver_sitio ciudad f.sitio.slug %}">{{ f.sitio.nombre }}</a><br/>
+			{% endautoescape %}
+			<small>{{ f.fecha|date:"d/M/Y" }}</small><br/>
+			<small><a href="{% url sitios.views.ver_usuario f.user %}">{{ f.user }}</a></small>
+			</div>
+		</div>
+		{% ifequal f fotos.5 %}
+		<div style="clear:both"></div>
+		{% endifequal %}
+		{% endfor %}
+	</div>
+	<div id="fotos_paginator" class="pagination"></div>
+	{% else %}
+	{% trans "Todavía no han subido ninguna foto a este sitio, ¿quieres ser el primero?" %}
+	{% endif %}
+	<div style="clear: both"></div>
+	
+	<div id="foto">
+	{% if user.is_authenticated %}
+		<div id="foto_info">
+			<strong>{% trans "Envía tus fotos" %}</strong><br/>
+			<p>{% trans "No subas una foto sin el permiso de su autor si no quieres que te miremos mal la próxima vez." %}<br/>
+			<small>{% trans "Tamaño máximo: 2 MB. Formatos permitidos: jpg, png, gif" %}</small></p>
+		{% if foto_insertada %}
+			<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon" /> {% trans "Fotos enviadas. ¡Has conseguido 1 punto por cada foto!" %}</div>
+		{% endif %}
+		{% if foto_error %}
+			<div class="error"><img src="/media/icons/cross_circle.png" alt="" class="fugue_icon" /> {% trans "Las fotos no se han podido enviar" %}</div>
+		{% endif %}
+		</div>
+		{% autoescape off %}
+		<form id="foto_form" enctype="multipart/form-data" method="post" action="">{% csrf_token %}
+		<small>{% trans "Puedes subir hasta 3 fotos a la vez" %}</small><br/>
+			{% for field in foto_form %}
+			    {{ field }}
+			    {% if field.help_text %}{{ field.help_text }}{% endif %}
+			    {% if field.errors %}{{ field.errors }}{% endif %}
+			{% endfor %}
+		<br/><input type="submit" value="{% trans "Enviar" %}"/>
+		</form>
+		{% endautoescape %}
+		{# TODO Insertar foto desde flickr #}
+	{% else %}
+		<p class="registrate"><a href="{% url sitios.views.register %}?next={% url sitios.views.ver_sitio ciudad sitio.slug %}">{% trans "Regístrate<br/>para enviar fotos" %}</a></p>
+	{% endif %}
+	</div>
+	<div style="clear: both"></div>
+</div>
+{% endblock %}

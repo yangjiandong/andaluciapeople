@@ -1,0 +1,18 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/m/">Inicio</a> &raquo; <a href="/m/{{ ciudad }}/">{{ ciudad }}</a>{% endblock %}
+
+{% block cuerpo %}
+
+<ul>
+	<li><a href="/m/{{ciudad}}/sitios/" class="arrow">Buscar sitios</a></li>
+	<li><a href="/m/{{ciudad}}/sitios/ultimos/" class="arrow">Últimos sitios</a></li>
+	<li><a href="/m/{{ciudad}}/sitios/top/" class="arrow">Mejores sitios</a></li>
+	<li><a href="/m/usuarios/" class="arrow">Buscar usuarios</a></li>
+	<li><a href="/m/usuarios/ultimos/" class="arrow">Últimos usuarios</a></li>
+	<li><a href="/m/usuarios/top/" class="arrow">Top usuarios</a></li>
+</ul>
+
+{% endblock %}

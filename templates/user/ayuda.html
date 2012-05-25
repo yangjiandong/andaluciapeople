@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.listar_usuarios %}">{% trans "usuarios" %}</a> &raquo; <a href="{% url sitios.views.ver_usuario datos.user %}">{{ datos.user }}</a> &raquo; <a href="{% url sitios.views.ayuda_usuario %}">{% trans "Ayuda" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/pagination.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/prettyPhoto.css" type="text/css" />
+<style type="text/css">
+#faq h4 {
+	color: #2763A5;
+	cursor: pointer;
+	margin: 8px 0;
+	padding: 0;
+}
+#faq div {
+	border: 1px solid #BABAC0;
+	padding: 10px 10px 0 10px;
+	margin: 10px 0 20px 0;
+	background-color: #FFFFE1;
+}
+.imagen_ayuda{
+	border: 1px solid #BABAC0;
+	padding: 2px;
+	text-align: center;
+}
+.imagen_ayuda span{
+	font-size: 10px;
+	font-style: italic;
+	font-weight: bold;
+}
+.left{
+	margin: 2px 5px 2px 2px;
+	float: left;
+}
+.left_lista{
+	margin: 2px 20px 2px 2px;
+	float: left;
+}
+.right{
+	margin: 2px 2px 2px 5px;
+	float: right;
+}
+</style>
+<script type="text/javascript" src="/media/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="/media/js/prettyPhoto.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+
+	//begin menu_user
+	lastBlock = $("#ayuda");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+    
+	$("#faq").find("div").hide().end().find("h4").click(function() {
+		var answer = $(this).next();
+		if (answer.is(":visible")) {
+			answer.slideUp();
+		} else {
+			answer.slideDown("slow");
+		}
+	});
+    
+});
+-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+{% include 'user/menu.html' %}
+
+<div style="clear: both">
+<p class="info">La sección de ayuda se encuentra actualmente en desarrollo. Si no encuentras lo que buscas o algo te resulta difícil de entender, escríbenos un correo a ayuda <em>(arroba)</em> andaluciapeople.com.</p>
+<div id="faq">
+	<h4>¿Qué es AndalucíaPeople?</h4>
+	<div><p>andaluciaPeople.com es un proyecto que surge tras la petición popular de ampliar GranadaPeople.com 
+	al resto de provincias andaluzas. Tratamos de crear una base de datos geolocalizada de locales de ocio 
+	de Andalucía gracias a la colaboración gente como tú y contar con la opinión verdadera de los clientes. 
+	Como elemento innovador estamos trabajando en desarrollar un sistema de recomendación inteligente de manera 
+	que puedas encontrar nuevos sitios según tus gustos.</p></div>
+	
+	<h4>¿Qué es un sistema de recomendación?</h4>
+	<div><p>Los sistemas de recomendación ayudan al usuario a seleccionar elementos de una gran cantidad de opciones. 
+	Estos sistemas han tenido gran aceptación debido a que los usuarios están acostumbrados a recibir recomendaciones 
+	de amigos y colegas. En el caso de AndalucíaPeople lo usamos para recomendarte <strong></strong>aquellos sitios que más te puedan 
+	interesar</strong>, recolectando información de tu perfil de usuario, así como de los sitios que hayas votado.</p></div>
+	
+	<h3>Los sitios</h3>
+	
+	<h4>¿Qué tipo de sitios hay en AndalucíaPeople?</h4>
+	<div><p>Cuando creamos GranadaPeople, únicamente incorporábamos los bares y pubs de Granada. Pero vista la aceptación de la gente, 
+	nos animaron a añadir nuevos tipos de sitios. Actualmente aceptamos un amplio abanico:</p>
+	<ul>
+	<li>Bares</li>
+	<li>Restaurantes</li>
+	<li>Pubs</li>
+	<li>Discotecas</li>
+	<li>Cafeterías</li>
+	<li>Churrerías</li>
+	<li>Heladerías</li>
+	<li>Cervecerías</li>
+	<li>Coctelerías</li>
+	<li>Teterías</li>
+	<li>Salas</li>
+	<li>Cines</li>
+	<li>Boleras</li>
+	<li>Pizzerías</li>
+	<li>Shawarmerías (Döner Kebab)</li>
+	</ul>
+	<p>Creemos que estas categorías son suficientes para abarcar la mayoría de los sitios de ocio. Si crees que deberíamos añadir alguno más, escríbenos a 
+	correo <em>(arroba)</em> andaluciapeople.com</a>.</p>
+	</div>
+	
+	<h4>¿Cómo puedo añadir un nuevo sitio?</h4>
+	<div><p>Para que AndalucíaPeople crezca es imprescindible tu colaboración. Una de las mejores formas en las que puedes contribuir 
+	es añadiendo sitios que conozcas y que aún no están incluídos.</p>
+	<p class="imagen_ayuda left_lista"><img src="/media/img/ayuda/sitios_enviados.png" alt="" width="225" height="300" /><br/><span>Ejemplo de sitios enviados</span></p>
+	<p>Para añadir un nuevo sitio dirígete a <a href="{% url sitios.views.ver_usuario datos.user %}">tu cuenta</a>. En la parte izquierda aparecerán tu listado 
+	de sitios enviados (inicialmente vacío) y justo debajo un selector de provincias donde puedes elegir aquella del sitio que quieras añadir. 
+	Una vez seleccionada haz click en el botón Ir. También puedes acceder directamente desde <a href="{% url sitios.views.add_sitio ciudad %}"></a>este enlace</a>.</p>
+	<p>Ahora debería aparecer un formulario que tienes que rellenar con los datos del sitio en cuestión. Recuerda que los campos marcados por * son obligatorios.
+	Veamos paso a paso los distintos campos del formulario:</p>
+	<ul>
+	<li><strong>Nombre:</strong> nombre del sitio, intenta no escribir todo en mayúsculas ni en minúsculas. Un buen ejemplo es: <span style="color: green">La Carihuela</span>. Un mal ejemplo es: <span style="color: red">LA CARIHUELA</span>.</li>
+	<li><strong>Ciudad:</strong> esta es fácil, selecciona la correcta entre las 8 provincias andaluzas.</li>
+	<li><strong>Localidad:</strong> similar al anterior, sólo que esta vez es un listado mucho mayor, con todas las localidades de cada provincia. Están ordenadas alfabéticamente. Si falta alguna, ponte en contacto con nosotros y la añadiremos.</li>
+	<li><strong>Dirección:</strong> si conoces la dirección exacta, escríbela y pulsa en Buscar. Con esto conseguirás que el punto se sitúe automáticamente en las coordenadas correctas en el mapa. 
+	Si no conoces la dirección, arrastra el punto rojo del mapa hasta la posición del sitio, y automáticamente se rellenará el campo de dirección.</li>
+	<li><strong>Mapa:</strong> si has realizado los pasos anteriores, el punto debe estar situado correctamente. Si no es así, arrástralo hasta la posición exacta. Puedes hacer zoom y moverlo usando los controles de la esquina superior izquierda. 
+	También puedes cambiar a vista de satélite pulsando en el botón de la esquina superior derecha.</li>
+	<li><strong>Teléfono:</strong> el número de teléfono del sitio, si dispone.</li>
+	<li><strong>Web:</strong> dirección de la página web oficial del sitio, si dispone.</li>
+	<li><strong>Tipo:</strong> puedes elegir entre diferentes tipos que mejor representen el tipo de sitio (bar, restaurante, pub, discoteca, etc.).</li>
+	<li><strong>Tags:</strong> para poder dar una representación más fiel del sitio y a la hora de clasificarlo, es recomendable escoger diferentes etiquetas. 
+	Si las que buscas no están en la lista, las podrás añadir posteriormente en la ficha del sitio.</li>
+	</ul>
+	<p>Una vez rellenado el formulario, pulsa en el botón Enviar para guardar los datos.</p>
+	<p>Por cada sitio nuevo que añadas, conseguirás 10 puntos. Estos se sumarán a tu contador de puntos que aparece en <a href="{% url sitios.views.ver_usuario datos.user %}">tu cuenta</a>.</p></div>
+	
+	<a name="etiquetas"></a><h4>¿Qué son las etiquetas y por qué son importantes?</h4>
+	<div style="background: url(/media/icons/tag_green_fondo.png) no-repeat right top;"><p>Las etiquetas, en inglés <em>tags</em>, son palabras clave que ayudan a especificar mejor la información de un sitio y de manera 
+	que resulte más sencillo organizar y categorizar los sitios de nuestra base de datos. Por eso es importante que sepas reflejar y 
+	describir fielmente un sitio a través de las etiquetas.</p>
+	<p>Por ejemplo, el pub <a href="{% url sitios.views.ver_sitio "granada" "druids" %}">Druids</a> se puede etiquetar con las palabras: 
+	pub, cerveceria, rock, heavy, rockroll, futbolin y billar.</p>
+	<p>Durante la inserción de un nuevo sitio te sugerimos algunas etiquetas para clasificarlo, pero tú también puedes aportar 
+	alguna propia si no encuentras la adecuada.</p></div>
+	
+	<h3>Tu cuenta</h3>
+	
+	<h4>¿Para qué sirven los puntos?</h4>
+	<div><p>Actualmente los puntos que consigues por participación en la web sirven meramente para establecer un ranking con los usuarios más activos. Pero más adelante te servirán para 
+	conseguir ventajas y descuentos en algunos sitios.</p></div>
+	
+	<h4>¿Cómo puedo conseguir más puntos?</h4>
+	<div><p>Los puntos se consiguen participando activamente en la web:</p>
+	<ul>
+	<li><strong>Añadir un sitio:</strong> 10 puntos</li>
+	<li><strong>Opinar sobre un sitio:</strong> 1 punto</li>
+	<li><strong>Subir una foto a un sitio:</strong> 1 punto</li>
+	<li><strong>Añadir un sitio a tus favoritos:</strong> 1 punto</li>
+	<li><strong>Añadir un amigo:</strong> 5 puntos</li>
+	</ul>
+	<p>Igualmente si eliminas un comentario, una foto, un amigo o un favorito, se te restarán los puntos. Además, si un administrador elimina un sitio que hayas añadido también se descontarán 
+	los puntos correspondientes de tu cuenta.</p>
+	<p>Recuerda también valorar un sitio ya que es muy importante para formar tu perfil de usuario.</p></div>
+	
+	<h4>¿Cómo puedo cambiar mi foto de usuario?</h4>
+	<div><p>Para cambiar tu foto de usuario dirígete a <a href="{% url sitios.views.ver_usuario datos.user %}">tu cuenta</a> &raquo; <a href="{% url sitios.views.ajustes_usuario datos.user %}">Ajustes</a> y en la sección de datos personales 
+	busca el campo Imagen, pulsa en Examinar y elige una imagen de tu disco duro. Finalmente pulsa el botón Guardar.</p>
+	<p>La imagen debe ser jpg, png o gif y de una tamaño máximo de 2 MB.</p></div>
+	
+	<h4>¿Cómo puedo cambiar mi contraseña?</h4>
+	<div><p>Para cambiar tu contraseña de usuario dirígete a <a href="{% url sitios.views.ver_usuario datos.user %}">tu cuenta</a> &raquo; <a href="{% url sitios.views.ajustes_usuario datos.user %}">Ajustes</a> 
+	y sigue los pasos que te indica el formulario de cambiar contraseña.</p></div>
+	
+	<h3>Formalismos</h3>
+	
+	<h4>¿Qué es un feed y para qué sirve?</h4>
+	<div><p>Un feed o archivo de sindicación es un formato de datos utilizado para proporcionar información de actualizada 
+	de un modo estándar. Este formato permite que programas especializados (lectores de feeds, como Google Reader o Bloglines) 
+	obtengan las anotaciones de las bitácoras que disponen de él, para así no tener que visitarlas una a una y tener todas 
+	las anotaciones de varias bitácoras en un único lugar.</p>
+	<p>Prácticamente todos los sistemas de publicación actuales (WordPress, Blogger...) disponen de archivos de sindicación, que 
+	se identifican con el icono Feed tanto en la propia bitácora como en la barra de direcciones de tu navegador. Puedes encontrar 
+	los feeds de AndalucíaPeople en <a href="{% url sitios.views.feeds_index %}">{% url sitios.views.feeds_index %}</a>.</p>
+	<p>Los feeds se identifican con este icono <img src="/media/icons/rss_16.png" alt="" /></p></div>
+	
+	<h4>¿Qué son los microformatos?</h4>
+	<div><p>La definición formal de microformato es "convenciones simples para integrar semántica en HTML y permitir un 
+	desarrollo descentralizado". En AndalucíaPeople los usamos para darle significado semántico a los sitios por medio 
+	de las etiquetas, las coordenadas geográficas entre otros datos, y también para los usuarios. Puedes encontrar 
+	más información en la web <a href="http://microformats.org/">microformats.org</a></p></div>
+	
+	<h4>¿Qué significa la licencia AGPLv3?</h4>
+	<div><p>AGPLv3 son las siglas de GNU Affero General Public License, version 3. Esto significa que el código fuente que 
+	hace funcionar AndalucíaPeople es Software Libre, puedes leer una traducción de la licencia completa 
+	<a href="http://www.viti.es/gnu/licenses/gpl.html">aquí</a>. En AndalucíaPeople creemos que el Software Libre es muy 
+	importante, ya que sin él no podríamos haber hecho esta web, que funciona con Django, Apache, Linux, jQuery, etc.
+	Ver <a href="/licencias/">Licencias</a>.</p></div>
+	
+	<h4>¿Qué es Django?</h4>
+	<div><p>Django es un framework de desarrollo web de código abierto, escrito en Python, que cumple en cierta medida el paradigma 
+	del Modelo Vista Controlador. Se puede decir que es el corazón de AndalucíaPeople. Más información en 
+	<a href="http://www.djangoproject.com/">djangoproject.com</a></p></div>
+</div>
+</div>
+{% endblock %}

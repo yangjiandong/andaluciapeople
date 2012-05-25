@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load highlight %}
+{% load dotify %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.buscar_sitios2 ciudad %}">{% trans "sitios" %}</a>
+{% if query %}
+ &raquo; <a href="{% url sitios.views.buscar_sitios2 ciudad %}?q={{ query }}">{{ query }}</a>
+{% endif %}
+{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/sitio_list.css" type="text/css" />
+<!--<link rel="stylesheet" href="/media/css/autocomplete.css" type="text/css" />-->
+<link rel="stylesheet" href="/media/css/buscador_sitios_form.css" type="text/css" />
+<!--<script type="text/javascript" src="/media/js/jquery-ui-1.7.2.custom.min.js"></script>-->
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui.stars.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.dimensions.min.js"></script>
+<!--<script type="text/javascript" src="/media/js/autocomplete.js"></script>-->
+<!--<script type="text/javascript" src="/media/js/jquery.validate.pack.js"></script>-->
+<!--<script type="text/javascript" src="/media/js/jquery.slug.js"></script>-->
+<script type="text/javascript" src="/media/js/buscador_sitios_form.js"></script>
+{% endblock %}
+
+{% block jquery_ready %}
+$('.estrellas').stars({disabled: true, split: 2});
+load_buscador_sitios_form();
+
+//Default Action
+$(".tab_content").hide(); //Hide all content
+$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+$(".tab_content:first").show(); //Show first tab content
+
+//On Click Event
+$("ul.tabs li").click(function() {
+	$("ul.tabs li").removeClass("active"); //Remove any "active" class
+	$(this).addClass("active"); //Add "active" class to selected tab
+	$(".tab_content").hide(); //Hide all tab content
+	var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+	$(activeTab).fadeIn(); //Fade in the active content
+	return false;
+});
+
+{% endblock %}
+
+{% block cuerpo %}
+<div id="buscador_sitios" style="clear: both">
+	<h3>{% if query %}{% trans "Resultados de la búsqueda para" %} <em>{{ query }}</em>
+		{% else %}{% trans "Listado de sitios" %}{% endif %}</h3>
+	
+	<table style="width: 100%">
+	<tr>
+	<td>
+	<div class="ver_tags"><a id="ver_tags" href="#">{% trans "Ver tags" %}</a></div>
+	<form id="buscador_sitios_form" method="get" action=".">
+	<input type="text" name="q" value="{{ query }}" id="id_q" title="{% trans "Introduce un término para buscar" %}">
+	<input type="submit" value="{% trans "buscar" %}"/>
+	</form>
+	</td>
+	<td style="vertical-align: bottom;"><a href="{% url sitios.views.recomendaciones_usuario %}"><img src="/media/icons/chart_16.png" alt="" border="0" /></a> <a href="{% url sitios.views.recomendaciones_usuario %}">{% trans "Recomendaciones para ti" %}</a></td>
+	<td style="vertical-align: bottom;"><a href="{% url sitios.views.add_sitio ciudad %}"><img src="/media/icons/add_home_16.png" alt="" border="0" /></a> <a href="{% url sitios.views.add_sitio ciudad %}">{% trans "Añade un nuevo sitio" %}</a></td>
+	</table>
+	
+	<div id="tag_list" style="display: none">
+		<!-- los tipos son diferentes a las etiquetas -->
+		<div class="jerarquia">
+		<strong>{% trans "Tipos" %}</strong>: 
+		<ul class="tags">
+			{% for t in tipos %}
+			<li><a href="?q={{ t.slug }}" class="jerarquia_tag" rel="tag">{{ t.slug }}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+		
+		{% for j in jerarquias %}
+		<div class="jerarquia">
+		<strong>{{ j.nombre }}</strong>: 
+		<ul class="tags">
+			{% for t in j.get_tags %}
+			<li><a href="?q={{ t.tag }}" id="id_tag_{{ t.id }}" class="jerarquia_tag" rel="tag">{{ t.tag }}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+		{% endfor %}	
+	</div>
+</div>
+
+<div id="sidebar">
+
+	<ul class="tabs">
+        <li><a href="#tipos">{% trans "Tipos" %}</a></li>
+        <li><a href="#populares">{% trans "Populares" %}</a></li>
+        <li><a href="#ultimos">{% trans "Novedades" %}</a></li>
+
+    </ul>
+    
+    <div class="tab_container">
+
+		<div id="tipos" class="tipos tab_content">
+		<strong>{% trans "Tipos" %}</strong>: 
+		<ul class="tags">
+			{% for t in tipos %}
+			<li><a href="?q={{ t.slug }}" class="jerarquia_tag" rel="tag">{{ t.tipo }}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+		
+		{% comment %}
+		<p class="recomendaciones"><a href="{% url sitios.views.recomendaciones_usuario %}"><img src="/media/icons/chart_64.png" alt="" border="0" /></a><br/><a href="{% url sitios.views.recomendaciones_usuario %}">{% trans "Recomendaciones para ti" %}</a></p>
+		
+		<p class="recomendaciones"><a href="{% url sitios.views.add_sitio ciudad %}"><img src="/media/icons/add_home_64.png" alt="" border="0" /></a><br/><a href="{% url sitios.views.add_sitio ciudad %}">{% trans "Añade un nuevo sitio" %}</a></p>
+	
+		
+		<div id="mas_visitados">
+		<strong>{% trans "Más visitados" %}</strong>
+			<ol>
+			{% for sitio in sitios_hot %}
+			<li><a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" class="nombre_sitio">{{ sitio.nombre|escape }}</a></li>
+			{% endfor %}
+			</ol>
+		</div>
+		{% endcomment %}
+		
+		<div id="populares" class="tab_content">
+		{% if sitios_patrocinados %}
+		<strong>{% trans "Patrocinados" %}</strong>
+			<ul>
+			{% for sitio in sitios_patrocinados %}
+			<li><a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" class="nombre_sitio">{{ sitio.nombre|escape }}</a></li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+			
+		<strong>{% trans "Populares" %}</strong>
+			<ol>
+			{% for sitio in sitios_populares %}
+			<li><a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" class="nombre_sitio">{{ sitio.nombre|escape }}</a></li>
+			{% endfor %}
+			</ol>
+		</div>
+		
+		<div id="ultimos" class="tab_content">
+		<strong>{% trans "Novedades" %}</strong>
+			<ol>
+			{% for sitio in ultimos_sitios %}
+			<li><a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" class="nombre_sitio">{{ sitio.nombre|escape }}</a></li>
+			{% endfor %}
+			</ol>
+		</div>
+	</div> <!--  /tab_container -->
+</div>
+{% if page.object_list %}
+	<div class="sitios" style="padding:10px; margin-left: 200px;">
+	{% for result in page.object_list %}
+	
+	{% with result.object as s %}
+	<div class="sitio {% cycle 'odd' 'even' %}">
+		<a href="{% url sitios.views.ver_sitio ciudad s.slug %}" class="nombre">
+			{% autoescape off %}
+			{% highlight s.nombre with query%}
+			{% endautoescape %}</a>
+		<span class="zona">{{ s.zona }}</span>
+		{% autoescape off %}
+		{{ s.get_estrellas }}
+		{% endautoescape %}
+		
+		<div class="tags" style="font-size: 11px">
+		{% for tag in s.get_tags %}
+			<a href="?q={{ tag.tag }}">{% highlight tag.tag with query %}</a>
+		{% endfor %}
+		
+		
+		</div>
+	</div>
+	{% endwith %}
+	{% endfor %}
+	</div>
+	<div class="pagination">
+		{% if page.has_previous %}
+	        <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">&laquo; {% trans "Anteriores" %}</a>
+	    {% endif %}
+	
+	    <span class="current">
+	        {% trans "Página" %} {{ page.number }} {% trans "de" %} {{ page.paginator.num_pages }}
+	    </span>
+	
+	    {% if page.has_next %}
+	        <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% trans "Siguientes" %} &raquo;</a>
+	    {% endif %}
+	</div>
+{% else %}
+	{% if query %}
+		{% if suggestion %}
+		<p><strong>{% trans "Quizás quiso decir" %}: <em><a href="?q={{ suggestion }}">{{ suggestion }}</a></em></strong></p>
+		{% endif %}
+		
+		{% trans "No se han encontrado sitios." %} <a href="{% url sitios.views.add_sitio ciudad %}">{% trans "Añadir nuevo sitio" %} &raquo;</a>
+	{% else %}
+		{% trans "Utiliza el buscador o la lista de categorías para encontrar sitios de tu interés." %}
+	{% endif %}
+{% endif %}
+{% endblock %}

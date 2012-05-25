@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.add_sitio ciudad %}">{% trans "añadir sitio" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_add_sitio.css" type="text/css" />
+<!--<link rel="stylesheet" href="/media/css/prettyCheckboxes.css" type="text/css" />-->
+
+<script src="http://www.google.com/jsapi?key={{gmaps_key}}" type="text/javascript"></script>
+<script type="text/javascript" src="/media/js/jquery.chainedSelects.js"></script>
+<script type="text/javascript" src="/media/js/map.datos.js"></script>
+<script type="text/javascript" src="/media/js/localidades.js"></script>
+<script type="text/javascript">
+<!--
+	var cod_ciudad = {{ cod_ciudad }};
+	var ciudad = '{{ ciudad }}';
+	var api = '';
+	var autodiscover = true;
+-->
+</script>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	load_location();
+	$('#map_location > div > span').css("font-size", "0");
+
+	// Para cambiar dinámicamente la zona con respecto a la ciudad
+	$('#id_ciudad').change(function(){
+		$('#id_ciudad option:selected').each(function(){
+			indice_ciudad = $(this).val()-1;
+		});
+		$('#id_zona').html('');
+		for(var i=0; i<zona[indice_ciudad].length; i++){
+			$('#id_zona').get(0).add(zona[indice_ciudad][i], document.all ? i : null);
+		}
+		$("#id_zona option:first").attr( "selected", "selected" ); //Dejamos el primero seleccionado
+
+		showLocation($('#id_ciudad option:selected').text());
+		zoom(13);
+	}).change();
+
+	// Para cambiar el mapa según la zona
+	$('#id_zona').change(function(){
+		//TODO En las zonas en las que google no funciona, habría q buscar por coordenadas
+		//     usando $('#id_zona option:selected').val() y quitando el resto
+		showLocation($('#id_zona option:selected').text()+", "+$('#id_ciudad option:selected').text()+", España");
+		zoom(14);
+	});
+	
+	$('#id_direccion').after('<input id="button_search_address" type="button" value="{% trans "Buscar" %}" /><br/><small><span id="info_direccion"></span></small>');
+	
+        $('#button_search_address').bind('click', function(){
+		showLocation($('#id_direccion').val()+", "+$('#id_zona option:selected').text()+", "+$('#id_ciudad option:selected').text()+", España");
+		zoom(17);
+	});
+
+	$('#map_location').before('<input type="checkbox" name="autodiscover" id="autodiscover" checked="checked" /> {% trans "Activar autoposicionamiento" %}');
+	
+	$('#autodiscover').bind('click', function(){
+		autodiscover = !autodiscover;
+	});
+});
+-->
+</script>
+
+{% endblock %}
+{% block cuerpo %}
+	{% if user.is_authenticated %}
+	<h3>{% trans "Añade un nuevo sitio" %}</h3>
+	{% if sitio_ok %}
+	<div class="sitio_insertado">{% trans "Sitio insertado correctamente, gracias." %} <strong>Ver <a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}">{{ sitio.nombre }}</a></strong> o <strong><a href="{% url sitios.views.add_sitio ciudad %}">añadir otro</a></strong>.<br/>
+	{% trans "¡Has conseguido 10 puntos! Puedes consultar tu saldo de puntos en tu cuenta." %}</div>
+	{% else %}
+	{% if sitio_error %}
+	<div class="errorlist">{% trans "Error al insertar el sitio" %}</div>
+	{% endif %}
+	{% if mensaje_error %}
+	<div class="errorlist">{% autoescape off %}{{ mensaje_error }}{% endautoescape %}</div>
+	{% endif %}
+	<p>{% trans "Los campos marcados con * son obligatorios." %}</p>
+	<form method="post" action="">{% csrf_token %}
+	<dl>
+		
+	{% for field in sitio_form %}
+	    <!--[if lt IE 8]>
+	    <div style="clear: both">
+	    <![endif]-->
+	    <dt>{{ field.label }}</dt>
+	    <dd>
+	    {% autoescape off %}
+	    {{ field }}
+	    {% endautoescape %}
+	    {% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+	    {% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+	    </dd>
+	    <!--[if lt IE 8]>
+	    </div>
+	    <![endif]-->
+	{% endfor %}
+        <!--[if lt IE 8]>
+        <div style="clear: both">
+        <![endif]-->
+		<dt>Tags</dt>
+		<dd>
+		{% for j in jerarquias %}
+		<div class="jerarquias {{ j.slug }}">
+		<strong>{{ j.nombre }}</strong>
+		<ul class="tags">
+			{% for t in j.get_tags %}
+			<li><label for="id_tag_{{ t.id }}"><input id="id_tag_{{ t.id }}" type="checkbox" value="{{ t.tag }}" name="tags" /> {{ t.tag }}</label></li>
+			{% endfor %}
+		</ul>
+		</div>
+		{% endfor %}
+		</dd>
+        <!--[if lt IE 8]>
+        </div>
+        <![endif]-->
+	</dl>
+	<div align="center" style="clear: both"><input type="submit" value="{% trans "Enviar" %}"/></div>
+	</form>
+	{% endif %}
+	
+	{% else %}
+	{% trans "Debes estar registrado para añadir un nuevo sitio." %} <a href="/register/">{% trans "Regístrate" %}</a>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,127 @@
+/* base_ajustes */
+
+#datos_personales{
+	clear: both;
+}
+dl dt {
+	float: left;
+	clear: left;
+	width: 30%;
+	padding: 10px;
+	margin: 0 -1px 0 0;
+	border-right: 1px solid #999;
+	text-align: right;
+}
+
+dl dd {
+	padding: 10px;
+	width: 60%;
+	float: left;
+	margin: 0 ;
+	clear: right;
+	border-left: 1px solid #999;
+}
+
+dl ul{
+	margin: 0;
+	padding: 0;
+}
+dl ul li{
+	list-style-type: none;
+	float: left;
+	margin-right: 10px;
+}
+ul.tags li{
+	float: left;
+	list-style-type: none;
+	margin-right: 10px;
+	display: block;
+}
+.jerarquias{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+/* Ajuste de pesos */
+.lista_pesos li{
+	clear: both;
+	margin: 5px;
+}
+
+.slider{
+	float: left;
+	width: 100px;
+	margin: 10px;
+}
+
+.sum_pesos{
+	float: left;
+	margin: 10px;
+	background-color: #8ae234;
+	color: #f0f0f0;
+}
+
+.ui-slider-handle {
+	width: 0.9em;
+	height: 0.9em;
+}
+
+.musica .ui-slider-handle {
+	background: #FFFFFF url(/media/icons/music_16.png) no-repeat center center;
+}
+
+.estilo .ui-slider-handle {
+	background: #FFFFFF url(/media/icons/coffee_cup_16.png) no-repeat center center;
+}
+
+.instalaciones .ui-slider-handle {
+	background: #FFFFFF url(/media/icons/television_16.png) no-repeat center center;
+}
+
+.otros .ui-slider-handle {
+	background: #FFFFFF url(/media/icons/no-smoking_16.png) no-repeat center center;
+}
+
+li.musica, li.estilo, li.instalaciones, li.otros {
+	list-style-type: none;
+	font-size: 10px;
+	height: 21px;
+	padding: 3px 3px 3px 18px;
+}
+
+div.musica strong, div.estilo strong, div.instalaciones strong, div.otros strong {
+	padding-left: 18px;
+}
+
+div.musica,
+li.musica {
+	background: url(/media/icons/music_16.png) no-repeat left top;
+}
+
+div.estilo,
+li.estilo {
+	background: url(/media/icons/coffee_cup_16.png) no-repeat left top;
+}
+
+div.instalaciones,
+li.instalaciones {
+	background: url(/media/icons/television_16.png) no-repeat left top;
+}
+
+div.otros,
+li.otros {
+	background: url(/media/icons/no-smoking_16.png) no-repeat left top;
+}
+
+div.ui-widget-content {
+	background: #FEFEFE url(images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x scroll 50% top
+}
+
+#guardar_pesos_form {
+	clear: both;
+	text-align: right;
+}
+#guardar_pesos_helper {
+	font-size: 12px;	
+}

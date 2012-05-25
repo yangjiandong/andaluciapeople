@@ -1,0 +1,125 @@
+/* register_privado */
+
+body{
+	text-align: center;
+	margin: 0 auto;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.bloque{
+	clear: both;
+	margin: 0 auto;
+	text-align: center;
+	width: 800px;
+}
+.verde{
+	background-color: #5CAC38;
+	min-height: 201px;
+}
+h3{
+	color: #5CAC38;
+	font-variant: small-caps;
+}
+#logo {
+	margin: 20px;
+	border: 0;
+}
+#descripcion{
+	text-align: left;
+	padding: 20px;
+	margin: 0;
+	font-size: 0.9em;
+	font-style: italic;
+	color: #fafafa;
+}
+#descripcion a,
+#ciudades a{
+	color: #fafafa;
+	text-decoration: none;
+}
+#descripcion a:hover,
+#ciudades a:hover{
+	color: #fafafa;
+	text-decoration: underline;
+}
+#ciudades {
+	text-align: center;
+	font-size: 12px;
+}
+#invitacion{
+	width: 400px;
+	float: left;
+	padding: 10px 20px;
+	margin: 0;
+	text-align: left;
+}
+#invitacion p{
+	margin: 0;
+	font-size: 0.8em;
+}
+#login{
+	text-align: left;
+	width: 250px;
+	background: #ffffff url(/media/icons/lock.png) no-repeat bottom right;
+	/* icon from Coquette Icon Set, version 1.1
+	   http://dryicons.com/free-icons/preview/coquette-icons-set/
+	*/
+	padding: 10px 20px;
+	margin: 0;
+	float: right;
+}
+#login a{
+	font-size: 0.6em;
+}
+#login form{
+	padding: 0px 10px 10px 10px;
+}
+
+.help_text{
+	color: #666666;
+	font-size: 12px;
+	clear: both;
+}
+
+dl dt {
+	font-weight: bold;
+}
+
+.minitext {
+	color: #666666;
+	font-size: 12px;
+	clear: both;
+	margin: 0 auto;
+}
+.enlaces_rapidos{
+	width: 800px;
+	clear: both;
+	margin: 0 auto;
+}
+.box_index{
+	float: left;
+	margin: 10px;
+	text-align: left;
+	width: 175px;
+}
+.box_index ul{
+	margin: 0;
+	padding: 0px 5px;
+}
+.box_index li{
+	color: #82A102;
+	font-size: 12px;
+	list-style-type:disc;
+	margin:5px 5px 5px 15px;
+}
+#footer {
+	font-size: 0.8em;
+	text-align: center;
+	color: #343434;
+	clear: both;
+	background-color: #A5D21D;
+	padding: 4px;
+	clear: both;
+}
+#footer a{
+	color: #343434;
+}

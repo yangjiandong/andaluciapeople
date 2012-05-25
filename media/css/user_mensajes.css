@@ -1,0 +1,238 @@
+h3{
+	clear: both;
+}
+table.email_list td {
+    padding: 5px 10px;
+}
+table.invitation_list {
+    width: 100%;
+}
+table.invitation_list img {
+  border: 2px solid #ccc;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+table.invitation_list td {
+    padding: 5px 10px;
+    vertical-align: middle;
+}
+
+.friendship_request {
+    padding: 5px;
+    background: #DEF;
+    border: 1px solid #9BC;
+}
+.invitation_5, .invitation_7 {
+    color: green;
+    font-weight: bold;
+    text-align: right;
+}
+.invitation_2 {
+    color: gray;
+    text-align: right;
+}
+table.contact_list {
+    width: 500px;
+}
+table.contact_list td {
+    padding: 5px 10px;
+}
+
+.emailreply {
+  padding-left: 25px;
+  background: url(email_go.png) no-repeat;
+}
+
+.emaildelete {
+  padding-left: 25px;
+  background: url(email_delete.png) no-repeat;
+}
+
+.ac_results {
+    padding: 0px;
+    border: 1px solid black;
+    background-color: white;
+    overflow: hidden;
+    z-index: 99999;
+}
+
+.ac_results ul {
+    width: 100%;
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ac_results li {
+    margin: 0px;
+    padding: 2px 5px;
+    cursor: default;
+    display: block;
+    /* 
+    if width will be 100% horizontal scrollbar will apear 
+    when scroll mode will be used
+    */
+    /*width: 100%;*/
+    font: menu;
+    font-size: 10px;
+    /* 
+    it is very important, if line-height not setted or setted 
+    in relative units scroll will be broken in firefox
+    */
+    line-height: 16px;
+    overflow: hidden;
+}
+
+.ac_results li img {
+    float: left;
+    margin: 3px 5px 3px 3px;
+	width: 20px;
+	height: 20px;
+	padding: 2px;
+	background: #fff;
+	border: 2px solid #666;
+}
+
+.ac_loading {
+    background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+    background-color: #E9F6FF;
+}
+
+.ac_over {
+    background-color: #CBE1FF;
+    color: #000;
+}
+
+
+
+dl.message-headers {
+    border-top:1px solid #CCC;
+    border-bottom:1px solid #CCC;
+    padding: 5px 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+dl.message-headers dt {
+    width: 20%;
+    text-align: right;
+    float: left;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #444;
+}
+dl.message-header dd {
+    float: left;
+}
+
+
+table.messages tbody tr {
+    border-bottom: 1px solid #ccc;
+}
+
+table.messages tr th, table.messages tr td {
+    text-align: left;
+    padding: 5px;
+}
+
+table.messages tr th {
+    font-weight:bold;
+    border-bottom: 1px solid #999;
+}
+
+div.noticesettingsbox {
+  padding: 10px;
+  background: #dde7f5;
+  border: 2px solid #f1f4f9;
+}
+
+div.notice_settings {
+  margin-top: 30px;
+}
+
+table.notice_settings td {
+    line-height: 90%;
+    padding: 5px 10px;
+}
+
+table.notice_settings tr.noticehover:hover {
+  background: #fff;
+}
+
+span.notice_type_description {
+    color: #666;
+    font-size: 80%;
+    font-style: italic;
+}
+
+div.notice {
+    margin: 0 0 0 10px;
+    padding: 5px;
+    border-bottom: 1px solid #CCC;
+}
+div.unseen_notice {
+    margin: 0 0 0 10px;
+    padding: 5px;
+    background: #DFC;
+    border-bottom: 1px solid #CCC;
+}
+h2.notice_date,
+h2.join_date,
+{
+    font-size: 1.3;
+    color: #666;
+    border-bottom: 1px solid #999;
+}
+span.notice_type {
+    color: #666;
+	padding-right: 10px;
+}
+span.notice_message {
+}
+span.notice_time {
+    color: #999;
+    font-size: 90%;
+	padding-left: 10px;
+}
+
+#cuerpo{
+	/*float: left;
+	width: 75%;*/
+}
+#sidebar{
+	/*width: 25%;
+	float: left;*/
+	clear: both;
+	font-size: 12px;
+	padding-top: 10px;
+}
+#sidebar ul {
+	/*padding: 0;*/
+	margin-left: 0;
+	padding-left: 0;
+	white-space: nowrap;
+}
+#sidebar ul li{
+	list-style-type: none;
+	display: inline;
+}
+#sidebar ul li a{
+	background: #A5D21E;
+	color: #FFFFFF;
+	/*display: block;
+	margin: 3px 0pt;
+	padding: 5px 0pt 5px 20px;*/
+	text-decoration: none;
+	padding: 3px 10px;
+}
+#sidebar ul li a:hover{
+	background: #BDE640;
+	color: #6B8A0E;
+	/*display: block;
+	margin: 3px 0pt;
+	padding: 5px 0pt 5px 20px;*/
+}

@@ -1,0 +1,250 @@
+/* base_sitio */
+.ficha_sitio{
+	margin: 10px;
+	padding: 10px;
+}
+
+#minimap{
+	float: left;
+	background-color: #434343;
+	margin-right: 10px;
+}
+
+#minimap a,
+#minimap a:hover{
+	color: #434343;
+}
+#minimap img{
+	border: 1px solid #434343;
+}
+#ficha_datos{
+	font-size: 14px;
+	float: left;
+	width: 260px;
+}
+
+#ficha_datos h4{
+	font-size: 20px;
+}
+
+#ficha_estrellas{
+	float: right;
+	width: 280px;	
+	background:#EFEACF url(/media/icons/favorite_star.png) no-repeat top right;
+	border:1px solid #DFDAC1;
+	margin:0pt 0pt 15px;
+	padding:15px;
+}
+
+#add_fav, #del_fav{
+	font-size: 13px;
+	font-size:13px;
+	padding-top:3px;
+}
+
+#foto_descripcion{
+	clear: both;
+	font-size: 14px;
+	font-style: italic;
+}
+#foto_descripcion img{
+	margin-right: 10px;
+}
+
+#tags{
+	clear:left;
+	padding-top:5px;
+}
+
+#tags .del_tag_form{
+	display: inline;
+}
+#otros{
+	clear: both;
+	text-align: right;
+	font-size: 12px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	font-size:12px;
+	list-style-type:none;
+	margin: 3px 0 15px 0;
+}
+#otros a{
+	color:#6B8A0E;
+	padding:2px 5px;
+	text-decoration:none;
+}
+#otros a:hover{
+	background:#99CC00;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+#otros form{
+	display: inline;
+}
+
+.boxy_form{
+	font-size: 12px;
+	text-align: left;
+}
+
+.sitios_similares{
+	width: 340px;
+	margin: 10px;
+	padding: 5px;
+	background: url(/media/icons/refresh.png) no-repeat top right;
+}
+.sitios_cercanos{
+        background: url(/media/icons/target_48.png) no-repeat top right;
+}
+.sitios_similares ul{
+	padding-left: 0;
+}
+.sitios_similares li{
+	list-style-type: none;
+}
+.sitios_similares .nombre_sitio{
+	float:left;
+	margin-right:10px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+}
+.sitios_similares .nombre_sitio a{
+	color:#6B8A0E;
+	text-decoration:none;
+}
+.sitios_similares .nombre_sitio a:hover{
+	color:#4F4939;
+	text-decoration:none;
+}
+
+.sitios_similares .tags{
+	font-size:11px;
+	margin:0 0 10px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	clear: both;
+}
+.sitios_similares .tags a{
+	color:#ADAB97;
+}
+.sitios_similares .num_votos{
+	color:#ADAB97;
+	font-style: italic;
+}
+
+.publicidad{
+	/*margin: 10px;*/
+	padding: 5px;
+	width: 250px;
+	height: 250px;
+}
+#publicidad_300x300{
+        width: 300px;
+        height: 300px;
+        text-align:center;
+        margin: 0;
+        padding: 0;
+        float: right;
+}
+.comentarios{
+	margin: 5px;
+	padding: 5px;
+	background: url(/media/icons/users_comments.png) no-repeat top right;
+        width: 350px;
+        float: left;
+}
+
+.comentarios .hreview{
+	border-top:1px solid #DFDAC1;
+	clear:both;
+	padding:15px 0pt 0pt;
+}
+
+.comentarios #comentario{
+	margin-top: 10px;
+	border-top: 1px solid #DFDAC1;
+	padding-top: 10px;
+}
+
+.comentarios #comentario_info{
+	/*width: 330px;
+	float: left;*/
+	text-align: right;
+}
+.comentarios #comentario_info a{
+	color:#4F4939;
+}
+.comentarios #comentario_form{
+	/*margin-left: 350px;*/
+}
+.comentarios .autor_dice {
+	margin: 0;
+	padding: 0;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	font-size:16px;
+}
+.comentarios .description {
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 0 0 0;
+	font-style: italic;
+}
+.fotos{
+	margin: 5px;
+	padding: 5px;
+	background: url(/media/icons/photo_camera.png) no-repeat top right;
+        width: 350px;
+        float: left;
+}
+
+.foto{
+	float: left;
+	display: block;
+	/*border: 1px solid #343434;*/
+	font-size: 14px;
+	margin: 5px;
+	padding: 2px;
+	padding-bottom: 6px;
+	height: 150px;
+	background: url(/media/img/picture_frame.png) no-repeat right bottom;
+        text-align: center;
+}
+
+.fotos #foto{
+	margin-top: 10px;
+	border-top: 1px solid #cccccc;
+	padding-top: 10px;
+}
+
+.fotos #foto_info{
+	/*width: 360px;
+	float: left;*/
+	text-align: right;
+}
+
+.fotos #foto_form{
+	/*margin-left: 380px;*/
+        text-align: right;
+}
+.imagen a{
+	color: #cccccc;
+}
+.imagen img{
+	border: 1px solid #cccccc;
+}
+.registrate{
+	background: #ffffff url(/media/icons/add_user.png) no-repeat left center;
+	height: 48px;
+	width: 200px;
+	padding: 5px;
+	padding-left: 50px;
+	border: 1px solid #005694;
+	margin: 0 auto;
+	clear: both;
+	font-size: 16px;
+	font-style: italic;
+	cursor: pointer;
+	_cursor: hand;
+}
+
+#facebook_me_gusta_sitio{
+	margin-top: 8px;
+}

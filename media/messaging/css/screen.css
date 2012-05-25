@@ -1,0 +1,41 @@
+/* ======== Images ======== */
+.icon {
+  vertical-align:middle;
+  border:0
+  }
+.pixel {
+  width:16px;
+  height:16px
+  }
+#pm_icon {
+  margin-right:0.5em
+  }
+#contacts_icon {
+  margin-left:0.5em
+  }
+/* ======== Boxes ======== */
+#contacts_list {
+  text-align:left;
+  margin-left:30%;
+  max-height:26em;
+  overflow:auto;
+  }
+.main_box {
+  text-align:center;
+  font-size:85%;
+  margin-top:0.6em
+  }
+/* ======== Pm ============ */
+.has_pm {
+  background:lime;
+  }
+.message_header {
+  font-size:100%;
+  font-style:italic;
+  }
+.message_body {
+  font-size:100%;
+  }
+/*
+.pm_unreaded
+*/

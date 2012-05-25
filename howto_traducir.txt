@@ -1,0 +1,12 @@
+logos:/Applications/djangostack-1.0-3/projects/AndaluciaPeople draxus$
+
+xgettext --indent --no-wrap --sort-by-file --from-code=UTF-8 --output locale/messages.pot sitios/*.py
+
+cp locale/messages.pot locale/en/messages.po
+
+msgfmt --verbose --output-file locale/en/LC_MESSAGES/django.mo locale/en/messages.po
+
+
+-------------------------
+django-admin.py makemessages -l en --ignore=django/* --ignore=blogapp/* --ignore=django_extensions/* --ignore=messages/* --ignore=captcha/* --ignore=notification/* --ignore=rosetta/* --ignore=pagination/* --ignore=registration/*
+django-admin.py compilemessages

@@ -1,0 +1,19 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block cuerpo %}
+
+<ul id="{{ciudad}}" title="{{ciudad}}" selected="true">
+	<li><a href="#/{{ciudad}}/sitios/" class="arrow">Buscar sitios</a></li>
+	<li><a href="#/{{ciudad}}/mapa/" class="arrow">Buscar en mapa</a></li>
+	<li><a href="#/{{ciudad}}/sitios/ultimos/" class="arrow">Últimos sitios</a></li>
+	<li><a href="#/{{ciudad}}/sitios/top/" class="arrow">Top sitios</a></li>
+	<li><a href="#/usuarios/" class="arrow">Buscar usuarios</a></li>
+	<li><a href="#/usuarios/ultimos/" class="arrow">Últimos usuarios</a></li>
+	<li><a href="#/usuarios/top/" class="arrow">Top usuarios</a></li>
+	<li><a href="#/{{ciudad}}/fotos/ultimas/" class="arrow">Últimas fotos</a></li>
+	<li><a href="#/{{ciudad}}/comentarios/ultimos/" class="arrow">Últimos comentarios</a></li>
+</ul>
+
+{% endblock %}

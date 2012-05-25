@@ -1,0 +1,8 @@
+django
+south
+django_extensions
+mysql-python
+django-localeurl
+PIL
+httplib2
+oauth2

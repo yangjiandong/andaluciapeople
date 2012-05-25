@@ -1,0 +1,58 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/m/">Inicio</a> &raquo; <a href="/m/{{ ciudad }}/">{{ ciudad }}</a> &raquo; <a href="/m/{{ ciudad }}/sitios/">Sitios</a>{% endblock %}
+
+{% block cuerpo %}
+	<div id="header">
+		<h1>{{ title|escape }}</h1>
+		<a href="/m/{{ ciudad }}/" id="backButton" class="nav">Volver</a>
+	</div>
+	
+<form method="post" action="/m/{{ ciudad }}/sitios/">{% csrf_token %}
+<input id="id_s" type="text" value="" name="s"/>
+<input type="submit" class="button white" value="Buscar"/>
+</form>
+
+{% if tipos %}
+<h3>Tipos</h3>
+<ul>
+{% for tipo in tipos %}
+<li><a href="/m/{{ ciudad }}/sitios/{{ tipo.slug }}/">{{tipo}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if sitio_list %}
+	<ul>
+	{% for s in sitio_list %}
+	<li>
+		<a href="/m/{{ ciudad }}/sitio/{{ s.slug }}/" class="arrow">{{ s.nombre|escape }}</a>
+	</li>
+	{% endfor %}
+	</ul>
+
+	{% if is_paginated %}
+	<p>
+	{% for p in page_range %}
+		{% ifequal p page %}
+		{{ p }} 
+		{% else %}
+		<a href="?page={{ p }}">{{ p }}</a> 
+		{% endifequal %}
+	{% endfor %}
+	</p>
+	<ul class="individual">
+	{% if has_previous %}
+	<li><a href="?page={{ previous }}">&laquo; Anteriores</a></li>
+	{% endif %}
+	{% if has_next %}
+	<li><a href="?page={{ next }}">Siguientes &raquo;</a></li>
+	{% endif %}
+	</ul>
+	{% endif %}
+{% else %}
+	No se han encontrado sitios
+{% endif %}
+{% endblock %}

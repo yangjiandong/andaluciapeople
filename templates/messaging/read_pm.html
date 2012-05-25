@@ -1,0 +1,12 @@
+<div class="message_header">Mensaje de {{ message.from_user_username }} <br />{{ message.date|date:"j F - H:i" }}</div>
+<p class="message_body">
+{{ message.message }}</p>
+<div class="button"><a href="javascript:send_pm('{{ message.from_user.id }}')">Responder</a></div>
+
+{% comment %}
+<div class="button"><a href="javascript:delete_and_send('{{ message.from_user.id }}','{{ message.id }}')">Responder y borrar</a></div>
+{% endcomment %}
+
+<div class="button"><a href="javascript:delete_pm('{{ message.id }}')">Borrar</a></div>
+
+

@@ -1,0 +1,57 @@
+  * Estilo
+    * buffet
+    * chino
+    * gay
+    * heavy
+    * japones
+    * wok
+    * italiano
+    * ingles
+    * irlandes
+    * mejicano
+    * indio
+    * comida rapida
+    * comida para llevar
+    * servicio a domicilio
+    * tapas
+ 
+  * Música
+    * pop
+    * rap
+    * rock
+    * directo
+    * conciertos
+    * jazz
+    * ska
+    * salsa
+    * flamenco
+    * salsa
+    * reggae
+    * tango
+    * clasica
+    * celta
+    * electronica
+    * disco
+    * latina
+    * house
+    * techno
+
+  * Instalaciones
+    * billar
+    * dardos
+    * futbolin
+    * karaoke
+    * internet
+    * wifi
+    * pista de baile
+    * juegos recreativos
+    * juegos de mesa
+    * television
+    * terraza
+
+  * Otros
+    * no fumadores
+    * no volumen alto
+    * entrada permitida a menores
+    * entrada gratuita
+    * entrada pagando

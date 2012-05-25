@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load inbox %}
+{% if user.is_authenticated %}
+	<div id="hello_login_identificado">
+	<span>{% trans "¡Hola" %} {{ user }}!</span> |
+	<a href="{% url sitios.views.ver_usuario user %}" id="link_tucuenta">{% trans "Tu cuenta" %}</a> | 
+	<a href="{% url messages.views.inbox %}"><img src="/media/icons/yellow_mail_16.png" border="0" alt="{% trans "Mensajes" %}" class="fugue_icon"/> ({% inbox_count %})</a> | 
+	<a href="{% url django.contrib.auth.views.logout_then_login %}" >{% trans "Cerrar sesión" %}</a>
+	</div>
+	{% else %}
+	<div id="hello_login">
+    <a href="{% url django.contrib.auth.views.login %}"><strong>{% trans "Iniciar sesión" %}</strong></a> | 
+    <a href="{% url sitios.views.register %}">{% trans "Registrarse" %}</a>
+    </div>
+{% endif %}	

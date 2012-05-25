@@ -1,0 +1,13 @@
+{% extends "blog.html" %}
+
+{% block source %}
+    <h2>{{ err_title }}</h2>
+    <p>{{ err_message }}</p>
+    <p>You can, however, choose one (or more) of the following options:</p>
+    <ul>
+        <li>Check out <a href="{% url blogapp.views.homepage %}">new posts</a>, browse through archive or tags.</li>
+        <li>Susbscribe to <a href="http://feeds.feedburner.com/armandas/">RSS feed</a>, so you read posts more easily.</li>
+        <li>Visit my friends' websites.</a>
+    </ul>
+    <hr class="hidden">
+{% endblock %}

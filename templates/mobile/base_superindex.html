@@ -1,0 +1,14 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/m/">Inicio</a>{% endblock %}
+
+{% block cuerpo %}
+Escoge una provincia:
+<ul>
+	{% for slug,nombre in ciudades %}
+	<li><a href="/m/{{slug}}/">{{nombre}}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

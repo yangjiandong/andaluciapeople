@@ -1,0 +1,16 @@
+{% load i18n %}
+            {% for post in posts %}
+                {% include "post.html" %}
+            {% endfor %}
+
+            <div id="comments">
+                {% if comments %}
+                    {% include "comments.html" %}
+                {% endif %}
+            </div>
+			
+			{% if comment_form %}
+				{% include "comment_form.html" %}
+			{% else %}
+				<!--<p id="comments_disabled">{% trans "Comments are disabled on this post." %}</p>-->
+			{% endif %}

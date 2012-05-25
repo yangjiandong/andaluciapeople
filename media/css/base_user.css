@@ -1,0 +1,294 @@
+/* base_user */
+
+p.info{
+	background: url(/media/icons/info.png) no-repeat left center;
+	padding: 20px;
+	padding-left: 50px;
+}
+ul.menu_user{
+	list-style: none;
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+	clear: both;
+}
+
+ul.menu_user li{
+	float: left;
+	padding: 10px;
+	display: block;
+	margin-right: 10px;
+	background-color: #EFEACF;
+	border: 1px solid #DFDAC1;
+}
+
+ul.menu_user li a{
+	display: block;
+	overflow: hidden;
+	height: 55px;
+	width: 55px;
+}
+ul.menu_user li a:hover{
+	text-decoration: none;
+}
+
+ul.menu_user li img{
+	position: absolute;
+	border: 0;
+}
+
+ul.menu_user li p{
+	margin: 0;
+	padding: 0;
+	width: 220px;
+	display: block;
+	margin-left: 75px;
+	font-size: 15px;
+}
+.column_left{
+	width: 220px;
+	float: left;
+	margin: 0 10px 0 10px;
+}
+.column_right{
+	width: 490px;
+	float: left;
+	margin: 0 10px 0 10px;
+}
+.ficha{
+	width: 210px;
+	float: left;
+	padding: 5px;
+	font-size: 12px;
+}
+a.foto_link{
+	color: #cccccc;
+}
+img.foto {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #cccccc;
+	padding: 2px;
+	float: left;
+}
+.foto .imagen{
+	margin: 0 auto;
+	text-align: center;
+}
+.imagen a{
+	color: #cccccc;
+}
+.imagen a img{
+	border: 1px solid #cccccc;
+}
+.username{
+	font-size: 30px;
+	float: left;
+	margin-left: 10px;
+}
+.username span a{
+	font-size: 10px;
+	color: #444;
+}
+.datos {
+	clear: both;
+	font-size: 12px;
+}
+.loader {
+	display: none;
+}
+.progress_bar {
+	width: 140px;
+	height: 10px;
+	border: 1px solid #D8C8B2;
+	background: #fff;
+	display: block;
+	margin: 0 auto;
+}
+.progress_bar_fill{
+	height: 100%;
+	background: #F56E21;
+	display: block;
+	overflow: visible;
+}
+.perfil_completado{
+	background-color:#EFEACF;
+	border:1px solid #DFDAC1;
+	padding: 10px;
+	margin: 5px;
+	font-size: 12px;
+}
+
+.ok {
+	color: #6E8D2B;
+}
+.error {
+	color: #FF3B41;
+}
+.amigos{
+	width: 210px;
+	padding: 5px;
+	clear: both;
+	font-size: 14px;
+}
+.amigo{
+	clear: both;
+	padding: 4px;
+}
+.amigo .imagen{
+	float: left;
+	margin-right: 5px;
+}
+.amigo .nombre{
+	float: left;
+	font-size: 15px;
+}
+.del_amigo_form{
+	float: left;
+}
+#encuentra_amigos,
+#add_sitio{
+	clear: both;
+	padding: 3px;
+	margin-top: 5px;
+	font-size: 12px;
+	text-align: right;
+	border-top:1px solid #DFDAC1;
+}
+#encuentra_amigos{
+	background: url(/media/icons/add_user.png) no-repeat top left;
+}
+#add_sitio{
+	background: url(/media/icons/add_home.png) no-repeat top left;
+}
+.favoritos,
+.enviados{
+	width: 210px;
+	padding: 5px;
+	clear: both;
+	font-size: 14px;
+}
+.favoritos ul,
+.enviados ul{
+	padding-left: 10px;
+}
+.favoritos li,
+.enviados li{
+	list-style: none;
+}
+.favoritos li img,
+.enviados li img{
+	vertical-align: text-bottom;
+}
+.fotos{
+	width: 480px;
+	padding: 5px;
+	font-size: 14px;
+	/*background: url(/media/icons/image_48.png) no-repeat top right;*/
+}
+.foto{
+	float: left;
+	display: block;
+	font-size: 14px;
+	margin: 5px;
+	padding: 2px;
+	padding-bottom: 6px;
+	width: 104px;
+	background: url(/media/img/picture_frame.png) right bottom no-repeat;
+}
+.comentarios{
+	width: 480px;
+	padding: 5px;
+	font-size: 14px;
+	/*background: url(/media/icons/comments.png) no-repeat top right;*/
+}
+.comentario {
+	margin: 5px;
+	padding: 5px;
+	border-top:1px solid #DFDAC1;
+}
+.comentario .nombre{
+	float: left;
+	font-weight: bold;
+}
+.comentario .valoracion{
+	float: right;
+}
+.comentario .mensaje{
+	clear: both;
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 0 0 0;
+	font-style: italic;
+}
+
+.comentario .meta{
+	clear: both;
+	text-align: right;
+	font-size: 12px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	font-size:12px;
+	list-style-type:none;
+	margin: 3px 0 15px 0;
+}
+.comentario .meta a{
+	color:#6B8A0E;
+	padding:2px 5px;
+	text-decoration:none;
+}
+.comentario .meta a:hover{
+	background:#99CC00;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+.comentario .meta form{
+	display: inline;
+}
+
+.flag_icon{
+	vertical-align: bottom;
+	border: 1px solid black;
+}
+
+
+/*
+ * Recomendaciones
+ */
+ 
+#recomienda_sitios_form{
+}
+
+#recomienda_sitios_form fieldset{
+	font-size: 12px;
+	background-color: #EFEACF;
+	border: 1px solid #DFDAC1;
+}
+
+#recomienda_sitios_form label,
+#recomienda_sitios_form input{
+	display: inline;
+	font-size: 14px;
+	margin-left: 5px;
+}
+
+.resultado_recomendado{
+	padding: 10px;
+	clear: both;
+}
+.resultado_recomendado .nombre{
+	font-weight: bold;
+	font-size: 1.5em;
+	float: left;
+}
+.resultado_recomendado .prediccion{
+	float: left;
+	padding: 5px;
+}
+.resultado_recomendado .tags{
+	clear: both;
+}
+
+#resultados .loading {
+	text-align: center;
+	padding: 20px;
+}

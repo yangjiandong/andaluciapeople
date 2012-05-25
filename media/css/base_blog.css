@@ -1,0 +1,30 @@
+#comments {
+	width: 450px;
+	float: left;
+}
+.comment {
+	border-bottom: 1px solid #454545;
+	margin-top: 20px;
+}
+
+.comment .name {
+
+}
+
+.comment .text {
+	margin-top: -10px;
+}
+
+#comment_form {
+	float: left;
+	width: 280px;
+	padding: 10px;
+}
+
+#comment_form textarea {
+	width: 250px;
+}
+
+h2{
+	padding: 0;
+}

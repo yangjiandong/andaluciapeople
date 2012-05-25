@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.listar_usuarios %}">{% trans "usuarios" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/user_list.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$('.add_friend form').bind('submit', function(event){
+		event.preventDefault();
+		$(this).ajaxSubmit({
+			'target': $(this).parent()
+		});
+	});
+});
+-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+
+{% if not busqueda %}
+<div id="activos">
+<h3>{% trans "Más activos" %}</h3>
+	<ol>
+	{% for u in mas_activos %}
+	<li><a href="{% url sitios.views.ver_usuario u %}">{{ u }}</a></li>
+	{% endfor %}
+	</ol>
+</div>
+
+<div id="ultimos">
+<h3>{% trans "Últimos" %}</h3>
+	<ol>
+	{% for u in ultimos_usuarios %}
+	<li><a href="{% url sitios.views.ver_usuario u %}">{{ u }}</a></li>
+	{% endfor %}
+	</ol>
+</div>
+
+<div id="facebook_fans">
+<script type="text/javascript" src="http://static.ak.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/es_ES"></script><script type="text/javascript">FB.init("b8712c3c773862bc4c3711a0cf950c77");</script><fb:fan profile_id="117480525661" stream="" connections="10" width="300"></fb:fan>
+</div>
+
+{% endif %}
+
+<div id="buscador_usuarios">
+	<h3>{% if busqueda %}{% trans "Resultados de la búsqueda para" %} <em>{{ busqueda }}</em>
+		{% else %}{% trans "Listado de usuarios" %}{% endif %}</h3>
+	<form method="post" action="{% url sitios.views.listar_usuarios %}">{% csrf_token %}
+	{% for field in busca_usuarios_form %}
+	    {{ field }}
+	{% endfor %}
+	<input type="submit" value="{% trans "buscar" %}" />
+	</form>
+</div>
+
+{% for user in usuarios.object_list %}
+<div class="user {% cycle 'odd' 'even' %}">
+	{% if request.user.is_authenticated %}
+	<div class="add_friend">
+	<form method="post" action="{% url sitios.views.add_amigo user.user %}">{% csrf_token %}
+	<input type="submit" value='{% trans "Añadir como amigo" %}' />
+	</form>
+	</div>
+	{% endif %}
+	<div class="profile_picture">
+		<a href="{% url sitios.views.ver_usuario user.user %}" class="foto_link"><img src="/media/{{ user.imagen }}" class="foto"/></a>
+	</div>
+	<div class="datos">
+	<div class="username">
+		<a href="{% url sitios.views.ver_usuario user.user %}">{{ user.user }}</a>
+	</div>
+	{% if request.user.is_authenticated %}
+	<p>
+		<a href="{% url messages.views.compose user.user %}">{% trans "Enviar mensaje privado" %}</a>
+	</p>
+	{% endif %}
+	</div>
+</div>
+{% endfor %}
+<div class="pagination">
+	{% if usuarios.has_previous %}
+        <a href="?page={{ usuarios.previous_page_number }}">{% trans "Anteriores" %}</a>
+    {% endif %}
+
+    <span class="current">
+        {% trans "Página" %} {{ usuarios.number }} {% trans "de" %} {{ usuarios.paginator.num_pages }}
+    </span>
+
+    {% if usuarios.has_next %}
+        <a href="?page={{ usuarios.next_page_number }}">{% trans "Siguientes" %}</a>
+    {% endif %}
+</div>
+{% endblock %}

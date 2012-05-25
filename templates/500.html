@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Page unavailable" %}{% endblock %}
+
+{% block cuerpo %}
+
+<h3>{% trans "Page unavailable" %}</h3>
+
+<p>{% trans "We're sorry, but the requested page is currently unavailable." %}</p>
+
+<p>{% trans "We're messing around with things internally, and the server had a bit of a hiccup." %}</p>
+
+<p>{% trans "Please try again later." %}</p>
+
+{% endblock %}

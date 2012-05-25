@@ -1,0 +1,26 @@
+{% extends "messages/base.html" %} 
+{% load i18n %}
+
+{% block content %}
+    <h3>{% trans "Inbox" %}</h3>
+    <table class="messages">
+        <thead>
+            <tr><th>{% trans "Sender" %}</th><th>{% trans "Subject" %}</th><th>{% trans "Received" %}</th><th>{% trans "Action" %}</th></tr>
+        </thead>
+        <tbody>
+    {% for message in message_list %} 
+        <tr>
+            <td><a href="/user/{{ message.sender }}/">{{ message.sender }}</a></td>
+            <td>
+                {% if message.new %}<strong>{% endif %}
+                {% if message.replied %}<em>{% endif %}
+                <a href="{{message.get_absolute_url }}">{{ message.subject }}</a>
+                {% if message.replied %}</em>{% endif %}
+                {% if message.new %}</strong>{% endif %}</td>
+            <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
+            <td><img src="/media/icons/mail__minus.png" alt="" /> <a href="{% url messages.views.delete message.id %}">{% trans "delete" %}</a></td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

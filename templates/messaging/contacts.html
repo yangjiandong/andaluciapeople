@@ -1,0 +1,5 @@
+{% load logic_filters %}
+{% for user in contacts %}
+    <div><a href="{% url sitios.views.ver_usuario user.username %}">{{ user.username }}</a></div>
+  {% endif %}
+{% endfor %}

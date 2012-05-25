@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load filters %}
+{% load i18n %}
+
+{% block title %}{% if title %}{{ title }} {{ options.title_sep }}{% endif %} {{ options.blog_title }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/blog/">Blog</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_blog.css" type="text/css" />
+{% if options.feed_url %}
+<link rel="alternate" type="application/rss+xml" title="Blog feed (RSS)" href="{{ options.feed_url }}">
+{% else %}
+<link rel="alternate" type="application/rss+xml" title="Blog feed (RSS)" href="{% url blogapp.views.feed "rss" %}">
+<link rel="alternate" type="application/atom+xml" title="Blog feed (Atom)" href="{% url blogapp.views.feed "atom" %}">
+{% endif %}
+{% endblock %}
+
+{% block cuerpo %}
+<h3>Blog</h3>
+<div style="float:right"><a title="Suscribirse al feed RSS" type="application/rss+xml" href="{% url blogapp.views.feed "rss" %}"><img src="/media/icons/rss_48.png" alt="RSS" border="0"/></a></div>
+<div id="content">
+	{% include "contents.html" %}
+	{% block source %}{% endblock %}
+</div>
+{% endblock %}

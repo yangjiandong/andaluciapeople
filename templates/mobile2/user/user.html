@@ -1,0 +1,34 @@
+{% extends "mobile/base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block header %}
+<!-- for profile image -->
+<style type="text/css" media="screen">
+	li.picture { background: #fff url({% thumbnail datos.imagen.name 50x50 crop %}) no-repeat !important; }
+</style>
+<!-- end line customization -->
+{% endblock%}
+{% block cuerpo %}
+<div id="header">
+	<h1> {{ title|escape }}</h1>
+	<a href="/usuarios/" id="backButton" class="nav">Usuarios</a>
+</div>
+<ul class="profile">
+	<li class="picture"><a href="/user/{{ datos.user }}/">Foto de {{ datos.user }}</a></li>
+	<li class="clearfix"><a href="/user/{{ datos.user }}/">{{ datos.user }}</a></li>
+</ul>
+<ul class="field">
+	{% if datos.web %}
+	<li class="arrow"><h3>{% trans "Web" %}</h3> {{ datos.web|urlizetrunc:20 }}</li>
+	{% endif %}
+	{% if datos.sexo %}
+	<li><h3>{% trans "Sexo" %}</h3> {{ datos.get_sexo }}</li>
+	{% endif %}
+	<li><h3>{% trans "Puntos" %}</h3> {{ datos.puntos }}</li>
+</ul>
+<ul class="individual">
+<li><a href="/{{ciudad}}/">Ir al menú principal</a></li>
+</ul>
+{% endblock %}

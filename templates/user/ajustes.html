@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.listar_usuarios %}">{% trans "usuarios" %}</a> &raquo; <a href="{% url sitios.views.ver_usuario datos.user %}">{{ datos.user }}</a> &raquo; <a href="{% url sitios.views.recomendaciones_usuario %}">{% trans "Recomendaciones" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/ui-lightness/jquery-ui-1.8.7.custom.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/base_ajustes.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript">
+<!--
+
+function actualizar_sum(){
+			var id_actual = $(this).attr("id");
+			var tmp = id_actual.split("_");
+			var tipo = tmp[1];
+			
+			var musica = $("#musica_"+tipo).slider("value");
+			var estilo = $("#estilo_"+tipo).slider("value");
+			var instalaciones = $("#instalaciones_"+tipo).slider("value");
+			var otros = $("#otros_"+tipo).slider("value");
+			
+			var sum = Math.round((musica + estilo + instalaciones + otros));
+			
+			if(sum>100){
+				$("#sum_"+tipo).css("background", "#ef2929");
+				$("#sum_"+tipo).css("color", "#f0f0f0");
+			}
+			else if (sum==100){
+				$("#sum_"+tipo).css("background", "#8ae234");
+				$("#sum_"+tipo).css("color", "#f0f0f0");
+			}
+			else{
+				$("#sum_"+tipo).css("background", "#729fcf");
+				$("#sum_"+tipo).css("color", "#f0f0f0");
+			}
+			
+			$("#sum_"+tipo).val(sum+"%");
+		}
+
+function loadAjustes() {
+
+	//begin menu_user
+	lastBlock = $("#ajustes");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+    
+	$("#id_username").val('{{ user.username }}');
+	
+	$(".slider").slider({
+		orientation: 'horizontal',
+		range: 'min',
+		animate: true,
+		min: 0,
+		max: 100,
+		slide: actualizar_sum,
+		change: actualizar_sum
+	});
+	
+	$(".slider > span").each(function(){
+		var value = parseFloat($(this).text());
+		$(this).empty();
+		$(this).parent().slider("value", value);
+	});
+	
+	$("#guardar_pesos_button").click(function(){
+		
+		$("#guardar_pesos_helper").html('<img src="/media/icons/loading.gif" alt=""/> {% trans "Guardando..." %}');
+		
+		var correcto = 1;
+		$(".sum_pesos").each(function(){
+			if ($(this).val()!="100%"){
+				$("#guardar_pesos_helper").html('<span class="error">{% trans "Comprueba que todos los pesos suman 100%." %}<br/>{% trans "Puedes pinchar en un desplazador y usar las teclas izquierda y derecha para mayor precisión." %}</span>');
+				correcto = 0;
+			}
+		});
+		
+		if (correcto>0){
+			var pesos = '{ ';
+			$(".slider").each(function(){
+				pesos += '"' + $(this).attr("id") + '": "' + $(this).slider("value") + '", ';
+			});
+			pesos = pesos.substring(0, pesos.length-2);
+			pesos += '}';
+			
+			
+			$.post('{% url sitios.views.guardar_pesos %}', { csrfmiddlewaretoken: $("#guardar_pesos_form input:hidden").val(), lista_pesos: pesos}, function(data){
+				$("#guardar_pesos_helper").html(data);
+			});
+		}
+	});
+	
+}
+-->
+</script>
+{% endblock %}
+
+{% block jquery_ready %}
+loadAjustes();
+{% endblock %}
+
+{% block cuerpo %}
+{% include 'user/menu.html' %}
+<div id="datos_personales">
+		<p class="info">{% blocktrans %}Desde aquí podrás actualizar <a href="#datos">tus <strong>datos</strong> personales</a>, <a href="#username">cambiar tu <strong>nombre de usuario</strong></a>, 
+		<a href="#password">cambiar tu <strong>contraseña</strong></a> o <a href="#tag_levels">ajustar la importancia de las <strong>etiquetas</strong></a>.{% endblocktrans %}</p>
+		
+		<a name="datos"></a>
+		<h3>{% trans "Datos Personales" %}</h3>
+		
+		{% if datos_ok %}
+		<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon"/> {% trans "Datos modificados correctamente" %}</div>
+		{% endif %}
+		{% if datos_error %}
+		<div class="error"><img src="/media/icons/cross_circle.png" alt="" /> {% trans "Error al modificar los datos" %}</div>
+		{% endif %}
+		<form id="datos_form" enctype="multipart/form-data" method="post" action="">{% csrf_token %}
+		<dl>
+		{% for field in datos_form %}
+			<!--[if lt IE 8]>
+			<div style="clear: both">
+			<![endif]-->
+			<dt>{{ field.label }}</dt>
+			<dd>{{ field }}
+			{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+			{% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+			</dd>
+			<!--[if lt IE 8]>
+			</div>
+			<![endif]-->
+		{% endfor %}
+
+		
+		<!--[if lt IE 8]>
+		<div style="clear: both">
+		<![endif]-->
+		<dt>{% trans "Gustos" %}</dt>
+		<dd>
+		<a name="gustos"></a>
+		{% autoescape off %}
+		{{ gustos }}
+		{% endautoescape %}
+		</dd>
+		<!--[if lt IE 8]>
+		</div>
+		<![endif]-->
+		
+		</dl>
+		<div align="right" style="clear: both"><input type="submit" value='{% trans "Guardar" %}'/></div>
+		</form>
+		
+		<a name="username"></a>
+		<h3>{% trans "Cambiar nombre de usuario" %}</h3>
+		{% if username_change_ok %}
+		<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon"/> {% trans "Nombre de usuario cambiado correctamente." %}</div>
+		{% endif %}
+		{% if username_change_error %}
+		<div class="error"><img src="/media/icons/cross_circle.png" alt="" /> {% trans "Error al cambiar el nombre de usuario, inténtalo de nuevo." %}</div>
+		{% endif %}
+		
+		<p>{% trans "Utiliza este formulario para cambiar tu nombre de usuario." %}</p>
+
+		<form id="username_change_form" action="" method="post">{% csrf_token %}
+		<dl>
+		{% for field in username_change_form %}
+			<!--[if lt IE 8]>
+			<div style="clear: both">
+			<![endif]-->
+			<dt>{{ field.label }}</dt>
+			<dd>{{ field }}
+			{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+			{% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+			</dd>
+			<!--[if lt IE 8]>
+			</div>
+			<![endif]-->
+		{% endfor %}
+		</dl>
+		<p><input type="submit" value="{% trans 'Cambiar nombre de usuario' %}" /></p>
+		</form>
+		
+		<a name="password"></a>
+		<h3>{% trans "Cambiar Contraseña" %}</h3>
+		{% if change_ok %}
+		<div class="ok"><img src="/media/icons/tick_circle.png" alt="" class="fugue_icon"/> {% trans "Contraseña cambiada correctamente." %}</div>
+		{% endif %}
+		{% if change_error %}
+		<div class="error"><img src="/media/icons/cross_circle.png" alt="" /> {% trans "Error al modificar la contraseña, inténtalo de nuevo." %}</div>
+		{% endif %}
+		
+		<p>{% trans "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly." %}</p>
+
+		<form id="change_password_form" action="" method="post">{% csrf_token %}
+		{% if change_form.old_password.errors %}{{ change_form.old_password.errors }}{% endif %}
+		<p class="aligned wide"><label for="id_old_password">{% trans 'Old password:' %}</label>{{ change_form.old_password }}</p>
+		{% if change_form.new_password1.errors %}{{ change_form.new_password1.errors }}{% endif %}
+		<p class="aligned wide"><label for="id_new_password1">{% trans 'New password:' %}</label>{{ change_form.new_password1 }}</p>
+		{% if change_form.new_password2.errors %}{{ change_form.new_password2.errors }}{% endif %}
+		<p class="aligned wide"><label for="id_new_password2">{% trans 'Confirm password:' %}</label>{{ change_form.new_password2 }}</p>
+		{{ change_form.action }}
+		<p><input type="submit" value="{% trans 'Change my password' %}" /></p>
+		</form>
+		
+		<a name="tag_levels"></a>
+		<h3>{% trans "Importancia de las etiquetas" %}</h3>
+		<p>{% trans "Para ajustar mejor el sistema de recomendación a tus preferencias, puedes modificar la importancia que se le da a los diferentes conjuntos de etiquetas sobre un tipo de sitio determinado." %}</p>
+		
+		<ul class="lista_jerarquias">
+		{% for j in jerarquias %}
+		<li class="{{j.slug}}"><strong>{{ j.nombre }}</strong>: 
+		    {% for tag in j.get_tags %}
+			{{ tag.tag }}
+		    {% endfor %}
+		</li>
+		{% endfor %}
+		</ul>
+		
+		<p class="anuncio_top_light">{% trans "Pincha sobre el icono de un desplazador y usa las teclas izquierda y derecha para desplazar con más precisión." %}</p>
+		<ul id="lista_pesos" class="lista_pesos">
+		{% for pesos in lista_pesos %}
+		<li><strong>{{ pesos.tipo.tipo }}</strong><br/>
+		<input id="sum_{{pesos.tipo.slug}}" class="sum_pesos" type="text" disabled="disabled" value="{{ pesos.sum }}%" size="3"/> 
+		<div id="musica_{{pesos.tipo.slug}}" class="slider musica"><span>{{ pesos.musica }}</span></div> 
+		<div id="estilo_{{pesos.tipo.slug}}" class="slider estilo"><span>{{ pesos.estilo }}</span></div> 
+		<div id="instalaciones_{{pesos.tipo.slug}}" class="slider instalaciones"><span>{{ pesos.instalaciones }}</span></div> 
+		<div id="otros_{{pesos.tipo.slug}}" class="slider otros"><span>{{ pesos.otros }}</span></div></li>
+		{% endfor %}
+		</ul>
+		
+		<form id="guardar_pesos_form" action="{% url sitios.views.guardar_pesos %}" method="post">{% csrf_token %}
+		<input id="guardar_pesos_button" type="button" value="{% trans "Guardar" %}" />
+		<div id="guardar_pesos_helper"></div>
+		</form>
+
+</div>
+{% endblock %}

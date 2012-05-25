@@ -1,0 +1,11 @@
+{% load i18n %}
+<h3>{% trans "Invitación" %}</h3>
+
+{% if error %}
+<p>{% trans "Hubo un error al generar la invitación. Comprueba que el email es correcto." %}</p>
+{% if mensaje%}
+{{ mensaje }}
+{% endif %}
+{% else %}
+<p>{% trans "Tu email ha sido registrado, te enviaremos lo antes posible una invitación para registrarte. Si no lo has recibido en 24 horas, comprueba en tu carpeta de Spam (correo no deseado)." %}</p>
+{% endif %}

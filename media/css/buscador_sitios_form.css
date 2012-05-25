@@ -1,0 +1,40 @@
+#buscador_sitios {
+	padding: 10px;
+}
+#buscador_sitios form input{
+	border: 1px solid #487200;
+	padding:2px;
+	font-size:14px;
+}
+#buscador_sitios form a{
+	font-size: 12px;
+}
+#buscador_sitios form label.error{
+	color:red;
+	font-style:italic;
+	float: left;
+	font-size: 12px;
+}
+#buscador_sitios .ver_tags{
+	background: url(/media/icons/tag_green.png) no-repeat center left;
+	padding-left: 32px;
+}
+#tag_list{
+	border: 1px solid #82A102;
+	padding: 4px;
+	clear: both;
+	background: url(/media/icons/tag_green_fondo.png) no-repeat top right;
+}
+#tag_list .jerarquia{
+	font-size: 12px;
+}
+#tag_list .tags{
+	display: inline;
+	margin-left: 0;
+	padding-left: 0;
+}
+#tag_list .tags li{
+	display: inline;
+	margin-left: 0;
+	list-style-type: none;	
+}

@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load webdesign %}
+{% load i18n %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_index.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/nivo-slider1.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/media/css/nivo-slider-nvivo.css" type="text/css" media="screen" /> <!-- both are needed -->
+<script type="text/javascript" src="/media/js/jquery.nivo.slider.pack.js" ></script>
+<script type="text/javascript" src="/media/js/jquery.ui.stars.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/media/js/jquery.galleryview-1.1-pack.js"></script>
+<script type="text/javascript" src="/media/js/jquery.timers-1.1.2.js"></script>
+<script type="text/javascript">
+<!--
+	var cod_ciudad = {{ cod_ciudad }};
+	var ciudad = '{{ ciudad }}';
+	var results = new Array();
+//-->
+</script>
+<script src="/media/js/map.datos.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="/media/js/map3.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+<!--
+
+/*
+$(window).load(function() {
+	$('#eventos_kedin').nivoSlider({
+		effect: 'sliceUp',
+		controlNav: false
+	});
+});
+*/
+
+function loadIndex() {
+	$('.estrellas').stars({disabled: true, split: 2});
+	
+	/*
+	$('#fotos_aleatorias').galleryView({
+	    panel_width: 480,
+	    panel_height: 250,
+	    transition_speed: 1500,
+	    transition_interval: 3500,
+	    nav_theme: 'dark',
+	    border: '1px solid #4F4939',
+	    pause_on_hover: true,
+	    overlay_font_size: '12px',
+	    overlay_height: 40
+	});
+	*/
+	loadMap({mapTypeControl: false, panControl: false});
+	randomSearch(10, false);
+	
+	$('#eventos_nvivo').load('{% url sitios.views.eventos_nvivo ciudad %}', function(){
+		$('#eventos_nvivo').nivoSlider({
+			effect: 'sliceUp',
+			controlNav: false
+		});
+	});
+}
+-->
+</script>
+{% endblock %}
+
+{% block jquery_ready %}
+loadIndex();
+{% endblock %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block cuerpo %}
+<div id="main">
+{% comment %}
+<div style="margin-top: 10px">
+<div id="fotos_aleatorias" class="galleryview">
+{% for f in fotos_aleatorias %}
+{% if f.flickr %}
+<!-- TODO -->
+{% else %}
+<div class="panel">
+<a href="{% url sitios.views.ver_sitio ciudad f.sitio.slug %}"><img src="{% thumbnail f.get_path 480x250 crop %}" alt="" border="0"/></a>
+<div class="panel-overlay">
+<p>{% trans "Foto subida por" %} <a href="{% url sitios.views.ver_usuario f.user.username %}">{{ f.user.username }}</a> {% trans "en" %} <a href="{% url sitios.views.ver_sitio ciudad f.sitio.slug %}">{{ f.sitio.nombre }}</a></p>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endcomment %}
+{% comment %}
+<div class="sitio_patrocinado">
+	<h3>{% trans "Sitio patrocinado" %}</h3>
+	{# Se podría ir recargando con AJAX #}
+	{% for sp in sitio_recomendado %}
+	<div class="nombre"><a href="{% url sitios.views.ver_sitio ciudad sp.sitio.slug %}" class="nombre_sitio">{{ sp.sitio.nombre|escape }}</a>
+	{% autoescape off %}
+	{{ sp.sitio.get_estrellas }}
+	{% endautoescape %}
+	</div>
+	<div class="descripcion">
+	<img src="/media/{{ sp.imagen }}" class="foto" align="left"/><p>{{ sp.descripcion|escape|truncatewords:"100" }}</p></div>
+	{% endfor %}
+        <div class="tips"><a href="{% url sitios.views.publicidad %}">{% trans "Tu negocio aquí" %}</a></div>
+</div>
+{% endcomment %}
+<div id="map" style="width: 480px; height: 250px; border: 1px solid #979797;">
+</div>
+
+
+<div class="sitios_populares">
+	<h3>{% trans "Sitios populares" %}</h3>
+	<ul class="lista_sitios_populares">
+	{% for sitio in sitios_populares %}
+	<li><a href="{% url sitios.views.ver_sitio ciudad sitio.slug %}" class="nombre_sitio">{{ sitio.nombre|escape }}</a>
+	{% autoescape off %}
+	{{ sitio.get_estrellas }}
+	{% endautoescape %}
+	<small class="num_votos">({{ sitio.num_votos }} {% trans "votos" %})</small>
+	<p class="tags">
+	{% for tag in sitio.get_tags %}
+	<a href="{% url sitios.views.buscar_sitios2 ciudad %}?q={{tag.tag}}">{{ tag.tag }}</a>
+	{% endfor %}
+	</p></li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div class="alojamientos">
+<h3>{% trans "¿Dónde alojarse?" %}</h3>
+
+	<div class="agencia"><a href="http://es.hostelbookers.com"><img src="/media/img/logo_hostelbookers.jpg" alt="" width="100px" border="0"/></a> <p>{{ texto_hostelbookers|safe }}</p></div>
+	
+	{% url sitios.views.hoteles ciudad as link_hoteles %}
+	<div class="agencia"><a href="{{ link_hoteles }}"><img src="/media/img/logo_sol.gif" alt="" width="100px" border="0"/></a> <p>{% blocktrans %}<a href="http://www.sol.com">SOL</a> es una agencia de hoteles andaluza que tiene una gran cartera de hoteles y hostales a nivel nacional con muy buena relación calidad-precio. Si estás buscando un hotel en {{ ciudad }}, entra <a href="{{ link_hoteles }}">aquí</a>{% endblocktrans %}.</p></div>
+	
+	<div class="agencia"><a href="http://www.apartmentsapart.com/?cid=276086"><img src="/media/img/120x90-barcelona-v3.png" border="0"  width="100px"/></a> <p>{% blocktrans %}<a href="http://www.apartmentsapart.com/?cid=276086">ApartmentsApart</a> es la web de referencia internacional para encontrar apartamientos de calidad donde alojarse.{% endblocktrans %}</p></div>
+	
+	<div class="agencia"><a href="http://www.couchsurfing.org"><img src="/media/img/logo_couchsurfing.png" alt="" width="100px" border="0" /></a> <p>{% blocktrans %}<a href="http://www.couchsurfing.org">CouchSurfing</a> es una comunidad de personas internacional que ponen sus casas a disposición de cualquiera de forma totalmente gratuita. Si lo que quieres es conocer gente de {{ ciudad }} de la forma más económica posible, esta es tu web.{% endblocktrans %}</p></div>
+
+</div>
+
+
+<div class="ultimos_comentarios">
+	<h3>{% trans "Últimos comentarios" %}</h3>
+	<ul>
+	{% for comentario in ultimos_comentarios %}
+	<li><strong><a href="{% url sitios.views.ver_usuario comentario.user %}">{{ comentario.user }}</a> {% trans "en" %} <a href="{% url sitios.views.ver_sitio ciudad comentario.sitio.slug %}">{{ comentario.sitio.nombre|escape }}</a></strong>: <em>{{ comentario.mensaje|truncatewords:"15" }}</em> <small><a href="{% url sitios.views.ver_sitio ciudad comentario.sitio.slug %}#comment{{ comentario.id }}">{% trans "Leer" %}&raquo;</a></small></li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div style="width: 480px; clear: left;">
+<a href="http://www.layar.com/layers/andaluciapeople"><img src="/media/slider/layar.png" width="480" border="0"/></a>
+</div>
+
+<div class="nube_tags">
+	<h3>{% trans "Nube de tags" %}</h3>
+	<ul>
+	{% for tag in tags_populares %}
+	<li style="font-size: {{ tag.count }}px"><a href="{% url sitios.views.buscar_sitios2 ciudad %}?q={{ tag.tag }}">{{ tag.tag }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+</div> <!-- /main -->
+
+<div id="sidebar">
+
+
+<div class="facebook_fans" style="height: 65px; clear: right;">
+<script src="http://connect.facebook.net/es_ES/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/pages/AndaluciaPeople/117480525661" width="220" connections="0" stream="false"></fb:like-box>
+</div>
+
+<div class="registrate_para" style="height: 165px; clear: right;">
+{% if user.is_authenticated %}
+    <h3>{% trans "Accesos rápidos" %}</h3>
+    <ul>
+        <li><a href="{% url sitios.views.add_sitio ciudad %}">{% trans "Añadir nuevo sitio" %}</a></li>
+        <li><a href="{% url sitios.views.recomendaciones_usuario %}">{% trans "Tus recomendaciones" %}</a></li>
+        <li><a href="{% url sitios.views.ver_usuario user %}">{% trans "Tu ficha personal" %}</a></li>
+        <li><a href="{% url sitios.views.ajustes_usuario %}">{% trans "Modifica tus preferencias" %}</a></li>
+        <li><a href="{% url sitios.views.contacto %}">{% trans "Contacta con nosotros" %}</a></li>
+    </ul>
+{% else %}
+	<h3>{% trans "Regístrate para..." %}</h3>
+	<ul>
+	<li>{% trans "Añadir nuevos sitios" %}</li>
+	<li>{% trans "Dar tu opinión" %}</li>
+	<li>{% trans "Subir fotos" %}</li>
+	<li>{% trans "Hacer amigos" %}</li>
+	<li>{% trans "Recomendaciones personalizadas" %}</li>
+	<li>{% trans "Descuentos especiales" %}</li>
+	</ul>
+	<div id="registrate_gratis"><a href="{% url sitios.views.register %}">{% trans "¡Regístrate gratis!" %}</a></div>
+{% endif %}
+	
+</div>
+
+{% if eventos_destacados %}
+<div class="eventos_destacados">
+<h3>{% trans "Eventos destacados" %}</h3>
+    {% for banner in eventos_destacados %}
+    <div class="evento_destacado"><a href="{{ banner.link }}" title="{{ banner.alt }}"><img src="{% thumbnail banner.img 200x125 %}" alt="{{ banner.alt }}" border="0"/></a></div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="eventos_hoy">
+<h3>{% trans "Próximos eventos" %}
+<div id="eventos_nvivo"></div>
+<a href="{% url sitios.views.listar_eventos ciudad %}">Más eventos &raquo;</a>
+</div>
+
+{% ifequal ciudad 'granada' %}
+<div id="trivago" style="height: 335px; clear: right;">
+	<script src="http://www.trivago.es/es/srv/destination/js/hotel_v1.js?path=31512&stats=1&img=mx" type="text/javascript"></script> 
+	<div id="trivago_destination_hotel_31512_1"> 
+	     <a href="http://www.trivago.es/granada-31512/hotel" title="Hotel Granada" class="trivago_destination_title">Hoteles en Granada</a> 
+	</div>
+</div>
+{% endifequal %}
+
+<div class="ultimas_fotos">
+	<h3>{% trans "Últimas fotos" %}</h3>
+	<ul>
+	{% for f in ultimas_fotos %}
+	<li><a href="{% url sitios.views.ver_sitio ciudad f.sitio.slug %}" class="foto_link">
+	{% if f.flickr %}
+	<img src="{{ f.foto }}" class="foto" align="left"/>
+	{% else %}
+	<img src="{% thumbnail f.get_path 100x100 crop %}" class="foto" align="left"/>
+	{% endif %}
+	</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% if webs_amigas %}
+<div class="web_amigas" style="clear: right;">
+    <h3>{% trans "Webs amigas" %}</h3>
+    {% for banner in webs_amigas %}
+    <div class="web_amiga"><a href="{{ banner.link }}"><img src="{% thumbnail banner.img 200x125 %}" alt="{{ banner.alt }}" border="0"/></a></div>
+    {% endfor %}
+    {% ifequal LANGUAGE_CODE 'en' %}
+    <div class="web_amiga"><a href="http://www.comparecarhire.co.uk/252563.html">car rental Granada</a><br>
+	Find the best deal for car hire at Granada airport, using the this leading hire comparison site.</div>
+    {% endifequal %}
+</div>
+{% endif %}
+
+</div>
+{% endblock %}

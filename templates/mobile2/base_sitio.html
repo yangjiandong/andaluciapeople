@@ -1,0 +1,25 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block cuerpo %}
+<div id="header">
+	<h1> {{ title|escape }}</h1>
+	<a href="/{{ ciudad }}/sitios/" id="backButton" class="nav">Volver</a>
+</div>
+<ul class="field">
+	<li><h3>Nombre</h3> {{ sitio.nombre }}</li>
+	<li><h3>Puntuación</h3> <small>{{ sitio.num_votos }} votos</small> {{ sitio.rank }}/5 </li>
+	<li><h3>Dirección</h3> <a href='/{{ ciudad }}/mapa/{{ sitio.slug }}/'>{{sitio.direccion}} {{sitio.zona}} ({{ sitio.get_ciudad }})</a></li>
+	{% if sitio.telefono %}
+	<li><h3>Teléfono</h3> <a href="tel:{{ sitio.telefono }}">{{ sitio.telefono }}</a></li>
+	{% endif %}
+	{% if sitio.web %}
+	<li><h3>Web</h3> {{ sitio.web|urlizetrunc:30 }}</li>
+	{% endif %}
+	<li><h3>Tags</h3> 
+	{% for t in tags %}
+	<a href="/{{ciudad}}/sitios/{{t.tag}}/" class="no_block">{{ t.tag }}</a>
+	{% endfor %}</li>
+	<li><h3>Enviado por</h3> <a href="/user/{{ sitio.user }}/">{{ sitio.user }}</a></li>
+</ul>
+{% endblock %}

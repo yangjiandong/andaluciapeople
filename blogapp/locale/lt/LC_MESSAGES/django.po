@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-16 17:20+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:7
+msgid "Name"
+msgstr "Vardas"
+
+#: forms.py:8
+msgid "E-mail"
+msgstr "E-paštas"
+
+#: forms.py:9
+msgid "Website"
+msgstr "Svetainė"
+
+#: forms.py:10
+msgid "Comment"
+msgstr "Komentaras"
+
+#: views.py:26 views.py:52 views.py:67
+msgid "Sorry, the page does not exist."
+msgstr "Atsiprašome, šis puslapis neegzistuoja."
+
+#: views.py:41
+msgid "Sorry, the requested post does not exist."
+msgstr "Atsiprašome, jūsų ieškomas įrašas nerastas."
+
+#: views.py:42
+msgid "Check that the required fields are filled in correctly."
+msgstr "Patikrinkite ar teisingai užpildėte reikiamus laukus."
+
+#: views.py:56
+msgid "Sorry, the tag you are searching for does not exist."
+msgstr "Atsiprašome, jūsų ieškoma gairė neegzistuoja."
+
+#: views.py:71
+msgid "Sorry, there are no posts written that month."
+msgstr "Atriprašome, tuo laikotarpiu įrašai nebuvo publikuoti."
+
+#: templates/blog.html:7
+msgid "Home"
+msgstr "Namai"
+
+#: templates/blog.html:25
+msgid "Newer posts"
+msgstr "Naujesni įrašai"
+
+#: templates/blog.html:28
+msgid "Older posts"
+msgstr "Senesni įrašai"
+
+#: templates/blog.html:38 templates/post.html:7
+msgid "Tags"
+msgstr "Gairės"
+
+#: templates/blog.html:47
+msgid "Archives"
+msgstr "Archyvai"
+
+#: templates/blog.html:56
+msgid "Blogroll"
+msgstr "Draugai"
+
+#: templates/comments.html
+msgid "Post comment"
+msgstr "Įrašyti komentarą"
+
+#: templates/post.html:5
+msgid "Posted"
+msgstr "Įrašyta"
+
+#: utilities/__init__.py:26
+msgid "Error 404"
+msgstr "Klaida: 404"
+
+#: utilities/__init__.py:26
+msgid "Page not found"
+msgstr "Puslapis nerastas"
+
+#: utilities/__init__.py:76
+msgid "You're too fast. Wait for 60 seconds."
+msgstr "Išlaikykite 60s. pauzę tarp komentarų."
+
+#: utilities/__init__.py:78
+msgid "It looks like you've just said that."
+msgstr "Atrodo, jog jūs katik rašėtė tą patį."
+
+msgid "January"
+msgstr "Sausis"
+
+msgid "February"
+msgstr "Vasaris"
+
+msgid "March"
+msgstr "Kovas"
+
+msgid "April"
+msgstr "Balandis"
+
+msgid "May"
+msgstr "Gegužė"
+
+msgid "June"
+msgstr "Birželis"
+
+msgid "July"
+msgstr "Liepa"
+
+msgid "August"
+msgstr "Rugpjūtis"
+
+msgid "September"
+msgstr "Rugsėjis"
+
+msgid "October"
+msgstr "Spalis"
+
+msgid "November"
+msgstr "Lapkritis"
+
+msgid "December"
+msgstr "Gruodis"

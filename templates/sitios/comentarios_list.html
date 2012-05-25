@@ -1,0 +1,27 @@
+{% load i18n %}
+{% for c in comentarios %}
+<div class="comentario">
+	<div class="nombre">
+	<a href="{% url sitios.views.ver_sitio c.sitio.get_ciudad|slugify c.sitio.slug %}">{{ c.sitio.nombre|escape }}</a> ({{ c.sitio.get_ciudad }})
+	</div>
+	
+	<div class="valoracion">
+	{% autoescape off %}
+	{{ c.get_estrellas }}
+	{% endautoescape %}
+	</div>		
+	
+	<div class="mensaje">
+	{% autoescape off %}
+	{{ c.mensaje }}
+	{% endautoescape %}
+	</div>
+	
+	<div class="meta">
+	{{ c.fecha|date:"d M Y, H:i" }} | <a href="{% url sitios.views.ver_sitio c.sitio.get_ciudad|slugify c.sitio.slug %}#comment{{ c.id }}">{% trans "Enlace permanente" %}</a>
+	{% if tucuenta %}
+	 | <a href="#">{% trans "Editar comentario" %}</a> | <a href="#">{% trans "Borrar comentario" %}</a>
+	{% endif %}
+	</div>
+</div>
+{% endfor %}

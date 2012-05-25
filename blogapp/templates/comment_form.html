@@ -1,0 +1,12 @@
+{% load i18n %}
+        <form method="post" action="" id="comment_form">{% csrf_token %}
+		<h4>Deja tu opinión</h4>
+            {% if comment_form.errors.generic %}
+                <div id="form_error">{{ comment_form.errors.generic }}</div>
+            {% endif %}
+
+            {% for field in comment_form %}
+                <p><label>{{ field.label }}{% if field.field.required %} <em>*</em>{% endif %}<br>{{ field }}</label></p>
+            {% endfor %}
+            <p><input type="submit" name="post" value="{% trans "Post comment" %}"></p>
+        </form>

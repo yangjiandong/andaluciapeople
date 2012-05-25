@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{% block title %}andaluciapeople.com | mobile version{% endblock %}</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+	<link rel="apple-touch-icon" href="/media/iui/iui-logo-touch-icon.png" />
+	<meta name="apple-touch-fullscreen" content="YES" />
+	<style type="text/css" media="screen">@import "/media/iui/iui.css";</style>
+	<script type="application/x-javascript" src="/media/iui/iui.js"></script>
+
+<!--	<link rel="stylesheet" href="/media/css/mobile.css" />
+	<link rel="apple-touch-icon" href="/media/images/mobile/apple-touch-icon.png" />-->
+<!--	<script type="text/javascript">
+	function clickclear(thisfield, defaulttext) {
+	if (thisfield.value == defaulttext) {
+	thisfield.value = "";
+	}
+	}
+	function clickrecall(thisfield, defaulttext) {
+	if (thisfield.value == "") {
+	thisfield.value = defaulttext;
+	}
+	}
+	window.onload = function() {
+		  setTimeout(function(){window.scrollTo(0, 1);}, 100);
+	}
+	</script>-->
+	{% block header %}{% endblock %}
+</head>
+
+<body>
+    <div class="toolbar">
+        <h1 id="pageTitle"></h1>
+        <a id="backButton" class="button" href="#"></a>
+        <a class="button" href="#loginForm">Login</a>
+    </div>
+	
+{% block cuerpo %}{% endblock %}
+<div id="footer">
+<p>AndaluciaPeople.com</p>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6359444-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

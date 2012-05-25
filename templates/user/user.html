@@ -1,0 +1,411 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/usuarios/">{% trans "usuarios" %}</a> &raquo; <a href="/user/{{ datos.user }}/">{{ datos.user }}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/pagination.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui.stars.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="/media/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript">
+<!--
+function cargarAmigos(num_pag, container){
+	$('#amigos_loader').show();
+	$('#lista_amigos').load('/user/{{ datos.user }}/amigos/'+num_pag+'/', callback=function(){
+		$('#amigos_loader').hide();
+		$('#lista_amigos a').tipsy({gravity: 'n', fade: true, html: true});
+	});
+	return false;
+}
+
+function cargarFotos(num_pag, container){
+	$('#fotos_loader').show();
+	$('#lista_fotos').load('/user/{{ datos.user }}/fotos/'+num_pag+'/', callback=function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto();
+		$('#fotos_loader').hide();
+	});
+	return false;
+	
+}
+
+function cargarComentarios(num_pag, container){
+	$('#comentarios_loader').show();
+	$('#lista_comentarios').load('/user/{{ datos.user }}/comentarios/'+num_pag+'/', callback=function(){
+		$('.estrellas').stars({disabled: true, split: 2});
+		$('#comentarios_loader').hide();
+	});
+	return false;
+}
+
+function cargarFavoritos(num_pag, container){
+	$('#favoritos_loader').show();
+	$('#lista_favoritos').load('/user/{{ datos.user }}/favoritos/'+num_pag+'/', callback=function(){
+		$('#favoritos_loader').hide();
+	});
+	return false;
+}
+
+function cargarSitios(num_pag, container){
+	$('#sitios_loader').show();
+	$('#lista_sitios').load('/user/{{ datos.user }}/sitios/'+num_pag+'/', callback=function(){
+		$('#sitios_loader').hide();
+	});
+	return false;
+}
+
+function loadUserView() {
+
+	$('#add_amigo_form').bind('submit', function(event){
+		event.preventDefault();
+		$(this).append("{% trans "Cargando..." %}");
+		$(this).ajaxSubmit({
+			'target': $(this)
+		});
+	});
+	
+	$('#del_amigo_form').bind('submit', function(event){
+		event.preventDefault();
+		if(confirm('{% trans "¿Seguro que ya no es tu amigo?" %}')){
+			$(this).append("Cargando...");
+			$(this).ajaxSubmit({
+				'target': $(this),
+				'success': function(){
+					$(this).fadeOut(1000);
+				}
+			});
+		}
+	});
+	
+	
+	
+	{% if tucuenta %}
+
+	//begin menu_user
+	lastBlock = $("#ficha");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+	
+	$('.del_amigo_form').bind('submit', function(event){
+		event.preventDefault();
+		if(confirm('{% trans "¿Seguro que ya no es tu amigo?" %}')){
+			$(this).ajaxSubmit({
+				'target': $(this).parent().parent(),
+				'success': function(){
+					$(this).fadeOut(1000);
+				}
+			});
+		}
+	});
+	
+	$('.del_fav_form').bind('submit', function(event){
+		event.preventDefault();
+		if(confirm('{% trans "¿Seguro que quieres quitar este sitio de tu lista de favoritos?" %}')){
+			$(this).ajaxSubmit({
+				'target': $(this).parent(),
+				'success': function(){
+					$(this).fadeOut(1000);
+				}
+			});
+		}
+	});
+	
+	$('.del_foto_form').bind('submit', function(event){
+		event.preventDefault();
+		if(confirm('{% trans "¿Seguro que quieres borrar esta fotografía?" %}')){
+			$(this).ajaxSubmit({
+				'target': $(this).parent().parent(),
+				'success': function(){
+					$(this).fadeOut(1000);
+				}
+			});
+		}
+	});
+	
+    $('#encuentra_amigos_form').bind('submit', function(event){
+    	event.preventDefault();
+    	var next = $('#encuentra_amigos_form select').val();
+    	if(next!="/usuarios/"){
+    		alert('{% trans "Sección en desarrollo, disculpe las molestias" %}');
+		}
+		else{
+			window.location = next;
+		}
+		return false;
+	});
+
+    $('#add_sitio_form').bind('submit', function(event){
+    	event.preventDefault();
+    	var next = $('#add_sitio_form select').val();
+		window.location = next;
+		return false;
+	});
+	{% endif %}
+	
+
+	
+	$('#amigos_paginator').pagination({{ num_amigos }}, {
+		items_per_page: 5,
+		callback: cargarAmigos,
+		next_text: '&raquo;',
+		prev_text: '&laquo;',
+		next_show_always: false,
+		prev_show_always: false,
+		link_to: '#amigos'
+	});	
+
+	$('#fotos_paginator').pagination({{ num_fotos }}, {
+		items_per_page: 8,
+		callback: cargarFotos,
+		next_text: '&raquo;',
+		prev_text: '&laquo;',
+		next_show_always: false,
+		prev_show_always: false,
+		link_to: '#fotos'
+	});	
+
+	$('#comentarios_paginator').pagination({{ num_comentarios }}, {
+		items_per_page: 10,
+		callback: cargarComentarios,
+		next_text: '&raquo;',
+		prev_text: '&laquo;',
+		next_show_always: false,
+		prev_show_always: false,
+		link_to: '#comentarios'
+	});	
+
+	$('#favoritos_paginator').pagination({{ num_favoritos }}, {
+		items_per_page: 10,
+		callback: cargarFavoritos,
+		next_text: '&raquo;',
+		prev_text: '&laquo;',
+		next_show_always: false,
+		prev_show_always: false,
+		link_to: '#favoritos'
+	});
+
+	$('#sitios_paginator').pagination({{ num_sitios }}, {
+		items_per_page: 10,
+		callback: cargarSitios,
+		next_text: '&raquo;',
+		prev_text: '&laquo;',
+		next_show_always: false,
+		prev_show_always: false,
+		link_to: '#sitios'
+	});
+	
+	$('.estrellas').stars({disabled: true, split: 2});
+	
+	/* nice popup */
+	$("a[rel^='prettyPhoto']").prettyPhoto();
+}
+//-->
+</script>
+
+{% endblock %}
+
+{% block jquery_ready %}
+loadUserView();
+{% endblock %}
+
+{% block cuerpo %}
+{% if tucuenta %}
+{% include 'user/menu.html' %}
+{% endif %}
+<div style="clear: both">
+<div class="column_left">
+<div class="ficha">
+	<a href="{% url sitios.views.ver_usuario datos.user %}"><img src="{% thumbnail datos.imagen.name 200x200 crop %}" class="foto"/></a>
+	<div class="username">
+		<a href="{% url sitios.views.ver_usuario datos.user %}">{{ datos.user }}</a><br/>
+		{% if tucuenta %}<span><a href="{% url sitios.views.ajustes_usuario %}#username">{% trans "¿Cambiar?" %}</a></span>{% endif %}
+	</div>		
+	<div class="datos">
+		{% if datos.web %}
+		<strong>{% trans "Web" %}</strong> {{ datos.web|urlizetrunc:20 }}<br/>
+		{% endif %}
+		{% if datos.sexo %}
+		<strong>{% trans "Sexo" %}</strong> {{ datos.get_sexo }}<br/>
+		{% endif %}
+		<strong>{% trans "Puntos" %}</strong> {{ datos.puntos }}<br/>
+		
+		{% comment %}
+		{% if is_facebook_user %}
+		<strong>Facebook</strong> {% show_facebook_name datos.user %}
+		{% endif %}
+		{% endcomment %}
+	</div>
+	
+	{% if user.is_authenticated %}
+	{% if not tucuenta %}
+		<a href="{% url messages.views.compose datos.user.username %}">{% trans "Enviar mensaje privado" %}</a><br/>
+		{% if tuamigo %}
+		{% trans "Ya es tu amigo" %} 
+		<form id="del_amigo_form" method="post" action="{% url sitios.views.del_amigo datos.user.username %}">{% csrf_token %}
+		<input type="submit" value='{% trans "¿Eliminar?" %}' />
+		</form>
+		{% else %}
+		<form id="add_amigo_form" method="post" action="{% url sitios.views.add_amigo datos.user.username %}">{% csrf_token %}
+		<input type="submit" value='{% trans "Añadir a tu lista de amigos" %}' />
+		</form>
+		{% endif %}
+	{% else %}
+		<a href="{% url sitios.views.ajustes_usuario %}">{% trans "Ajustar preferencias" %}</a>
+		
+		
+		{% if not is_facebook_user %}
+		<div class="facebook_button"><a href="/auth/login/facebook/">{% trans "Conectar con Facebook" %}</a></div>
+		{% endif %}
+		
+		
+		{% ifnotequal datos.perfil_completado 100 %}
+		<div class="perfil_completado">
+		<div class="progress_bar">
+		<div class="progress_bar_fill" style="width: {{ datos.perfil_completado }}%;"></div>
+		</div>
+		<p><strong>Perfil:</strong> {{ datos.perfil_completado }}% {% trans "completo" %}</p>
+		<strong>¿Cómo completar tu perfil?</strong>
+		<ul>
+		{% if datos.foto_perfil_completado %}<li><a href="{% url sitios.views.ajustes_usuario %}#datos">{% trans "Cambia tu foto de usuario" %}</a></li>{% endif %}
+		{% if datos.gustos_completado %}<li><a href="{% url sitios.views.ajustes_usuario %}#gustos">{% trans "Rellena tus gustos" %}</a></li>{% endif %}
+		{% if datos.sitios_completado %}<li><a href="{% url sitios.views.add_sitio ciudad %}">{% trans "Añade nuevos sitios" %}</a></li>{% endif %}
+		{% if datos.favoritos_completado %}<li><a href="{% url sitios.views.buscar_sitios2 ciudad %}">{% trans "Busca tus sitios favoritos" %}</a></li>{% endif %}
+		{% if datos.amigos_completado %}<li><a href="{% url sitios.views.listar_usuarios %}">{% trans "Haz amigos" %}</a></li>{% endif %}
+		{% if datos.votos_completado %}<li><a href="{% url sitios.views.buscar_sitios2 ciudad %}">{% trans "Vota al menos 5 sitios" %}</a></li>{% endif %}
+		{% if datos.comentarios_completado %}<li><a href="{% url sitios.views.buscar_sitios2 ciudad %}">{% trans "Opina sobre algún sitio" %}</a></li>{% endif %}
+		{% if datos.fotos_completado %}<li><a href="{% url sitios.views.buscar_sitios2 ciudad %}">{% trans "Sube fotos de algún sitio" %}</a></li>{% endif %}
+		</ul>
+		</div>
+		{% endifnotequal %}
+		
+	{% endif %}
+	{% endif %}
+</div>
+
+<div class="amigos">
+	<a name="amigos"></a>	
+	<h3>{{ num_amigos }} {% trans "Amigos" %}</h3>
+
+	{% if amigos %}
+	<div id="lista_amigos">
+	{% include "sitios/friends_list.html" %}
+	</div>
+	<div id="amigos_paginator" class="pagination"></div> <div id="amigos_loader" class="loader"><img src="/media/icons/loading.gif" alt='{% trans "Cargando..." %}'/></div>
+	{% endif %}
+	
+	{% if tucuenta %}
+		<div id="encuentra_amigos">
+		{% trans "Añade a nuevos amigos" %}
+
+		<p><a href="{% url sitios.views.listar_usuarios %}">{% trans "Buscador de usuarios" %}</a></p>
+
+		</div>
+	{% endif %}
+</div>
+
+<div class="favoritos">
+	<a name="favoritos"></a>
+	<h3>{{ num_favoritos }} {% trans "Sitios favoritos" %}</h3>
+
+	{% if favoritos %}
+	<ul id="lista_favoritos">
+	{% include "sitios/favoritos_list.html" %}
+	</ul>
+	<div id="favoritos_paginator" class="pagination"></div> <div id="favoritos_loader" class="loader"><img src="/media/icons/loading.gif" alt='{% trans "Cargando..." %}'/></div>
+	{% else %}
+	{% if tucuenta %}
+		{% trans "¿Seguro que no tienes algún sitio favorito?" %}
+	{% else %}
+		{% trans "No tiene sitios favoritos, ¡qué exigente!" %}
+	{% endif %}
+	{% endif %}
+	<div style="clear: both"></div>
+</div>
+
+<div class="enviados">	
+	<a name="sitios"></a>
+	<h3>{{ num_sitios }} {% trans "Sitios enviados" %}</h3>
+	
+	{% if sitios %}
+	<ul id="lista_sitios">
+	{% include "sitios/enviados_list.html" %}
+	</ul>
+	<div id="sitios_paginator" class="pagination"></div> <div id="sitios_loader" class="loader"><img src="/media/icons/loading.gif" alt='{% trans "Cargando..." %}'/></div>
+	
+	{% else %}
+	{% if not tucuenta %}
+		{% trans "No ha enviado ningún sitio, ¡qué vago!" %}
+	{% endif %}
+	{% endif %}
+
+	{% if tucuenta %}
+	<div id="add_sitio">
+	{% trans "Añade un nuevo sitio" %}
+	<form id="add_sitio_form" method="get" action="#add_sitio" >
+	<select>
+	<option value="{% url sitios.views.add_sitio "almeria" %}" {% ifequal ciudad 'almeria' %}selected="selected"{% endifequal %}>Almería</option>
+	<option value="{% url sitios.views.add_sitio "cadiz" %}" {% ifequal ciudad 'cadiz' %}selected="selected"{% endifequal %}>Cádiz</option>
+	<option value="{% url sitios.views.add_sitio "cordoba" %}" {% ifequal ciudad 'cordoba' %}selected="selected"{% endifequal %}>Córdoba</option>
+	<option value="{% url sitios.views.add_sitio "granada" %}" {% ifequal ciudad 'granada' %}selected="selected"{% endifequal %}>Granada</option>
+	<option value="{% url sitios.views.add_sitio "huelva" %}" {% ifequal ciudad 'huelva' %}selected="selected"{% endifequal %}>Huelva</option>
+	<option value="{% url sitios.views.add_sitio "jaen" %}" {% ifequal ciudad 'jaen' %}selected="selected"{% endifequal %}>Jaén</option>
+	<option value="{% url sitios.views.add_sitio "malaga" %}" {% ifequal ciudad 'malaga' %}selected="selected"{% endifequal %}>Málaga</option>
+	<option value="{% url sitios.views.add_sitio "sevilla" %}" {% ifequal ciudad 'sevilla' %}selected="selected"{% endifequal %}>Sevilla</option>
+	</select>
+	<input type="submit" value='{% trans "Ir" %}' />
+	</form>
+	</div>
+	{% endif %}
+</div>
+</div><!-- /column_left -->
+
+<div class="column_right">
+<div class="fotos">
+	<a name="fotos"></a>
+	<h3> {{ num_fotos }} {% trans "Fotografías" %}</h3>
+	{% if fotos %}
+	<div id="lista_fotos">
+	{% include "sitios/fotos_list.html" %}
+	</div>
+	<div id="fotos_paginator" class="pagination"></div> <div id="fotos_loader" class="loader"><img src="/media/icons/loading.gif" alt='{% trans "Cargando..." %}'/></div>
+	{% else %}
+	{% if tucuenta %}
+		{% trans "Prueba a subir fotos de un sitio, ¡es muy fácil!" %}
+	{% else %}
+		{% trans "No ha subido ninguna foto, y seguro que tiene cámara..." %}
+	{% endif %}
+	{% endif %}
+	<div style="clear: both"></div>
+</div>
+
+<div class="comentarios">
+	<a name="comentarios"></a>
+	<h3>{{ num_comentarios }} {% trans "Comentarios" %}</h3>
+
+	{% if comentarios %}
+	<div id="lista_comentarios">
+	{% include "sitios/comentarios_list.html" %}
+	</div>
+	<div id="comentarios_paginator" class="pagination"></div> <div id="comentarios_loader" class="loader"><img src="/media/icons/loading.gif" alt='{% trans "Cargando..." %}'/></div>
+	{% else %}
+	{% if tucuenta %}
+		{% trans "Cuando opines sobre un sitio, aquí aparecerán tus comentarios" %}
+	{% else %}
+		{% trans "Sin comentarios" %}
+	{% endif %}
+	{% endif %}
+	<div style="clear: both"></div>
+</div>
+
+</div><!-- /column_right -->
+</div>
+{% endblock %}

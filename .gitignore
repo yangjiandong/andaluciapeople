@@ -1,0 +1,5 @@
+.svn
+*.pyc
+media/miembros
+media/sitios
+.DS_Store

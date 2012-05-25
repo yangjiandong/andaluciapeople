@@ -1,0 +1,24 @@
+{% extends "mobile/base.html" %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block cuerpo %}
+<div id="header">
+<h1> {{ title|escape }}</h1>
+</div>
+<div id="login">
+	<h1>Accede a tu cuenta</h1>
+	{% if next %}
+	<form method="post" action="/login/?next={{ next }}">{% csrf_token %}
+	{% else %}
+	<form method="post" action="/login/">{% csrf_token %}
+	{% endif %}
+	<ul class="form">
+	<li><input type="text" name="username" value="Usuario" id="id_username" onclick="clickclear(this, 'Usuario')" onblur="clickrecall(this,'Usuario')"  /></li>
+	<li><input type="password" name="password" value="Password" id="id_password" onclick="clickclear(this, 'Password')" onblur="clickrecall(this,'Password')"  /></li>
+	
+	<li><input type="submit" value="Login" class="button white"/></li>
+	<input type="hidden" name="next" value="{{ next }}" />
+	</ul>
+	</form>
+</div>
+{% endblock %}

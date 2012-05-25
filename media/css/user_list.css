@@ -1,0 +1,131 @@
+/* user_list */
+#activos, #ultimos{
+	float: left;
+	padding: 10px 48px 10px 10px;
+}
+#facebook_fans{
+	float: right;
+}
+#activos{
+	background: url(/media/icons/favorite_48.png) no-repeat top right;
+}
+#ultimos{
+	background: url(/media/icons/clock.png) no-repeat top right;
+}
+#activos ol,
+#ultimos ol{
+	font-size: 18px;
+	font-style: italic;
+}
+#ultimos ol{
+	padding-left: 10px;
+}
+#activos li,
+#ultimos li{
+	padding: 4px;
+	list-style-type: decimal;
+	color: #8A8774;
+}
+#ultimos li{
+	list-style-type: disc;
+}
+#activos li a,
+#ultimos li a{
+	font-size: 14px;
+}
+
+#buscador_usuarios {
+	padding: 10px;
+	clear: both;
+	background: url(/media/icons/search_user.png) no-repeat bottom right;
+}
+#buscador_usuarios form input{
+	border: 1px solid #487200;
+	padding:2px;
+	font-size:14px;
+}
+#buscador_usuarios form a{
+	font-size: 12px;
+}
+.user {
+	border-top:1px solid #DFDAC1;
+	text-align: left;
+	/*margin: 10px;*/
+	height: 54px;
+	padding: 10px;
+	clear: both;
+}
+.user:hover{
+	background-color: #DEDAC1;
+}
+.odd{
+}
+.profile_picture{
+	float: left;
+}
+a.foto_link{
+	color: #cccccc;
+}
+img.foto {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #cccccc;
+	padding: 2px;
+	float: left;
+}
+.datos {
+	float: left;
+	font-size: 12px;
+}
+.username{
+	font-size: 30px;
+	margin-left: 10px;
+}
+.datos p{
+	margin: 0;
+	margin-left: 10px;
+}
+.add_friend{
+	float: right;
+}
+
+/*
+Plugin Name: WP-Digg Style Paginator
+Plugin URI: http://www.mis-algoritmos.com/2007/09/09/wp-digg-style-pagination-plugin-v-10/
+Author: Victor De la Rocha
+Author URI: http://www.mis-algoritmos.com
+*/
+/*Quotes style*/
+div.pagination {
+	padding:3px;
+	margin:3px;
+	text-align:center;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #ddd;
+	
+	text-decoration: none; 
+	color: #aaa;
+}
+div.pagination a:hover, div.pagination a:active {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #a0a0a0;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #e0e0e0;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	color: #aaa;
+}
+div.pagination span.disabled {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #f3f3f3;
+	color: #ccc;
+}

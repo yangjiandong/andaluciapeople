@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="{{ options.blog_author }}">
+    <meta name="Description" content="{{ options.blog_description }}">
+    <meta name="robots" content="index, follow">
+    {% if options.feed_url %}
+    <link rel="alternate" type="application/rss+xml" title="Blog feed (RSS)" href="{{ options.feed_url }}">
+    {% else %}
+    <link rel="alternate" type="application/rss+xml" title="Blog feed (RSS)" href="{% url blogapp.views.feed "rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Blog feed (Atom)" href="{% url blogapp.views.feed "atom" %}">
+    {% endif %}
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+    <link rel="openid.server" href="http://www.myopenid.com/server">
+    <link rel="openid.delegate" href="http://armandas.myopenid.com/">
+    <link rel="pingback" href="{{ options.base_url }}{% url blogapp.utilities.django_xmlrpc.handle_xmlrpc %}">
+    {% if photo %}<style type="text/css" media="screen">@import url('http://static.armandas.lt/css/galery.css');</style>{% else %}<style type="text/css" media="screen">@import url('http://static.armandas.lt/css/main.css');</style>{% endif %}
+    <title>{% if title %}{{ title }} {{ options.title_sep }}{% endif %} {{ options.blog_title }}</title>
+</head>
+<body>
+
+
+{% block content %}{% endblock %}
+
+<div id="footer">
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">(cc) Armandas Jarušauskas 2007-2008</a>
+</div>
+
+
+</body>
+</html>

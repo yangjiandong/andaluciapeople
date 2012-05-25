@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load webdesign %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.especial_nochevieja ciudad %}">{% trans "nochevieja" %}</a>{% endblock %}
+{% block header %}
+<style type="text/css">
+<!--
+div.especial{
+	width: 750px;
+	background-color: #000;
+	color: #fff;
+}
+div.especial h1{
+	margin: 0;
+	padding: 0;
+	padding: 10px 0 0 10px;
+}
+div.especial p{
+	margin: 0;
+	padding: 0;
+	padding: 0 0 10px 10px;
+}
+table{
+	border-collapse:collapse;
+	border: none;
+}
+th{
+	text-align: left;
+	padding: 10px;
+}
+td{
+	padding: 10px;
+}
+tr.odd{
+	background-color: #DEDAC1;
+}
+.sitio{
+	font-size: 20px;
+	font-weight: bold;
+	width: 200px;
+}
+.precio{
+	font-style: italic;
+	width: 80px;
+}
+p.ampliar{
+	background:transparent url(/media/icons/info.png) no-repeat left center;
+	padding-left: 55px;
+}
+-->
+</style>
+
+<script type="text/javascript" src="/media/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/media/js/jquery.galleryview-1.1-pack.js"></script>
+<script type="text/javascript" src="/media/js/jquery.timers-1.1.2.js"></script>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	
+	$('#flyers').galleryView({
+	    panel_width: 750,
+	    panel_height: 131,
+	    transition_speed: 1500,
+	    transition_interval: 3500,
+	    nav_theme: 'dark',
+	    border: '0',
+	    pause_on_hover: true,
+	    overlay_font_size: '12px',
+	    overlay_height: 40
+	});
+});
+-->
+</script>
+
+{% endblock %}
+
+{% block cuerpo %}
+<div class="especial">
+<h1>{% trans "Especial Nochevieja 2010/2011" %} {{ nombre_ciudad }}</h1>
+<p>{% trans "Elige la mejor fiesta de cotillón para despedir el año" %}</p>
+<p>{% trans "Escoge tu ciudad:" %} 
+    <a href="{% url sitios.views.especial_nochevieja "almeria" %}"><span>Almería</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "cadiz" %}"><span>Cádiz</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "cordoba" %}"><span>Córdoba</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "granada" %}"><span>Granada</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "huelva" %}"><span>Huelva</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "jaen" %}"><span>Jaén</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "malaga" %}"><span>Málaga</span></a> · 
+    <a href="{% url sitios.views.especial_nochevieja "sevilla" %}"><span>Sevilla</span></a>
+</p>
+</div>
+
+{% if sitios %}
+
+<div id="flyers" class="galleryview">
+{% for s in sitios %}
+{% if s.imagen %}
+<div class="panel">
+<a href="{% url sitios.views.ver_sitio ciudad s.sitio.slug %}"><img src="{% thumbnail s.imagen 750x131 crop,upscale,sharpen %}" alt="" border="0"/></a>
+<div class="panel-overlay">
+<p>{% trans "Pasa la nochevieja en" %} <strong>{{ s.sitio }}</strong> {% trans "por sólo" %} <strong>{{ s.precio }} €</strong></p>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+
+<table>
+<tr class="primera">
+<th>{% trans "Sitio" %}</th>
+<th>{% trans "Precio" %}</th>
+<th>{% trans "Más información" %}</th>
+</tr>
+{% for s in sitios %}
+<tr class="{% cycle 'odd' 'even'%}">
+<td class="sitio"><a href="{% url sitios.views.ver_sitio ciudad s.sitio.slug %}">{{ s.sitio }}</a></td>
+<td class="precio">{{ s.precio }} €</td>
+<td class="info">{% autoescape off %}{{ s.info }}{% endautoescape %}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+<p>{% trans "No hay sitios disponibles para esta ciudad." %}</p>
+{% endif %}
+<iframe src="http://spreadsheets.google.com/embeddedform?key=tNTAgbK6aKvqAwecZ_yXTPg" width="750" height="620" frameborder="0" marginheight="0" marginwidth="0">{% trans "Cargando..." %}</iframe>
+{% url sitios.views.buscar_sitios2 ciudad as link_sitios %}
+{% url sitios.views.add_sitio ciudad as link_add_sitio %}
+<p class="ampliar">{% blocktrans %}Si conoces algún sitio donde celebrar la nochevieja en tu ciudad y no aparece en la lista, 
+primero asegúrate que el sitio está en <a href="{{ link_sitios }}">nuestra base de datos</a> (si no, <a href="{{ link_add_sitio }}">¡añádelo!</a>) y 
+envíanos un correo a <a href="mailto:nochevieja@andaluciapeople.com">nochevieja@andaluciapeople.com</a> 
+indicando el nombre del mismo y las ofertas de cotillón disponibles.{% endblocktrans %}</p>
+</div>
+{% endblock %}

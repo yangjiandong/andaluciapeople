@@ -1,0 +1,64 @@
+{% comment%}
+<div id="fb-root"></div>
+<script type="text/javascript" src="/media/js/facebook.js"></script>
+
+<script>
+  // Asynchronous Loading
+  window.fbAsyncInit = function() {
+    FB.init({
+      apiKey : '<apiKey>',
+      appId  : '<appId>',
+      status : true, // check login status
+      cookie : true, // enable cookies to allow the server to access the session
+      xfbml  : true  // parse XFBML
+    });
+    
+    FB.Event.subscribe('auth.sessionChange', function(response) {
+	
+	    if (response.session) {
+		  alert(response.session);
+	      // A user has logged in, and a new cookie has been saved
+	      alert("Logeado en facebook");
+	
+	    } else {
+	
+	      // The user has logged out, and the cookie has been cleared
+			alert("No logeado en facebook");
+	    }
+
+  	});
+  };
+
+  (function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/es_ES/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+{%endcomment%}
+
+<div id="result"></div>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '<appId>', status: true, cookie: true,
+             xfbml: true});
+    
+    FB.Event.subscribe('auth.login', function(response) {
+	
+	    if (response.session) {
+		  
+	      $('#result').load('/auth/login/facebook/');
+	
+	    }
+
+  	});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/es_ES/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>

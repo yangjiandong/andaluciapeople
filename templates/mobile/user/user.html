@@ -1,0 +1,30 @@
+{% extends "mobile/base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="/m/">Inicio</a> &raquo; <a href="/m/usuarios/">Usuarios</a> &raquo; <a href="/m/user/{{ datos.user }}/">{{ datos.user }}</a>{% endblock %}
+
+{% block cuerpo %}
+<div id="header">
+	<h1> {{ title|escape }}</h1>
+	
+</div>
+
+<h3><a href="/m/user/{{ datos.user }}/">{{ datos.user }}</a></h3>
+<img src="{% thumbnail datos.imagen.name 50x50 crop %}" alt=""/>
+
+<ul class="field">
+	{% if datos.web %}
+	<li class="arrow">{% trans "Web" %} {{ datos.web|urlizetrunc:20 }}</li>
+	{% endif %}
+	{% if datos.sexo %}
+	<li>{% trans "Sexo" %} {{ datos.get_sexo }}</li>
+	{% endif %}
+	<li>{% trans "Puntos" %} {{ datos.puntos }}</li>
+</ul>
+<ul class="individual">
+<li><a href="/m/{{ciudad}}/">Ir al menú principal</a></li>
+</ul>
+{% endblock %}

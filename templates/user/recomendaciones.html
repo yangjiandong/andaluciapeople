@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.listar_usuarios %}">{% trans "usuarios" %}</a> &raquo; <a href="{% url sitios.views.ver_usuario datos.user %}">{{ datos.user }}</a> &raquo; <a href="{% url sitios.views.recomendaciones_usuario %}">{% trans "Recomendaciones" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" href="/media/css/base_user.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/jquery.ui.stars.min.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/pagination.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/boxy.css" type="text/css" />
+<link rel="stylesheet" href="/media/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui.stars.min.js"></script>
+<script type="text/javascript" src="/media/js/prettyPhoto.js"></script>
+<script type="text/javascript" src="/media/js/localidades.js"></script>
+<script type="text/javascript" src="/media/js/json2.js"></script>
+<script type="text/javascript">
+<!--
+
+function estrellas(valor){
+
+		var html = '<form class="estrellas">';
+		var star = 0.5;
+		while (star<valor){
+			html += '<input type="radio" value="'+star+'" disabled="disabled"  />';
+			star += 0.5;
+		}
+		if (valor>0){
+			html += '<input type="radio" value="'+star+'" disabled="disabled" checked="checked" />';
+			star += 0.5;
+		}
+		while (star<5.5){
+			html += '<input type="radio" value="'+star+'" disabled="disabled"  />';
+			star += 0.5;
+		}
+		html += '</form>';
+		return html;
+}
+
+function ciudad_slug(id){
+	switch(id){
+		case 1: return 'almeria';
+		case 2: return 'cadiz';
+		case 3: return 'cordoba';
+		case 4: return 'granada';
+		case 5: return 'huelva';
+		case 6: return 'jaen';
+		case 7: return 'malaga';
+		case 8: return 'sevilla';
+	}
+}
+
+$(document).ready(function() {
+
+	//begin menu_user
+	lastBlock = $("#recomendaciones");
+	$.getScript('/media/js/user_menu.js');
+    //end menu_user
+	
+	// Para cambiar dinámicamente la zona con respecto a la ciudad
+	$('#id_ciudad').change(function(){
+		$('#id_ciudad option:selected').each(function(){
+			indice_ciudad = $(this).val()-1;
+		});
+		$('#id_zona').html('');
+		for(var i=0; i<zona[indice_ciudad].length; i++){
+			$('#id_zona').get(0).add(zona[indice_ciudad][i], document.all ? i : null);
+		}
+		$("#id_zona option:first").attr( "selected", "selected" ).text("Todas"); //Dejamos el primero seleccionado
+
+	}).change();
+	
+	$('#recomienda_sitios_form').bind('submit', function(event){
+		event.preventDefault();
+		$('#resultados').html('<div class="loading"><img src="/media/img/ajax-loader.gif" /><br/{% trans "Buscando... (puede tardar unos segundos, ten paciencia)" %}</div>');
+		
+		$(this).ajaxSubmit({
+			//'target': '#resultados',
+			'dataType': 'json',
+			'success': function(data, textStatus){
+				var html = '<h3>{% trans "Resultados" %}</h3>';
+				html += '<div>';
+				if(data.length==0)
+					html += '{% blocktrans %}Sin resultados. Si conoces algún sitio nuevo <a href="/'+ciudad+'/sitio/add/">añádelo tú mismo</a>.{% endblocktrans %}';
+				else{
+					if(data[0].precision) //Si hay recomendaciones
+					for(i=0; i<data.length; i++){
+						if(data[i].precision<0.5)
+							color_precision = "green";
+						else if(data[i].precision<0.8)
+							color_precision = "yellow";
+						else
+							color_precision = "red";
+						html += '<div class="resultado_recomendado"><div class="nombre"><a href="/'+data[i].ciudad+'/sitio/'+data[i].slug+'/">'+data[i].nombre+'</a></div> <div class="prediccion">'+estrellas(data[i].prediccion)+'</div>';
+						//html += '<div class="valoracion">Valoración media: '+estrellas(data[i].rank)+'</div>';
+						html += '<div class="tags"><img src="/media/icons/tag_green_16.png" alt="" class="icon"/> <small>Tags: ';
+						for(j=0; j<data[i].tags.length; j++){
+							html += '<a href="/'+data[i].ciudad+'/sitios/'+data[i].tags[j]+'/">'+data[i].tags[j]+'</a> ';
+						}
+						html += '</small></div></div>';
+					}
+					
+					else{ //Si no hay recomendaciones, mostramos los más populares
+						html += '<p>{% trans "El sistema de recomendación no ha encontrado ningún resultado a tu medida. A continuación te ofrecemos una lista con los sitios más populares de" %} '+$("#id_ciudad :selected").text()+'</p>';
+						for(i=0; i<data.length; i++){
+							sitio = data[i].fields;
+							html += '<div class="resultado_recomendado"><div class="nombre"><a href="/'+ciudad_slug(sitio.ciudad)+'/sitio/'+sitio.slug+'/">'+sitio.nombre+'</a></div> <div class="prediccion">'+estrellas(sitio.rank)+'</div>';
+							html += '</div>';
+						}
+					}
+				}
+				html += '</div>';
+				$('#resultados').html(html);
+				$('.estrellas').stars({split: 2});
+			},
+			'error': function (XMLHttpRequest, textStatus, errorThrown){
+				alert("Error " + textStatus);
+			}
+		});
+	});
+
+});
+//-->
+</script>
+{% endblock %}
+
+{% block cuerpo %}
+{% include 'user/menu.html' %}
+
+<div style="clear: both">
+{% url sitios.views.buscar_sitios2 ciudad as link_sitios %}
+{% url sitios.views.ajustes_usuario as link_ajustes %}
+<p class="info">{% blocktrans %}Completa el siguiente formulario para poder recomendarte sitios que puedan ser de tu interés.
+<strong>Para que el sistema funcione correctamente es necesario haber votado varios <a href="{{ link_sitios }}">sitios</a> y haber escogido <a href="{{ link_ajustes }}">tus gustos</a> en tu cuenta.</strong>{% endblocktrans %}</p>
+
+<form id="recomienda_sitios_form" action="{% url sitios.views.buscar_recomendaciones_usuario %}" method="get">
+<fieldset>
+<legend>{% trans "Parámetros de búsqueda" %}</legend>
+{% for field in form %}
+	<label>{{ field.label }}</label>
+	{{ field }}
+	{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+	{% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+{% endfor %}
+<input type="submit" value='{% trans "Buscar" %}' />
+</fieldset>
+</form>
+
+<div id="resultados"></div>
+</div>
+
+{% endblock %}

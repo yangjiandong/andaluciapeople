@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url sitios.views.feeds_index %}">{% trans "feeds" %}</a>{% endblock %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" media="screen" href="/media/css/base_feeds.css" /> 
+{% endblock %}
+
+{% block cuerpo %}
+<div class="rss_cake">
+<div class="info_rss">
+{% trans "Suscríbete a los feeds que desees para estar al tanto de las últimas novedades en la web. ¿No sabes cómo funciona?" %} <a href="http://es.wikipedia.org/wiki/Feed" title="Wikipedia: Feed">{% trans "Click aquí" %}</a>.
+</div>
+
+<h3>{% trans "Últimos sitios" %}</h3>
+<ul class="feeds">
+{% for slug, nombre in ciudades %}
+<li><a rel="alternate" type="application/rss+xml" href="/feeds/sitios/{{ slug }}/">{% blocktrans %}RSS Sitios de {{ nombre }}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+
+<h3>{% trans "Últimos comentarios" %}</h3>
+<ul class="feeds">
+{% for slug, nombre in ciudades %}
+<li><a rel="alternate" type="application/rss+xml" href="/feeds/comentarios/{{ slug }}/">{% blocktrans %}RSS Comentarios en sitios de {{ nombre }}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+
+<h3>{% trans "Últimas fotos" %}</h3>
+<ul class="feeds">
+{% for slug, nombre in ciudades %}
+<li><a rel="alternate" type="application/rss+xml" href="/feeds/fotos/{{ slug }}/">{% blocktrans %}RSS Fotos en sitios de {{ nombre }}{% endblocktrans %}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

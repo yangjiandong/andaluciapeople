@@ -1,0 +1,81 @@
+/* register */
+#nueva_cuenta{
+	/*width: 370px;*/
+	/*float: left;*/
+	margin: 10px;
+	padding: 10px;
+	background:#EFEACF url(/media/icons/add_user.png) no-repeat bottom right;
+	border:1px solid #DFDAC1;
+}
+#already_user{
+	text-align: right;
+	margin: 5px;
+	padding: 5px;
+	font-size: 12px;
+}
+#registrate_para{
+	float: left;
+	width: 220px;
+	margin: 10px;
+	background: #EFEACF url(/media/icons/add_user.png) no-repeat 180px 80px;
+	border: 1px solid #DFDAC1;
+	padding: 15px;
+	font-size: 15px;
+}
+#registrate_gratis{
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;	
+}
+#login{
+	width: 450px;
+	float: right;
+	background:#EFEACF url(/media/icons/lock_bg.png) no-repeat bottom right;
+	border:1px solid #DFDAC1;
+	margin: 10px;
+}
+
+#login h3{
+	background-color: #DFDAC1;
+	margin: 0;
+	padding: 3px;
+}
+
+#login form{
+	padding: 0px 10px 10px 10px;
+}
+
+#login p.if_facebook{
+	font-size: 12px;
+	padding: 5px;
+	margin: 0;
+}
+.help_text{
+	color: #666666;
+	font-size: 12px;
+	clear: both;
+}
+
+dl dt {
+	font-weight: bold;
+}
+dd img{	
+	vertical-align: middle
+}
+#facebook_connect{
+	margin: 10px;
+	background-color: #EFEACF;
+	border: 1px solid #DFDAC1;
+	height: 80px;
+	clear: both;
+}
+
+#facebook_connect form {
+	padding-top: 20px;
+	padding-left: 10px;	
+}
+
+#facebook_connect p{
+	padding-left: 10px;
+	font-size: 1.1em;	
+}

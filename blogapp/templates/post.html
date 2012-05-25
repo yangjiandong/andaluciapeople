@@ -1,0 +1,9 @@
+{% load filters %}
+{% load i18n %}
+    <div class="post">
+        <h2><a href="{% url blogapp.views.post_by_name post.name %}">{{ post.title }}</a></h2>
+        <small><img src="/media/icons/calendar_16.png" alt="" class="fugue_icon" /> {% trans "Posted" %} {{ post.date|date:"Y-m-d, H:i" }} | <img src="/media/icons/balloon.png" alt="" class="fugue_icon"/> <a href="{% url blogapp.views.homepage %}{{post.name}}#comments">{{ post|count_comments|dgs:"Comentario" }}</a></small>
+        <p>{{ post.content|safe }}</p>
+    <p><small>{% trans "Tags" %}: {% autoescape off %}{{ post.tags.all|link_tags|join:", "|safe }}{% endautoescape %}</small></p>
+    </div>
+    <hr class="hidden">

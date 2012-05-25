@@ -1,0 +1,7 @@
+{% load filters %}
+{% load i18n %}
+    <div class="post">
+        <h2><a href="{% url blogapp.views.page_by_name page.name %}">{{ page.title }}</a></h2>
+        {{ page.content|safe }}
+    </div>
+    <hr class="hidden">

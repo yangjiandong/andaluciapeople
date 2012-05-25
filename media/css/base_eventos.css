@@ -1,0 +1,10 @@
+/* base_eventos */
+
+#loading{
+	font-size: 40px;
+	color: #434343;
+	font-style: italic;
+}
+#eventos_lastfm {
+	width: 500px;
+}
