@@ -11,23 +11,23 @@
 <script type="text/javascript">
 <!--
 $(document).ready(function() {
-	$('#forgot_link').bind('click', function(){
-		$('#login').load("{% url sitios.views.forgot %}", '', function(){
-			$('#forgot_form').bind('submit', function(event){
-				event.preventDefault();
-				$(this).ajaxSubmit({
-					'target': '#login',
-					'beforeSubmit': function(){
-						$('#bla').html('Espere un momento, por favor...');
-					}
-				});
-				return false;
-			});
+  $('#forgot_link').bind('click', function(){
+    $('#login').load("{% url sitios.views.forgot %}", '', function(){
+      $('#forgot_form').bind('submit', function(event){
+        event.preventDefault();
+        $(this).ajaxSubmit({
+          'target': '#login',
+          'beforeSubmit': function(){
+            $('#bla').html('Espere un momento, por favor...');
+          }
+        });
+        return false;
+      });
 
-		});
+    });
 
-		return false;
-	});
+    return false;
+  });
 });
 -->
 </script>

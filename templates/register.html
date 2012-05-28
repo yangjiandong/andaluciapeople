@@ -9,28 +9,28 @@
 <link rel="stylesheet" href="/media/css/register.css" type="text/css" />
 <script type="text/javascript" src="/media/js/jquery.form.min.js"></script>
 <script type="text/javascript">
-<!--
+
 $(document).ready(function() {
-	$('#forgot_link').bind('click', function(){
-		$('#login').html('<img src="/media/icons/loading.gif" alt=""/> {% trans "Cargando..." %}');
-		$('#login').load("{% url sitios.views.forgot %}", '', function(){
-			$('#forgot_form').bind('submit', function(event){
-				event.preventDefault();
-				$(this).ajaxSubmit({
-					'target': '#login',
-					'beforeSubmit': function(){
-						$('#bla').html('<img src="/media/icons/loading.gif" alt=""/> {% trans "Espere un momento, por favor..." %}');
-					}
-				});
-				return false;
-			});
+  $('#forgot_link').bind('click', function(){
+    $('#login').html('<img src="/media/icons/loading.gif" alt=""/> "登录..." ');
+    $('#login').load("{% url sitios.views.forgot %}", '', function(){
+      $('#forgot_form').bind('submit', function(event){
+        event.preventDefault();
+        $(this).ajaxSubmit({
+          'target': '#login',
+          'beforeSubmit': function(){
+            $('#bla').html('<img src="/media/icons/loading.gif" alt=""/> {% trans "Espere un momento, por favor..." %}');
+          }
+        });
+        return false;
+      });
 
-		});
+    });
 
-		return false;
-	});
+    return false;
+  });
 });
--->
+
 </script>
 
 {% endblock %}
@@ -52,26 +52,28 @@ $(document).ready(function() {
 
 
 <div id="nueva_cuenta">
-	<h3>{% trans "Nueva cuenta" %}</h3>
-	{% blocktrans %}
-	Si ya eres usuario de Facebook puedes <div class="facebook_button"><a href="/auth/login/facebook/">Entrar usando Facebook</a></div>
-	o bien,<br/>
-	si ya eres usuario de Twitter puedes <div class="twitter_button"><a href="/auth/login/twitter/">Entrar usando Twitter</a></div>
-	o bien, <br/>puedes crearte una nueva cuenta de usuario:
-	{% endblocktrans %}
-	<form method="post" action="">{% csrf_token %}
-		<dl>
-		{% for field in form %}
-		<dt>{{ field.label_tag }}</dt>
-		<dd>{{ field }}</dd>
-		{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
-		{% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
-		{% endfor %}
-		</dl>
-		<input type="submit" value="{% trans "Registrar" %}" />
-		{% url sitios.views.legal as link_legal %}
-		<div class="help_text">{% blocktrans %}Al registrarte estás aceptando las <a href="{{ link_legal }}">condiciones de uso y privacidad</a> de este sitio{% endblocktrans %}</div>
-	</form>
+  <h3>新用户注册</h3>
+
+  通过<div class="facebook_button"><a href="/auth/login/facebook/">facebook帐号</a></div>
+  或者 <div class="twitter_button"><a href="/auth/login/twitter/"> Twitter</a></div>
+  登录,<br/>或者注册用户:
+
+  <form method="post" action="">{% csrf_token %}
+    <dl>
+    {% for field in form %}
+    <dt>{{ field.label_tag }}:
+    {{ field }}
+    </dt>
+    <dd>
+    {% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+    {% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+    {% endfor %}
+    </dd>
+    </dl>
+    <input type="submit" value="注册" />
+    {% url sitios.views.legal as link_legal %}
+    <div class="help_text">{% blocktrans %}Al registrarte estás aceptando las <a href="{{ link_legal }}">condiciones de uso y privacidad</a> de este sitio{% endblocktrans %}</div>
+  </form>
 </div>
 {% endif %}
 {% endblock %}

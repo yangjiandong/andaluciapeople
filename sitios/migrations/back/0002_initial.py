@@ -7,7 +7,7 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Adding model 'Tipo'
         db.create_table('sitios_tipo', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -221,7 +221,7 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        
+
         # Removing unique constraint on 'Amigo', fields ['user', 'friend']
         db.delete_unique('sitios_amigo', ['user_id', 'friend_id'])
 

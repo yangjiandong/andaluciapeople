@@ -49,12 +49,12 @@ class CheckboxSelectMultipleImproved(forms.SelectMultiple):
         #str_values = set([force_unicode(v) for v in value])
         # FIXED by draxus http://code.djangoproject.com/attachment/ticket/5247/patch.diff
         #str_values = set([force_unicode(v) for v in value])
-        str_values = set() 
-        for v in value: 
-            if hasattr(v, '_get_pk_val'): 
-                str_values.add(force_unicode(v._get_pk_val())) 
-            else: 
-                str_values.add(force_unicode(v)) 
+        str_values = set()
+        for v in value:
+            if hasattr(v, '_get_pk_val'):
+                str_values.add(force_unicode(v._get_pk_val()))
+            else:
+                str_values.add(force_unicode(v))
         for i, (option_value, option_label) in enumerate(chain(self.choices, choices)):
             # If an ID attribute was given, add a numeric index as a suffix,
             # so that the checkboxes don't all have the same ID attribute.
@@ -71,14 +71,14 @@ class CheckboxSelectMultipleImproved(forms.SelectMultiple):
             output.append(u'<li><label%s>%s %s</label></li>' % (label_for, rendered_cb, option_label))
         output.append(u'</ul>')
         return mark_safe(u'\n'.join(output))
-    
+
     def id_for_label(self, id_):
         # See the comment for RadioSelect.id_for_label()
         if id_:
             id_ += '_0'
         return id_
     id_for_label = classmethod(id_for_label)
-    
+
 
 CH_RANK = ((float(0.5), _(u'Muy malo')),
            (float(1), _(u'Malo')),
@@ -176,18 +176,18 @@ class BuscaUsuariosForm(forms.Form):
 class UsernameChangeForm(forms.Form):
     username = forms.CharField(label=_(u'Nombre de usuario'), max_length=30, min_length=2, required=False)
     action = forms.CharField(label='', widget=forms.HiddenInput, initial='username')
-    
+
     def clean_username(self):
         username = self.cleaned_data.get("username")
         if username in INVALID_USERNAMES or len(username)<3:
             raise forms.ValidationError(_(u"El nombre de usuario no es válido"))
-        
+
         user = User.objects.filter(username=username)
         if user:
             raise forms.ValidationError(_(u"Ya existe un usuario con ese nombre"))
-        
+
         return username
-    
+
 class DatosUsuarioForm(forms.Form):
     web = forms.URLField(label=_(u'Web'), required=False)
     imagen = forms.ImageField(label=_(u'Imagen'),widget=forms.FileInput(attrs={'size':'12'}), required=False, help_text=_(u'Tamaño recomendado: 200x200 px'))
@@ -198,7 +198,7 @@ class DatosUsuarioForm(forms.Form):
     idioma = forms.ChoiceField(label=_(u'Idioma'), widget=forms.Select, choices=CH_IDIOMA, required=False)
     #gustos = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Etiqueta.objects.exclude(padre=None).order_by('padre','tag'), required=False)
     action = forms.CharField(label='', widget=forms.HiddenInput, initial='datos')
-    
+
 
 class SitioForm(forms.Form):
     nombre = forms.CharField(label=_(u'Nombre *'), max_length=100, help_text=_(u'Ej. La Carihuela'))
@@ -218,17 +218,18 @@ class RecomiendaSitiosForm(forms.Form):
     #valoracion = forms.ChoiceField(label=u'Valoración', widget=forms.Select, choices=CH_RANK_PLUS)
 
 class NewUserForm(forms.Form):
-    username = forms.RegexField(label=_(u'Usuario'), max_length=30, regex=r'^\w+$',
-                                help_text=_(u'30 caracteres o menos. Sólo caracteres alfanuméricos (letras, dígitos y guión bajo)'),
-                                error_message=_(u'Este camo sólo puede contener letras, dígitos y guión bajo.'))
+    username = forms.RegexField(label='用户名', max_length=30, regex=r'^\w+$',
+                                #help_text=_(u'30 caracteres o menos. Sólo caracteres alfanuméricos (letras, dígitos y guión bajo)'),
+                                help_text='最长30个字符。只允许英文字母，数字，下划线',
+                                error_message='该字段只允许英文字母，数字，下划线')
 
-    email = forms.RegexField(label=_(u'Correo electrónico'), max_length=75, regex=r'^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$',
-                             help_text=_(u'Por favor, usa una dirección real. No te mandaremos correo no deseado.'),
-                             error_message=_(u'Comprueba que la dirección es del tipo usuario@dominio.com'))
+    email = forms.RegexField(label='邮箱', max_length=75, regex=r'^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$',
+                             help_text='请输入真实邮箱,我们将通过邮箱发送一些消息',
+                             error_message='')
 
-    password = forms.CharField(label=_(u'Contraseña'), widget=forms.PasswordInput)
+    password = forms.CharField(label='密码', widget=forms.PasswordInput)
 
-    captcha = CaptchaField(help_text=_(u'Introduce las siguientes letras para comprobar que no eres un robot.'))
+    captcha = CaptchaField(label='验证码', help_text='输入以上信息保证你不是机器人')
 
 class NewPassForm(forms.Form):
     email = forms.EmailField(label=_(u"E-mail"), max_length=75)
@@ -244,15 +245,15 @@ class NewPassForm(forms.Form):
 
     def save(self):
         """
-    	Cambia la contraseña y la envia por correo
-    	"""
+      Cambia la contraseña y la envia por correo
+      """
         current_site = Site.objects.get_current()
         site_name = current_site.name
         domain = current_site.domain
 
         random.seed()
         t = loader.get_template('registration/password_reset_email.html')
-        
+
         for user in self.users_cache:
             password = "".join([random.choice(string.letters + string.digits) for x in range(10)]) #@UnusedVariable
             user.set_password(password)

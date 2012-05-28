@@ -29,7 +29,7 @@ BASEDIR = path.dirname(path.abspath(__file__))
 BASEURL = 'http://127.0.0.1:8000/'
 
 ADMINS = (
-     ('Administrador', '<EMAIL>'),
+     ('Administrador', 'young.jiandong@gmail.com'),
 )
 MANAGERS = ADMINS
 
@@ -45,7 +45,7 @@ EMAIL_PORT = 3306
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'anda',
+        'NAME': 'anda2',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -64,13 +64,13 @@ CACHE_MIDDLEWARE_SECONDS = 300
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Europe/Madrid'
+#TIME_ZONE = 'Europe/Madrid'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'en-us'
 
-SITE_ID = 2 # IMPORTANTE: Ajustar para las flatpages
+SITE_ID = 1 # IMPORTANTE: Ajustar para las flatpages
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -95,7 +95,7 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '<SECRET_KEY>'
+SECRET_KEY = '1qaz2wsx#'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -278,7 +278,7 @@ LAYAR_DEVELOPER_KEY='<LAYAR_DEVELOPER_KEY>'
 
 NVIVO_KEY = '<NVIVO_KEY>'
 
-MAINTITLE=u'AndalucíaPeople'
+MAINTITLE='找人群'
 
 HAYSTACK_SITECONF = 'andaluciapeople.search_sites'
 HAYSTACK_INCLUDE_SPELLING = True

@@ -114,36 +114,36 @@ def profile(request):
 ################################################
 
 def create_user_profile(user, username, password=None, servicio=None):
-    
+
     datos_user = DatosUsuario(user=user, boletin=True, notificaciones=True, imagen='miembros/default.png')
     datos_user.save()
-    
+
     generar_pesos_usuario(user)
-    
+
     try:
         asunto = _(u'AndaluciaPeople.com - Datos de tu cuenta')
         if password:
             mensaje = _(u'Hola %(user)s!\nGracias por registrarte en AndaluciaPeople.com. Tus datos de acceso son:\n* Usuario: %(user)s\n* Contraseña: %(password)s\nPuedes acceder a tu cuenta en http://andaluciapeople.com/login/') % {'user': username, 'password': password}
-        else: 
+        else:
             mensaje = _(u'Hola %(user)s!\nGracias por registrarte en AndaluciaPeople.com. Te has registrado usando tu cuenta de %(servicio)s\nPuedes acceder a tu cuenta en http://andaluciapeople.com/login/') % {'user': username, 'servicio': servicio}
         send_mail(asunto, mensaje, settings.EMAIL, [user.email,])
     except:
         pass
-    
+
     try:
         asunto = _(u'AndaluciaPeople.com - Nuevo usuario registrado')
         mensaje = u'http://andaluciapeople.com/user/%s' % (user.username)
         mail_admins(asunto, mensaje)
     except:
         pass
-    
+
     return datos_user
-    
+
 def register(request):
     referer = request.META.get("HTTP_REFERER", "")
     referer = referer.replace(settings.BASEURL, '/')
-    
-    
+
+
     error = None
     registrado = False
     if request.method == 'POST':
@@ -171,16 +171,16 @@ def register(request):
             registrado = False
     else:
         form = NewUserForm()
-    
+
     try:
         ciudad = request.session['ciudad']
     except:
         ciudad = 'granada'
 
-    
-    #form_login = AuthenticationForm()    
-    
-    c = {'title': _(u'Registro'),
+
+    #form_login = AuthenticationForm()
+
+    c = {'title': '用户注册',
         'form': form,
         #'form_login': form_login,
         'ciudad': ciudad,
@@ -250,16 +250,16 @@ OBSOLETE
 @city_session
 def listar_sitios(request, ciudad, mobile=False):
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
-    
+
     if request.method == 'POST':
         busca_sitios_form = BuscaSitiosForm(request.POST)
         if busca_sitios_form.is_valid():
             return HttpResponseRedirect(busca_sitios_form.cleaned_data['s'].replace(" ", "+"))
-	
+
     if request.method == 'GET' and request.GET.has_key('s'):
         s = slughifi.slughifi(request.GET.get('s', ''))
         return HttpResponseRedirect(s.replace("-", "+"))
-	
+
     c = {'title': _(u'Búsqueda de sitios'),
         'user': request.user,
         'ciudad': ciudad,
@@ -270,12 +270,12 @@ def listar_sitios(request, ciudad, mobile=False):
         'ultimos_sitios': Sitio.objects.filter(ciudad=cod_ciudad).order_by('-id')[:5],
         'sitios_patrocinados': Sitio.objects.filter(ciudad=cod_ciudad, patrocinado=True),
         }
-	
+
     try:
         c['betatester'] = DatosUsuario.objects.get(user=request.user).is_betatester()
     except:
         pass
-		
+
     if mobile:
         c['sitio_list'] = ''
         t = get_template('mobile/sitios/sitio_list.html')
@@ -288,12 +288,12 @@ def listar_sitios(request, ciudad, mobile=False):
         page = int(request.GET.get('page', '1'))
     except ValueError:
         page = 1
-        
+
     try:
         sitios = paginator.page(page)
     except (EmptyPage, InvalidPage):
         sitios = paginator.page(paginator.num_pages)
-    
+
     c['sitios'] = sitios
     html = t.render(RequestContext(request, c))
     return HttpResponse(html)
@@ -304,22 +304,22 @@ OBSOLETE
 @city_session
 def listar_sitios_tipo(request, ciudad, slug, orderby='nombre', mobile=False):
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
-    
+
     if request.method == 'POST':
         busca_sitios_form = BuscaSitiosForm(request.POST)
         if busca_sitios_form.is_valid():
             return HttpResponseRedirect(busca_sitios_form.cleaned_data['s'].replace(" ", "+"))
-	
+
     ciudad_unicode = LISTA_CIUDADES[cod_ciudad-1]
     tipo = Tipo.objects.get(slug=slug)
-	
+
     if tipo.tipo == 'Bar':
         tipo_plural = 'Bares'
     else:
         tipo_plural = tipo.tipo + 's'
-	
+
     title = _(u'%(tipo)s de %(ciudad)s') % {'tipo': tipo_plural, 'ciudad': ciudad_unicode}
-	
+
     c = {'title': title,
         'user': request.user,
         'ciudad': ciudad,
@@ -329,13 +329,13 @@ def listar_sitios_tipo(request, ciudad, slug, orderby='nombre', mobile=False):
         'jerarquias': Jerarquia.objects.all(),
         'tipos': Tipo.objects.all(),
         }
-	
+
     if mobile:
         c['tipos'] = ''
         template_name = 'mobile/sitios/sitio_list.html'
     else:
         template_name = 'sitios/sitio_list.html'
-	
+
     return list_detail.object_list(request,
                                    queryset=Sitio.objects.filter(ciudad=cod_ciudad, tipo=tipo).order_by(orderby),
                                    allow_empty=True,
@@ -350,7 +350,7 @@ def listar_sitios_tipo(request, ciudad, slug, orderby='nombre', mobile=False):
 def listar_top_sitios(request, ciudad, mobile=False):
 
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
-    
+
     c = {'title': _(u'Mejores sitios'),
         'user': request.user,
         'ciudad': ciudad,
@@ -368,14 +368,14 @@ def listar_top_sitios(request, ciudad, mobile=False):
                                    template_object_name='sitio',
                                    template_name=template_name,
                                    extra_context=c)
-  
+
 ################################################
 
 @city_session
 def listar_ultimos_sitios(request, ciudad, mobile=False):
 
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
-    
+
     c = {'title': _(u'Búsqueda de sitios'),
         'user': request.user,
         'ciudad': ciudad,
@@ -625,16 +625,16 @@ def buscar_sitios_json(request, ciudad, tags):
 @city_session
 def buscar_sitios_json2(request, ciudad):
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
-    
+
     c = {'title': _(u'Búsqueda de sitios'),
         'user': request.user,
         'ciudad': ciudad,
         }
-    
-    search = basic_search(request, 
-                          template='sitios/sitio_list.json', 
-                          searchqueryset=SearchQuerySet().filter(ciudad=cod_ciudad).order_by('nombre'), 
-                          extra_context=c, 
+
+    search = basic_search(request,
+                          template='sitios/sitio_list.json',
+                          searchqueryset=SearchQuerySet().filter(ciudad=cod_ciudad).order_by('nombre'),
+                          extra_context=c,
                           results_per_page=20)
     return search
 ################################################
@@ -642,7 +642,7 @@ def buscar_sitios_json2(request, ciudad):
 @city_session
 def buscar_sitios2(request, ciudad):
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
-    
+
     c = {'title': _(u'Búsqueda de sitios'),
         'user': request.user,
         'ciudad': ciudad,
@@ -653,15 +653,15 @@ def buscar_sitios2(request, ciudad):
         'ultimos_sitios': Sitio.objects.filter(ciudad=cod_ciudad).order_by('-id')[:5],
         'sitios_patrocinados': Sitio.objects.filter(ciudad=cod_ciudad, patrocinado=True),
         }
-    
+
     query = request.GET.get('q', None)
     if query:
         c['title'] = _(u'%s en %s' % (query, LISTA_CIUDADES[cod_ciudad-1]))
-    
-    search = basic_search(request, 
-                          template='sitios/sitio_list.html', 
-                          searchqueryset=SearchQuerySet().filter(ciudad=cod_ciudad).order_by('nombre').highlight(), 
-                          extra_context=c, 
+
+    search = basic_search(request,
+                          template='sitios/sitio_list.html',
+                          searchqueryset=SearchQuerySet().filter(ciudad=cod_ciudad).order_by('nombre').highlight(),
+                          extra_context=c,
                           results_per_page=20)
     return search
 
@@ -766,12 +766,12 @@ def buscar_sitios(request, ciudad, tags, json=False, orderby='nombre', mobile=Fa
                 page = int(request.GET.get('page', '1'))
             except ValueError:
                 page = 1
-                
+
             try:
                 sitios = paginator.page(page)
             except (EmptyPage, InvalidPage):
                 sitios = paginator.page(paginator.num_pages)
-            
+
             c['sitios'] = sitios
             html = t.render(RequestContext(request, c))
             return HttpResponse(html)
@@ -872,7 +872,7 @@ def guardar_voto(request):
 
 ################################################
 
-@city_session	
+@city_session
 def ver_sitio(request, ciudad, slug, mobile=False):
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
     sitio = Sitio.objects.get(ciudad=cod_ciudad, slug=slug)
@@ -1059,12 +1059,12 @@ def listar_usuarios(request, mobile=False):
         page = int(request.GET.get('page', '1'))
     except ValueError:
         page = 1
-        
+
     try:
         usuarios = paginator.page(page)
     except (EmptyPage, InvalidPage):
         usuarios = paginator.page(paginator.num_pages)
-    
+
     c['usuarios'] = usuarios
     html = t.render(RequestContext(request, c))
     return HttpResponse(html)
@@ -1296,7 +1296,7 @@ def paginar_sitios_usuario(request, username, page):
     return HttpResponse(html)
 
 ################################################
- 
+
 def ver_usuario(request, username, mobile=False):
     user = User.objects.get(username=username)
     datos = DatosUsuario.objects.get(user=user)
@@ -1377,7 +1377,7 @@ class NubeTag:
 ################################################
 
 @city_session
-def index(request, ciudad, mobile=False):	
+def index(request, ciudad, mobile=False):
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
     nombre_ciudad = LISTA_CIUDADES[cod_ciudad-1]
     ultimos_sitios = Sitio.objects.filter(ciudad=cod_ciudad).order_by('-id')[:5]
@@ -1440,7 +1440,7 @@ def index(request, ciudad, mobile=False):
         'texto_hostelbookers': texto_hb
         }
 
-    
+
     if mobile:
         t = get_template('mobile/base_index.html')
     else:
@@ -1453,7 +1453,7 @@ def index(request, ciudad, mobile=False):
 
 ################################################
 
-def superindex(request, mobile=False):	
+def superindex(request, mobile=False):
     next = request.REQUEST.get('next', '')
 
     form_login = AuthenticationForm()
@@ -1487,7 +1487,7 @@ def add_amigo(request, username):
             #Enviar email al amigo
             asunto = _(u'AndaluciaPeople.com - Nueva petición de amistad')
             mensaje = _(u'El usuario %(user)s te ha añadido como amigo.\n\
-						  Puedes ver su perfil en http://andaluciapeople.com/user/%(user)s') % {'user': request.user}
+              Puedes ver su perfil en http://andaluciapeople.com/user/%(user)s') % {'user': request.user}
             send_mail(asunto, mensaje, settings.EMAIL, [friend.email,])
 
             #Le damos 5 minipuntos
@@ -1675,7 +1675,7 @@ def add_sitio(request, ciudad):
                     ip = '127.0.0.1'
 
                 print "ip = %s" % ip
-                
+
                 c['sitio_error'] = False
                 nuevo_sitio = None
                 try:
@@ -1759,7 +1759,7 @@ def add_sitio(request, ciudad):
 
 @city_session
 def mapa(request, ciudad, mobile=False):
-    
+
     cod_ciudad = LISTA_CIUDADES_SLUG.index(ciudad) + 1
 
     c = {'title': _(u'Mapa de sitios'),
@@ -1773,16 +1773,16 @@ def mapa(request, ciudad, mobile=False):
         'ultimos_sitios': Sitio.objects.filter(ciudad=cod_ciudad).order_by('-id')[:5],
         'sitios_patrocinados': Sitio.objects.filter(ciudad=cod_ciudad, patrocinado=True),
         }
-    
+
     if mobile:
         t = 'mobile/base_mapa.html'
     else:
         t = 'base_mapa.html'
 
-    search = basic_search(request, 
-                          template=t, 
-                          searchqueryset=SearchQuerySet().filter(ciudad=cod_ciudad).order_by('nombre'), 
-                          extra_context=c, 
+    search = basic_search(request,
+                          template=t,
+                          searchqueryset=SearchQuerySet().filter(ciudad=cod_ciudad).order_by('nombre'),
+                          extra_context=c,
                           results_per_page=10)
     return search
 
@@ -1806,12 +1806,12 @@ def iframe_mapa(request, ciudad):
 
     if request.GET.has_key('q'):
         c['query'] = request.GET['q']
-    
+
     if request.GET.has_key('page'):
         c['page'] = request.GET['page']
     else:
         c['page'] = 1
-        
+
     t = get_template('iframe_sitios.html')
     html = t.render(RequestContext(request, c))
     return HttpResponse(html)
@@ -1991,11 +1991,11 @@ def json_random_sitios(request, ciudad, num):
     num = int(num)
     if total_sitios<num:
         num = total_sitios
-    
+
     rand_ids = random.sample(id_sitios, num)
 
     random_sitios = sitios.filter(id__in=rand_ids)[:num]
-    
+
     sitios_patrocinados = Sitio.objects.filter(ciudad=cod_ciudad, patrocinado=True)
 
     todos_juntos = list(random_sitios) + list(sitios_patrocinados)
@@ -2242,7 +2242,7 @@ def ajustes_usuario(request):
 
     if request.method == 'POST':
         if request.POST['action'] == 'datos':
-            
+
             datos_form = DatosUsuarioForm(request.POST, request.FILES)
             if datos_form.is_valid():
                 datos.web = datos_form.cleaned_data['web']
@@ -2306,7 +2306,7 @@ def ajustes_usuario(request):
                 c['change_ok'] = True
             else:
                 c['change_error'] = True
-        
+
         #--- cambiar username ---
         elif request.POST['action'] == 'username':
             username_change_form = UsernameChangeForm(request.POST)
@@ -2508,7 +2508,7 @@ def informar_error(request):
                 elif causa == 'incorrecto' or causa == '':
                     sitio.incorrecto = True
                 sitio.save()
-                
+
             except BaseException, e:
                 return HttpResponse("Hubo un error al enviar el mensaje, inténtelo de nuevo. Error: " + str(e), mimetype="text/plain")
 
@@ -2587,7 +2587,7 @@ def contacto(request):
                 c['enviado'] = True
             except:
                 c['enviado'] = False
-                
+
         else:
             c['form'] = form
     else:
@@ -2704,24 +2704,24 @@ def enviar_invitaciones(request, num):
                 asunto = u'Invitación para andaluciapeople.com'
 
                 mensaje = u'''
-						  <div align="right"><img src="http://andaluciapeople.com/media/img/letras_andaluciapeople.jpg" alt="" /></div>
-						  <p>
-						  <b><a href="http://andaluciapeople.com">andalucíaPeople</a></b> es un proyecto 
-						  en pleno desarrollo que surge ante la petición social de ampliar la página 
-						  de <a href="http://granadapeople.com">granadaPeople.com</a> a todas las 
-						  provincias de Andalucía. Esta web no sólo se limita a servir de directorio 
-						  de bares, restaurantes, discotecas, pubs, etc. de Andalucía, si no que además 
-						  introduce un factor innovador como es el de un <i>sistema de recomendación inteligente</i>.
-						  </p>
-						  <p>
-						  Para <b>crear tu cuenta de usuario</b> entra en <a href="%s">%s</a> y usa el formulario de registro.
-						  </p>
-						  <p>
-						  Recuerda que la web está en fase <i>beta</i>, es decir, habrá cosas que estén sin terminar y otras que no funcionen.
-						  Esperamos recibir tus comentarios y sugerencias a través de los distintos formularios, así como que 
-						  participes activamente en la web enviando y valorando sitios. ¡Gracias!
-						  </p>
-						  ''' % (url, url)
+              <div align="right"><img src="http://andaluciapeople.com/media/img/letras_andaluciapeople.jpg" alt="" /></div>
+              <p>
+              <b><a href="http://andaluciapeople.com">andalucíaPeople</a></b> es un proyecto
+              en pleno desarrollo que surge ante la petición social de ampliar la página
+              de <a href="http://granadapeople.com">granadaPeople.com</a> a todas las
+              provincias de Andalucía. Esta web no sólo se limita a servir de directorio
+              de bares, restaurantes, discotecas, pubs, etc. de Andalucía, si no que además
+              introduce un factor innovador como es el de un <i>sistema de recomendación inteligente</i>.
+              </p>
+              <p>
+              Para <b>crear tu cuenta de usuario</b> entra en <a href="%s">%s</a> y usa el formulario de registro.
+              </p>
+              <p>
+              Recuerda que la web está en fase <i>beta</i>, es decir, habrá cosas que estén sin terminar y otras que no funcionen.
+              Esperamos recibir tus comentarios y sugerencias a través de los distintos formularios, así como que
+              participes activamente en la web enviando y valorando sitios. ¡Gracias!
+              </p>
+              ''' % (url, url)
 
                 email = EmailMessage(asunto, mensaje, settings.EMAIL, [inv.email],
                                      headers={'From': settings.EMAIL, 'Content-Type': 'text/html'})
